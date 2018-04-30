@@ -11,7 +11,7 @@ Team member :
 -------------------------
 ## Prototype Link
 
-EEngblo.github.io/2018_CS374
+https://EEngblo.github.io/2018_CS374
 
 --------------------------
 ## POV & Tasks
