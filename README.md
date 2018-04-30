@@ -8,6 +8,10 @@ Team member :
 - 20150262 남제현
 - 20150806 허건
 - 20160385 오진영 (sheogorath0213@kaist.ac.kr, www.github.com/EEngblo)
+-------------------------
+## Prototype Link
+
+EEngblo.github.io/2018_CS374
 
 --------------------------
 ## POV & Tasks
