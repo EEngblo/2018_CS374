@@ -15,6 +15,13 @@
     <link rel="stylesheet" href="jquery/jquery-ui.min.css">
     <script src="jquery/jquery-ui.min.js"></script>
 
+    <!-- Web Fonts -->
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Jua">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Nanum+Gothic:Regular,Bold,Extra-Bold">
+
+
     <!-- Mine -->
     <link rel="stylesheet" href="./index.css">
     <script src="./index.js"></script>
@@ -35,7 +42,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Accel Danawa</a>
+          <a class="navbar-brand" href="https://eengblo.github.io/2018_CS374/">Accel Danawa</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -50,14 +57,15 @@
       <h1 id="mainName">나의 새 컴퓨터</h1>
       <div id="setBudget">
         <p>
-          <label for="amount">예산: ₩</label>
-          <input id="budgetInputbox" value="700,000" onfocus="this.value='';" onblur='budgetInputboxOnblur();'>
+          <label for="amount" id="budgetTitle">예산</label>
+           : ₩<input id="budgetInputbox" value="700,000" onfocus="this.value='';" onblur='budgetInputboxOnblur();'>
              <button id="budgetSubmit" class="btn btn-sm btn-primary" disabled>변경</button>
           <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
         </p>
         <div id="budgetSlider">
           <div id="budgetSlider_Handle" class="ui-slider-handle"></div>
         </div>
+        <div id="budgettick">₩600,000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;₩700,000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;₩800,000</div>
       </div>
     </div>
   </body>
