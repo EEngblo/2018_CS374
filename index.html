@@ -1,10 +1,64 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Accel Danawa</title>
-</head>
-<body>
-  <h1>Hello World!</h1>
-  This is Team Accel Excel
-</body>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Libraries -->
+    <script src="jquery/js/jquery-1.12.4.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="jquery/jquery-ui.min.css">
+    <script src="jquery/jquery-ui.min.js"></script>
+
+    <!-- Mine -->
+    <link rel="stylesheet" href="./index.css">
+    <script src="./index.js"></script>
+
+    <!-- Data starts -->
+    <title>Accel Danawa : 조립 컴퓨터 견적 짜기</title>
+
+  </head>
+
+  <body>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Accel Danawa</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">새 견적 짜기<span class="sr-only">(current)</span></a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+    <div id="screen" class="center-div">
+      <h1 id="mainName">나의 새 컴퓨터</h1>
+      <div id="setBudget">
+        <p>
+          <label for="amount">예산: ₩</label>
+          <input id="budgetInputbox" value="700,000" onfocus="this.value='';" onblur='budgetInputboxOnblur();'>
+             <button id="budgetSubmit" class="btn btn-sm btn-primary" disabled>변경</button>
+          <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+        </p>
+        <div id="budgetSlider">
+          <div id="budgetSlider_Handle" class="ui-slider-handle"></div>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
