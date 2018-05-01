@@ -13,20 +13,46 @@ body{
   width: 1300px;
 }
 
+#screen{
+  width:800px;
+  font-size: 28px;
+  font-family: 'Nanum Gothic', serif;
+}
+
 #mainName{
+  margin-top: 150px;
   text-align: center;
+  font-family: 'Jua', serif;
+  font-size: 66px;
+  margin-bottom: 75px;
 }
 
 #budgetInputbox{
-  width: 8rem;
+  width: 5.5em;
+  text-align: right;
+  padding-right: 10px;
 }
 
-#budgetSlider{
+#budgetTitle{
+  font-family: 'Nanum Gothic', bold;
+}
 
+#budgettick{
+  font-size: 13px;
 }
 
 #budgetSlider_Handle{
   position: relative;
   height: 30px;
   top: -10px;
+}
+.ui-widget-header {
+    border: 1px solid #ddd;
+    background: #ff7e7e;
+    color: #333;
+    font-weight: bold;
+}
+
+.navbar{
+
 }
