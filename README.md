@@ -21,7 +21,17 @@ https://EEngblo.github.io/2018_CS374
  -  We were amazed to realize that they **fall apart** when **given overflowing unfamiliar information.**
  -  It’d be game-changing to **provide a way to buy a computer that lets them do what they want to do without any concern.**
 
-**Tasks**
-1. Set specific **budget** and your **favorite game**
-2. Read tutorials carefully and select which part—among **Game Performance** and **versatility**—do you consider more important
-3. Within a given budget, **make a complete composition** of your new computer which can run your favorite game smoothly
+ **Tasks**
+1. Assume that you have very limited budget: ₩700,000. Make a composition of a new computer that as good as possible within the budget for game Baffle Ground.
+(70만원이라는 극히 제한된 예산 내에서, Baffle Ground라는 게임을 위한 가장 가성비가 좋은 컴퓨터 견적을 완성하세요)
+> *System-level description*
+> We provide a suggested composition in specific price range: max(₩660,000, 75% of budget). Since the budget is only ₩700,000, user can upgrade at most only one part. Customizable level is very limited.
+
+For task 2 and 3, assume that you have enough budget: choose freely between ₩700,000~₩1,100,000.
+2. Make a composition of a new computer which can run so many programs at same time; eg) 30+ Chrome windows and Baffle Ground
+> *System-level description*
+> We provide a user-choice stage before user starts to make their composition. User can choose between '성능' and '범용성'. In this case, if our website works well, user would select '범용성' button and complete their composition that targets versatility. Our website will help it.
+
+3. Make a composition of a new computer which can run Baffle Ground as smooth as possible within your specific budget.
+> *System-level descrption*
+> As well as task 2, if our website works well, user would select '성능', and our website helps user to complete their composition that could run Baffle Ground as smooth as possible.
