@@ -1,0 +1,32 @@
+body{
+  min-height: 900px;
+}
+
+.center-div{
+  text-align: left;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50px;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 1300px;
+}
+
+#mainName{
+  text-align: center;
+}
+
+#budgetInputbox{
+  width: 8rem;
+}
+
+#budgetSlider{
+
+}
+
+#budgetSlider_Handle{
+  position: relative;
+  height: 30px;
+  top: -10px;
+}
