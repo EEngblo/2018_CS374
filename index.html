@@ -141,32 +141,32 @@
              </td></tr>
              <tr class="gameSarchTableRow">
                <td>
-                 <label class="gameSelectorIcon" for="BaffleGround">Baffle Ground</label>
-                 <input class="gameSelector" type="checkbox" name="BaffleGround" id="BaffleGround">
+                 <label class="gameSelectorIcon" for="0">히오스</label>
+                 <input class="gameSelector" type="checkbox" name="HeroesofStorm" id="0">
                </td><td>
-                 <label class="gameSelectorIcon" for="LeagueofLegend">리그 오브 레전드</label>
-                 <input class="gameSelector" type="checkbox" name="LeagueofLegend" id="LeagueofLegend">
+                 <label class="gameSelectorIcon" for="1">리그 오브 레전드</label>
+                 <input class="gameSelector" type="checkbox" name="LeagueofLegend" id="1">
                </td><td>
-                 <label class="gameSelectorIcon" for="Overwatch">오버워치</label>
-                 <input class="gameSelector" type="checkbox" name="Overwatch" id="Overwatch">
+                 <label class="gameSelectorIcon" for="2">오버워치</label>
+                 <input class="gameSelector" type="checkbox" name="Overwatch" id="2">
                </td><td>
-                 <label class="gameSelectorIcon" for="FarCry5">파크라이 5</label>
-                 <input class="gameSelector" type="checkbox" name="FarCry5" id="FarCry5">
+                 <label class="gameSelectorIcon" for="3">파크라이 5</label>
+                 <input class="gameSelector" type="checkbox" name="FarCry5" id="3">
                </td>
              </tr>
              <tr class="gameSarchTableRow">
                <td>
-                 <label class="gameSelectorIcon" for="FIFAOnline3">피파 온라인 3</label>
-                 <input class="gameSelector" type="checkbox" name="FIFAOnline3" id="FIFAOnline3">
+                 <label class="gameSelectorIcon" for="4">피파 온라인 3</label>
+                 <input class="gameSelector" type="checkbox" name="FIFAOnline3" id="4">
                </td><td>
-                 <label class="gameSelectorIcon" for="HeroesofStorm">히.오.스.</label>
-                 <input class="gameSelector" type="checkbox" name="HeroesofStorm" id="HeroesofStorm">
+                 <label class="gameSelectorIcon" for="5">Baffle Ground</label>
+                 <input class="gameSelector" type="checkbox" name="BaffleGround" id="5">
                </td><td>
-                 <label class="gameSelectorIcon" for="GTA5">GTA 5</label>
-                 <input class="gameSelector" type="checkbox" name="GTA5" id="GTA5">
+                 <label class="gameSelectorIcon" for="6">GTA 5</label>
+                 <input class="gameSelector" type="checkbox" name="GTA5" id="6">
                </td><td>
-                 <label class="gameSelectorIcon" for="HearthStone">하스스톤</label>
-                 <input class="gameSelector" type="checkbox" name="HearthStone" id="HearthStone">
+                 <label class="gameSelectorIcon" for="7">하스스톤</label>
+                 <input class="gameSelector" type="checkbox" name="HearthStone" id="7">
                </td>
              </tr>
            </table>
@@ -175,13 +175,18 @@
        <table id="lastRow">
          <tr>
            <td>
-             <div id="alertWarning" class="alert alert-warning" role="alert">
-        <strong>경고!</strong> 현재 버전에서는 Baffle Ground만 지원되어 자동으로 변경 후 진행됩니다.
+             <div id="alertNext" hidden="true" class="alert alert-warning" role="alert">
+        <div id="alertData">
+          <strong><i class="fas fa-exclamation-triangle"></i>&nbsp;경고!</strong> 현재 버전에서는 Baffle Ground만 지원되며, 나머지는 자동으로 선택 해제 후 진행됩니다.
+        </div>
       </div>
            </td>
            <td>
              <div align="right">
-               <button align="right" id="nextButton" disabled="true" class="ui green button"> <span id="nextButtontext">견적 작성 시작&nbsp;&nbsp;</span>
+               <!-- 바로 다음 페이지로 가는 대신, confirm 창 띄워주어야 함 -->
+               <button
+                align="right" id="nextButton" disabled="true" class="ui green button"
+                onclick="window.location.href='./index2.html'; $(this).addClass('loading')"> <span id="nextButtontext">견적 작성 시작&nbsp;&nbsp;</span>
                  <i class="fa fa-angle-double-right" style="font-size: 20px;"></i>
                </button>
              </div>
