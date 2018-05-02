@@ -4,19 +4,31 @@ body{
 
 .center-div{
   text-align: left;
-  margin-top: 50px;
+  margin-top: 30px;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
   padding-left: 20px;
   padding-right: 20px;
   width: 1300px;
 }
 
 #screen{
-  width:800px;
+  width:1300px;
+  height:800px;
   font-size: 28px;
   font-family: 'Nanum Gothic', serif;
+  border-style: solid;
+}
+
+#realScreen{
+  width:1000px;
+  height: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 75px;
+  padding-right: 75px;
+  border-style: solid;
 }
 
 #mainName{
@@ -41,10 +53,29 @@ body{
   font-size: 13px;
 }
 
+#budgetSlider{
+  margin-left: 70px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
 #budgetSlider_Handle{
   position: relative;
-  height: 30px;
-  top: -10px;
+  height: 50px;
+  width: 20px;
+  top: -16px;
+  background: #5bc0de;
+}
+
+#budgetSubmit{
+  width: 60px;
+  height: 40px;
+  font-size: 16px;
+}
+
+.btn-primary.disabled, .btn-primary:disabled, .btn-primary[disabled] {
+    background-color: #265a8824;
+    border-color: #ffffff;
 }
 .ui-widget-header {
     border: 1px solid #ddd;

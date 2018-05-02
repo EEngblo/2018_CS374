@@ -27,6 +27,12 @@ $( document ).ready(function() {
 
       if(100 <= temp && temp <= 120){
         var answer = [temp*10000];
+      }else if(1000 <= temp && temp <= 1200 && (temp % 10) == 0){
+        var answer = [temp*1000];
+      }else if(10000 <= temp && temp <= 12000 && (temp % 100) == 0){
+        var answer = [temp*100];
+      }else if(100000 <= temp && temp <= 120000 && (temp % 1000) == 0){
+        var answer = [temp*10];
       }else if(60 <= temp && temp <= 99){
         var answer = [temp*10000];
       }else if(600 <= temp && temp <= 990 && (temp % 10) == 0){
@@ -43,7 +49,7 @@ $( document ).ready(function() {
     },
     response: function(event, ui){
       if(ui.content.length == 1){
-        console.log(ui.content[0]);
+        //console.log(ui.content[0]);
         $(this).val(ui.content[0].value);
         var temp = parseInt(ui.content[0].value);
         $( "#budgetSlider").slider( "value", temp);
@@ -52,7 +58,7 @@ $( document ).ready(function() {
       }
     },
     select: function(event, ui){
-      console.log(ui.item.value);
+      //console.log(ui.item.value);
       var temp = parseInt(ui.item.value.replace(/,/g,''));
       $( "#budgetInputbox" ).val( parseInt(ui.item.value).toLocaleString('en') )
       $( "#budgetSlider").slider( "value", temp);
@@ -72,7 +78,7 @@ $( document ).ready(function() {
 
   // 예산 text 입력 -> 변경 버튼 click handler
   $( "body" ).on("change", "#budgetInputbox", function(){
-    console.log($("budgetInputbox").val());
+    //console.log($("budgetInputbox").val());
   });
 
 
@@ -80,14 +86,16 @@ $( document ).ready(function() {
 
 // budgetInputbox onblur handler
 function budgetInputboxOnblur(){
-  var temp = parseInt($("#budgetInputbox").val());
-  if (isNaN(temp) || temp  < 600000 || temp > 1100000)
+  var temp = parseInt($( "#budgetInputbox" ).val().replace(/,/g, ''));
+  if (isNaN(temp) || temp  < 600000 || temp > 1100000){
     $( "#budgetInputbox" ).val(Number($("#budgetSlider").slider("value")).toLocaleString("en"));
-  else {
-    console.log(temp);
-    console.log($("#budgetSlider").slider("value"));
+    return;
+  }else {
     $( "#budgetInputbox" ).val(Number(temp).toLocaleString("en"));
   }
-  if(temp !== $("#budgetSlider").slider("value"))
+  if(temp !== $("#budgetSlider").slider("value")){
+    //console.log(temp);
+    //console.log($("#budgetSlider").slider("value"));
     $( "#budgetSubmit" ).attr('disabled', false);
+  }
 }
