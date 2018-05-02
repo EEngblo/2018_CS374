@@ -18,6 +18,9 @@ $( document ).ready(function() {
     }
   });
 
+    $( ".gameSelector" ).checkboxradio();
+
+
   // 예산 text 입력 자동완성 handler
   $( "#budgetInputbox" ).autocomplete({
     minLength:2,
@@ -85,6 +88,12 @@ $( document ).ready(function() {
   $( "body" ).on("click", "performanceMode", function(){
     alert();
   });
+
+  // 게임 이름 검색 handler
+  $('.ui.search')
+    .search({
+      source: [{title : 'Baffle Ground'}, {title : "리그 오브 레전드"}, {title : "피파 온라인 3"}, {title : "GTA 5"}, {title : "하스스톤"}, {title :"오버워치"}, {title : "파크라이 5"}, {title  : "히어로즈 오브 스톰"}]
+    });
 });
 
 // budgetInputbox onblur handler
@@ -101,7 +110,13 @@ function budgetInputboxOnblur(){
     //console.log($("#budgetSlider").slider("value"));
     $( "#budgetSubmit" ).attr('disabled', false);
   }
+
+
 }
+
+$(".performanceMode").popup({
+  on: 'focus'
+});
 
 function modeButtonClickHandler(id, otherId){
 
@@ -111,7 +126,8 @@ function modeButtonClickHandler(id, otherId){
   if($(id).hasClass('active')){
     $(id).removeClass('active');
     $(id).blur();
-    $(otherId).addClass('active');
+    // 클릭시 다른 쪽 설정이 자동으로 선택되게 하려면 주석 해제
+    //$(otherId).addClass('active');
     $(id).removeClass('inverted');
     $(id).addClass('basic');
   }else {
@@ -121,19 +137,13 @@ function modeButtonClickHandler(id, otherId){
 }
 
 function modeButtonHoverHandler(id){
-  $(id).removeClass('inverted');
-  $(id).addClass('basic');
+  if(! $(id).hasClass('active')){
+    $(id).removeClass('inverted');
+    $(id).addClass('basic');
+  }
 }
 
 function modeButtonHoverEndHandler(id){
   $(id).removeClass('basic');
   $(id).addClass('inverted');
-}
-
-function modeButtonHelper(id){
-  if(id==0){ // 성능 버튼
-    console.log('performance!');
-  }else{ // 활용도 버튼
-    console.log('versatility!');
-  }
 }
