@@ -12,6 +12,12 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
 
+    <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
+    <script
+      src="https://code.jquery.com/jquery-3.1.1.min.js"
+      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+      crossorigin="anonymous"></script>
+    <script src="semantic/dist/semantic.min.js"></script>
 
     <!--link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" /-->
     <link rel="stylesheet" href="jquery/jquery-ui.min.css">
@@ -54,10 +60,10 @@
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">언어(Languages) <span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">언어 (Languages) <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
-                <li><a href="#">한국어(Korean)  <i class="fa fa-check" style="font-size:15px;color:green"></i></a></li>
-                <li><a style="pointer-events: none; display: inline-block;" href="#">영어(English)
+                <li><a href="#">한국어 (Korean)  <i class="fa fa-check" style="font-size:15px;color:green"></i></a></li>
+                <li><a style="pointer-events: none; display: inline-block;" href="#">영어 (English)
                 <br>&nbsp;&nbsp;Not supported yet</a></li>
                 <li class="divider"></li>
                 <li class="dropdown-header">Nav header</li>
@@ -71,18 +77,56 @@
     <div id="screen" class="center-div">
       <div id="realScreen">
         <h1 id="mainName">나의 새 컴퓨터</h1>
-        <div id="setBudget">
+        <div class="set Budget">
           <p>
-            <label for="amount" id="budgetTitle">예산</label>
-             : ₩<input id="budgetInputbox" value="700,000" onfocus="this.value='';" onblur='budgetInputboxOnblur();'>
-               <button id="budgetSubmit" class="btn btn-sm btn-primary" disabled>변경</button>
+            <label for="amount" class="budget Title" id="budgetTitle">예산</label>
+             : ₩<input id="budgetInputbox" value="650,000" onfocus="this.value='';" onblur='budgetInputboxOnblur();'>
+               <button id="budgetSubmit" class="ui blue button" disabled>변경</button>
             <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
           </p>
           <div id="budgetSlider">
             <div id="budgetSlider_Handle" class="ui-slider-handle"></div>
           </div>
-          <div id="budgettick">₩600,000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;₩700,000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;₩800,000</div>
-        </div>
+          <div id="budgetTicks" style="text-align:left;">
+             <span class="budgetTick" style="margin-left: 105px;">|<br style='text-align:center'>700,000</span>
+             <span class="budgetTick">|<br style='text-align:center'>800,000</span>
+             <span class="budgetTick">|<br style='text-align:center'>900,000</span>
+             <span class="budgetTick">|<br style='text-align:center'>1,000,000</span>
+             <span class="budgetTick">|<br style='text-align:center'>1,100,000</span>
+         </div>
+       </div>
+       <div class="set Mode">
+         <span id="modeExplanation">
+         <label class="Title">더 중요시하는 것</label> :
+         </span>
+         <span display:inline class="ui buttons">
+            <button class="ui inverted blue button modeButton"
+            id="performanceMode"
+            onmouseenter="modeButtonHelper(0);"
+            onmouseover="modeButtonHoverHandler(this);"
+            onmouseout="modeButtonHoverEndHandler(this);"
+            onclick="modeButtonClickHandler(this, document.getElementById('versatilityMode'));"
+            data-inverted=""
+            data-tooltip="동해물과백두두산이마라라르고"
+            data-position="top center"
+            >
+              <div class="modeButtonText">게임 성능</div>
+            </button>
+            <div class="or" style="height:50px;"></div>
+            <button class="ui inverted blue button modeButton"
+            id="versatilityMode"
+            onmouseenter="modeButtonHelper(1);"
+            onmouseover="modeButtonHoverHandler(this);"
+            onmouseout="modeButtonHoverEndHandler(this);"
+            onclick="modeButtonClickHandler(this, document.getElementById('performanceMode'));"
+            >
+              <div class="modeButtonText">높은 활용도</div>
+            </button>
+          </span>
+       </div>
+       <div class="set Game">
+         <label class="Title">주로 하는 게임</label> :
+       </div>
       </div>
     </div>
   </body>

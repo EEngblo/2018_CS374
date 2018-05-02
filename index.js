@@ -9,9 +9,9 @@ $( document ).ready(function() {
   // 예산 슬라이더 handler
   $( "#budgetSlider" ).slider({
     range: "min",
-    value: 700000,
-    min: 600000,
-    max: 1200000,
+    value: 650000,
+    min: 650000,
+    max: 1150000,
     step: 10000,
     slide: function( event, ui ) {
       $( "#budgetInputbox" ).val( Number(ui.value).toLocaleString('en') );
@@ -25,21 +25,21 @@ $( document ).ready(function() {
     source: function(request, response){
       var temp = request.term;
 
-      if(100 <= temp && temp <= 120){
+      if(100 <= temp && temp <= 115){
         var answer = [temp*10000];
-      }else if(1000 <= temp && temp <= 1200 && (temp % 10) == 0){
+      }else if(1000 <= temp && temp <= 1150 && (temp % 10) == 0){
         var answer = [temp*1000];
-      }else if(10000 <= temp && temp <= 12000 && (temp % 100) == 0){
+      }else if(10000 <= temp && temp <= 11500 && (temp % 100) == 0){
         var answer = [temp*100];
-      }else if(100000 <= temp && temp <= 120000 && (temp % 1000) == 0){
+      }else if(100000 <= temp && temp <= 115000 && (temp % 1000) == 0){
         var answer = [temp*10];
-      }else if(60 <= temp && temp <= 99){
+      }else if(65 <= temp && temp <= 99){
         var answer = [temp*10000];
-      }else if(600 <= temp && temp <= 990 && (temp % 10) == 0){
+      }else if(650 <= temp && temp <= 990 && (temp % 10) == 0){
         var answer = [temp*1000];
-      }else if(6000 <= temp && temp <= 9900 && (temp % 100) == 0){
+      }else if(6500 <= temp && temp <= 9900 && (temp % 100) == 0){
         var answer = [temp*100];
-      }else if(60000 <= temp && temp <= 99000 && (temp % 1000) == 0){
+      }else if(65000 <= temp && temp <= 99000 && (temp % 1000) == 0){
         var answer = [temp*10];
       }else{
         response([]);
@@ -81,13 +81,16 @@ $( document ).ready(function() {
     //console.log($("budgetInputbox").val());
   });
 
-
+  // '게임 성능' 버튼 click hanlder
+  $( "body" ).on("click", "performanceMode", function(){
+    alert();
+  });
 });
 
 // budgetInputbox onblur handler
 function budgetInputboxOnblur(){
   var temp = parseInt($( "#budgetInputbox" ).val().replace(/,/g, ''));
-  if (isNaN(temp) || temp  < 600000 || temp > 1100000){
+  if (isNaN(temp) || temp  < 650000 || temp > 1150000){
     $( "#budgetInputbox" ).val(Number($("#budgetSlider").slider("value")).toLocaleString("en"));
     return;
   }else {
@@ -97,5 +100,40 @@ function budgetInputboxOnblur(){
     //console.log(temp);
     //console.log($("#budgetSlider").slider("value"));
     $( "#budgetSubmit" ).attr('disabled', false);
+  }
+}
+
+function modeButtonClickHandler(id, otherId){
+
+  $(id).removeClass('basic');
+  $(id).addClass('inverted');
+
+  if($(id).hasClass('active')){
+    $(id).removeClass('active');
+    $(id).blur();
+    $(otherId).addClass('active');
+    $(id).removeClass('inverted');
+    $(id).addClass('basic');
+  }else {
+    $(id).addClass('active');
+    $(otherId).removeClass('active');
+  }
+}
+
+function modeButtonHoverHandler(id){
+  $(id).removeClass('inverted');
+  $(id).addClass('basic');
+}
+
+function modeButtonHoverEndHandler(id){
+  $(id).removeClass('basic');
+  $(id).addClass('inverted');
+}
+
+function modeButtonHelper(id){
+  if(id==0){ // 성능 버튼
+    console.log('performance!');
+  }else{ // 활용도 버튼
+    console.log('versatility!');
   }
 }
