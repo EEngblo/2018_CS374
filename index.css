@@ -194,5 +194,21 @@ input::placeholder {
   margin: 0px !important;
   vertical-align: center;
   height: 42px !important;
-  font-size: 16px !important;"
+  font-size: 16px !important;
+}
+
+#nextStepConfirm{
+  height:210px;
+  width:350px;
+  position:relative;
+  top:-100px;
+  left:0px;
+}
+
+.actions{
+  padding: 10px !important;
+}
+
+.final{
+  font-size:18px;
 }

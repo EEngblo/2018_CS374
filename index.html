@@ -15,6 +15,9 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
 
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.1/semantic.min.css">
+
     <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
     <script src="semantic/dist/semantic.min.js"></script>
 
@@ -183,14 +186,33 @@
            </td>
            <td>
              <div align="right">
-               <!-- 바로 다음 페이지로 가는 대신, confirm 창 띄워주어야 함 -->
                <button
                 align="right" id="nextButton" disabled="true" class="ui green button"
-                onclick="window.location.href='./index2.html'; $(this).addClass('loading')"> <span id="nextButtontext">견적 작성 시작&nbsp;&nbsp;</span>
+                onclick="nextStepButton()"> <span id="nextButtontext">견적 작성 시작&nbsp;&nbsp;</span>
                  <i class="fa fa-angle-double-right" style="font-size: 20px;"></i>
                </button>
              </div>
            </td>
+         </tr>
+       </table>
+      </div>
+    </div>
+    <div class="ui modal" id="nextStepConfirm">
+      <div class="header">부품 선택 단계로 넘어가시겠습니까?</div>
+      <div class="content">
+
+          <div class="final" id="finalBudget">1</div>
+          <div class="final" id="finalMode">1</div>
+
+      </div>
+      <div class="actions">
+        <div class="ui cancel negative basic button">
+          아니오
+        </div>
+        <div class="ui approve positive right labeled icon button autofocus goToNextStage">
+          <i class="checkmark icon"></i>
+          &nbsp;네
+        </div>
       </div>
     </div>
   </body>

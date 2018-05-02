@@ -7,6 +7,9 @@ var gameCheck = false;
 var notSupportedGame = false;
 var notSupportedBudget = false;
 
+var finalMode;
+var finalBudget;
+
 var alertMessageWarning ='<strong><i class="fas fa-exclamation-triangle"></i>&nbsp;경고!</strong> 현재 버전에서는 Baffle Ground만 지원되며, 나머지는 자동으로 선택 해제 후 진행됩니다.'
 var alertMessageDanger ='<strong><i class="fas fa-exclamation-triangle"></i>&nbsp;경고!</strong> 현재 버전에서는 70만원 ~ 110만원 사이의 예산만 지원됩니다. 변경 부탁드립니다.'
 
@@ -77,55 +80,7 @@ $( document ).ready(function() {
 
   // 게임 선택 체크박스 handler
   $(".gameSelector").on("change", function(event){
-
-    if(games[parseInt(this.id)].title === "Baffle Ground"){
-      if(this.checked){
-        gameCheck = true;
-        checkNextStep();
-      }else{
-        gameCheck = false;
-        checkNextStep();
-      }
-    }else if(notSupportedBudget){
-
-      if(!notSupportedGame){
-        $("#alertNext").attr('hidden', false);
-        notSupportedGame = true;
-      }else{
-        for(var i = 0; i < 8; i++){
-          if(i==5) continue;
-          else{
-            if(document.getElementById(i).checked) return;
-          }
-        }
-
-        notSupportedGame=false;
-      }
-    }else{
-
-      if(!notSupportedGame){
-
-        $("#alertNext").attr('hidden', false);
-        notSupportedGame = true;
-        for(var i = 0; i < 8; i++){
-          if(i==5) continue;
-          else{
-            if(document.getElementById(i).checked) return;
-          }
-        }
-        notSupportedGame=false;
-        $("#alertNext").attr('hidden', true);
-      }else{
-        for(var i = 0; i < 8; i++){
-          if(i==5) continue;
-          else{
-            if(document.getElementById(i).checked) return;
-          }
-        }
-        notSupportedGame=false;
-        $("#alertNext").attr('hidden', true);
-      }
-    }
+    checkGame(this.id);
   })
 
   // 예산 text 입력 자동완성 handler
@@ -174,9 +129,11 @@ $( document ).ready(function() {
       $( "#budgetSlider").slider( "value", temp);
     }
 
+
   });
 
 
+  $('.ui.modal').modal();
 
   // 예산 text 입력 -> 변경 버튼 click handler
   $( "body" ).on("click", "#budgetSubmit", function(){
@@ -188,16 +145,24 @@ $( document ).ready(function() {
 
 
   // 게임 이름 검색 handler
-  $('.ui.search')
-    .search({
-      source: games
+  $('.ui.search').search({
+      source: games,
+      selectFirstResult:true,
+      error: { noResults:'해당하는 게임이 없습니다.<br>다르게 입력해 주십시오.'},
+      onSelect: function(result, response){
+        $('#'+parseInt(result.index)).prop("checked", true) ;
+        $( '#'+parseInt(result.index) ).checkboxradio( "refresh" );
+        checkGame(result.index);
+      }
     });
+
 
 
 });
 
   // 매 업데이트 마다 다음 단계로 넘어갈 수 있는 조건인지 검사해야 ;
 function checkNextStep(){
+  console.log();
   if(budgetCheck && modeCheck && gameCheck){
     $("#nextButton").attr('disabled', false);
   }else{
@@ -244,6 +209,7 @@ function modeButtonClickHandler(id, otherId){
     $(id).addClass('active');
     $(otherId).removeClass('active');
     modeCheck = true;
+    finalMode = id;
   }
   checkNextStep();
 }
@@ -268,4 +234,75 @@ function getParameterByName(name, url) {
     if (!results) return null;
     if (!results[2]) return '';
     return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+
+function checkGame(id){
+  if(games[parseInt(id)].title === "Baffle Ground"){
+    if(document.getElementById(id).checked){
+      gameCheck = true;
+      checkNextStep();
+    }else{
+      gameCheck = false;
+      checkNextStep();
+    }
+  }else if(notSupportedBudget){
+
+    if(!notSupportedGame){
+      $("#alertNext").attr('hidden', false);
+      notSupportedGame = true;
+    }else{
+      for(var i = 0; i < 8; i++){
+        if(i==5) continue;
+        else{
+          if(document.getElementById(i).checked) return;
+        }
+      }
+
+      notSupportedGame=false;
+    }
+  }else{
+
+    if(!notSupportedGame){
+
+      $("#alertNext").attr('hidden', false);
+      notSupportedGame = true;
+      for(var i = 0; i < 8; i++){
+        if(i==5) continue;
+        else{
+          if(document.getElementById(i).checked) return;
+        }
+      }
+      notSupportedGame=false;
+      $("#alertNext").attr('hidden', true);
+    }else{
+      for(var i = 0; i < 8; i++){
+        if(i==5) continue;
+        else{
+          if(document.getElementById(i).checked) return;
+        }
+      }
+      notSupportedGame=false;
+      $("#alertNext").attr('hidden', true);
+    }
+  }
+}
+
+function nextStepButton(){
+  var finalBudget = Number($("#budgetSlider").slider("value")).toLocaleString('en');
+  var finalModeID = $(finalMode).prop('id')
+  var finalPrefer = finalModeID == 'performanceMode' ? "게임 성능" : "높은 활용도";
+
+  $("#finalBudget").html("예산 : "+finalBudget+" 원");
+  $("#finalMode").html("선호 : "+finalPrefer);
+
+  $('.ui.modal#nextStepConfirm')
+  .modal({
+    closable: false,
+    blurring: true,
+    onApprove : function(){
+      $(".goToNextStage").addClass('loading');
+      window.location.href="./index2.html?budget="+finalBudget+"&mode="+finalModeID;
+    }
+  })
+  .modal('show');
 }
