@@ -9,14 +9,17 @@ $( document ).ready(function() {
   // 예산 슬라이더 handler
   $( "#budgetSlider" ).slider({
     range: "min",
-    value: 700000,
-    min: 600000,
-    max: 1200000,
+    value: 650000,
+    min: 650000,
+    max: 1150000,
     step: 10000,
     slide: function( event, ui ) {
       $( "#budgetInputbox" ).val( Number(ui.value).toLocaleString('en') );
     }
   });
+
+    $( ".gameSelector" ).checkboxradio();
+
 
   // 예산 text 입력 자동완성 handler
   $( "#budgetInputbox" ).autocomplete({
@@ -25,21 +28,21 @@ $( document ).ready(function() {
     source: function(request, response){
       var temp = request.term;
 
-      if(100 <= temp && temp <= 120){
+      if(100 <= temp && temp <= 115){
         var answer = [temp*10000];
-      }else if(1000 <= temp && temp <= 1200 && (temp % 10) == 0){
+      }else if(1000 <= temp && temp <= 1150 && (temp % 10) == 0){
         var answer = [temp*1000];
-      }else if(10000 <= temp && temp <= 12000 && (temp % 100) == 0){
+      }else if(10000 <= temp && temp <= 11500 && (temp % 100) == 0){
         var answer = [temp*100];
-      }else if(100000 <= temp && temp <= 120000 && (temp % 1000) == 0){
+      }else if(100000 <= temp && temp <= 115000 && (temp % 1000) == 0){
         var answer = [temp*10];
-      }else if(60 <= temp && temp <= 99){
+      }else if(65 <= temp && temp <= 99){
         var answer = [temp*10000];
-      }else if(600 <= temp && temp <= 990 && (temp % 10) == 0){
+      }else if(650 <= temp && temp <= 990 && (temp % 10) == 0){
         var answer = [temp*1000];
-      }else if(6000 <= temp && temp <= 9900 && (temp % 100) == 0){
+      }else if(6500 <= temp && temp <= 9900 && (temp % 100) == 0){
         var answer = [temp*100];
-      }else if(60000 <= temp && temp <= 99000 && (temp % 1000) == 0){
+      }else if(65000 <= temp && temp <= 99000 && (temp % 1000) == 0){
         var answer = [temp*10];
       }else{
         response([]);
@@ -81,13 +84,22 @@ $( document ).ready(function() {
     //console.log($("budgetInputbox").val());
   });
 
+  // '게임 성능' 버튼 click hanlder
+  $( "body" ).on("click", "performanceMode", function(){
+    alert();
+  });
 
+  // 게임 이름 검색 handler
+  $('.ui.search')
+    .search({
+      source: [{title : 'Baffle Ground'}, {title : "리그 오브 레전드"}, {title : "피파 온라인 3"}, {title : "GTA 5"}, {title : "하스스톤"}, {title :"오버워치"}, {title : "파크라이 5"}, {title  : "히어로즈 오브 스톰"}]
+    });
 });
 
 // budgetInputbox onblur handler
 function budgetInputboxOnblur(){
   var temp = parseInt($( "#budgetInputbox" ).val().replace(/,/g, ''));
-  if (isNaN(temp) || temp  < 600000 || temp > 1100000){
+  if (isNaN(temp) || temp  < 650000 || temp > 1150000){
     $( "#budgetInputbox" ).val(Number($("#budgetSlider").slider("value")).toLocaleString("en"));
     return;
   }else {
@@ -98,4 +110,40 @@ function budgetInputboxOnblur(){
     //console.log($("#budgetSlider").slider("value"));
     $( "#budgetSubmit" ).attr('disabled', false);
   }
+
+
+}
+
+$(".performanceMode").popup({
+  on: 'focus'
+});
+
+function modeButtonClickHandler(id, otherId){
+
+  $(id).removeClass('basic');
+  $(id).addClass('inverted');
+
+  if($(id).hasClass('active')){
+    $(id).removeClass('active');
+    $(id).blur();
+    // 클릭시 다른 쪽 설정이 자동으로 선택되게 하려면 주석 해제
+    //$(otherId).addClass('active');
+    $(id).removeClass('inverted');
+    $(id).addClass('basic');
+  }else {
+    $(id).addClass('active');
+    $(otherId).removeClass('active');
+  }
+}
+
+function modeButtonHoverHandler(id){
+  if(! $(id).hasClass('active')){
+    $(id).removeClass('inverted');
+    $(id).addClass('basic');
+  }
+}
+
+function modeButtonHoverEndHandler(id){
+  $(id).removeClass('basic');
+  $(id).addClass('inverted');
 }

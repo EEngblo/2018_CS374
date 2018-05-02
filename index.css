@@ -1,5 +1,5 @@
 body{
-  min-height: 900px;
+  height: 900px;
 }
 
 .center-div{
@@ -22,41 +22,55 @@ body{
 }
 
 #realScreen{
-  width:1000px;
-  height: 600px;
+  width:1100px;
+  height: 770px;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 75px;
-  padding-right: 75px;
+  padding-left: 50px;
+  padding-right: 50px;
   border-style: solid;
 }
 
 #mainName{
-  margin-top: 150px;
+  margin-top: 100px;
   text-align: center;
   font-family: 'Jua', serif;
   font-size: 66px;
-  margin-bottom: 75px;
+  margin-bottom: 40px;
 }
 
+
+input::placeholder {
+  font-style: italic;
+  font-family: 'Nanum Gothic', Regular;
+  font-size:11px;
+}
+
+
+ #gameSearch::placeholder{
+  font-family: 'Nanum Gothic', Regular;
+  font-size:16px;
+}
+
+
 #budgetInputbox{
-  width: 5.5em;
+  width: 6em;
   text-align: right;
   padding-right: 10px;
 }
 
-#budgetTitle{
+.Title{
   font-family: 'Nanum Gothic', bold;
+  text-align: right;
+  width:200px;
 }
 
-#budgettick{
-  font-size: 13px;
-}
 
 #budgetSlider{
-  margin-left: 70px;
+  margin-left: 140px;
   margin-top: 20px;
-  margin-bottom: 30px;
+  margin-right: 0px;
+  width:800px;
 }
 
 #budgetSlider_Handle{
@@ -67,10 +81,26 @@ body{
   background: #5bc0de;
 }
 
+#budgetTicks{
+  margin-left:70px;
+  font-size: 14px;
+}
+
+.budgetTick{
+  display:inline-block;
+  width: 80px;
+  text-align:center;
+  margin-left: 75px;
+}
+
 #budgetSubmit{
   width: 60px;
-  height: 40px;
+  height: 30px;
   font-size: 16px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top:5px;
+  padding-bottom: 5px;
 }
 
 .btn-primary.disabled, .btn-primary:disabled, .btn-primary[disabled] {
@@ -84,6 +114,87 @@ body{
     font-weight: bold;
 }
 
-.navbar{
+.set{
+  margin-bottom: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
 
+{{{{{{{{{{{{{{{{{{{{{{}}}}}}}}}}}}}}}}}}}}}}
+
+.Game{
+  width:1000px;
+}
+
+.Mode{
+  height:70px;
+  width:1000px;
+  padding-top: 10px;
+}
+
+.modeButton{
+  width:200px;
+  height:50px;
+}
+
+.modeButtonText{
+    font-size:24px;
+}
+
+.gameSelect{
+  width:800px;
+  height:150px;
+}
+
+#gameSearch{
+  width:700px;
+  height:30px;
+}
+
+#gameSearchTable td{
+  padding : 3px;
+  font-size: 16px !important;
+}
+
+#gameSearchTd{
+  padding : 8px !important;
+}
+
+#gameTitle{
+  padding-top:20px;
+  height:30px;
+}
+
+.title{
+  font-family: "Nanum Gothic", Regular;
+  font-size: 2px;
+}
+
+.result{
+  font-family: "Nanum Gothic", Regular;
+  font-size: 2px;
+}
+
+.gameSelectorIcon{
+  width:170px; !important;
+}
+
+#nextButton{
+  width: 190px;
+}
+
+#nextButtontext{
+  font-size: 20px !important;
+}
+
+#lastRow{
+  width: 1000px;
+}
+
+#alertWarning{
+  width: 700px;
+  margin: 0px !important;
+  vertical-align: center;
+  height: 42px !important;
+  font-size: 18px !important;"
 }
