@@ -18,7 +18,6 @@ body{
   height:800px;
   font-size: 28px;
   font-family: 'Nanum Gothic', serif;
-  border-style: solid;
 }
 
 #realScreen{
@@ -28,7 +27,6 @@ body{
   margin-right: auto;
   padding-left: 50px;
   padding-right: 50px;
-  border-style: solid;
 }
 
 #mainName{
@@ -191,10 +189,10 @@ input::placeholder {
   width: 1000px;
 }
 
-#alertWarning{
+#alertNext{
   width: 700px;
   margin: 0px !important;
   vertical-align: center;
   height: 42px !important;
-  font-size: 18px !important;"
+  font-size: 16px !important;"
 }
