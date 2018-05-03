@@ -4,10 +4,12 @@
 var budgetCheck = false;
 var modeCheck = false;
 var gameCheck = false;
+var mode2Check = false;
 var notSupportedGame = false;
 var notSupportedBudget = false;
 
 var finalMode;
+var final2Mode;
 var finalBudget;
 
 var alertMessageWarning ='<strong><i class="fas fa-exclamation-triangle"></i>&nbsp;경고!</strong> 현재 버전에서는 Baffle Ground만 지원되며, 나머지는 자동으로 선택 해제 후 진행됩니다.'
@@ -163,7 +165,7 @@ $( document ).ready(function() {
   // 매 업데이트 마다 다음 단계로 넘어갈 수 있는 조건인지 검사해야 ;
 function checkNextStep(){
   console.log();
-  if(budgetCheck && modeCheck && gameCheck){
+  if(budgetCheck && modeCheck && gameCheck && mode2Check){
     $("#nextButton").attr('disabled', false);
   }else{
     $("#nextButton").attr('disabled', true);
@@ -196,7 +198,11 @@ function modeButtonClickHandler(id, otherId){
   $(id).addClass('inverted');
 
   if($(id).hasClass('active')){
-    modeCheck = false;
+    if($(id).hasClass('modeButton2')){
+      mode2Check = false;
+    } else{
+      modeCheck = false;
+    }
     $(id).removeClass('active');
     $(id).blur();
     // 클릭시 다른 쪽 설정이 자동으로 선택되게 하려면 주석 해제
@@ -208,8 +214,14 @@ function modeButtonClickHandler(id, otherId){
   }else {
     $(id).addClass('active');
     $(otherId).removeClass('active');
-    modeCheck = true;
-    finalMode = id;
+    if($(id).hasClass('modeButton2')){
+      mode2Check = true;
+      final2Mode = id;
+    } else{
+      modeCheck = true;
+      finalMode = id;
+    }
+
   }
   checkNextStep();
 }
@@ -291,9 +303,15 @@ function nextStepButton(){
   var finalBudget = Number($("#budgetSlider").slider("value")).toLocaleString('en');
   var finalModeID = $(finalMode).prop('id')
   var finalPrefer = finalModeID == 'performanceMode' ? "게임 성능" : "높은 활용도";
+  var final2ModeID = $(final2Mode).prop('id')
+  var final2Prefer = final2ModeID == 'simpleMode' ? "원클릭 모드" : "커스텀 모드";
 
+  $("#finalGame").html("게임 : Baffle Ground");
   $("#finalBudget").html("예산 : "+finalBudget+" 원");
   $("#finalMode").html("선호 : "+finalPrefer);
+  $("#final2Mode").html("모드 : "+final2Prefer);
+
+  var id = 0; // 나중에 Firebase index 번호로 바꾸어야 함
 
   $('.ui.modal#nextStepConfirm')
   .modal({
@@ -301,7 +319,7 @@ function nextStepButton(){
     blurring: true,
     onApprove : function(){
       $(".goToNextStage").addClass('loading');
-      window.location.href="./index2.html?budget="+finalBudget+"&mode="+finalModeID;
+      window.location.href="./step2.html?budget="+finalBudget+"&mode="+finalModeID+"&id="+id;
     }
   })
   .modal('show');
