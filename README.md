@@ -14,6 +14,14 @@ Team member :
 
 https://EEngblo.github.io/2018_CS374
 
+-------------------------
+## Library Dependency
+
+ - Jquery
+ - Jquery UI
+ - Semantic UI
+ - Bootstrap
+
 --------------------------
 ## POV & Tasks
 
@@ -22,7 +30,18 @@ https://EEngblo.github.io/2018_CS374
  -  We were amazed to realize that they **fall apart** when **given overflowing unfamiliar information.**
  -  It’d be game-changing to **provide a way to buy a computer that lets them do what they want to do without any concern.**
 
+
  **Tasks**
+ 1. Check the game 'GTA 5' needs how much amount of budget in order to run smoothly.
+ > GTA 5라는 게임을 원활하게 구동하기 위해서는 어느 정도 비용으로 컴퓨터를 구매해야 하는지 확인해 보세요
+ 
+ 2. Make a composition of a new computer which has the best '가성비' as simple and easy as possible within your specific budget.
+ > 최대한 쉽고 간단하게 당신의 예산 안에서 최고의 가성비를 가진 컴퓨터의 견적을 완성하세요
+ 
+ 3. Make a composition of a new computer which mostly fits your needs within your specific budget.
+ > 당신의 예산 안에서 가장 당신의 needs를 충족시킬 수 있는 컴퓨터의 견적을 완성하세요
+
+ **Another Task Set**
 1. Assume that you have very limited budget: ₩700,000. Make a composition of a new computer that as good as possible within the budget for game Baffle Ground.
 > (70만원이라는 극히 제한된 예산 내에서, Baffle Ground라는 게임을 위한 가장 가성비가 좋은 컴퓨터 견적을 완성하세요)
 > 
