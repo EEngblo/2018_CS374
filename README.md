@@ -34,13 +34,15 @@ https://EEngblo.github.io/2018_CS374
  **Tasks**
  1. Check the game 'GTA 5' needs how much amount of budget in order to run smoothly.
  > GTA 5라는 게임을 원활하게 구동하기 위해서는 어느 정도 비용으로 컴퓨터를 구매해야 하는지 확인해 보세요
+ <br><br>
  
+ > When you handle these two tasks, assume that you want to play Baffle Ground.
  2. Make a composition of a new computer which has the best '가성비' as simple and easy as possible within your specific budget.
- > 최대한 쉽고 간단하게 당신의 예산 안에서 최고의 가성비를 가진 컴퓨터의 견적을 완성하세요
- 
+ > 당신은 Baffle Ground라는 게임을 즐겨 합니다. 최대한 쉽고 간단하게 당신의 예산 안에서 최고의 가성비를 가진 컴퓨터의 견적을 완성하세요
+ <br>
  3. Make a composition of a new computer which mostly fits your needs within your specific budget.
- > 당신의 예산 안에서 가장 당신의 needs를 충족시킬 수 있는 컴퓨터의 견적을 완성하세요
-
+ > 당신은 Baffle Ground라는 게임을 즐겨 합니다. 당신의 예산 안에서 가장 당신의 needs를 충족시킬 수 있는 컴퓨터의 견적을 완성하세요
+<br><br>
  **Another Task Set**
 1. Assume that you have very limited budget: ₩700,000. Make a composition of a new computer that as good as possible within the budget for game Baffle Ground.
 > (70만원이라는 극히 제한된 예산 내에서, Baffle Ground라는 게임을 위한 가장 가성비가 좋은 컴퓨터 견적을 완성하세요)
