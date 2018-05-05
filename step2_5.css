@@ -2,6 +2,11 @@ body{
   height: 900px;
 }
 
+.texts{
+  font-family: 'Nanum Gothic' !important;
+
+}
+
 .center-div{
   text-align: left;
   margin-top: 30px;
@@ -30,6 +35,11 @@ body{
   padding-left: 50px;
   padding-right: 50px;
   border: solid;
+}
+
+#breadcrumbContents{
+  vertical-align: top !important;
+  margin-top: -50px !important;
 }
 
 input::placeholder {
@@ -133,7 +143,7 @@ input::placeholder {
   width:300px !important;
 }
 
-.content{
+.content:not(.cardc){
   padding:0px !important;
   height: 50px !important;
   font-size: 14px !important;

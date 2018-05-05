@@ -1,0 +1,80 @@
+#mainContents{
+  height: 600px !important;
+  overflow-y: auto;
+  padding-left: 2px;
+  padding-right: 2px;
+  padding-top:2px;
+  padding-bottom: 2px;
+}
+
+#realScreen{
+  border: none;
+}
+
+#title{
+  margin-bottom: 15px;
+}
+
+#bigTitle{
+  font-size: 26px;
+  font-weight: bold;
+}
+
+#smallTitle{
+  font-size: 20px;
+}
+
+#mainContentButtons{
+  margin-top: 0px;
+  padding:10px;
+}
+
+.bigCell{
+  border-style: none !important;
+}
+
+.card.casecard{
+  width:200px !important;
+  margin:3px !important;
+}
+
+.cards.casecard{
+  width: 825px !important;
+  position: relative !important;
+  left:5px !important;
+  margin-left: 10px !important;
+  margin-top: 5px !important;
+  margin-bottom: 5px !important;
+}
+
+.content.cardc{
+  padding:7px !important;
+}
+
+.cardheader{
+  margin: 0px !important;
+}
+
+.caseDetail{
+  color:inherit !important;
+}
+
+#leftButton{
+  width: 380px !important;
+}
+
+#centerButton{
+  width: 250px !important;
+}
+
+.rightButton{
+  padding:10px !important;
+}
+
+#outerbutton{
+  padding:0px !important;
+}
+
+.sortIcon{
+  margin-right: 0px !important;
+}
