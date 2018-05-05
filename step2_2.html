@@ -35,7 +35,7 @@
 
     <!-- Mine -->
     <link rel="stylesheet" href="./step2_5.css">
-    <link rel="stylesheet" href="./step3.css">
+    <link rel="stylesheet" href="./step2_2.css">
     <script src="./index.js"></script>
 
     <!-- Data starts -->
@@ -146,7 +146,7 @@
                     <i class="plane icon"></i> 5
                   </div>
                   <div class="label" style="font-size:20px;">
-                    Flights
+                    고성능 용량
                   </div>
                 </span>
                 <span class="ui small statistic">
@@ -154,7 +154,7 @@
                     <i class="plane icon"></i> 5
                   </div>
                   <div class="label" style="font-size:20px;">
-                    Flights
+                    전체 량
                   </div>
                 </span>
               </div>
@@ -210,15 +210,150 @@
           </td>
           <td class="bigCell rightCells Cells" id="mainContentsCell" rowspan="2">
             <div id="mainContents">
-              <div class="ui stacked segment texts">
-                <h2 class="ui header texts">A header</h2>
-                <p>Te eum doming eirmod, nominati pertinacia argumentum ad his. Ex eam alia facete scriptorem, est autem aliquip detraxit at. Usu ocurreret referrentur at, cu epicurei appellantur vix. Cum ea laoreet recteque electram, eos choro alterum definiebas in. Vim dolorum definiebas an. Mei ex natum rebum iisque.</p>
-              </div>
-              <div class="ui stacked segment texts">
-                <h2 class="ui header texts">A header</h2>
-                <p>Te eum doming eirmod, nominati pertinacia argumentum ad his. Ex eam alia facete scriptorem, est autem aliquip detraxit at. Usu ocurreret referrentur at, cu epicurei appellantur vix. Cum ea laoreet recteque electram, eos choro alterum definiebas in. Vim dolorum definiebas an. Mei ex natum rebum iisque.</p>
-                <h2 class="ui horizontal divider header texts">A header</h2>
-                <p>Te eum doming eirmod, nominati pertinacia argumentum ad his. Ex eam alia facete scriptorem, est autem aliquip detraxit at. Usu ocurreret referrentur at, cu epicurei appellantur vix. Cum ea laoreet recteque electram, eos choro alterum definiebas in. Vim dolorum definiebas an. Mei ex natum rebum iisque.</p>
+              <div id="segmantWrapper" class="ui segment">
+                <div class="ui stacked segment texts mySegment">
+                  <div id="title">
+                    <span class="bigTitle">RAM</span>
+                  </div>
+
+                  <div class="ui divider myDivider"></div>
+
+                  <img class="ui rounded left floated image myImage" src="./img/RAM.jpg" width="80" height="80">
+                  <p class="texts explanationText">컴퓨터가 정보를 임시로 담아두기 위해 사용하는 메모지 같은 역할을 합니다.</p>
+                  <p class="texts explanationText">게임 성능에는 큰 영향을 주지 않지만, 가득 찰 경우 급격히 느려지거나 게임이 팅길 수 있으며,</p>
+                  <p class="texts explanationText">용량이 클수록 동시에 더 많은 게임, 프로그램들을 실행할 수 있습니다.</p>
+
+                  <div class="ui horizontal divider texts myDivider">
+                    <i class="fa fa-hand-pointer"></i>
+                    &nbsp;RAM 용량 옵션
+                  </div>
+
+                  <label class="smallTitle">용량 :&nbsp;&nbsp;</label>
+                  <span display:inline class="ui buttons">
+                     <button class="ui inverted violet button modeButton"
+                     id="RAM_8G"
+                     onmouseover="modeButtonHoverHandler(this);"
+                     onmouseout="modeButtonHoverEndHandler(this);"
+                     onclick="modeButtonClickHandler(this, document.getElementById('RAM_16G'));"
+                     data-tooltip="동시에 창을 많이 켜 두지 않는 보통 사용자에게 적합합니다"
+                     data-inverted=""
+                     data-position="top center"
+                     data-variation="wide"
+                     >
+                       <div class="modeButtonText texts">8 G</div>
+                     </button>
+                     <div class="or" style="height:60px;"></div>
+                     <button class="ui inverted violet button modeButton"
+                     id="RAM_16G"
+                     onmouseover="modeButtonHoverHandler(this);"
+                     onmouseout="modeButtonHoverEndHandler(this);"
+                     onclick="modeButtonClickHandler(this, document.getElementById('RAM_8G'));"
+                     data-tooltip="동시에 게임, 인터넷, 무거운 프로그램 등을 많이 실행시키는 사용자에게 적합합니다"
+                     data-inverted=""
+                     data-position="top center"
+                     data-variation="wide"
+                     >
+                       <div class="modeButtonTextWrapper">
+                         <div class="modeButtonText texts">16 G</div>
+                         <div class="modeButtonText texts priceTexts">+ ₩ 90,000</div>
+                       </div>
+                     </button>
+                   </span>
+                </div>
+                <div class="ui stacked segment texts mySegment">
+                  <div id="title">
+                    <span class="bigTitle">저장장치</span>
+                  </div>
+
+                  <div class="ui divider myDivider"></div>
+
+                  <img class="ui rounded left floated image myImage" src="./img/SSD.jpg" width="80" height="80">
+                  <p class="texts explanationText">사용자 데이터를 저장하는 공간으로, <strong>하드디스크</strong>와 고성능 저장장치인 <strong>SSD</strong>가 있습니다.</p>
+                  <p class="texts explanationText">용량이 큰 <strong>하드디스크</strong>에는 가끔 사용하는 게임과 프로그램, 음악, 동영상 등을 저장하고,</p>
+                  <p class="texts explanationText">빠른 <strong>SSD</strong>에는 윈도우, 자주 사용하는 게임과 프로그램들을 저장하여 빠르게 실행할 수 있습니다.</p>
+                  <br>
+                  <p class="texts explanationText">현재 사용중인 컴퓨터의 저장장치 용량, 주로 하는 게임의 개수와 용량을 확인해 보세요.</p>
+
+                  <div class="ui horizontal divider texts myDivider">
+                    <i class="fa fa-hand-pointer"></i>
+                    &nbsp;저장장치 용량 옵션
+                  </div>
+
+                  <div class="storageButtons SSD">
+                    <label class="smallTitle">SSD (고성능 저장장치) 용량 :&nbsp;&nbsp;</label>
+                    <span display:inline class="ui buttons">
+                       <button class="ui inverted violet button modeButton"
+                       id="SSD_250G"
+                       onmouseover="modeButtonHoverHandler(this);"
+                       onmouseout="modeButtonHoverEndHandler(this);"
+                       onclick="modeButtonClickHandler(this, document.getElementById('SSD_500G'));"
+                       data-tooltip="동시에 창을 많이 켜 두지 않는 보통 사용자에게 적합합니다"
+                       data-inverted=""
+                       data-position="top center"
+                       data-variation="wide"
+                       >
+                         <div class="modeButtonText texts">250 G</div>
+                       </button>
+                       <div class="or" style="height:60px;"></div>
+                       <button class="ui inverted violet button modeButton"
+                       id="SSD_500G"
+                       onmouseover="modeButtonHoverHandler(this);"
+                       onmouseout="modeButtonHoverEndHandler(this);"
+                       onclick="modeButtonClickHandler(this, document.getElementById('SSD_250G'));"
+                       data-tooltip="동시에 게임, 인터넷, 무거운 프로그램 등을 많이 실행시키는 사용자에게 적합합니다"
+                       data-inverted=""
+                       data-position="top center"
+                       data-variation="wide"
+                       >
+                         <div class="modeButtonText texts">500 G</div>
+                       </button>
+
+                     </span>
+                   </div>
+                   <div class="storageButtons">
+                     <label class="smallTitle ">하드디스크 용량 :&nbsp;&nbsp;</label>
+                     <span display:inline class="ui buttons">
+                        <button class="ui inverted violet button modeButton"
+                        id="RAM_8G"
+                        onmouseover="modeButtonHoverHandler(this);"
+                        onmouseout="modeButtonHoverEndHandler(this);"
+                        onclick="modeButtonClickHandler(this, document.getElementById('RAM_16G'));"
+                        data-tooltip="동시에 창을 많이 켜 두지 않는 보통 사용자에게 적합합니다"
+                        data-inverted=""
+                        data-position="bottom center"
+                        data-variation="wide"
+                        >
+                          <div class="modeButtonText texts">없 음</div>
+                        </button>
+                        <div class="or" style="height:60px;"></div>
+                        <button class="ui inverted violet button modeButton"
+                        id="RAM_16G"
+                        onmouseover="modeButtonHoverHandler(this);"
+                        onmouseout="modeButtonHoverEndHandler(this);"
+                        onclick="modeButtonClickHandler(this, document.getElementById('RAM_8G'));"
+                        data-tooltip="동시에 게임, 인터넷, 무거운 프로그램 등을 많이 실행시키는 사용자에게 적합합니다"
+                        data-inverted=""
+                        data-position="bottom center"
+                        data-variation="wide"
+                        >
+                          <div class="modeButtonText texts">1000 G</div>
+                        </button>
+                        <div class="or" style="height:60px;"></div>
+                        <button class="ui inverted violet button modeButton"
+                        id="SSD_500G"
+                        onmouseover="modeButtonHoverHandler(this);"
+                        onmouseout="modeButtonHoverEndHandler(this);"
+                        onclick="modeButtonClickHandler(this, document.getElementById('SSD_250G'));"
+                        data-tooltip="동시에 게임, 인터넷, 무거운 프로그램 등을 많이 실행시키는 사용자에게 적합합니다"
+                        data-inverted=""
+                        data-position="top center"
+                        data-variation="wide"
+                        >
+                          <div class="modeButtonText texts">2000 G</div>
+                        </button>
+                      </span>
+                    </div>
+                  </div>
               </div>
             </div>
           </td>
@@ -226,7 +361,7 @@
         <tr>
           <td class="bigCell leftCells Cells" id="helpContentsCell">
             <div id="helpContents">
-              ㅁㅇㄴㄹ
+              도움말 자리
             </div>
           </td>
         </tr>
