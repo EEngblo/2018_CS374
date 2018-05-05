@@ -115,54 +115,76 @@
             </td>
           </tr>
           <tr>
-            <td id="specIndicatorCell" class="stateIndicatorSecondRow" colspan="2">
+            <td id="specIndicatorCell" class="stateIndicatorSecondRow" colspan="2" rowspan="2">
               <div id="specIndicator">
-                <span class="ui small statistic">
-                  <div class="value">
-                    <i class="plane icon"></i> 5
+                <span class="ui small statistic mystateIndicator">
+                  <div class="value stateUpper">
+                    <i class="fas fa-hdd stateIcon" style="color:orange;"></i>
+                    <span class="text stateL1">55</span>
+                    <span class="text stateL2">fps</span>
                   </div>
-                  <div class="label" style="font-size:20px;">
-                    Flights
-                  </div>
-                </span>
-                <span class="ui small statistic">
-                  <div class="value">
-                    <i class="plane icon"></i> 5
-                  </div>
-                  <div class="label" style="font-size:20px;">
-                    Flights
+                  <div class="label text mystateIndicatorLabel">
+                    배플그라운드 성능
                   </div>
                 </span>
-                <span class="ui small statistic">
-                  <div class="value">
-                    <i class="plane icon"></i> 5
+                <span class="ui small statistic mystateIndicator">
+                  <div class="value stateUpper">
+                    <i class="fas fa-hdd stateIcon" style="color:orange;"></i>
+                    <span class="text stateL1">250</span>
+                    <span class="text stateL2">점</span>
                   </div>
-                  <div class="label" style="font-size:20px;">
-                    Flights
-                  </div>
-                </span>
-                <span class="ui small statistic">
-                  <div class="value">
-                    <i class="plane icon"></i> 5
-                  </div>
-                  <div class="label" style="font-size:20px;">
-                    고성능 용량
+                  <div class="label text mystateIndicatorLabel">
+                    CPU 성능 점수
                   </div>
                 </span>
-                <span class="ui small statistic">
-                  <div class="value">
-                    <i class="plane icon"></i> 5
+                <span class="ui small statistic mystateIndicator">
+                  <div class="value stateUpper">
+                    <i class="fas fa-hdd stateIcon" style="color:orange;"></i>
+                    <span class="text stateL1">16</span>
+                    <span class="text stateL2">G</span>
                   </div>
-                  <div class="label" style="font-size:20px;">
-                    전체 량
+                  <div class="label text mystateIndicatorLabel">
+                    RAM 용량
+                  </div>
+                </span>
+                <span class="ui small statistic mystateIndicator">
+                  <div class="value stateUpper">
+                    <i class="fas fa-hdd stateIcon" style="color:orange;"></i>
+                    <span class="text stateL1">250</span>
+                    <span class="text stateL2">G</span>
+                  </div>
+                  <div class="label text mystateIndicatorLabel">
+                    초고속 저장 용량
+                  </div>
+                </span>
+                <span class="ui small statistic mystateIndicator long">
+                  <div class="value stateUpper">
+                    <i class="fas fa-hdd stateIcon" style="color:orange;"></i>
+                    <span class="text stateL1">1250</span>
+                    <span class="text stateL2">G</span>
+                  </div>
+                  <div class="label text mystateIndicatorLabel">
+                    총 저장 용량
                   </div>
                 </span>
               </div>
             </td>
             <td id="priceIndicatorCell" class="stateIndicatorSecondRow" colspan="2">
-              asdf
+              <span class="texts stateIndicatorIndex">총액&nbsp;</span>
+              <span class="texts stateIndicatorValue" id="price">₩ 1,234,567</span>
+              <span class="texts stateIndicatorIndex2">&nbsp;(₩</span>
+              <span class="texts stateIndicatorValue" id="remainder">234,567</span>
+              <span class="texts stateIndicatorIndex2">남음)</span>
             </td>
           </tr>
+          <tr>
+            <td id="budgetIndicatorCell" class="stateIndicatorSecondRow" colspan="2">
+              <span class="texts stateIndicatorIndex">예산&nbsp;&nbsp;</span>
+              <span class="texts stateIndicatorValue" id="budget">₩ 1,345,678</span>
+              <span class="texts stateIndicatorIndex2">&nbsp;(</span>
+              <span class="texts stateIndicatorValue" id="remainder">88</span>
+              <span class="texts stateIndicatorIndex2">% 사용)</span>
+            </td>
         </table>
       </div>
       <table id=realScreen>
@@ -268,7 +290,7 @@
                   <div class="ui divider myDivider"></div>
 
                   <img class="ui rounded left floated image myImage" src="./img/SSD.jpg" width="80" height="80">
-                  <p class="texts explanationText">사용자 데이터를 저장하는 공간으로, <strong>하드디스크</strong>와 고성능 저장장치인 <strong>SSD</strong>가 있습니다.</p>
+                  <p class="texts explanationText">사용자 데이터를 저장하는 공간으로, <strong>하드디스크</strong>와 초고속 저장장치인 <strong>SSD</strong>가 있습니다.</p>
                   <p class="texts explanationText">용량이 큰 <strong>하드디스크</strong>에는 가끔 사용하는 게임과 프로그램, 음악, 동영상 등을 저장하고,</p>
                   <p class="texts explanationText">빠른 <strong>SSD</strong>에는 윈도우, 자주 사용하는 게임과 프로그램들을 저장하여 빠르게 실행할 수 있습니다.</p>
                   <br>
@@ -280,14 +302,14 @@
                   </div>
 
                   <div class="storageButtons SSD">
-                    <label class="smallTitle">SSD (고성능 저장장치) 용량 :&nbsp;&nbsp;</label>
+                    <label class="smallTitle">SSD (초고속 저장장치) 용량 :&nbsp;&nbsp;</label>
                     <span display:inline class="ui buttons">
                        <button class="ui inverted violet button modeButton"
                        id="SSD_250G"
                        onmouseover="modeButtonHoverHandler(this);"
                        onmouseout="modeButtonHoverEndHandler(this);"
                        onclick="modeButtonClickHandler(this, document.getElementById('SSD_500G'));"
-                       data-tooltip="동시에 창을 많이 켜 두지 않는 보통 사용자에게 적합합니다"
+                       data-tooltip="한 두 종류의 게임만 하는 사용자에게 적합합니다"
                        data-inverted=""
                        data-position="top center"
                        data-variation="wide"
@@ -300,7 +322,7 @@
                        onmouseover="modeButtonHoverHandler(this);"
                        onmouseout="modeButtonHoverEndHandler(this);"
                        onclick="modeButtonClickHandler(this, document.getElementById('SSD_250G'));"
-                       data-tooltip="동시에 게임, 인터넷, 무거운 프로그램 등을 많이 실행시키는 사용자에게 적합합니다"
+                       data-tooltip="다양한 종류의 게임을 하는 사용자에게 적합합니다"
                        data-inverted=""
                        data-position="top center"
                        data-variation="wide"
@@ -314,11 +336,11 @@
                      <label class="smallTitle ">하드디스크 용량 :&nbsp;&nbsp;</label>
                      <span display:inline class="ui buttons">
                         <button class="ui inverted violet button modeButton"
-                        id="RAM_8G"
+                        id="HDD_NO"
                         onmouseover="modeButtonHoverHandler(this);"
                         onmouseout="modeButtonHoverEndHandler(this);"
-                        onclick="modeButtonClickHandler(this, document.getElementById('RAM_16G'));"
-                        data-tooltip="동시에 창을 많이 켜 두지 않는 보통 사용자에게 적합합니다"
+                        onclick="modeButtonClickHandler(this, document.getElementById('HDD_1T'));"
+                        data-tooltip="동영상 등 용량이 큰 파일을 많이 저장해 두지 않는 사용자에게 적합합니다"
                         data-inverted=""
                         data-position="bottom center"
                         data-variation="wide"
@@ -327,29 +349,16 @@
                         </button>
                         <div class="or" style="height:60px;"></div>
                         <button class="ui inverted violet button modeButton"
-                        id="RAM_16G"
+                        id="HDD_1T"
                         onmouseover="modeButtonHoverHandler(this);"
                         onmouseout="modeButtonHoverEndHandler(this);"
-                        onclick="modeButtonClickHandler(this, document.getElementById('RAM_8G'));"
-                        data-tooltip="동시에 게임, 인터넷, 무거운 프로그램 등을 많이 실행시키는 사용자에게 적합합니다"
+                        onclick="modeButtonClickHandler(this, document.getElementById('HDD_NO'));"
+                        data-tooltip="동영상 등 용량이 큰 파일을 많이 저장하는 사용자에게 적합합니다"
                         data-inverted=""
                         data-position="bottom center"
                         data-variation="wide"
                         >
                           <div class="modeButtonText texts">1000 G</div>
-                        </button>
-                        <div class="or" style="height:60px;"></div>
-                        <button class="ui inverted violet button modeButton"
-                        id="SSD_500G"
-                        onmouseover="modeButtonHoverHandler(this);"
-                        onmouseout="modeButtonHoverEndHandler(this);"
-                        onclick="modeButtonClickHandler(this, document.getElementById('SSD_250G'));"
-                        data-tooltip="동시에 게임, 인터넷, 무거운 프로그램 등을 많이 실행시키는 사용자에게 적합합니다"
-                        data-inverted=""
-                        data-position="top center"
-                        data-variation="wide"
-                        >
-                          <div class="modeButtonText texts">2000 G</div>
                         </button>
                       </span>
                     </div>

@@ -12,7 +12,7 @@ body{
   width:1300px;
   height:850px;
   margin-top:40px !important;
-  font-size: 28px;
+
   font-family: 'Nanum Gothic', serif;
   margin-bottom: 10px;
   margin-left: auto;
@@ -37,8 +37,14 @@ body{
 }
 
 
+#stateIndicator1stRow{
+  padding-top: 25px !important;
+  height: 75px !important;
+}
+
 .stateIndicatorSecondRow{
   padding: 8px !important;
+  padding-top: 0px !important;
 }
 
 
@@ -103,21 +109,21 @@ body{
 }
 
 #specIndicator{
-  width: 700px !important;
+  width: 730px !important;
   height: 70px !important;
 }
 
 {{{{{{{{{{{{{{{{{{{{{{{}}}}}}}}}}}}}}}}}}}}}}}
 
 .stateIndicator{
-  width:1100px !important;
+  width:1150px !important;
   height: 150px !important;
   width: 85%;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 10px;
-  padding-left:20px !important;
-  padding-right: 20px !important;
+  padding-left:10px !important;
+  padding-right: 10px !important;
   padding-top: 0px !important;
 }
 
@@ -166,4 +172,61 @@ body{
 .description.nanumStep{
   height: 15px !important;
   font-size: 13px !important;
+}
+
+.mystateIndicator{
+  width:140px !important;
+  margin-left: 0px !important;
+}
+
+.mystateIndicator.long{
+  width:150px !important;
+  margin-left: 0px !important;
+}
+
+.mystateIndicatorLabel{
+  font-size: 16px !important;
+  font-weight: 400 !important;
+}
+
+.stateIcon{
+  font-size:30px !important;
+}
+
+.stateL1{
+  font-size:36px;
+  font-weight: bold;
+}
+
+.stateL2{
+  font-size:22px;
+}
+
+.stateUpper{
+  height: 40px !important;
+  margin-bottom: 5px !important;
+}
+
+#budgetIndicatorCell{
+  text-align: right;
+}
+
+.stateIndicatorIndex{
+  font-size:18px !important;
+  font-weight: 500;
+}
+
+.stateIndicatorValue{
+  font-size:28px !important;
+  font-weight: 900;
+}
+
+.stateIndicatorValue#remainder{
+  font-size:20px !important;
+  font-weight: 600;
+}
+
+.stateIndicatorIndex2{
+  font-size:15px !important;
+  font-weight: 400;
 }
