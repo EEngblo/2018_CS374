@@ -1,10 +1,12 @@
 body{
   height: 900px;
+  font-family: 'Nanum Gothic' !important;
 }
 
 
 .texts{
   font-family: 'Nanum Gothic' !important;
+  color: green !important;
 }
 
 #screen{
