@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<!-- saved from url=(0034)http://fiddle.jshell.net/_display/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="googlebot" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  <script type="text/javascript" src="./jquery-2.0.2.js"></script>
+
+  
+
+  
+
+  
+
+  
+    <link rel="stylesheet" type="text/css" href="./result-light.css">
+  
+
+  
+    
+      <link rel="stylesheet" type="text/css" href="./semantic.css">
+    
+  
+    
+      <script type="text/javascript" src="./semantic.js"></script>
+    
+  
+
+  <style type="text/css">
+    body {
+  padding: 1em; }
+
+.ui.scroll.pane {
+  overflow: auto;
+  max-height: 20em; }
+  .ui.scroll.pane.mini {
+    max-height: 5em; }
+  .ui.scroll.pane.tiny {
+    max-height: 10em; }
+  .ui.scroll.pane.small {
+    max-height: 15em; }
+  .ui.scroll.pane.medium {
+    max-height: 20em; }
+  .ui.scroll.pane.large {
+    max-height: 25em; }
+  .ui.scroll.pane.big {
+    max-height: 30em; }
+  .ui.scroll.pane.huge {
+    max-height: 35em; }
+  .ui.scroll.pane.massive {
+    max-height: 40em; }
+  .ui.scroll.pane.attached.segment {
+    padding: 0; }
+    .ui.scroll.pane.attached.segment > .ui.table {
+      border: 0; }
+
+  </style>
+
+  <title></title>
+
+  
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+$(window).load(function(){
+
+$('.ui.checkbox')
+    .checkbox({
+        'onChange': function () {
+            var
+            $input = $(this),
+                checked = $input.is(':checked')
+            ;
+            
+            if (checked) {
+                $input.parents('tr').addClass('positive');
+            }
+            else {
+                $input.parents('tr').removeClass('positive');
+            }
+        }
+    })
+;
+
+$('.ui.checklist')
+    .each(function () {
+        var
+        $list = $(this),
+            $check = $list.find('.ui.check.all.button'),
+            $uncheck = $list.find('.ui.uncheck.all.button'),
+            $checkboxes = $list.find('.ui.checkbox')
+        ;
+        
+        $check
+        .on('click', function () {
+            $checkboxes.checkbox('check');
+        })
+        ;
+        
+        $uncheck
+        .on('click', function () {
+            $checkboxes.checkbox('uncheck');
+        })
+        ;
+    })
+;
+
+});
+
+
+
+
+</script>
+
+  
+</head>
+
+<body style="">
+  <h2 class="ui dividing header">
+    Checklist + Scroll Pane
+    <div class="sub header">Idea for new Semantic UI module</div>
+</h2>
+
+<div class="ui basic segment">
+    <div class="ui checklist">
+        <div class="ui top attached secondary segment">
+            <div class="ui left attached mini check all button">Check All</div>
+            <div class="ui right attached mini uncheck all button">Uncheck All</div>
+        </div>
+        
+        <div class="ui scroll pane bottom attached segment" style="max-height: 11.78em;">
+            <table class="ui celled structured definition table">
+                <tbody>
+                    <tr class="positive">
+                        <td class="collapsing">
+                            <div class="ui fitted toggle checkbox checked">
+                                <input name="ids[]" value="1" type="checkbox" tabindex="0" class="hidden"><label></label>
+                            </div>
+                        </td>
+                        <td>1</td>
+                    </tr>
+                    <tr class="positive">
+                        <td class="collapsing">
+                            <div class="ui fitted slider checkbox checked">
+                                <input name="ids[]" value="2" type="checkbox" tabindex="0" class="hidden"><label></label>
+                            </div>
+                        </td>
+                        <td>2</td>
+                    </tr>
+                    <tr class="positive">
+                        <td class="collapsing">
+                            <div class="ui fitted checkbox checked">
+                                <input name="ids[]" value="3" type="checkbox" tabindex="0" class="hidden"><label></label>
+                            </div>
+                        </td>
+                        <td>3</td>
+                    </tr>
+                    <tr class="positive">
+                        <td class="collapsing">
+                            <div class="ui fitted toggle checkbox checked">
+                                <input name="ids[]" value="1" type="checkbox" tabindex="0" class="hidden"><label></label>
+                            </div>
+                        </td>
+                        <td>1</td>
+                    </tr>
+                    <tr class="positive">
+                        <td class="collapsing">
+                            <div class="ui fitted slider checkbox checked">
+                                <input name="ids[]" value="2" type="checkbox" tabindex="0" class="hidden"><label></label>
+                            </div>
+                        </td>
+                        <td>2</td>
+                    </tr>
+                    <tr class="positive">
+                        <td class="collapsing">
+                            <div class="ui fitted checkbox checked">
+                                <input name="ids[]" value="3" type="checkbox" tabindex="0" class="hidden"><label></label>
+                            </div>
+                        </td>
+                        <td>3</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+  
+  <script>
+  // tell the embed parent frame the height of the content
+  if (window.parent && window.parent.parent){
+    window.parent.parent.postMessage(["resultsFrame", {
+      height: document.body.getBoundingClientRect().height,
+      slug: "None"
+    }], "*")
+  }
+</script>
+
+
+
+
+
+</body></html>

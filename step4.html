@@ -35,8 +35,8 @@
 
     <!-- Mine -->
     <link rel="stylesheet" href="./step2_5.css">
-    <link rel="stylesheet" href="./step4.css"> 
-    <script src="./index.js"></script>
+    <link rel="stylesheet" href="./step4.css">
+    <script src="./step4.js"></script>
 
     <!-- Data starts -->
     <title>Accel Danawa : 조립 컴퓨터 견적 짜기</title>
@@ -81,28 +81,94 @@
 
     <div id="screen" class="ui container center-div">
       <div class="stateIndicator well well-lg">
-        <div class="progress">
-          <div class="progress-bar progress-bar-success active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
-            <span class="sr-only">45% Complete</span>
-          </div>
-          <div class="progress-bar progress-bar-warning active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
-            <span class="sr-only">45% Complete</span>
-          </div>
-        </div>
-        <br>
-        <div align="right">
-          <button
-           align="right" id="nextButton" dxr class="ui green button"
-           onclick="javasctript:window.location.href='./step3.html';"> <span id="nextButtontext">다음 단계로&nbsp;&nbsp;</span>
-            <i class="fa fa-angle-double-right" style="font-size: 20px;"></i>
-          </button>
-        </div>
+        <table id="stateIndicatorTable">
+          <tr id="stateIndicator1stRow">
+            <td id="previousStepCell" class="stateIndicatorFirstRow buttonCell">
+              <span style="float:left; margin-top:15px;">
+                <button
+                 align="right" id="previousButton" dxr class="ui green button moveStepButton"
+                 onclick="javasctript:window.location.href='./step3.html';">
+                  <i class="fa fa-angle-double-left" style="font-size: 16px;"></i>
+                  <span class="moveStepButtontext" id="previousButtontext">&nbsp;이전 단계&nbsp;</span>
+                </button>
+              </span>
+            </td>
+            <td id="progressCell" colspan="2">
+              <div id="progressIndicator" class="progress" class="stateIndicatorFirstRow">
+                <div class="progress-bar progress-bar-success active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
+                  <span class="sr-only">45% Complete</span>
+                </div>
+                <div class="progress-bar progress-bar-warning active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
+                  <span class="sr-only">45% Complete</span>
+                </div>
+              </div>
+            </td>
+            <td id="nextStepCell" class="stateIndicatorFirstRow buttonCell">
+              <span style="float:right; margin-top:15px;">
+                <button
+                 align="right" id="nextButton" dxr class="ui green button moveStepButton"
+                 onclick="javasctript:window.location.href='./step3.html';">
+                 <span class="moveStepButtontext" id="nextButtontext">&nbsp;다음 단계&nbsp;</span>
+                 <i class="fa fa-angle-double-right" style="font-size: 20px;"></i>
+                </button>
+              </span>
+            </td>
+          </tr>
+          <tr>
+            <td id="specIndicatorCell" class="stateIndicatorSecondRow" colspan="2">
+              <div id="specIndicator">
+                <span class="ui small statistic">
+                  <div class="value">
+                    <i class="plane icon"></i> 5
+                  </div>
+                  <div class="label" style="font-size:20px;">
+                    Flights
+                  </div>
+                </span>
+                <span class="ui small statistic">
+                  <div class="value">
+                    <i class="plane icon"></i> 5
+                  </div>
+                  <div class="label" style="font-size:20px;">
+                    Flights
+                  </div>
+                </span>
+                <span class="ui small statistic">
+                  <div class="value">
+                    <i class="plane icon"></i> 5
+                  </div>
+                  <div class="label" style="font-size:20px;">
+                    Flights
+                  </div>
+                </span>
+                <span class="ui small statistic">
+                  <div class="value">
+                    <i class="plane icon"></i> 5
+                  </div>
+                  <div class="label" style="font-size:20px;">
+                    Flights
+                  </div>
+                </span>
+                <span class="ui small statistic">
+                  <div class="value">
+                    <i class="plane icon"></i> 5
+                  </div>
+                  <div class="label" style="font-size:20px;">
+                    Flights
+                  </div>
+                </span>
+              </div>
+            </td>
+            <td id="priceIndicatorCell" class="stateIndicatorSecondRow" colspan="2">
+              asdf
+            </td>
+          </tr>
+        </table>
       </div>
       <table id=realScreen>
         <tr>
           <td class="bigCell leftCells Cells" id="breadcrumbCell">
-            <div id="breadcumbContents">
-              <div class="ui vertical mini steps">
+            <div class="ui vertical mini steps" id="breadcrumbContents">
                 <a class="completed step" href="./index.html">
                   <i class="home icon"></i>
                   <div class="content">
@@ -110,21 +176,21 @@
                     <div class="description nanumStep budget"></div>
                   </div>
                 </a>
-                <a class="active step">
+                <a class="completed step" href="./step2.html">
                   <i class="microchip icon"></i>
                   <div class="content">
                     <div class="title nanumStep major">게임 성능 관련 부품 선택</div>
                     <div class="description nanumStep major">CPU, 그래픽카드</div>
                   </div>
                 </a>
-                <a class="step">
+                <a class="completed step" href="./step3.html">
                   <i class="hdd icon"></i>
                   <div class="content">
                     <div class="title nanumStep major">활용도 관련 부품 선택</div>
                     <div class="description nanumStep major">저장장치, RAM</div>
                   </div>
                 </a>
-                <div class="disabled step">
+                <div class="active step">
                   <i class="window maximize icon"></i>
                   <div class="content">
                     <div class="title nanumStep case">디자인 선택</div>
@@ -138,12 +204,428 @@
                     <div class="description nanumStep confirm"></div>
                   </div>
                 </div>
-              </div>
+
             </div>
           </td>
           <td class="bigCell rightCells Cells" id="mainContentsCell" rowspan="2">
-            <div id="mainContents">
-              zsf
+            <div id="title"><span id="bigTitle">케이스</span><span id="smallTitle">&nbsp;컴퓨터의 외형을 결정합니다</span></div>
+            <!--div class="ui raised top attached segment" id="mainContentButtons">
+
+            </div-->
+            <div class="ui horizontal top attached segmants">
+              <span class="ui segment" id="leftButton">
+                옆면 :&nbsp;
+                <span class="ui">
+                  <div class="controlgroup1">
+                    <label for="insurance">유리</label>
+                    <input type="checkbox" name="insurance" checked id="insurance">
+                    <label for="insurance2">아크릴</label>
+                    <input type="checkbox" name="insurance2" checked id="insurance2">
+                    <label for="insurance3">불투명</label>
+                    <input type="checkbox" name="insurance3" checked id="insurance3">
+                  </div>
+                </span>
+              </span>
+              <span class="ui segment" id="centerButton">
+                색상 :&nbsp;
+                <span class="ui">
+                  <div class="controlgroup2">
+                    <label for="insurance4">검은색</label>
+                    <input type="checkbox" name="insurance4" checked id="insurance4">
+                    <label for="insurance5">흰색</label>
+                    <input type="checkbox" name="insurance5" checked id="insurance5">
+                  </div>
+                </span>
+              </span>
+              <span class="ui segment">
+                &nbsp;정렬 :&nbsp;
+                <button class="ui blue basic button rightButton">&nbsp;&nbsp;가격<i class="sort icon sortIcon"></i></button>
+                <button class="ui blue basic button rightButton">&nbsp;&nbsp;인기도<i class="sort icon sortIcon"></i></button>
+                &nbsp;&nbsp;
+              </span>
+            </div>
+            <div class="ui raised attached segment" id="mainContents">
+              <div class="ui special cards casecard">
+                <div class="card casecard">
+                  <div class="blurring dimmable image">
+                    <div class="ui dimmer">
+                      <div class="content cardc">
+                        <div class="center">
+                          <div class="ui inverted button">
+                            <a class="texts caseDetail" href="http://shop.danawa.com/main/?controller=goods&methods=blog&billingInternalProductSeq=5633207&productRegisterAreaGroupSeq=20&serviceSectionSeq=600" target="_blank">
+                              &nbsp;상세정보 보기&nbsp;&nbsp;<i class="icon external alternate"></i>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <img src="http://img.danawa.com/prod_img/500000/207/633/img/5633207_1.jpg?shrink=200:200">
+                  </div>
+                  <div class="content cardc">
+                    <div class="header cardheader texts">case a</div>
+                    <div class="meta texts">
+                      <i class="users icon"></i>
+                      인기도&nbsp;:&nbsp;
+                      <div class="ui star rating" data-rating="3" data-max-rating="5"></div>
+                    </div>
+                  </div>
+                  <div class="ui bottom blue attached button texts">
+                    <i class="add icon"></i>
+                    ₩ 40,000
+                  </div>
+                </div>
+                <div class="card casecard">
+                  <div class="blurring dimmable image">
+                    <div class="ui dimmer">
+                      <div class="content cardc">
+                        <div class="center">
+                          <div class="ui inverted button">
+                            <a class="texts caseDetail" href="http://shop.danawa.com/main/?controller=goods&methods=blog&billingInternalProductSeq=5633207&productRegisterAreaGroupSeq=20&serviceSectionSeq=600" target="_blank">
+                              &nbsp;상세정보 보기&nbsp;&nbsp;<i class="icon external alternate"></i></div>
+                            </a>
+                        </div>
+                      </div>
+                    </div>
+                    <img src="http://img.danawa.com/prod_img/500000/207/633/img/5633207_1.jpg?shrink=200:200">
+                  </div>
+                  <div class="content cardc">
+                    <div class="header cardheader texts">case a</div>
+                    <div class="meta texts">
+                      <i class="users icon"></i>
+                      인기도&nbsp;:&nbsp;
+                      <div class="ui star rating" data-rating="3" data-max-rating="5"></div>
+                    </div>
+                  </div>
+                  <div class="ui bottom blue attached button texts">
+                    <i class="add icon"></i>
+                    ₩ 40,000
+                  </div>
+                </div>
+                <div class="card casecard">
+                  <div class="blurring dimmable image">
+                    <div class="ui dimmer">
+                      <div class="content cardc">
+                        <div class="center">
+                          <div class="ui inverted button">
+                            <a class="texts caseDetail" href="http://shop.danawa.com/main/?controller=goods&methods=blog&billingInternalProductSeq=5633207&productRegisterAreaGroupSeq=20&serviceSectionSeq=600" target="_blank">
+                              &nbsp;상세정보 보기&nbsp;&nbsp;<i class="icon external alternate"></i></div>
+                            </a>
+                        </div>
+                      </div>
+                    </div>
+                    <img src="http://img.danawa.com/prod_img/500000/207/633/img/5633207_1.jpg?shrink=200:200">
+                  </div>
+                  <div class="content cardc">
+                    <div class="header cardheader texts">case a</div>
+                    <div class="meta texts">
+                      <i class="users icon"></i>
+                      인기도&nbsp;:&nbsp;
+                      <div class="ui star rating" data-rating="3" data-max-rating="5"></div>
+                    </div>
+                  </div>
+                  <div class="ui bottom blue attached button texts">
+                    <i class="add icon"></i>
+                    ₩ 40,000
+                  </div>
+                </div>
+                <div class="card casecard">
+                  <div class="blurring dimmable image">
+                    <div class="ui dimmer">
+                      <div class="content cardc">
+                        <div class="center">
+                          <div class="ui inverted button">
+                            <a class="texts caseDetail" href="http://shop.danawa.com/main/?controller=goods&methods=blog&billingInternalProductSeq=5633207&productRegisterAreaGroupSeq=20&serviceSectionSeq=600" target="_blank">
+                              &nbsp;상세정보 보기&nbsp;&nbsp;<i class="icon external alternate"></i></div>
+                            </a>
+                        </div>
+                      </div>
+                    </div>
+                    <img src="http://img.danawa.com/prod_img/500000/207/633/img/5633207_1.jpg?shrink=200:200">
+                  </div>
+                  <div class="content cardc">
+                    <div class="header cardheader texts">case a</div>
+                    <div class="meta texts">
+                      <i class="users icon"></i>
+                      인기도&nbsp;:&nbsp;
+                      <div class="ui star rating" data-rating="3" data-max-rating="5"></div>
+                    </div>
+                  </div>
+                  <div class="ui bottom blue attached button texts">
+                    <i class="add icon"></i>
+                    ₩ 40,000
+                  </div>
+                </div>
+                <div class="card casecard">
+                  <div class="blurring dimmable image">
+                    <div class="ui dimmer">
+                      <div class="content cardc">
+                        <div class="center">
+                          <div class="ui inverted button">
+                            <a class="texts caseDetail" href="http://shop.danawa.com/main/?controller=goods&methods=blog&billingInternalProductSeq=5633207&productRegisterAreaGroupSeq=20&serviceSectionSeq=600" target="_blank">
+                              &nbsp;상세정보 보기&nbsp;&nbsp;<i class="icon external alternate"></i></div>
+                            </a>
+                        </div>
+                      </div>
+                    </div>
+                    <img src="http://img.danawa.com/prod_img/500000/207/633/img/5633207_1.jpg?shrink=200:200">
+                  </div>
+                  <div class="content cardc">
+                    <div class="header cardheader texts">case a</div>
+                    <div class="meta texts">
+                      <i class="users icon"></i>
+                      인기도&nbsp;:&nbsp;
+                      <div class="ui star rating" data-rating="3" data-max-rating="5"></div>
+                    </div>
+                  </div>
+                  <div class="ui bottom blue attached button texts">
+                    <i class="add icon"></i>
+                    ₩ 40,000
+                  </div>
+                </div>
+                <div class="card casecard">
+                  <div class="blurring dimmable image">
+                    <div class="ui dimmer">
+                      <div class="content cardc">
+                        <div class="center">
+                          <div class="ui inverted button">
+                            <a class="texts caseDetail" href="http://shop.danawa.com/main/?controller=goods&methods=blog&billingInternalProductSeq=5633207&productRegisterAreaGroupSeq=20&serviceSectionSeq=600" target="_blank">
+                              &nbsp;상세정보 보기&nbsp;&nbsp;<i class="icon external alternate"></i></div>
+                            </a>
+                        </div>
+                      </div>
+                    </div>
+                    <img src="http://img.danawa.com/prod_img/500000/207/633/img/5633207_1.jpg?shrink=200:200">
+                  </div>
+                  <div class="content cardc">
+                    <div class="header cardheader texts">case a</div>
+                    <div class="meta texts">
+                      <i class="users icon"></i>
+                      인기도&nbsp;:&nbsp;
+                      <div class="ui star rating" data-rating="3" data-max-rating="5"></div>
+                    </div>
+                  </div>
+                  <div class="ui bottom blue attached button texts">
+                    <i class="add icon"></i>
+                    ₩ 40,000
+                  </div>
+                </div>
+                <div class="card casecard">
+                  <div class="blurring dimmable image">
+                    <div class="ui dimmer">
+                      <div class="content cardc">
+                        <div class="center">
+                          <div class="ui inverted button">
+                            <a class="texts caseDetail" href="http://shop.danawa.com/main/?controller=goods&methods=blog&billingInternalProductSeq=5633207&productRegisterAreaGroupSeq=20&serviceSectionSeq=600" target="_blank">
+                              &nbsp;상세정보 보기&nbsp;&nbsp;<i class="icon external alternate"></i></div>
+                            </a>
+                        </div>
+                      </div>
+                    </div>
+                    <img src="http://img.danawa.com/prod_img/500000/207/633/img/5633207_1.jpg?shrink=200:200">
+                  </div>
+                  <div class="content cardc">
+                    <div class="header cardheader texts">case a</div>
+                    <div class="meta texts">
+                      <i class="users icon"></i>
+                      인기도&nbsp;:&nbsp;
+                      <div class="ui star rating" data-rating="3" data-max-rating="5"></div>
+                    </div>
+                  </div>
+                  <div class="ui bottom blue attached button texts">
+                    <i class="add icon"></i>
+                    ₩ 40,000
+                  </div>
+                </div>
+                <div class="card casecard">
+                  <div class="blurring dimmable image">
+                    <div class="ui dimmer">
+                      <div class="content cardc">
+                        <div class="center">
+                          <div class="ui inverted button">
+                            <a class="texts caseDetail" href="http://shop.danawa.com/main/?controller=goods&methods=blog&billingInternalProductSeq=5633207&productRegisterAreaGroupSeq=20&serviceSectionSeq=600" target="_blank">
+                              &nbsp;상세정보 보기&nbsp;&nbsp;<i class="icon external alternate"></i></div>
+                            </a>
+                        </div>
+                      </div>
+                    </div>
+                    <img src="http://img.danawa.com/prod_img/500000/207/633/img/5633207_1.jpg?shrink=200:200">
+                  </div>
+                  <div class="content cardc">
+                    <div class="header cardheader texts">case a</div>
+                    <div class="meta texts">
+                      <i class="users icon"></i>
+                      인기도&nbsp;:&nbsp;
+                      <div class="ui star rating" data-rating="3" data-max-rating="5"></div>
+                    </div>
+                  </div>
+                  <div class="ui bottom blue attached button texts">
+                    <i class="add icon"></i>
+                    ₩ 40,000
+                  </div>
+                </div>
+                <div class="card casecard">
+                  <div class="blurring dimmable image">
+                    <div class="ui dimmer">
+                      <div class="content cardc">
+                        <div class="center">
+                          <div class="ui inverted button">
+                            <a class="texts caseDetail" href="http://shop.danawa.com/main/?controller=goods&methods=blog&billingInternalProductSeq=5633207&productRegisterAreaGroupSeq=20&serviceSectionSeq=600" target="_blank">
+                              &nbsp;상세정보 보기&nbsp;&nbsp;<i class="icon external alternate"></i></div>
+                            </a>
+                        </div>
+                      </div>
+                    </div>
+                    <img src="http://img.danawa.com/prod_img/500000/207/633/img/5633207_1.jpg?shrink=200:200">
+                  </div>
+                  <div class="content cardc">
+                    <div class="header cardheader texts">case a</div>
+                    <div class="meta texts">
+                      <i class="users icon"></i>
+                      인기도&nbsp;:&nbsp;
+                      <div class="ui star rating" data-rating="3" data-max-rating="5"></div>
+                    </div>
+                  </div>
+                  <div class="ui bottom blue attached button texts">
+                    <i class="add icon"></i>
+                    ₩ 40,000
+                  </div>
+                </div>
+                <div class="card casecard">
+                  <div class="blurring dimmable image">
+                    <div class="ui dimmer">
+                      <div class="content cardc">
+                        <div class="center">
+                          <div class="ui inverted button">
+                            <a class="texts caseDetail" href="http://shop.danawa.com/main/?controller=goods&methods=blog&billingInternalProductSeq=5633207&productRegisterAreaGroupSeq=20&serviceSectionSeq=600" target="_blank">
+                              &nbsp;상세정보 보기&nbsp;&nbsp;<i class="icon external alternate"></i></div>
+                            </a>
+                        </div>
+                      </div>
+                    </div>
+                    <img src="http://img.danawa.com/prod_img/500000/207/633/img/5633207_1.jpg?shrink=200:200">
+                  </div>
+                  <div class="content cardc">
+                    <div class="header cardheader texts">case a</div>
+                    <div class="meta texts">
+                      <i class="users icon"></i>
+                      인기도&nbsp;:&nbsp;
+                      <div class="ui star rating" data-rating="3" data-max-rating="5"></div>
+                    </div>
+                  </div>
+                  <div class="ui bottom blue attached button texts">
+                    <i class="add icon"></i>
+                    ₩ 40,000
+                  </div>
+                </div>
+                <div class="card casecard">
+                  <div class="blurring dimmable image">
+                    <div class="ui dimmer">
+                      <div class="content cardc">
+                        <div class="center">
+                          <div class="ui inverted button">
+                            <a class="texts caseDetail" href="http://shop.danawa.com/main/?controller=goods&methods=blog&billingInternalProductSeq=5633207&productRegisterAreaGroupSeq=20&serviceSectionSeq=600" target="_blank">
+                              &nbsp;상세정보 보기&nbsp;&nbsp;<i class="icon external alternate"></i></div>
+                            </a>
+                        </div>
+                      </div>
+                    </div>
+                    <img src="http://img.danawa.com/prod_img/500000/207/633/img/5633207_1.jpg?shrink=200:200">
+                  </div>
+                  <div class="content cardc">
+                    <div class="header cardheader texts">case a</div>
+                    <div class="meta texts">
+                      <i class="users icon"></i>
+                      인기도&nbsp;:&nbsp;
+                      <div class="ui star rating" data-rating="3" data-max-rating="5"></div>
+                    </div>
+                  </div>
+                  <div class="ui bottom blue attached button texts">
+                    <i class="add icon"></i>
+                    ₩ 40,000
+                  </div>
+                </div>
+                <div class="card casecard">
+                  <div class="blurring dimmable image">
+                    <div class="ui dimmer">
+                      <div class="content cardc">
+                        <div class="center">
+                          <div class="ui inverted button">
+                            <a class="texts caseDetail" href="http://shop.danawa.com/main/?controller=goods&methods=blog&billingInternalProductSeq=5633207&productRegisterAreaGroupSeq=20&serviceSectionSeq=600" target="_blank">
+                              &nbsp;상세정보 보기&nbsp;&nbsp;<i class="icon external alternate"></i></div>
+                            </a>
+                        </div>
+                      </div>
+                    </div>
+                    <img src="http://img.danawa.com/prod_img/500000/207/633/img/5633207_1.jpg?shrink=200:200">
+                  </div>
+                  <div class="content cardc">
+                    <div class="header cardheader texts">case a</div>
+                    <div class="meta texts">
+                      <i class="users icon"></i>
+                      인기도&nbsp;:&nbsp;
+                      <div class="ui star rating" data-rating="3" data-max-rating="5"></div>
+                    </div>
+                  </div>
+                  <div class="ui bottom blue attached button texts">
+                    <i class="add icon"></i>
+                    ₩ 40,000
+                  </div>
+                </div>
+                <div class="card casecard">
+                  <div class="blurring dimmable image">
+                    <div class="ui dimmer">
+                      <div class="content cardc">
+                        <div class="center">
+                          <div class="ui inverted button">
+                            <a class="texts caseDetail" href="http://shop.danawa.com/main/?controller=goods&methods=blog&billingInternalProductSeq=5633207&productRegisterAreaGroupSeq=20&serviceSectionSeq=600" target="_blank">
+                              &nbsp;상세정보 보기&nbsp;&nbsp;<i class="icon external alternate"></i></div>
+                            </a>
+                        </div>
+                      </div>
+                    </div>
+                    <img src="http://img.danawa.com/prod_img/500000/207/633/img/5633207_1.jpg?shrink=200:200">
+                  </div>
+                  <div class="content cardc">
+                    <div class="header cardheader texts">case a</div>
+                    <div class="meta texts">
+                      <i class="users icon"></i>
+                      인기도&nbsp;:&nbsp;
+                      <div class="ui star rating" data-rating="3" data-max-rating="5"></div>
+                    </div>
+                  </div>
+                  <div class="ui bottom blue attached button texts">
+                    <i class="add icon"></i>
+                    ₩ 40,000
+                  </div>
+                </div>
+                <div class="card casecard">
+                  <div class="blurring dimmable image">
+                    <div class="ui dimmer">
+                      <div class="content cardc">
+                        <div class="center">
+                          <div class="ui inverted button">
+                            <a class="texts caseDetail" href="http://shop.danawa.com/main/?controller=goods&methods=blog&billingInternalProductSeq=5633207&productRegisterAreaGroupSeq=20&serviceSectionSeq=600" target="_blank">
+                              &nbsp;상세정보 보기&nbsp;&nbsp;<i class="icon external alternate"></i></div>
+                            </a>
+                        </div>
+                      </div>
+                    </div>
+                    <img src="http://img.danawa.com/prod_img/500000/207/633/img/5633207_1.jpg?shrink=200:200">
+                  </div>
+                  <div class="content cardc">
+                    <div class="header cardheader texts">case a</div>
+                    <div class="meta texts">
+                      <i class="users icon"></i>
+                      인기도&nbsp;:&nbsp;
+                      <div class="ui star rating" data-rating="3" data-max-rating="5"></div>
+                    </div>
+                  </div>
+                  <div class="ui bottom blue attached button texts">
+                    <i class="add icon"></i>
+                    ₩ 40,000
+                  </div>
+                </div>
+              </div>
             </div>
           </td>
         </tr>

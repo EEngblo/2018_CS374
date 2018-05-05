@@ -2,6 +2,12 @@ body{
   height: 900px;
 }
 
+
+.texts{
+  font-family: 'Nanum Gothic' !important;
+
+}
+
 .center-div{
   text-align: left;
   margin-top: 30px;
@@ -32,6 +38,11 @@ body{
   border: solid;
 }
 
+#breadcrumbContents{
+  vertical-align: top !important;
+  margin-top: -50px !important;
+}
+
 input::placeholder {
   font-style: italic;
   font-family: 'Nanum Gothic', Regular;
@@ -44,7 +55,9 @@ input::placeholder {
   font-size:16px;
 }
 
-
+.stateIndicatorSecondRow{
+  padding: 8px !important;
+}
 
 .Title{
   font-family: 'Nanum Gothic', bold;
@@ -65,14 +78,16 @@ input::placeholder {
     font-weight: bold;
 }
 
-
-#nextButton{
-  width: 190px;
+.stateIndicatorFirstRow{
+  padding-top:0px !important;
+  padding-bottom: 5px !important;
+  vertical-align: middle !important;
 }
 
-#nextButtontext{
-  font-size: 20px !important;
+.moveStepButtontext{
+  font-size: 16px !important;
 }
+
 #alertNext{
   width: 700px;
   margin: 0px !important;
@@ -89,18 +104,47 @@ input::placeholder {
   left:0px;
 }
 
+.moveStepButton{
+  padding: 12px !important;
+  width: 130px !important;
+  height: 45px !important;
+  margin-left: 5px !important;
+  margin-right: 5px !important;
+}
+
+#progressCell{
+  width:100% !important;
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+  padding-top:15px !important;
+}
+
+#progressIndicator{
+  margin-bottom: 5px !important;
+}
+
+.stateIndicatorFirstRow.buttonCell{
+  width:140px !important;
+}
+
+#specIndicator{
+  width: 700px !important;
+  height: 70px !important;
+}
 
 {{{{{{{{{{{{{{{{{{{{{{{}}}}}}}}}}}}}}}}}}}}}}}
 
 .stateIndicator{
+  width:1100px !important;
   height: 150px !important;
   width: 85%;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 10px;
+  padding-left:20px !important;
+  padding-right: 20px !important;
+  padding-top: 0px !important;
 }
-
-
 
 .bigCell{
   border-style: solid;
@@ -133,7 +177,7 @@ input::placeholder {
   width:300px !important;
 }
 
-.content{
+.content:not(.cardc){
   padding:0px !important;
   height: 50px !important;
   font-size: 14px !important;
