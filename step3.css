@@ -1,0 +1,19 @@
+#helpTitle {
+	padding:10px;
+    top:0;
+    width:100%;
+    height:60px !important;
+}
+
+#helpMessage {
+
+    top:0;
+    width:100%;
+    height:100% !important;
+    line-height:130%;
+    font-size:80%;
+}
+
+#helpContents{
+	height:100%;
+}
