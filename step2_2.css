@@ -2,6 +2,93 @@
   border: none;
 }
 
+p{
+  margin-top:5px;
+  margin-bottom: 5px;
+}
+
 .bigCell{
   border-style: none !important;
+}
+
+#title{
+  margin-bottom: 5px;
+  padding-top:5px;
+}
+
+
+
+#mainContentsCell{
+  height:720px;
+}
+
+#mainContents{
+  display: table-cell;
+  vertical-align: top;
+  height: 720px;
+}
+
+.bigTitle{
+  font-size: 24px;
+  font-weight: bold;
+  align-items:  right;
+}
+
+.smallTitle{
+  font-size: 17px;
+  width: 220px !important;
+  text-align: right !important;
+
+}
+
+.explanationText{
+  font-size:18px;
+  margin-bottom: 5px !important;
+}
+
+.segment{
+  padding: 15px !important;
+}
+
+#segmantWrapper{
+  padding:10px !important;
+  width:888px !important;
+}
+
+.myDivider{
+  margin-bottom:15px !important;
+  margin-top:8px !important;
+}
+
+.modeButton{
+  width:200px !important;
+  height: 60px !important;
+  display: table-cell;
+  vertical-align: center;
+}
+
+.modeButtonText{
+  font-size: 24px;
+  margin-top: 5px;
+}
+
+.myImage{
+  margin: 5px !important;
+  margin-right: 15px !important;
+}
+
+.storageButtons.SSD{
+  margin-bottom: 10px !important;
+}
+
+.modeButtonText.priceTexts{
+  font-size:16px !important;
+  margin-top: 10px !important;
+  font-weight: 900;
+  color: red;
+}
+
+.modeButtonTextWrapper{
+  margin-top: auto;
+  margin-bottom: auto;
 }

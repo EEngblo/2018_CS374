@@ -6,7 +6,6 @@ body{
 
 .texts{
   font-family: 'Nanum Gothic' !important;
-  color: green !important;
 }
 
 #screen{
@@ -41,13 +40,6 @@ body{
 .stateIndicatorSecondRow{
   padding: 8px !important;
 }
-
-.Title{
-  font-family: 'Nanum Gothic', bold;
-  text-align: right;
-  width:200px;
-}
-
 
 
 .btn-primary.disabled, .btn-primary:disabled, .btn-primary[disabled] {
@@ -147,7 +139,7 @@ body{
 }
 
 #helpContentsCell{
-  height: 70%;
+  height: 75%;
 }
 
 .Cells{
