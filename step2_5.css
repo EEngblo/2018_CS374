@@ -9,7 +9,7 @@ body{
 }
 
 #screen{
-  width:1300px;
+  width:1400px;
   height:850px;
   margin-top:40px !important;
 
@@ -22,7 +22,7 @@ body{
 }
 
 #realScreen{
-  width:1200px;
+  width:1300px;
   height: 720px;
   margin-left: auto;
   margin-right: auto;
@@ -132,11 +132,11 @@ body{
 }
 
 .leftCells{
-  width:25%;
+  width:322px;
 }
 
 .rightCells{
-  width:75%;
+  width:978px;
 }
 
 #breadcrumbCell{
