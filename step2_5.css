@@ -1,6 +1,5 @@
 body{
   height: 900px;
-  font-family: 'Nanum Gothic' !important;
 }
 
 
@@ -8,66 +7,200 @@ body{
   font-family: 'Nanum Gothic' !important;
 }
 
-#screen{
+#m_outerScreen{
   width:1400px;
   height:850px;
-  margin-top:40px !important;
-
-  font-family: 'Nanum Gothic', serif;
+  margin-top:40px;
   margin-bottom: 10px;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 20px;
-  padding-right: 20px;
 }
 
-#realScreen{
+#m_innerScreen{
   width:1300px;
   height: 720px;
   margin-left: auto;
   margin-right: auto;
   padding-left: 50px;
   padding-right: 50px;
-  border: solid;
 }
 
-#breadcrumbContents{
-  vertical-align: top !important;
-  margin-top: -50px !important;
+.leftCells{
+  width:322px;
 }
 
-
-#stateIndicator1stRow{
-  padding-top: 25px !important;
-  height: 75px !important;
+.rightCells{
+  width:978px;
 }
 
-.stateIndicatorSecondRow{
-  padding: 8px !important;
-  padding-top: 0px !important;
+.Cells{
+  padding:5px;
 }
 
-
-.btn-primary.disabled, .btn-primary:disabled, .btn-primary[disabled] {
-    background-color: #265a8824;
-    border-color: #ffffff;
-}
-.ui-widget-header {
-    border: 1px solid #ddd;
-    background: #ff7e7e;
-    color: #333;
-    font-weight: bold;
+.d_root{
+  padding:10px !important;
+  width:978px !important;
+  height:707px !important;
 }
 
-.stateIndicatorFirstRow{
-  padding-top:0px !important;
-  padding-bottom: 5px !important;
-  vertical-align: middle !important;
+/* 화면 전체 Organization*/
+{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+/* 상단부 가격, 스펙 Indicator Cell === stateIndicator */
+
+.stateIndicator{
+  width:1200px;
+  height: 150px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+  padding-left:10px;
+  padding-right: 10px;
+  padding-top: 0px;
 }
 
-.moveStepButtontext{
+#s_root .stateIndicatorFirstRow{
+  height: 75px;
+  padding-top:0px;
+  padding-bottom: 5px;
+
+}
+
+#s_root .stateIndicatorFirstRow.buttonCell{
+  width:140px;
+}
+
+#s_root .moveStepButtontext{
+  font-size: 16px;
+}
+
+#s_root .stateIndicatorFirstRow.pricebarCell{
+  width:100%;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top:15px;
+}
+
+#s_root #s_pricebar{
+  margin-bottom: 5px;
+}
+
+#s_root .moveStepButton{
+  padding: 12px !important;
+  width: 130px !important;
+  height: 45px !important;
+  margin-left: 5px !important;
+  margin-right: 5px !important;
+}
+
+/* 위 : 가격바  ||  아래 : 성능지표  */
+
+#s_root .stateIndicatorSecondRow{
+  padding: 5px;
+  padding-top: 0px;
+}
+
+#s_root .specIndicator{
+  width: 800px;
+  height: 70px;
+}
+
+#s_root .mystateIndicator{
+  width:auto;
+  padding-left:12px !important;
+  padding-right: 12px !important;
+  margin-left: 0px !important;
+}
+
+#s_root .mystateIndicatorLabel{
   font-size: 16px !important;
+  font-weight: 400 !important;
 }
+
+#s_root .stateL1{
+  font-size:36px;
+  font-weight: bold;
+  margin-left:-5px;
+}
+
+#s_root .stateL2{
+  font-size:22px;
+}
+
+#s_root .stateUpper{
+  height: 40px;
+  margin-bottom: 5px;
+}
+
+/* 위 : 성능지표  ||  아래 : 가격상태  */
+
+#s_root .stateIndicatorSecondRow{
+  text-align: right;
+}
+
+#s_root .stateIndicatorIndex{
+  font-size:18px;
+  font-weight: 500;
+}
+
+#s_root .stateIndicatorValue{
+  font-size:30px;
+  font-weight: 900;
+}
+
+#s_root .stateIndicatorSubValue{
+  font-size:23px;
+  font-weight: 600;
+}
+
+#s_root .stateIndicatorIndex2{
+  font-size:15px;
+  font-weight: 400;
+}
+
+
+/* 상단부 가격, 스펙 Indicator Cell === stateIndicator */
+{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+/* 화면 좌측 Bredcrumb === breadCrumb */
+
+#m_breadcrumbCell{
+  height:314px;
+}
+
+
+#b_root .step{
+  padding:5px !important;
+  padding-left:15px !important;
+  height:60px;
+  width:300px;
+}
+
+#b_root .eachStep{
+  margin-top: 5px;
+  height:20px;
+}
+
+#b_root .description.eachStep{
+  height: 15px;
+  font-size: 12px;
+  font-family: "Nanum Gothic", serif;
+}
+
+#b_root .content{
+  padding:0px;
+  height: 50px;
+  font-size: 14px;
+}
+
+/* 화면 좌측 Bredcrumb === breadCrumb */
+{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+/* 도움말 칸 === m_help */
+#helpContentsCell{
+
+}
+
+{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+
+
 
 #alertNext{
   width: 700px;
@@ -83,150 +216,4 @@ body{
   position:relative;
   top:-100px;
   left:0px;
-}
-
-.moveStepButton{
-  padding: 12px !important;
-  width: 130px !important;
-  height: 45px !important;
-  margin-left: 5px !important;
-  margin-right: 5px !important;
-}
-
-#progressCell{
-  width:100% !important;
-  padding-left: 15px !important;
-  padding-right: 15px !important;
-  padding-top:15px !important;
-}
-
-#progressIndicator{
-  margin-bottom: 5px !important;
-}
-
-.stateIndicatorFirstRow.buttonCell{
-  width:140px !important;
-}
-
-#specIndicator{
-  width: 730px !important;
-  height: 70px !important;
-}
-
-{{{{{{{{{{{{{{{{{{{{{{{}}}}}}}}}}}}}}}}}}}}}}}
-
-.stateIndicator{
-  width:1150px !important;
-  height: 150px !important;
-  width: 85%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 10px;
-  padding-left:10px !important;
-  padding-right: 10px !important;
-  padding-top: 0px !important;
-}
-
-.bigCell{
-  border-style: solid;
-}
-
-.leftCells{
-  width:322px;
-}
-
-.rightCells{
-  width:978px;
-}
-
-#breadcrumbCell{
-  height:25%;
-  padding-left: 5px;
-}
-
-#helpContentsCell{
-  height: 75%;
-}
-
-.Cells{
-  padding:5px;
-}
-
-.step{
-  padding:5px !important;
-  height:60px !important;
-  width:300px !important;
-}
-
-.content:not(.cardc){
-  padding:0px !important;
-  height: 50px !important;
-  font-size: 14px !important;
-}
-
-.nanumStep{
-  font-family: 'Nanum Gothic', serif !important;
-  height:25px !important;
-}
-
-.description.nanumStep{
-  height: 15px !important;
-  font-size: 13px !important;
-}
-
-.mystateIndicator{
-  width:140px !important;
-  margin-left: 0px !important;
-}
-
-.mystateIndicator.long{
-  width:150px !important;
-  margin-left: 0px !important;
-}
-
-.mystateIndicatorLabel{
-  font-size: 16px !important;
-  font-weight: 400 !important;
-}
-
-.stateIcon{
-  font-size:30px !important;
-}
-
-.stateL1{
-  font-size:36px;
-  font-weight: bold;
-}
-
-.stateL2{
-  font-size:22px;
-}
-
-.stateUpper{
-  height: 40px !important;
-  margin-bottom: 5px !important;
-}
-
-#budgetIndicatorCell{
-  text-align: right;
-}
-
-.stateIndicatorIndex{
-  font-size:18px !important;
-  font-weight: 500;
-}
-
-.stateIndicatorValue{
-  font-size:28px !important;
-  font-weight: 900;
-}
-
-.stateIndicatorValue#remainder{
-  font-size:20px !important;
-  font-weight: 600;
-}
-
-.stateIndicatorIndex2{
-  font-size:15px !important;
-  font-weight: 400;
 }
