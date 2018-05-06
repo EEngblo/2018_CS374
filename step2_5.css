@@ -1,6 +1,5 @@
 body{
   height: 900px;
-  font-family: 'Nanum Gothic' !important;
 }
 
 
@@ -8,12 +7,11 @@ body{
   font-family: 'Nanum Gothic' !important;
 }
 
-#screen{
+#m_outerScreen{
   width:1400px;
   height:850px;
-  margin-top:40px !important;
+  margin-top:40px;
 
-  font-family: 'Nanum Gothic', serif;
   margin-bottom: 10px;
   margin-left: auto;
   margin-right: auto;
@@ -31,21 +29,123 @@ body{
   border: solid;
 }
 
+/* 화면 전체 */
+{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+/* 상단부 가격, 스펙 Indicator Cell === stateIndicator */
+
+.stateIndicator{
+  width:1200px;
+  height: 150px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+  padding-left:10px;
+  padding-right: 10px;
+  padding-top: 0px;
+}
+
+.stateIndicatorFirstRow{
+  height: 75px;
+  padding-top:0px;
+  padding-bottom: 5px;
+
+}
+
+.stateIndicatorFirstRow.buttonCell{
+  width:140px;
+}
+
+.moveStepButtontext{
+  font-size: 16px;
+}
+
+.stateIndicatorFirstRow.pricebarCell{
+  width:100%;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top:15px;
+}
+
+#s_pricebar{
+  margin-bottom: 5px;
+}
+
+/* 위 : 가격바  ||  아래 : 성능지표  */
+
+.stateIndicatorSecondRow{
+  padding: 5px;
+  padding-top: 0px;
+}
+
+.specIndicator{
+  width: 800px;
+  height: 70px;
+}
+
+.mystateIndicator{
+  width:auto;
+  padding-left:12px !important;
+  padding-right: 12px !important;
+  margin-left: 0px !important;
+}
+
+.mystateIndicatorLabel{
+  font-size: 16px !important;
+  font-weight: 400 !important;
+}
+
+.stateL1{
+  font-size:36px;
+  font-weight: bold;
+  margin-left:-5px;
+}
+
+.stateL2{
+  font-size:22px;
+}
+
+.stateUpper{
+  height: 40px;
+  margin-bottom: 5px;
+}
+
+/* 위 : 성능지표  ||  아래 : 가격상태  */
+
+.stateIndicatorSecondRow{
+  text-align: right;
+}
+
+.stateIndicatorIndex{
+  font-size:18px;
+  font-weight: 500;
+}
+
+.stateIndicatorValue{
+  font-size:30px;
+  font-weight: 900;
+}
+
+.stateIndicatorSubValue{
+  font-size:23px;
+  font-weight: 600;
+}
+
+.stateIndicatorIndex2{
+  font-size:15px;
+  font-weight: 400;
+}
+
+
+/* 상단부 가격, 스펙 Indicator Cell === stateIndicator */
+{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+
+
 #breadcrumbContents{
   vertical-align: top !important;
   margin-top: -50px !important;
 }
 
 
-#stateIndicator1stRow{
-  padding-top: 25px !important;
-  height: 75px !important;
-}
-
-.stateIndicatorSecondRow{
-  padding: 8px !important;
-  padding-top: 0px !important;
-}
 
 
 .btn-primary.disabled, .btn-primary:disabled, .btn-primary[disabled] {
@@ -59,15 +159,9 @@ body{
     font-weight: bold;
 }
 
-.stateIndicatorFirstRow{
-  padding-top:0px !important;
-  padding-bottom: 5px !important;
-  vertical-align: middle !important;
-}
 
-.moveStepButtontext{
-  font-size: 16px !important;
-}
+
+
 
 #alertNext{
   width: 700px;
@@ -93,39 +187,16 @@ body{
   margin-right: 5px !important;
 }
 
-#progressCell{
-  width:100% !important;
-  padding-left: 15px !important;
-  padding-right: 15px !important;
-  padding-top:15px !important;
-}
 
-#progressIndicator{
-  margin-bottom: 5px !important;
-}
 
-.stateIndicatorFirstRow.buttonCell{
-  width:140px !important;
-}
 
-#specIndicator{
-  width: 730px !important;
-  height: 70px !important;
-}
+
+
+
 
 {{{{{{{{{{{{{{{{{{{{{{{}}}}}}}}}}}}}}}}}}}}}}}
 
-.stateIndicator{
-  width:1150px !important;
-  height: 150px !important;
-  width: 85%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 10px;
-  padding-left:10px !important;
-  padding-right: 10px !important;
-  padding-top: 0px !important;
-}
+
 
 .bigCell{
   border-style: solid;
@@ -172,61 +243,4 @@ body{
 .description.nanumStep{
   height: 15px !important;
   font-size: 13px !important;
-}
-
-.mystateIndicator{
-  width:140px !important;
-  margin-left: 0px !important;
-}
-
-.mystateIndicator.long{
-  width:150px !important;
-  margin-left: 0px !important;
-}
-
-.mystateIndicatorLabel{
-  font-size: 16px !important;
-  font-weight: 400 !important;
-}
-
-.stateIcon{
-  font-size:30px !important;
-}
-
-.stateL1{
-  font-size:36px;
-  font-weight: bold;
-}
-
-.stateL2{
-  font-size:22px;
-}
-
-.stateUpper{
-  height: 40px !important;
-  margin-bottom: 5px !important;
-}
-
-#budgetIndicatorCell{
-  text-align: right;
-}
-
-.stateIndicatorIndex{
-  font-size:18px !important;
-  font-weight: 500;
-}
-
-.stateIndicatorValue{
-  font-size:28px !important;
-  font-weight: 900;
-}
-
-.stateIndicatorValue#remainder{
-  font-size:20px !important;
-  font-weight: 600;
-}
-
-.stateIndicatorIndex2{
-  font-size:15px !important;
-  font-weight: 400;
 }
