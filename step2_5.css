@@ -11,12 +11,9 @@ body{
   width:1400px;
   height:850px;
   margin-top:40px;
-
   margin-bottom: 10px;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 20px;
-  padding-right: 20px;
 }
 
 #m_innerScreen{
@@ -26,11 +23,6 @@ body{
   margin-right: auto;
   padding-left: 50px;
   padding-right: 50px;
-  border: solid;
-}
-
-.bigCell{
-  border-style: solid;
 }
 
 .leftCells{
@@ -43,6 +35,12 @@ body{
 
 .Cells{
   padding:5px;
+}
+
+.d_root{
+  padding:10px !important;
+  width:978px !important;
+  height:707px !important;
 }
 
 /* 화면 전체 Organization*/
@@ -60,93 +58,101 @@ body{
   padding-top: 0px;
 }
 
-.stateIndicatorFirstRow{
+#s_root .stateIndicatorFirstRow{
   height: 75px;
   padding-top:0px;
   padding-bottom: 5px;
 
 }
 
-.stateIndicatorFirstRow.buttonCell{
+#s_root .stateIndicatorFirstRow.buttonCell{
   width:140px;
 }
 
-.moveStepButtontext{
+#s_root .moveStepButtontext{
   font-size: 16px;
 }
 
-.stateIndicatorFirstRow.pricebarCell{
+#s_root .stateIndicatorFirstRow.pricebarCell{
   width:100%;
   padding-left: 15px;
   padding-right: 15px;
   padding-top:15px;
 }
 
-#s_pricebar{
+#s_root #s_pricebar{
   margin-bottom: 5px;
+}
+
+#s_root .moveStepButton{
+  padding: 12px !important;
+  width: 130px !important;
+  height: 45px !important;
+  margin-left: 5px !important;
+  margin-right: 5px !important;
 }
 
 /* 위 : 가격바  ||  아래 : 성능지표  */
 
-.stateIndicatorSecondRow{
+#s_root .stateIndicatorSecondRow{
   padding: 5px;
   padding-top: 0px;
 }
 
-.specIndicator{
+#s_root .specIndicator{
   width: 800px;
   height: 70px;
 }
 
-.mystateIndicator{
+#s_root .mystateIndicator{
   width:auto;
   padding-left:12px !important;
   padding-right: 12px !important;
   margin-left: 0px !important;
 }
 
-.mystateIndicatorLabel{
+#s_root .mystateIndicatorLabel{
   font-size: 16px !important;
   font-weight: 400 !important;
 }
 
-.stateL1{
+#s_root .stateL1{
   font-size:36px;
   font-weight: bold;
   margin-left:-5px;
 }
 
-.stateL2{
+#s_root .stateL2{
   font-size:22px;
 }
 
-.stateUpper{
+#s_root .stateUpper{
   height: 40px;
   margin-bottom: 5px;
 }
 
 /* 위 : 성능지표  ||  아래 : 가격상태  */
 
-.stateIndicatorSecondRow{
+#s_root .stateIndicatorSecondRow{
   text-align: right;
 }
 
-.stateIndicatorIndex{
+#s_root .stateIndicatorIndex{
   font-size:18px;
   font-weight: 500;
 }
 
-.stateIndicatorValue{
+#s_root .stateIndicatorValue{
   font-size:30px;
   font-weight: 900;
 }
 
-.stateIndicatorSubValue{
+#s_root .stateIndicatorSubValue{
   font-size:23px;
   font-weight: 600;
 }
 
-.stateIndicatorIndex2{
+#s_root .stateIndicatorIndex2{
   font-size:15px;
   font-weight: 400;
 }
@@ -161,43 +167,38 @@ body{
 }
 
 
-.step{
+#b_root .step{
   padding:5px !important;
   padding-left:15px !important;
   height:60px;
   width:300px;
 }
 
-.eachStep{
+#b_root .eachStep{
   margin-top: 5px;
   height:20px;
 }
 
-.description.eachStep{
+#b_root .description.eachStep{
   height: 15px;
   font-size: 12px;
   font-family: "Nanum Gothic", serif;
 }
 
+#b_root .content{
+  padding:0px;
+  height: 50px;
+  font-size: 14px;
+}
+
 /* 화면 좌측 Bredcrumb === breadCrumb */
 {{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
-
+/* 도움말 칸 === m_help */
 #helpContentsCell{
 
 }
 
-.btn-primary.disabled, .btn-primary:disabled, .btn-primary[disabled] {
-    background-color: #265a8824;
-    border-color: #ffffff;
-}
-.ui-widget-header {
-    border: 1px solid #ddd;
-    background: #ff7e7e;
-    color: #333;
-    font-weight: bold;
-}
-
-
+{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
 
 
 
@@ -215,32 +216,4 @@ body{
   position:relative;
   top:-100px;
   left:0px;
-}
-
-.moveStepButton{
-  padding: 12px !important;
-  width: 130px !important;
-  height: 45px !important;
-  margin-left: 5px !important;
-  margin-right: 5px !important;
-}
-
-
-
-
-
-
-
-
-{{{{{{{{{{{{{{{{{{{{{{{}}}}}}}}}}}}}}}}}}}}}}}
-
-
-
-
-
-
-.content:not(.cardc){
-  padding:0px !important;
-  height: 50px !important;
-  font-size: 14px !important;
 }

@@ -60,7 +60,7 @@
   <body>
 
     <!-- TODO : Logo button(id: m_logoButton) 눌렀을 때 confrim 창 띄워서 safety 좋도록 하기  -->
-    <!-- 상단 네비게이션 바 : 손대지 말 것                                      -->
+    <!-- 상단 네비게이션 바 : 위의 TODO 이외에는 절대 손대지 말 것                                      -->
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -93,12 +93,10 @@
       </div>
     </nav>
 
-
     <!-- 본문 내용 시작 -->
     <div id="m_outerScreen" class="ui container center-div">
 
-      <!-- 화면 상단 상태바    -->
-      <!-- TODO 및 id document -->
+      <!-- 화면 상단 상태바 : TODO 및 id document    -->
       <!--
 
         s_root : 쓰일 일 없을 듯
@@ -245,7 +243,7 @@
       <!-- 화면 중앙 contents -->
       <table id=m_innerScreen>
         <tr>
-          <!-- TODO 및 id document -->
+          <!-- Breadcrumb : TODO 및 id document -->
           <!--
 
             b_root : breadcrumb 전체를 감싸는 div
@@ -310,141 +308,171 @@
               </a>
             </div>
           </td>
-          <td class="bigCell rightCells Cells" id="mainContentsCell" rowspan="2">
-            <div id="mainContents">
-              <div id="segmantWrapper" class="ui segment">
-                <div class="ui stacked segment texts mySegment">
-                  <div id="title">
-                    <span class="bigTitle">RAM</span>
-                  </div>
 
-                  <div class="ui divider myDivider"></div>
+          <!-- Main Data Contents -->
+          <td class="bigCell rightCells Cells" id="m_mainContentsCell" rowspan="2">
+            <!-- m_mainContentsCell의 innerHTML을 바꿈으로써 step 전환 수행 -->
 
-                  <img class="ui rounded left floated image myImage" src="./img/RAM.jpg" width="80" height="80">
-                  <p class="texts explanationText">컴퓨터가 정보를 임시로 담아두기 위해 사용하는 메모지 같은 역할을 합니다.</p>
-                  <p class="texts explanationText">게임 성능에는 큰 영향을 주지 않지만, 가득 찰 경우 급격히 느려지거나 게임이 팅길 수 있으며,</p>
-                  <p class="texts explanationText">용량이 클수록 동시에 더 많은 게임, 프로그램들을 실행할 수 있습니다.</p>
 
-                  <div class="ui horizontal divider texts myDivider">
-                    <i class="fa fa-hand-pointer"></i>
-                    &nbsp;RAM 용량 옵션
-                  </div>
+            <!-- RAM과 저장공간 정하는 step -->
 
-                  <label class="smallTitle">용량 :&nbsp;&nbsp;</label>
+            <!-- 활용도(RAM 및 저장공간) : TODO 및 id document    -->
+            <!--
+
+            RAM
+              d_RAM_[8G,16G]_button : RAM 버튼
+                - 이미 handler 함수들이 index.js에 다 짜여 있으므로 이를 가져다가 '견적 수정 기능'만 더하면 됨
+                - 선택된 button에 대해서는 아래 d_RAM_[8G,16G] div에 'hidden' 클래스를 추가하고, 선택 해제시 제거해야 함
+              d_RAM[8G,16G] : 가격 차이 보여주는 text의 div
+
+            SSD
+              d_SSD_[250G,500G]_button : SSD 버튼
+                - 위와 같음
+              d_SSD_[250G,500G] : 가격 차이 보여주는 text의 div
+
+            HDD
+              d_HDD_[NO,1T]_button : HDD 버튼
+                - 위와 같음
+              d_HDD_[NO,1T] : 가격 차이 보여주는 text의 div
+
+            -->
+            <div id="d_root_RAMandSto" class="ui segment d_root">
+
+              <div class="ui stacked segment texts mySegment">
+
+                <div class="bigTitle">RAM</div>
+
+                <div class="ui divider myDivider"></div>
+
+                <img class="ui rounded left floated image myImage" src="./img/RAM.jpg" width="80" height="80">
+                <p class="texts explanationText">컴퓨터가 실행중인 프로그램에 대한 정보를 적어두기 위해 사용하는 메모지 같은 역할을 합니다.</p>
+                <p class="texts explanationText">게임 <strong>성능에는 큰 영향을 주지 않지만</strong>, <strong>가득 찰 경우 급격히 느려지고</strong> 넘치게 되면 게임이 팅길 수 있습니다.</p>
+                <p class="texts explanationText">용량이 클수록 동시에 더 많은 게임과 프로그램들을 실행할 수 있습니다.</p>
+
+                <div class="ui horizontal divider texts myDivider">
+                  <i class="fa fa-hand-pointer"></i>
+                  &nbsp;RAM 용량 옵션
+                </div>
+
+                <label class="smallTitle">용량 :&nbsp;&nbsp;</label>
+                <span display:inline class="ui buttons">
+                   <button class="ui inverted violet button modeButton"
+                   id="d_RAM_8G_button"
+                   onmouseover="modeButtonHoverHandler(this);"
+                   onmouseout="modeButtonHoverEndHandler(this);"
+                   onclick="modeButtonClickHandler(this, document.getElementById('d_RAM_16G_button'));"
+                   data-tooltip="동시에 창을 많이 켜 두지 않는 보통 사용자에게 적합합니다"
+                   data-inverted=""
+                   data-position="bottom center"
+                   data-variation="wide"
+                   >
+                     <div class="modeButtonText texts">8 G</div>
+                     <div id="d_RAM_8G" class="modeButtonText texts priceTexts minus">- ₩ 90,000</div>
+                   </button>
+                   <div class="or" style="height:60px;"></div>
+                   <button class="ui inverted violet button modeButton"
+                   id="d_RAM_16G_button"
+                   onmouseover="modeButtonHoverHandler(this);"
+                   onmouseout="modeButtonHoverEndHandler(this);"
+                   onclick="modeButtonClickHandler(this, document.getElementById('d_RAM_8G_button'));"
+                   data-tooltip="동시에 게임, 인터넷, 무거운 프로그램 등을 많이 실행시키는 사용자에게 적합합니다"
+                   data-inverted=""
+                   data-position="bottom center"
+                   data-variation="wide"
+                   >
+                       <div class="modeButtonText texts">16 G</div>
+                       <div id="d_RAM_16G" class="modeButtonText texts priceTexts plus">+ ₩ 90,000</div>
+                   </button>
+                 </span>
+              </div>
+              <div class="ui stacked segment texts mySegment">
+                <div ="title">
+                  <span class="bigTitle">저장장치</span>
+                </div>
+
+                <div class="ui divider myDivider"></div>
+
+                <img class="ui rounded left floated image myImage" src="./img/SSD.jpg" width="80" height="80">
+                <p class="texts explanationText">사용자 데이터를 저장하는 공간으로, <strong>하드디스크</strong>와 초고속 저장장치인 <strong>SSD</strong>가 있습니다.</p>
+                <p class="texts explanationText">용량이 크지만 느린<strong>하드디스크</strong>에는 <strong>가끔</strong> 사용하는 게임과 프로그램, <strong>음악, 동영상, 사진</strong> 등을 저장하고,</p>
+                <p class="texts explanationText">빠르지만 작고 비싼 <strong>SSD</strong>에는 윈도우, <strong>자주 사용하는 게임</strong>과 프로그램들을 저장하여 빠르게 실행할 수 있습니다.</p>
+                <br>
+                <p class="texts explanationText">현재 사용중인 컴퓨터의 저장장치 용량, 주로 하는 게임의 개수와 용량을 확인해 보세요.</p>
+
+                <div class="ui horizontal divider texts myDivider">
+                  <i class="fa fa-hand-pointer"></i>
+                  &nbsp;저장장치 용량 옵션
+                </div>
+
+                <div class="storageButtons SSD">
+                  <label class="smallTitle">SSD (초고속 저장장치) 용량 :&nbsp;&nbsp;</label>
                   <span display:inline class="ui buttons">
                      <button class="ui inverted violet button modeButton"
-                     id="RAM_8G"
+                     id="d_SSD_250G_button"
                      onmouseover="modeButtonHoverHandler(this);"
                      onmouseout="modeButtonHoverEndHandler(this);"
-                     onclick="modeButtonClickHandler(this, document.getElementById('RAM_16G'));"
-                     data-tooltip="동시에 창을 많이 켜 두지 않는 보통 사용자에게 적합합니다"
+                     onclick="modeButtonClickHandler(this, document.getElementById('d_SSD_500G_button'));"
+                     data-tooltip="한 두 종류의 게임만 하는 사용자에게 적합합니다"
                      data-inverted=""
                      data-position="top center"
                      data-variation="wide"
                      >
-                       <div class="modeButtonText texts">8 G</div>
+                       <div class="modeButtonText texts">250 G</div>
+                       <div id="d_SSD_250G" class="modeButtonText texts priceTexts minus">- ₩ 90,000</div>
                      </button>
                      <div class="or" style="height:60px;"></div>
                      <button class="ui inverted violet button modeButton"
-                     id="RAM_16G"
+                     id="d_SSD_500G_button"
                      onmouseover="modeButtonHoverHandler(this);"
                      onmouseout="modeButtonHoverEndHandler(this);"
-                     onclick="modeButtonClickHandler(this, document.getElementById('RAM_8G'));"
-                     data-tooltip="동시에 게임, 인터넷, 무거운 프로그램 등을 많이 실행시키는 사용자에게 적합합니다"
+                     onclick="modeButtonClickHandler(this, document.getElementById('d_SSD_250G_button'));"
+                     data-tooltip="다양한 종류의 게임을 하는 사용자에게 적합합니다"
                      data-inverted=""
                      data-position="top center"
                      data-variation="wide"
                      >
-                       <div class="modeButtonTextWrapper">
-                         <div class="modeButtonText texts">16 G</div>
-                         <div class="modeButtonText texts priceTexts">+ ₩ 90,000</div>
-                       </div>
+                       <div class="modeButtonText texts">500 G</div>
+                       <div id="d_SSD_500G" class="modeButtonText texts priceTexts plus">+ ₩ 90,000</div>
                      </button>
+
                    </span>
+                 </div>
+                 <div class="storageButtons">
+                   <label class="smallTitle ">하드디스크 용량 :&nbsp;&nbsp;</label>
+                   <span display:inline class="ui buttons">
+                      <button class="ui inverted violet button modeButton"
+                      id="d_HDD_NO_button"
+                      onmouseover="modeButtonHoverHandler(this);"
+                      onmouseout="modeButtonHoverEndHandler(this);"
+                      onclick="modeButtonClickHandler(this, document.getElementById('d_HDD_1T_button'));"
+                      data-tooltip="동영상 등 용량이 큰 파일을 많이 저장해 두지 않는 사용자에게 적합합니다"
+                      data-inverted=""
+                      data-position="bottom center"
+                      data-variation="wide"
+                      >
+                        <div class="modeButtonText texts">없 음</div>
+                        <div id="d_HDD_NO" class="modeButtonText texts priceTexts minus">- ₩ 90,000</div>
+                      </button>
+                      <div class="or" style="height:60px;"></div>
+                      <button class="ui inverted violet button modeButton"
+                      id="d_HDD_1T_button"
+                      onmouseover="modeButtonHoverHandler(this);"
+                      onmouseout="modeButtonHoverEndHandler(this);"
+                      onclick="modeButtonClickHandler(this, document.getElementById('d_HDD_NO_button'));"
+                      data-tooltip="동영상 등 용량이 큰 파일을 많이 저장하는 사용자에게 적합합니다"
+                      data-inverted=""
+                      data-position="bottom center"
+                      data-variation="wide"
+                      >
+                        <div class="modeButtonText texts">1000 G</div>
+                        <div id="d_HDD_1T" class="modeButtonText texts priceTexts plus">+ ₩ 90,000</div>
+                      </button>
+                    </span>
+                  </div>
                 </div>
-                <div class="ui stacked segment texts mySegment">
-                  <div id="title">
-                    <span class="bigTitle">저장장치</span>
-                  </div>
-
-                  <div class="ui divider myDivider"></div>
-
-                  <img class="ui rounded left floated image myImage" src="./img/SSD.jpg" width="80" height="80">
-                  <p class="texts explanationText">사용자 데이터를 저장하는 공간으로, <strong>하드디스크</strong>와 초고속 저장장치인 <strong>SSD</strong>가 있습니다.</p>
-                  <p class="texts explanationText">용량이 큰 <strong>하드디스크</strong>에는 가끔 사용하는 게임과 프로그램, 음악, 동영상 등을 저장하고,</p>
-                  <p class="texts explanationText">빠른 <strong>SSD</strong>에는 윈도우, 자주 사용하는 게임과 프로그램들을 저장하여 빠르게 실행할 수 있습니다.</p>
-                  <br>
-                  <p class="texts explanationText">현재 사용중인 컴퓨터의 저장장치 용량, 주로 하는 게임의 개수와 용량을 확인해 보세요.</p>
-
-                  <div class="ui horizontal divider texts myDivider">
-                    <i class="fa fa-hand-pointer"></i>
-                    &nbsp;저장장치 용량 옵션
-                  </div>
-
-                  <div class="storageButtons SSD">
-                    <label class="smallTitle">SSD (초고속 저장장치) 용량 :&nbsp;&nbsp;</label>
-                    <span display:inline class="ui buttons">
-                       <button class="ui inverted violet button modeButton"
-                       id="SSD_250G"
-                       onmouseover="modeButtonHoverHandler(this);"
-                       onmouseout="modeButtonHoverEndHandler(this);"
-                       onclick="modeButtonClickHandler(this, document.getElementById('SSD_500G'));"
-                       data-tooltip="한 두 종류의 게임만 하는 사용자에게 적합합니다"
-                       data-inverted=""
-                       data-position="top center"
-                       data-variation="wide"
-                       >
-                         <div class="modeButtonText texts">250 G</div>
-                       </button>
-                       <div class="or" style="height:60px;"></div>
-                       <button class="ui inverted violet button modeButton"
-                       id="SSD_500G"
-                       onmouseover="modeButtonHoverHandler(this);"
-                       onmouseout="modeButtonHoverEndHandler(this);"
-                       onclick="modeButtonClickHandler(this, document.getElementById('SSD_250G'));"
-                       data-tooltip="다양한 종류의 게임을 하는 사용자에게 적합합니다"
-                       data-inverted=""
-                       data-position="top center"
-                       data-variation="wide"
-                       >
-                         <div class="modeButtonText texts">500 G</div>
-                       </button>
-
-                     </span>
-                   </div>
-                   <div class="storageButtons">
-                     <label class="smallTitle ">하드디스크 용량 :&nbsp;&nbsp;</label>
-                     <span display:inline class="ui buttons">
-                        <button class="ui inverted violet button modeButton"
-                        id="HDD_NO"
-                        onmouseover="modeButtonHoverHandler(this);"
-                        onmouseout="modeButtonHoverEndHandler(this);"
-                        onclick="modeButtonClickHandler(this, document.getElementById('HDD_1T'));"
-                        data-tooltip="동영상 등 용량이 큰 파일을 많이 저장해 두지 않는 사용자에게 적합합니다"
-                        data-inverted=""
-                        data-position="bottom center"
-                        data-variation="wide"
-                        >
-                          <div class="modeButtonText texts">없 음</div>
-                        </button>
-                        <div class="or" style="height:60px;"></div>
-                        <button class="ui inverted violet button modeButton"
-                        id="HDD_1T"
-                        onmouseover="modeButtonHoverHandler(this);"
-                        onmouseout="modeButtonHoverEndHandler(this);"
-                        onclick="modeButtonClickHandler(this, document.getElementById('HDD_NO'));"
-                        data-tooltip="동영상 등 용량이 큰 파일을 많이 저장하는 사용자에게 적합합니다"
-                        data-inverted=""
-                        data-position="bottom center"
-                        data-variation="wide"
-                        >
-                          <div class="modeButtonText texts">1000 G</div>
-                        </button>
-                      </span>
-                    </div>
-                  </div>
-              </div>
             </div>
+
+
           </td>
         </tr>
         <tr>
@@ -456,10 +484,11 @@
         </tr>
       </table>
     </div>
-    <div class="ui modal" id="nextStepConfirm">
+    <!-- TODO : legacy code임; 이를 바탕으로 해서 confirm message 잘 수정해야 함-->
+    <div class="ui modal" id="m_nextStepConfirm">
       <div class="header">부품 선택 단계로 넘어가시겠습니까?</div>
       <div class="content">
-          <div class="final" id="finalGame">1</div>
+          <div class="final" id="m_endGame">1</div>
       </div>
       <div class="actions">
         <div class="ui cancel negative basic button">

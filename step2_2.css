@@ -1,58 +1,27 @@
-#realScreen{
-  border: none;
-}
-
-p{
-  margin-top:5px;
-  margin-bottom: 5px;
-}
-
-.bigCell{
-  border-style: none !important;
-}
-
-#title{
-  margin-bottom: 5px;
-  padding-top:5px;
-}
 
 
-
-#mainContentsCell{
-  height:720px;
-}
-
-#mainContents{
-  display: table-cell;
-  vertical-align: top;
-  height: 720px;
-}
 
 .bigTitle{
   font-size: 24px;
   font-weight: bold;
-  align-items:  right;
+  margin-bottom: 5px;
+  padding-top:5px;
 }
 
 .smallTitle{
   font-size: 18px;
-  width: 230px !important;
-  text-align: right !important;
+  width: 260px;
+  text-align: right;
 
 }
 
 .explanationText{
   font-size:18px;
-  margin-bottom: 5px !important;
+  margin-bottom: 5px;
 }
 
 .segment{
-  padding: 15px !important;
-}
-
-#segmantWrapper{
-  padding:10px !important;
-  width:978px !important;
+  padding: 15px;
 }
 
 .myDivider{
@@ -61,10 +30,8 @@ p{
 }
 
 .modeButton{
-  width:200px !important;
-  height: 60px !important;
-  display: table-cell;
-  vertical-align: center;
+  width:200px;
+  height: 60px;
 }
 
 .modeButtonText{
@@ -78,17 +45,19 @@ p{
 }
 
 .storageButtons.SSD{
-  margin-bottom: 10px !important;
+  margin-bottom: 10px;
 }
 
 .modeButtonText.priceTexts{
-  font-size:16px !important;
-  margin-top: 10px !important;
+  font-size:16px;
+  margin-top: 10px;
   font-weight: 900;
-  color: red;
 }
 
-.modeButtonTextWrapper{
-  margin-top: auto;
-  margin-bottom: auto;
+.modeButtonText.priceTexts.minus{
+  color:green;
+}
+
+.modeButtonText.priceTexts.plus{
+  color:red;
 }

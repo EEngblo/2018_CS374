@@ -7,9 +7,8 @@ $( document ).ready(function() {
 
   $(".rating").rating('disable');
 
-  $( ".controlgroup1" ).controlgroup();
+  $( ".sideFilter" ).controlgroup();
 
-  $( ".controlgroup2" ).controlgroup()
+  $( ".colorFilter" ).controlgroup()
 
-  $('.asdf.checkbox').checkbox();
 });
