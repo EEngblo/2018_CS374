@@ -19,7 +19,7 @@ body{
   padding-right: 20px;
 }
 
-#realScreen{
+#m_innerScreen{
   width:1300px;
   height: 720px;
   margin-left: auto;
@@ -29,7 +29,23 @@ body{
   border: solid;
 }
 
-/* 화면 전체 */
+.bigCell{
+  border-style: solid;
+}
+
+.leftCells{
+  width:322px;
+}
+
+.rightCells{
+  width:978px;
+}
+
+.Cells{
+  padding:5px;
+}
+
+/* 화면 전체 Organization*/
 {{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
 /* 상단부 가격, 스펙 Indicator Cell === stateIndicator */
 
@@ -138,15 +154,37 @@ body{
 
 /* 상단부 가격, 스펙 Indicator Cell === stateIndicator */
 {{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+/* 화면 좌측 Bredcrumb === breadCrumb */
 
-
-#breadcrumbContents{
-  vertical-align: top !important;
-  margin-top: -50px !important;
+#m_breadcrumbCell{
+  height:314px;
 }
 
 
+.step{
+  padding:5px !important;
+  padding-left:15px !important;
+  height:60px;
+  width:300px;
+}
 
+.eachStep{
+  margin-top: 5px;
+  height:20px;
+}
+
+.description.eachStep{
+  height: 15px;
+  font-size: 12px;
+  font-family: "Nanum Gothic", serif;
+}
+
+/* 화면 좌측 Bredcrumb === breadCrumb */
+{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+
+#helpContentsCell{
+
+}
 
 .btn-primary.disabled, .btn-primary:disabled, .btn-primary[disabled] {
     background-color: #265a8824;
@@ -198,49 +236,11 @@ body{
 
 
 
-.bigCell{
-  border-style: solid;
-}
 
-.leftCells{
-  width:322px;
-}
 
-.rightCells{
-  width:978px;
-}
-
-#breadcrumbCell{
-  height:25%;
-  padding-left: 5px;
-}
-
-#helpContentsCell{
-  height: 75%;
-}
-
-.Cells{
-  padding:5px;
-}
-
-.step{
-  padding:5px !important;
-  height:60px !important;
-  width:300px !important;
-}
 
 .content:not(.cardc){
   padding:0px !important;
   height: 50px !important;
   font-size: 14px !important;
-}
-
-.nanumStep{
-  font-family: 'Nanum Gothic', serif !important;
-  height:25px !important;
-}
-
-.description.nanumStep{
-  height: 15px !important;
-  font-size: 13px !important;
 }
