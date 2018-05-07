@@ -1,0 +1,19 @@
+.tableContents{
+    font-size: medium;
+    width: 860px;
+    margin: auto;
+}
+
+.tableContent{
+    border: 1px solid black;
+    margin: auto;
+    text-align: center;
+}
+
+.itemTable {
+    width: 100%;
+}
+
+.itemHeader {
+    height: 50px;
+}
