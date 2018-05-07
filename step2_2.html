@@ -27,8 +27,8 @@
 
     <!-- Mine -->
     <link rel="stylesheet" href="./step2_5.css">
-    <link rel="stylesheet" href="./step4.css">
-    <script src="./step4.js"></script>
+    <link rel="stylesheet" href="./step2_2.css">
+    <script src="./index.js"></script>
 
     <!-- Data starts -->
     <title>Accel Danawa : 조립 컴퓨터 견적 짜기</title>
@@ -309,123 +309,186 @@
             </div>
           </td>
 
+          <!-- Main Data Contents -->
           <td class="bigCell rightCells Cells" id="m_mainContentsCell" rowspan="2">
             <!-- m_mainContentsCell의 innerHTML을 바꿈으로써 step 전환 수행 -->
 
-            <!-- id가 너무 많아서 문서화하기 귀찮으므로 생략; 직접 찾아서 쓰기-->
-            <div id="d_root_Case" class="ui segment d_root">
-              <div style="margin-bottom: 15px;">
-                <span class="texts" style="font-size: 26px; font-weight:bold;">케이스</span>
-                <span class="texts" style="font-size: 20px;">&nbsp;컴퓨터의 외형을 결정합니다</span>
-              </div>
 
-              <div class="ui horizontal top attached segmants filterAndSortTexts">
-                <span class="ui segment filterAndSortTexts" style="width: 380px !important;">
-                  옆면 :&nbsp;
-                  <span class="ui">
-                    <div class="sideFilter filterAndSortTexts">
-                      <label for="d_glass">유리</label>
-                      <input type="checkbox" name="d_glass" checked id="d_glass">
-                      <label for="d_acryl">아크릴</label>
-                      <input type="checkbox" name="d_acryl" checked id="d_acryl">
-                      <label for="d_opaque">불투명</label>
-                      <input type="checkbox" name="d_opaque" checked id="d_opaque">
-                    </div>
-                  </span>
-                </span>
-                <span class="ui segment filterAndSortTexts" style="width: 250px !important;">
-                  색상 :&nbsp;
-                  <span class="ui">
-                    <div class="colorFilter filterAndSortTexts">
-                      <label for="d_black">검은색</label>
-                      <input type="checkbox" name="d_black" checked id="d_black">
-                      <label for="d_white">흰색</label>
-                      <input type="checkbox" name="d_white" checked id="d_white">
-                    </div>
-                  </span>
-                </span>
-                <span class="ui segment filterAndSortTexts">
-                  &nbsp;정렬 :&nbsp;
-                  <button id="d_sort_price_button" class="ui blue basic button sortButtons">
-                    &nbsp;&nbsp;가격&nbsp;<i id="d_sort_price_icon" class="sort icon sortIcon"></i>
-                  </button>
+            <!-- RAM과 저장공간 정하는 step -->
 
-                  <button id="d_sort_popular_button" class="ui blue basic button sortButtons">
-                    &nbsp;&nbsp;인기도&nbsp;<i id="d_sort_popular_icon" class="sort icon sortIcon"></i>
-                  </button>
-                  &nbsp;&nbsp;
-                </span>
-              </div>
-              <div class="ui raised attached segment" id="mainContents">
-                <div class="ui special cards casecard">
+            <!-- 활용도(RAM 및 저장공간) : TODO 및 id document    -->
+            <!--
 
-                  <!-- Case id tag 설명 -->
-                  <!--
-                    m_case## : case card 전체의 id; ##은 case의 번호
-                      _detail : 다나와 세부정도 링크 갖는 <a>; href attr 적절히 정해 주어야 함
-                      _img : 이미지 갖는 <img>; src attr 적절히 정해 주어야 함
-                      _name : 케이스의 이름; innerHTML로 정해주기
-                      _popular : 인기도; data-rating attr를 1-5 사이 정수로 적절히 정해 주어야 함
-                      _button : 선택 버튼; 색 이슈 남아있음
-                      _posiOrNega : 현재 것보다 비싸면 + 싸면 -
-                      _price : 가격 정보 (현재 선택된 것과의 차이의 절대값), 천 단위 구분기호 들어가야 함
+            RAM
+              d_RAM_[8G,16G]_button : RAM 버튼
+                - 이미 handler 함수들이 index.js에 다 짜여 있으므로 이를 가져다가 '견적 수정 기능'만 더하면 됨
+                - 선택된 button에 대해서는 아래 d_RAM_[8G,16G] div에 'hidden' 클래스를 추가하고, 선택 해제시 제거해야 함
+              d_RAM[8G,16G] : 가격 차이 보여주는 text의 div
 
-                  -->
-                  <div id="m_case00" class="card casecard">
-                    <div class="blurring dimmable image">
-                      <div class="ui dimmer">
-                        <div class="content cardc">
-                          <div class="center">
-                            <div class="ui inverted button">
-                              <a id="m_case00_detail" class="texts caseDetail"
-                                 href="http://shop.danawa.com/main/?controller=goods&methods=blog&billingInternalProductSeq=5633207&productRegisterAreaGroupSeq=20&serviceSectionSeq=600"
-                                 target="_blank">
-                                 상세정보 보기&nbsp;<i class="icon external alternate"></i></div>
-                              </a>
-                          </div>
-                        </div>
-                      </div>
-                      <img id="m_case00_img" src="http://img.danawa.com/prod_img/500000/207/633/img/5633207_1.jpg?shrink=180:180">
-                    </div>
-                    <div class="content cardc">
-                      <div id="m_case00_name" class="header cardheader texts">case a</div>
-                      <div class="meta texts">
-                        <i class="users icon"></i>
-                        인기도&nbsp;:&nbsp;
-                        <div id="m_case00_popular" class="ui mini star rating" data-rating="3" data-max-rating="5"></div>
-                      </div>
-                    </div>
-                    <div id="m_case00_button" class="ui bottom violet attached button texts">
-                      <i class="shopping cart icon"></i>
-                      <span id="m_case00_posiOrNega">+</span>
-                      ₩
-                      <span id="m_case00_price">40,000</span>
-                    </div>
-                  </div>
+            SSD
+              d_SSD_[250G,500G]_button : SSD 버튼
+                - 위와 같음
+              d_SSD_[250G,500G] : 가격 차이 보여주는 text의 div
 
+            HDD
+              d_HDD_[NO,1T]_button : HDD 버튼
+                - 위와 같음
+              d_HDD_[NO,1T] : 가격 차이 보여주는 text의 div
+
+            -->
+            <div id="d_root_RAMandSto" class="ui segment d_root">
+
+              <div class="ui stacked segment texts mySegment">
+
+                <div class="bigTitle">RAM</div>
+
+                <div class="ui divider myDivider"></div>
+
+                <img class="ui rounded left floated image myImage" src="./img/RAM.jpg" width="80" height="80">
+                <p class="texts explanationText">컴퓨터가 실행중인 프로그램에 대한 정보를 적어두기 위해 사용하는 메모지 같은 역할을 합니다.</p>
+                <p class="texts explanationText">게임 <strong>성능에는 큰 영향을 주지 않지만</strong>, <strong>가득 찰 경우 급격히 느려지고</strong> 넘치게 되면 게임이 팅길 수 있습니다.</p>
+                <p class="texts explanationText">용량이 클수록 동시에 더 많은 게임과 프로그램들을 실행할 수 있습니다.</p>
+
+                <div class="ui horizontal divider texts myDivider">
+                  <i class="fa fa-hand-pointer"></i>
+                  &nbsp;RAM 용량 옵션
                 </div>
+
+                <label class="smallTitle">용량 :&nbsp;&nbsp;</label>
+                <span display:inline class="ui buttons">
+                   <button class="ui inverted violet button modeButton"
+                   id="d_RAM_8G_button"
+                   onmouseover="modeButtonHoverHandler(this);"
+                   onmouseout="modeButtonHoverEndHandler(this);"
+                   onclick="modeButtonClickHandler(this, document.getElementById('d_RAM_16G_button'));"
+                   data-tooltip="동시에 창을 많이 켜 두지 않는 보통 사용자에게 적합합니다"
+                   data-inverted=""
+                   data-position="bottom center"
+                   data-variation="wide"
+                   >
+                     <div class="modeButtonText texts">8 G</div>
+                     <div id="d_RAM_8G" class="modeButtonText texts priceTexts minus">- ₩ 90,000</div>
+                   </button>
+                   <div class="or" style="height:60px;"></div>
+                   <button class="ui inverted violet button modeButton"
+                   id="d_RAM_16G_button"
+                   onmouseover="modeButtonHoverHandler(this);"
+                   onmouseout="modeButtonHoverEndHandler(this);"
+                   onclick="modeButtonClickHandler(this, document.getElementById('d_RAM_8G_button'));"
+                   data-tooltip="동시에 게임, 인터넷, 무거운 프로그램 등을 많이 실행시키는 사용자에게 적합합니다"
+                   data-inverted=""
+                   data-position="bottom center"
+                   data-variation="wide"
+                   >
+                       <div class="modeButtonText texts">16 G</div>
+                       <div id="d_RAM_16G" class="modeButtonText texts priceTexts plus">+ ₩ 90,000</div>
+                   </button>
+                 </span>
               </div>
+              <div class="ui stacked segment texts mySegment">
+                <div ="title">
+                  <span class="bigTitle">저장장치</span>
+                </div>
+
+                <div class="ui divider myDivider"></div>
+
+                <img class="ui rounded left floated image myImage" src="./img/SSD.jpg" width="80" height="80">
+                <p class="texts explanationText">사용자 데이터를 저장하는 공간으로, <strong>하드디스크</strong>와 초고속 저장장치인 <strong>SSD</strong>가 있습니다.</p>
+                <p class="texts explanationText">용량이 크지만 느린 <strong>하드디스크</strong>에는 <strong>가끔</strong> 사용하는 게임과 프로그램, <strong>음악, 동영상, 사진</strong> 등을 저장하고,</p>
+                <p class="texts explanationText">빠르지만 작고 비싼 <strong>SSD</strong>에는 윈도우, <strong>자주 사용하는 게임</strong>과 프로그램들을 저장하여 빠르게 실행할 수 있습니다.</p>
+                <br>
+                <p class="texts explanationText">현재 사용중인 컴퓨터의 저장장치 용량, 주로 하는 게임의 개수와 용량을 확인해 보세요.</p>
+
+                <div class="ui horizontal divider texts myDivider">
+                  <i class="fa fa-hand-pointer"></i>
+                  &nbsp;저장장치 용량 옵션
+                </div>
+
+                <div class="storageButtons SSD">
+                  <label class="smallTitle">SSD (초고속 저장장치) 용량 :&nbsp;&nbsp;</label>
+                  <span display:inline class="ui buttons">
+                     <button class="ui inverted violet button modeButton"
+                     id="d_SSD_250G_button"
+                     onmouseover="modeButtonHoverHandler(this);"
+                     onmouseout="modeButtonHoverEndHandler(this);"
+                     onclick="modeButtonClickHandler(this, document.getElementById('d_SSD_500G_button'));"
+                     data-tooltip="한 두 종류의 게임만 하는 사용자에게 적합합니다"
+                     data-inverted=""
+                     data-position="top center"
+                     data-variation="wide"
+                     >
+                       <div class="modeButtonText texts">250 G</div>
+                       <div id="d_SSD_250G" class="modeButtonText texts priceTexts minus">- ₩ 90,000</div>
+                     </button>
+                     <div class="or" style="height:60px;"></div>
+                     <button class="ui inverted violet button modeButton"
+                     id="d_SSD_500G_button"
+                     onmouseover="modeButtonHoverHandler(this);"
+                     onmouseout="modeButtonHoverEndHandler(this);"
+                     onclick="modeButtonClickHandler(this, document.getElementById('d_SSD_250G_button'));"
+                     data-tooltip="다양한 종류의 게임을 하는 사용자에게 적합합니다"
+                     data-inverted=""
+                     data-position="top center"
+                     data-variation="wide"
+                     >
+                       <div class="modeButtonText texts">500 G</div>
+                       <div id="d_SSD_500G" class="modeButtonText texts priceTexts plus">+ ₩ 90,000</div>
+                     </button>
+
+                   </span>
+                 </div>
+                 <div class="storageButtons">
+                   <label class="smallTitle ">하드디스크 용량 :&nbsp;&nbsp;</label>
+                   <span display:inline class="ui buttons">
+                      <button class="ui inverted violet button modeButton"
+                      id="d_HDD_NO_button"
+                      onmouseover="modeButtonHoverHandler(this);"
+                      onmouseout="modeButtonHoverEndHandler(this);"
+                      onclick="modeButtonClickHandler(this, document.getElementById('d_HDD_1T_button'));"
+                      data-tooltip="동영상 등 용량이 큰 파일을 많이 저장해 두지 않는 사용자에게 적합합니다"
+                      data-inverted=""
+                      data-position="bottom center"
+                      data-variation="wide"
+                      >
+                        <div class="modeButtonText texts">없 음</div>
+                        <div id="d_HDD_NO" class="modeButtonText texts priceTexts minus">- ₩ 90,000</div>
+                      </button>
+                      <div class="or" style="height:60px;"></div>
+                      <button class="ui inverted violet button modeButton"
+                      id="d_HDD_1T_button"
+                      onmouseover="modeButtonHoverHandler(this);"
+                      onmouseout="modeButtonHoverEndHandler(this);"
+                      onclick="modeButtonClickHandler(this, document.getElementById('d_HDD_NO_button'));"
+                      data-tooltip="동영상 등 용량이 큰 파일을 많이 저장하는 사용자에게 적합합니다"
+                      data-inverted=""
+                      data-position="bottom center"
+                      data-variation="wide"
+                      >
+                        <div class="modeButtonText texts">1000 G</div>
+                        <div id="d_HDD_1T" class="modeButtonText texts priceTexts plus">+ ₩ 90,000</div>
+                      </button>
+                    </span>
+                  </div>
+                </div>
             </div>
+
+
           </td>
         </tr>
         <tr>
           <td class="bigCell leftCells Cells" id="helpContentsCell">
-
-            <div class="ui segment h_content" id="h_storage" style="display:" >
-                <div class="texts bigTitle"> case a </div>
-                <div class="ui divider myDivider"></div>
-                <img src="http://img.danawa.com/prod_img/500000/207/633/img/5633207_1.jpg?shrink=270:270">
-                
-              </div>
-
+            <div id="helpContents">
+              도움말 자리
+            </div>
           </td>
         </tr>
       </table>
     </div>
-    <div class="ui modal" id="nextStepConfirm">
+    <!-- TODO : legacy code임; 이를 바탕으로 해서 confirm message 잘 수정해야 함-->
+    <div class="ui modal" id="m_nextStepConfirm">
       <div class="header">부품 선택 단계로 넘어가시겠습니까?</div>
       <div class="content">
-          <div class="final" id="finalGame">1</div>
+          <div class="final" id="m_endGame">1</div>
       </div>
       <div class="actions">
         <div class="ui cancel negative basic button">

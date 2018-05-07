@@ -1,0 +1,44 @@
+#mainContents{
+  height: 600px !important;
+  overflow-y: auto;
+  padding-left: 2px;
+  padding-right: 2px;
+  padding-top:2px;
+  padding-bottom: 2px;
+}
+
+#realScreen{
+  border: none;
+}
+
+#title{
+  margin-bottom: 15px;
+}
+
+#bigTitle{
+  font-size: 26px;
+  font-weight: bold;
+}
+
+#smallTitle{
+  font-size: 20px;
+}
+
+#mainContentButtons{
+  margin-top: 0px;
+  padding:10px;
+}
+
+
+
+.bigCell{
+  border-style: none !important;
+}
+
+
+
+
+#buttons {
+	text-align:center;
+	vertical-align:middle;
+}

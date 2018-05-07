@@ -1,51 +1,49 @@
 #mainContents{
   height: 600px !important;
   overflow-y: auto;
-  padding-left: 2px;
+  overflow-x: hidden;
+  padding-left: 0px;
   padding-right: 2px;
   padding-top:2px;
   padding-bottom: 2px;
 }
 
-#realScreen{
-  border: none;
+.d_root#d_root_Case{
+  padding-top: 15px !important;
 }
 
-#title{
-  margin-bottom: 15px;
+ .filterAndSortTexts{
+  font-family: "Nanum Gothic", serif;
+  font-size:15px !important;
 }
 
-#bigTitle{
-  font-size: 26px;
-  font-weight: bold;
+.card .texts{
+  font-size:14px !important;
+}
+{{{{{{{{{{{{{{{{}}}}}}}}}}}}}}}}
+
+
+.sortButtons{
+  width:80px;
+  height: 30px;
+  padding-left:0px !important;
+  padding-right:0px !important;
+  padding-top: 5px !important;
+  padding-bottom: 5px !important;
 }
 
-#smallTitle{
-  font-size: 20px;
-}
-
-#mainContentButtons{
-  margin-top: 0px;
-  padding:10px;
-}
-
-
-
-
-.bigCell{
-  border-style: none !important;
-}
 
 .card.casecard{
-  width:200px !important;
+  width:180px !important;
   margin:3px !important;
 }
 
 .cards.casecard{
-  width: 825px !important;
+  width: 940px !important;
   position: relative !important;
-  left:5px !important;
-  margin-left: 10px !important;
+  left:0px !important;
+  margin-left: 8px !important;
+  margin-right: 3px !important;
   margin-top: 5px !important;
   margin-bottom: 5px !important;
 }
@@ -62,25 +60,6 @@
   color:inherit !important;
 }
 
-#leftButton{
-  width: 380px !important;
-}
-
-#centerButton{
-  width: 250px !important;
-}
-
-.rightButton{
-  padding:10px !important;
-}
-
-#outerbutton{
-  padding:0px !important;
-}
-
-.sortIcon{
-  margin-right: 0px !important;
-}
 
 .h_content{
     height:100%;

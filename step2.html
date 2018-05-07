@@ -10,6 +10,7 @@
 
 
     <script src="jquery/js/jquery-1.12.4.min.js"></script>
+    <!--<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
@@ -26,6 +27,9 @@
     <link rel="stylesheet" href="jquery/jquery-ui.theme.min.css">
     <link rel="stylesheet" href="jquery/jquery-ui.min.css">
 
+    <script src="datatables/datatables.min.js"></script>
+    <link rel="stylesheet" href="datatables/datatables.min.css">
+
     <!-- Web Fonts -->
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Jua">
@@ -37,6 +41,7 @@
     <link rel="stylesheet" href="./step2_5.css">
     <link rel="stylesheet" href="./step2.css">
     <script src="./index.js"></script>
+    <script src="./step2.js"></script>
 
     <!-- Data starts -->
     <title>Accel Danawa : 조립 컴퓨터 견적 짜기</title>
@@ -209,8 +214,35 @@
             </div>
           </td>
           <td class="bigCell rightCells Cells" id="mainContentsCell" rowspan="2">
-            <div id="mainContents">
-              zsf
+            <div id="dr_mainContents" class="ui segment">
+              <div class="row dr_tableContents">
+                <div class="col-xs-6 dr_tableContent">
+                  <div class="dr_itemTable_header">
+                    <p>CPU</p>
+                  </div>
+                <table class="dr_itemTable display ui table" id="dr_gpuDataTables">
+                  <thead>
+                  <tr class="dr_itemHeader"><th></th><th>제품정보</th><th>프레임<br><i class="fas fa-question-circle"></i></th><th>성능<br><i class="fas fa-question-circle"></i></th><th>가격</th></tr>
+                  </thead>
+                  <tbody id="dr_itemContainer_gpu" class="dr_itemContainer">
+                  </tbody>
+                  <tfoot id="dr_itemSelected_gpu" class="dr_itemContainer"></tfoot>
+                </table>
+                </div>
+                <div class="col-xs-6 dr_tableContent">
+                  <div class="dr_itemTable_header">
+                    <p>그래픽 카드</p>
+                  </div>
+                <table class="dr_itemTable display ui table" id="dr_cpuDataTables">
+                  <thead>
+                  <tr class="dr_itemHeader"><th></th><th>제품정보</th><th>프레임<br><i class="fas fa-question-circle"></i></th><th>성능<br><i class="fas fa-question-circle"></i></th><th>가격</th></tr>
+                  </thead>
+                  <tbody id="dr_itemContainer_cpu" class="dr_itemContainer">
+                  </tbody>
+                  <tfoot id="dr_itemSelected_cpu" class="dr_itemContainer"></tfoot>
+                </table>
+                </div>
+              </div>
             </div>
           </td>
         </tr>

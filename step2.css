@@ -1,0 +1,54 @@
+.dr_tableContents{
+    font-size: medium;
+    width: 960px;
+    margin: auto;
+}
+
+
+.dr_itemTable {
+    width: 100%;
+    font-size: small;
+}
+
+.dr_itemHeader {
+    height: 50px;
+}
+
+#breadcrumbCell{
+    width: 315px;
+}
+
+#realScreen{
+    width: 1300px;
+    margin: auto;
+}
+
+.dr_itemImage{
+    height: 50px;
+    width: 50px;
+}
+
+.dr_itemTable_header{
+    height: 130px;
+}
+
+.dr_itemContainer td{
+    padding: 0 !important;
+    text-align: center !important;
+}
+
+.dr_itemHeader th{
+    padding: 0 !important;
+    margin-left: 0 !important;
+    text-align: center !important;
+    font-size: small;
+ }
+
+.dr_itemContainer p{
+    margin: 0;
+    padding: 0;
+}
+
+.dr_align_right{
+    text-align: right;
+}
