@@ -9,8 +9,8 @@
 
 
 
-    <!--<script src="jquery/js/jquery-1.12.4.min.js"></script>-->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="jquery/js/jquery-1.12.4.min.js"></script>
+    <!--<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
@@ -214,83 +214,32 @@
             </div>
           </td>
           <td class="bigCell rightCells Cells" id="mainContentsCell" rowspan="2">
-            <div id="mainContents">
-              <div class="row tableContents">
-                <img src="step2_base.png">
-              </div>
-              <div class="row tableContents">
-                <div class="col-xs-6 tableContent">
-                <table class="itemTable display" id="gpuDataTables">
+            <div id="dr_mainContents" class="ui segment">
+              <div class="row dr_tableContents">
+                <div class="col-xs-6 dr_tableContent">
+                  <div class="dr_itemTable_header">
+                    <p>CPU</p>
+                  </div>
+                <table class="dr_itemTable display ui table" id="dr_gpuDataTables">
                   <thead>
-                  <tr class="itemHeader"><th>제품명</th><th>한계 프레임</th><th>가격</th></tr>
+                  <tr class="dr_itemHeader"><th></th><th>제품정보</th><th>프레임<br><i class="fas fa-question-circle"></i></th><th>성능<br><i class="fas fa-question-circle"></i></th><th>가격</th></tr>
                   </thead>
-                  <tbody>
-                  <tr class="itemElement"><td>1</td><td>2</td><td>3</td></tr>
-                  <tr class="itemElement"><td>1</td><td>2</td><td>3</td></tr>
-                  <tr class="itemElement"><td>1</td><td>2</td><td>3</td></tr>
-                  <tr class="itemElement"><td>1</td><td>2</td><td>3</td></tr>
-                  <tr class="itemElement"><td>1</td><td>2</td><td>3</td></tr>
-                  <tr class="itemElement"><td>1</td><td>2</td><td>3</td></tr>
-                  <tr class="itemElement"><td>1</td><td>2</td><td>3</td></tr>
-                  <tr class="itemElement"><td>1</td><td>2</td><td>3</td></tr>
-                  <tr class="itemElement"><td>1</td><td>2</td><td>3</td></tr>
-                  <tr class="itemElement"><td>1</td><td>2</td><td>3</td></tr>
-                  <tr class="itemElement"><td>1</td><td>2</td><td>3</td></tr>
-                  <tr class="itemElement"><td>1</td><td>2</td><td>3</td></tr>
-                  <tr class="itemElement"><td>1</td><td>2</td><td>3</td></tr>
-                  <tr class="itemElement"><td>1</td><td>2</td><td>3</td></tr>
-                  <tr class="itemElement"><td>1</td><td>2</td><td>3</td></tr>
-                  <tr class="itemElement"><td>1</td><td>2</td><td>3</td></tr>
-                  <tr class="itemElement"><td>1</td><td>2</td><td>3</td></tr>
-                  <tr class="itemElement"><td>1</td><td>2</td><td>3</td></tr>
-                  <tr class="itemElement"><td>1</td><td>2</td><td>3</td></tr>
-                  <tr class="itemElement"><td>1</td><td>2</td><td>3</td></tr>
-                  <tr class="itemElement"><td>1</td><td>2</td><td>3</td></tr>
-                  <tr class="itemElement"><td>1</td><td>2</td><td>3</td></tr>
-                  <tr class="itemElement"><td>1</td><td>2</td><td>3</td></tr>
-                  <tr class="itemElement"><td>1</td><td>2</td><td>3</td></tr>
-                  <tr class="itemElement"><td>1</td><td>2</td><td>3</td></tr>
-                  <tr class="itemElement"><td>1</td><td>2</td><td>3</td></tr>
-                  <tr class="itemElement"><td>1</td><td>2</td><td>3</td></tr>
-                  <tr class="itemElement"><td>1</td><td>2</td><td>3</td></tr>
+                  <tbody id="dr_itemContainer_gpu" class="dr_itemContainer">
                   </tbody>
+                  <tfoot id="dr_itemSelected_gpu" class="dr_itemContainer"></tfoot>
                 </table>
                 </div>
-                <div class="col-xs-6 tableContent">
-                <table class="itemTable display" id="cpuDataTables">
+                <div class="col-xs-6 dr_tableContent">
+                  <div class="dr_itemTable_header">
+                    <p>그래픽 카드</p>
+                  </div>
+                <table class="dr_itemTable display ui table" id="dr_cpuDataTables">
                   <thead>
-                  <tr class="itemHeader"><th>제품명</th><th>한계 프레임</th><th>가격</th></tr>
+                  <tr class="dr_itemHeader"><th></th><th>제품정보</th><th>프레임<br><i class="fas fa-question-circle"></i></th><th>성능<br><i class="fas fa-question-circle"></i></th><th>가격</th></tr>
                   </thead>
-                  <tbody>
-                  <tr class="itemElement"><td>1</td><td>2</td><td>3</td></tr>
-                  <tr class="itemElement"><td>1</td><td>2</td><td>3</td></tr>
-                  <tr class="itemElement"><td>1</td><td>2</td><td>3</td></tr>
-                  <tr class="itemElement"><td>1</td><td>2</td><td>3</td></tr>
-                  <tr class="itemElement"><td>1</td><td>2</td><td>3</td></tr>
-                  <tr class="itemElement"><td>1</td><td>2</td><td>3</td></tr>
-                  <tr class="itemElement"><td>1</td><td>2</td><td>3</td></tr>
-                  <tr class="itemElement"><td>1</td><td>2</td><td>3</td></tr>
-                  <tr class="itemElement"><td>1</td><td>2</td><td>3</td></tr>
-                  <tr class="itemElement"><td>1</td><td>2</td><td>3</td></tr>
-                  <tr class="itemElement"><td>1</td><td>2</td><td>3</td></tr>
-                  <tr class="itemElement"><td>1</td><td>2</td><td>3</td></tr>
-                  <tr class="itemElement"><td>1</td><td>2</td><td>3</td></tr>
-                  <tr class="itemElement"><td>1</td><td>2</td><td>3</td></tr>
-                  <tr class="itemElement"><td>1</td><td>2</td><td>3</td></tr>
-                  <tr class="itemElement"><td>1</td><td>2</td><td>3</td></tr>
-                  <tr class="itemElement"><td>1</td><td>2</td><td>3</td></tr>
-                  <tr class="itemElement"><td>1</td><td>2</td><td>3</td></tr>
-                  <tr class="itemElement"><td>1</td><td>2</td><td>3</td></tr>
-                  <tr class="itemElement"><td>1</td><td>2</td><td>3</td></tr>
-                  <tr class="itemElement"><td>1</td><td>2</td><td>3</td></tr>
-                  <tr class="itemElement"><td>1</td><td>2</td><td>3</td></tr>
-                  <tr class="itemElement"><td>1</td><td>2</td><td>3</td></tr>
-                  <tr class="itemElement"><td>1</td><td>2</td><td>3</td></tr>
-                  <tr class="itemElement"><td>1</td><td>2</td><td>3</td></tr>
-                  <tr class="itemElement"><td>1</td><td>2</td><td>3</td></tr>
-                  <tr class="itemElement"><td>1</td><td>2</td><td>3</td></tr>
-                  <tr class="itemElement"><td>1</td><td>2</td><td>3</td></tr>
+                  <tbody id="dr_itemContainer_cpu" class="dr_itemContainer">
                   </tbody>
+                  <tfoot id="dr_itemSelected_cpu" class="dr_itemContainer"></tfoot>
                 </table>
                 </div>
               </div>
