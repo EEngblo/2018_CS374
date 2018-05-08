@@ -3,9 +3,7 @@ var dr_gpuDataTable;
 
 
 
-$(document).ready(function(){
-    dr_readyCallback();
-});
+
 
 var dr_readyCallback = function(data){
     dr_gpuDataTable = $('#dr_gpuDataTables').DataTable({
@@ -44,3 +42,7 @@ var dr_readyCallback = function(data){
         console.log(data);
     });
 };
+
+$(document).ready(function(){
+  dr_readyCallback();
+});
