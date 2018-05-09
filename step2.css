@@ -1,26 +1,20 @@
 .dr_tableContents{
     font-size: medium;
-    width: 960px;
+    width: 968px;
     margin: auto;
 }
 
+#dr_mainContents{
+    padding: 2px !important;
+    height:100%;
+}
 
 .dr_itemTable {
-    width: 100%;
     font-size: small;
 }
 
 .dr_itemHeader {
     height: 50px;
-}
-
-#breadcrumbCell{
-    width: 315px;
-}
-
-#realScreen{
-    width: 1300px;
-    margin: auto;
 }
 
 .dr_itemImage{
@@ -51,4 +45,12 @@
 
 .dr_align_right{
     text-align: right;
+}
+
+.dr_tableContent{
+    padding: 2px !important;
+}
+
+.dr_mainContents .dataTables_wrapper{
+    width: 484px !important;
 }
