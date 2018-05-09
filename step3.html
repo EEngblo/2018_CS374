@@ -6,23 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Libraries -->
-
-
-
     <script src="jquery/js/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="semantic/dist/semantic.min.js"></script>
+    <script src="jquery/jquery-ui.min.js"></script>
+    <script src="./step3.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
-
-
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.1/semantic.min.css">
-
     <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
-    <script src="semantic/dist/semantic.min.js"></script>
-
-    <script src="jquery/jquery-ui.min.js"></script>
-
     <link rel="stylesheet" href="jquery/jquery-ui.theme.min.css">
     <link rel="stylesheet" href="jquery/jquery-ui.min.css">
 
@@ -31,11 +23,11 @@
           href="https://fonts.googleapis.com/css?family=Jua">
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Nanum+Gothic:Regular,Bold,Extra-Bold">
-
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
 
     <!-- Mine -->
     <link rel="stylesheet" href="./step2_5.css">
-    <link rel="stylesheet" href="./step3.css"> 
+    <link rel="stylesheet" href="./step3.css">
     <script src="./index.js"></script>
 
     <!-- Data starts -->
@@ -43,9 +35,32 @@
 
   </head>
 
+  <!-- id Naming Rule -->
+  <!--
+    id는 javascript에서 접근할 이유가 있거나, 하나의 독립된 의미를 갖는 block에 대해서만 지정
+
+    HEADER_NAME(_FOOTER)꼴로 지정
+    1. HEADER :
+      - m : view tree에서 scene 바로 아래에 있다고 여길 수 있는 커다란 개체들
+      - s : state indicator; 상단의 상태바 내부의 개체들
+      - b : breadcrumb; 좌측의 step 버튼들의 개체들
+      - h : help; 좌측 하단의 도움말 개체들
+      - d% : data; 화면 중앙의 주요 데이터들; % 자리에는 제작자 식별 부호 알아서 넣기(생략 가능)
+
+    2. NAME :
+      - root : root
+      - 나머지는 알아서
+
+    3. FOOTER:
+      - button : 버튼
+      - value : Javascript code에 의해서 변경되어야 할 '값'들; 천단위 콤마가 필요할수도, 필요하지 않을수도 있으니 필수적으로 문서화하기
+
+  -->
+
   <body>
 
-
+    <!-- TODO : Logo button(id: m_logoButton) 눌렀을 때 confrim 창 띄워서 safety 좋도록 하기  -->
+    <!-- 상단 네비게이션 바 : 위의 TODO 이외에는 절대 손대지 말 것                                      -->
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -55,9 +70,10 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="https://eengblo.github.io/2018_CS374/">Accel Danawa</a>
+          <a id="m_logoButton" class="navbar-brand" href="https://eengblo.github.io/2018_CS374/">Accel Danawa</a>
+          <!-- TODO : confrim 창 띄워서 safety 좋도록 하기  -->
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
+        <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="active"><a href="#">새 견적</a></li>
             <li><a href="javascript:alert('3개의 task와 무관해 구현하지 않은 기능입니다. 죄송합니다.')">내 견적 보기</a></li>
@@ -67,138 +83,491 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">언어 (Languages) <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
                 <li><a href="#"><i class="kr flag"></i>한국어 (Korean)  <i class="fa fa-check" style="font-size:15px;color:green"></i></a></li>
+                <li class="divider"></li>
                 <li><a style="pointer-events: none; display: inline-block;" href="#"><i class="us flag"></i>영어 (English)
                 <br>&nbsp;&nbsp;Not supported yet</a></li>
-                <li class="divider"></li>
-                <li class="dropdown-header">Nav header</li>
-                <li><a href="#">Separated link</a></li>
               </ul>
             </li>
           </ul>
-        </div><!--/.nav-collapse -->
+        </div>
       </div>
     </nav>
 
-    <div id="screen" class="ui container center-div">
-      <div class="stateIndicator well well-lg">
-        <div class="progress">
-          <div class="progress-bar progress-bar-success active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
-            <span class="sr-only">45% Complete</span>
-          </div>
-          <div class="progress-bar progress-bar-warning active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
-            <span class="sr-only">45% Complete</span>
-          </div>
-        </div>
-        <br>
-        <div align="right">
-          <button
-           align="right" id="nextButton" dxr class="ui green button"
-           onclick="javasctript:window.location.href='./step3.html';"> <span id="nextButtontext">다음 단계로&nbsp;&nbsp;</span>
-            <i class="fa fa-angle-double-right" style="font-size: 20px;"></i>
-          </button>
-        </div>
-      </div>
-      <table id=realScreen>
-        <tr>
-          <td class="bigCell leftCells Cells" id="breadcrumbCell">
-            <div id="breadcumbContents">
-              <div class="ui vertical mini steps">
-                <a class="completed step" href="./index.html">
-                  <i class="home icon"></i>
-                  <div class="content">
-                    <div class="title nanumStep budget">예산 및 목적 설정</div>
-                    <div class="description nanumStep budget"></div>
-                  </div>
-                </a>
-                <a class="active step">
-                  <i class="microchip icon"></i>
-                  <div class="content">
-                    <div class="title nanumStep major">게임 성능 관련 부품 선택</div>
-                    <div class="description nanumStep major">CPU, 그래픽카드</div>
-                  </div>
-                </a>
-                <a class="step">
-                  <i class="hdd icon"></i>
-                  <div class="content">
-                    <div class="title nanumStep major">활용도 관련 부품 선택</div>
-                    <div class="description nanumStep major">저장장치, RAM</div>
-                  </div>
-                </a>
-                <div class="disabled step">
-                  <i class="window maximize icon"></i>
-                  <div class="content">
-                    <div class="title nanumStep case">디자인 선택</div>
-                    <div class="description nanumStep case">케이스</div>
-                  </div>
+    <!-- 본문 내용 시작 -->
+    <div id="m_outerScreen" class="ui container center-div">
+
+      <!-- 화면 상단 상태바 : TODO 및 id document    -->
+      <!--
+
+        s_root : 쓰일 일 없을 듯
+
+        s_previous_button : 이전 단계 버튼
+          - Mouse Hover시 저장된 채로 넘어간다는 tooltip 띄워 주어야 함
+          - 맨 첫 화면이나 맨 마지막 화면으로 넘어갈 경우 confirm message 띄워 주어야 함
+        s_pricebar : 가격바 전체 id
+          - 이후 각 부분에 대한 id 추가
+          - 하단부의 선택에 따라 각 부분의 크기가 바뀌어야 함
+          - 필요시 그 내부에 값을 적어야 할 수도 있음
+        s_next_button : 다음 단계 버튼
+          - Mouse Hover시 저장된 채로 넘어간다는 tooltip 띄워 주어야 함
+          - 맨 첫 화면이나 맨 마지막 화면으로 넘어갈 경우 confirm message 띄워 주어야 함
+
+        s_SSD : 초고속 저장 용량 spec indicator 전체
+          - 하단부의 선택에 따라 jQuery UI를 통해 highlighting 해야 함
+        s_SSD_value : 초고속 저장 용량 숫자
+          - 하단부의 선택에 따라 그 값이 바뀌어야 함
+        위와 같은 rule로 s_Storeage, s_RAM, s_CPU, s_FPS 있음
+
+        s_price : 현재 총액; #,###,### 꼴의 string으로 들어와야 함
+          - 하단부의 선택에 따라 그 값이 바뀌어야
+        s_remainder : 현재 잔액; 이하 수들은 모두 위와 표현 규칙 동일
+          - 하단부의 선택에 따라 그 값이 바뀌어야
+        s_budget : 예산
+          - 하단부의 선택에 따라 그 값이 바뀌어야
+        s_percentage : 현재 사용한 예산의 비율
+          - 하단부의 선택에 따라 그 값이 바뀌어야
+
+      -->
+      <div id="s_root" class="stateIndicator well well-lg">
+        <table>
+          <tr>
+            <td class="stateIndicatorFirstRow buttonCell">
+              <span style="float:left; margin-top:15px;">
+                <button
+                 align="right" id="s_previous_button" dxr class="ui green button moveStepButton"
+                 onclick="javasctript:window.location.href='./step3.html';">
+                  <i class="fa fa-angle-double-left" style="font-size: 16px;"></i>
+                  <span class="moveStepButtontext texts">&nbsp;이전 단계&nbsp;</span>
+                </button>
+              </span>
+            </td>
+            <td class="stateIndicatorFirstRow pricebarCell" colspan="2">
+              <div id="s_pricebar" class="progress">
+                <div class="progress-bar progress-bar-success active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
+                  <span class="sr-only">45% Complete</span>
                 </div>
-                <div class="disabled step">
-                  <i class="won sign icon"></i>
-                  <div class="content">
-                    <div class="title nanumStep confirm">최종 확인 및 구매</div>
-                    <div class="description nanumStep confirm"></div>
-                  </div>
+                <div class="progress-bar progress-bar-warning active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
+                  <span class="sr-only">45% Complete</span>
                 </div>
               </div>
+            </td>
+            <td class="stateIndicatorFirstRow buttonCell">
+              <span style="float:right; margin-top:15px;">
+                <button
+                 align="right" id="s_next_button" dxr class="ui green button moveStepButton"
+                 onclick="javasctript:window.location.href='./step3.html';">
+                 <span class="moveStepButtontext texts">&nbsp;다음 단계&nbsp;</span>
+                 <i class="fa fa-angle-double-right" style="font-size: 20px;"></i>
+                </button>
+              </span>
+            </td>
+          </tr>
+          <tr>
+            <td class="stateIndicatorSecondRow" colspan="2" rowspan="2">
+              <div class="specIndicator">
+                <span id="s_SSD" class="ui small statistic mystateIndicator">
+                  <div class="value stateUpper">
+                    <img src="./img/SSD_icon2.png" width="40" height="40">
+                    <span id="s_SSD_value" class="stateL1">250</span>
+                    <span class="stateL2">G</span>
+                  </div>
+                  <div class="label mystateIndicatorLabel">
+                    초고속 저장 용량
+                  </div>
+                </span>
+                <span id="s_Storage" class="ui small statistic mystateIndicator">
+                  <div class="value stateUpper">
+                    <img src="./img/hdd2.svg" width="40" height="40">
+                    <span id="s_Storage_value" class="stateL1">1250</span>
+                    <span class="text stateL2">G</span>
+                  </div>
+                  <div class="label mystateIndicatorLabel">
+                    총 저장 용량
+                  </div>
+                </span>
+                <span id="s_RAM" class="ui small statistic mystateIndicator">
+                  <div class="value stateUpper">
+                    <img src="./img/RAM.svg" width="42" height="42">
+                    <span id="s_RAM_value" class="stateL1">16</span>
+                    <span class="stateL2">G</span>
+                  </div>
+                  <div class="label mystateIndicatorLabel">
+                    RAM 용량
+                  </div>
+                </span>
+                <span id="s_CPU" class="ui small statistic mystateIndicator">
+                  <div class="value stateUpper">
+                    <img src="./img/CPU.svg" width="42" height="42">
+                    <span id="s_CPU_value" class="stateL1">250</span>
+                    <span class="stateL2">점</span>
+                  </div>
+                  <div class="label mystateIndicatorLabel">
+                    CPU 성능 점수
+                  </div>
+                </span>
+                <span id="s_FPS" class="ui small statistic mystateIndicator">
+                  <div class="value stateUpper">
+                    <img src="./img/FPS.png" width="42" height="42">
+                    <span id="s_FPS_value" class="stateL1">55</span>
+                    <span class="stateL2">fps</span>
+                  </div>
+                  <div class="label mystateIndicatorLabel">
+                    배플그라운드 성능
+                  </div>
+                </span>
+              </div>
+            </td>
+            <td class="stateIndicatorSecondRow price" colspan="2">
+              <span class="stateIndicatorIndex">총액&nbsp;</span>
+              <span class="texts stateIndicatorValue">₩</span>
+              <span class="stateIndicatorValue" id="s_price_value"><span>1,234,567</span></span>
+              <span class="stateIndicatorIndex2">&nbsp;(</span>
+              <span class="texts stateIndicatorIndex2">₩</span>
+              <span class="stateIndicatorSubValue" id="s_remainder_value">234,567</span>
+              <span class="stateIndicatorIndex2">남음 )</span>
+            </td>
+          </tr>
+          <tr>
+            <td class="stateIndicatorSecondRow budget" colspan="2">
+              <span class="stateIndicatorIndex">예산&nbsp;</span>
+              <span class="texts stateIndicatorValue">₩</span>
+              <span class="stateIndicatorValue" id="s_budget_value">1,345,678</span>
+              <span class="stateIndicatorIndex2">&nbsp;(</span>
+              <span class="stateIndicatorSubValue" id="s_percentage_value">88</span>
+              <span class="stateIndicatorIndex2">% 사용)</span>
+            </td>
+        </table>
+      </div>
+
+
+      <!-- 화면 중앙 contents -->
+      <table id=m_innerScreen>
+        <tr>
+          <!-- Breadcrumb : TODO 및 id document -->
+          <!--
+
+            b_root : breadcrumb 전체를 감싸는 div
+              - user가 선택한 mode(성능, 활용도)에 따라 이 id로 접근해 하위 <a> 들의 순서 재배열해야 함
+                - 성능 모드일 때는 b_performace_button이 먼저 오고,
+                  활용도 모드일 때는 b_versatility_button이 먼저 와야 함
+
+            b_home_button : 첫 화면으로 돌아가는 버튼
+              - hover시 현재 작업중인 내용이 사라진다는 말이 'top left'로 떠야 함
+              - 클릭시 confirm 창 한번 더 떠야 함
+
+            b_performance_button, b_versatility_button : 주요 부품 선택하는 창으로 가는 버튼
+              - 'active' class를 가진 현재 열려있는 창은 클릭해도 아무 일도 일어나지 않고, focus를 자동으로 다른 쪽으로 옮겨야 함
+              - 선택이 완료된 창은 'completed' class를 주고, 현재 열려있는 창은 'active' class를 주어야 함
+              - simple mode 선택시에는 바로 이 두 단계는 complete된 채로 case 상태로 넘어가야 함
+
+            b_case_button : 케이스 선택하는 창으로 가는 버튼
+              - user가 simple mode를 선택했거나, 앞의 주요 부품 선택을 모두 완료한 상태에서야 'disabled' class가 사라져야 함
+              - 이 창과 위의 두 창 사이의 전환은 자유롭게 이루어 져야 하며, 창 전환시 반드시 모든 data가 온전히 저장되어야 함
+
+            b_fianl_button : 최종 확인 창으로 가는 버튼
+              - confirm창 한번 더 떠야 함
+              - case까지 complete 된 후에만 'disabled' class가 가라져야 함
+
+          -->
+          <td class="bigCell leftCells Cells" id="m_breadcrumbCell">
+            <div class="ui vertical mini steps" id="b_root">
+              <a id="b_home_button" href="javascript:void(0)" class="breadcrumb completed step">
+                <i class="home icon"></i>
+                <div class="content">
+                  <div class="title eachStep">예산 및 주로 하는 게임 설정</div>
+                  <div class="description eachStep">첫 화면으로 돌아가기</div>
+                </div>
+              </a>
+              <a id="b_performace_button" href="javascript:void(0)" class="breadcrumb active step">
+                <i class="microchip icon"></i>
+                <div class="content">
+                  <div class="title eachStep">게임 성능 관련 부품 선택</div>
+                  <div class="description eachStep">CPU, 그래픽카드 변경</div>
+                </div>
+              </a>
+              <a id="b_versatility_button" href="javascript:void(0)" class="breadcrumb step">
+                <i class="hdd icon"></i>
+                <div class="content">
+                  <div class="title eachStep">활용도 관련 부품 선택</div>
+                  <div class="description eachStep">저장장치, RAM 변경</div>
+                </div>
+              </a>
+              <a id="b_case_button" href="javascript:void(0)" class="breadcrumb disabled step">
+                <i class="window maximize icon"></i>
+                <div class="content">
+                  <div class="title eachStep">디자인 선택</div>
+                  <div class="description eachStep">케이스 선택</div>
+                </div>
+              </a>
+              <a id="b_final_button" href="javascript:void(0)" class="breadcrumb disabled step">
+                <i class="won sign icon"></i>
+                <div class="content">
+                  <div class="title eachStep">최종 확인 및 구매</div>
+                  <div class="description eachStep"></div>
+                </div>
+              </a>
             </div>
           </td>
-          <td class="bigCell rightCells Cells" id="mainContentsCell" rowspan="2">
-            <div id="mainContents">
-              zsf
+
+          <!-- Main Data Contents -->
+          <td class="bigCell rightCells Cells" id="m_mainContentsCell" rowspan="2">
+            <!-- m_mainContentsCell의 innerHTML을 바꿈으로써 step 전환 수행 -->
+
+
+            <!-- RAM과 저장공간 정하는 step -->
+
+            <!-- 활용도(RAM 및 저장공간) : TODO 및 id document    -->
+            <!--
+
+            RAM
+              d_RAM_[8G,16G]_button : RAM 버튼
+                - 이미 handler 함수들이 index.js에 다 짜여 있으므로 이를 가져다가 '견적 수정 기능'만 더하면 됨
+                - 선택된 button에 대해서는 아래 d_RAM_[8G,16G] div에 'hidden' 클래스를 추가하고, 선택 해제시 제거해야 함
+              d_RAM[8G,16G] : 가격 차이 보여주는 text의 div
+
+            SSD
+              d_SSD_[250G,500G]_button : SSD 버튼
+                - 위와 같음
+              d_SSD_[250G,500G] : 가격 차이 보여주는 text의 div
+
+            HDD
+              d_HDD_[NO,1T]_button : HDD 버튼
+                - 위와 같음
+              d_HDD_[NO,1T] : 가격 차이 보여주는 text의 div
+
+            -->
+            <div id="d_root_RAMandSto" class="ui segment d_root">
+
+              <div class="ui stacked segment texts mySegment">
+
+                <div class="bigTitle">RAM</div>
+
+                <div class="ui divider myDivider"></div>
+
+                <img class="ui rounded left floated image myImage" src="./img/RAM.jpg" width="80" height="80">
+                <p class="texts explanationText">컴퓨터가 실행중인 프로그램에 대한 정보를 적어두기 위해 사용하는 메모지 같은 역할을 합니다.</p>
+                <p class="texts explanationText">게임 <strong>성능에는 큰 영향을 주지 않지만</strong>, <strong>가득 찰 경우 급격히 느려지고</strong> 넘치게 되면 게임이 팅길 수 있습니다.</p>
+                <p class="texts explanationText">용량이 클수록 동시에 더 많은 게임과 프로그램들을 실행할 수 있습니다.</p>
+
+                <div class="ui horizontal divider texts myDivider">
+                  <i class="fa fa-hand-pointer"></i>
+                  &nbsp;RAM 용량 옵션
+                </div>
+
+                <label class="smallTitle">용량 :&nbsp;&nbsp;</label>
+                <span display:inline class="ui buttons">
+                   <button class="ui inverted violet button modeButton"
+                   id="d_RAM_8G_button"
+                   onmouseover="modeButtonHoverHandler(this);"
+                   onmouseout="modeButtonHoverEndHandler(this);"
+                   onclick="modeButtonClickHandler(this, document.getElementById('d_RAM_16G_button'));"
+                   data-tooltip="동시에 창을 많이 켜 두지 않는 보통 사용자에게 적합합니다"
+                   data-inverted=""
+                   data-position="bottom center"
+                   data-variation="wide"
+                   >
+                     <div class="modeButtonText texts">8 G</div>
+                     <div id="d_RAM_8G" class="modeButtonText texts priceTexts minus">- ₩ 90,000</div>
+                   </button>
+                   <div class="or" style="height:60px;"></div>
+                   <button class="ui inverted violet button modeButton"
+                   id="d_RAM_16G_button"
+                   onmouseover="modeButtonHoverHandler(this);"
+                   onmouseout="modeButtonHoverEndHandler(this);"
+                   onclick="modeButtonClickHandler(this, document.getElementById('d_RAM_8G_button'));"
+                   data-tooltip="동시에 게임, 인터넷, 무거운 프로그램 등을 많이 실행시키는 사용자에게 적합합니다"
+                   data-inverted=""
+                   data-position="bottom center"
+                   data-variation="wide"
+                   >
+                       <div class="modeButtonText texts">16 G</div>
+                       <div id="d_RAM_16G" class="modeButtonText texts priceTexts plus">+ ₩ 90,000</div>
+                   </button>
+                 </span>
+              </div>
+              <div class="ui stacked segment texts mySegment">
+                <div ="title">
+                  <span class="bigTitle">저장장치</span>
+                </div>
+
+                <div class="ui divider myDivider"></div>
+
+                <img class="ui rounded left floated image myImage" src="./img/SSD.jpg" width="80" height="80">
+                <p class="texts explanationText">사용자 데이터를 저장하는 공간으로, <strong>하드디스크</strong>와 초고속 저장장치인 <strong>SSD</strong>가 있습니다.</p>
+                <p class="texts explanationText">용량이 크지만 느린 <strong>하드디스크</strong>에는 <strong>가끔</strong> 사용하는 게임과 프로그램, <strong>음악, 동영상, 사진</strong> 등을 저장하고,</p>
+                <p class="texts explanationText">빠르지만 작고 비싼 <strong>SSD</strong>에는 윈도우, <strong>자주 사용하는 게임</strong>과 프로그램들을 저장하여 빠르게 실행할 수 있습니다.</p>
+                <br>
+                <p class="texts explanationText">현재 사용중인 컴퓨터의 저장장치 용량, 주로 하는 게임의 개수와 용량을 확인해 보세요.</p>
+
+                <div class="ui horizontal divider texts myDivider">
+                  <i class="fa fa-hand-pointer"></i>
+                  &nbsp;저장장치 용량 옵션
+                </div>
+
+                <div class="storageButtons SSD">
+                  <label class="smallTitle">SSD (초고속 저장장치) 용량 :&nbsp;&nbsp;</label>
+                  <span display:inline class="ui buttons">
+                     <button class="ui inverted violet button modeButton"
+                     id="d_SSD_250G_button"
+                     onmouseover="modeButtonHoverHandler(this);"
+                     onmouseout="modeButtonHoverEndHandler(this);"
+                     onclick="modeButtonClickHandler(this, document.getElementById('d_SSD_500G_button'));"
+                     data-tooltip="한 두 종류의 게임만 하는 사용자에게 적합합니다"
+                     data-inverted=""
+                     data-position="top center"
+                     data-variation="wide"
+                     >
+                       <div class="modeButtonText texts">250 G</div>
+                       <div id="d_SSD_250G" class="modeButtonText texts priceTexts minus">- ₩ 90,000</div>
+                     </button>
+                     <div class="or" style="height:60px;"></div>
+                     <button class="ui inverted violet button modeButton"
+                     id="d_SSD_500G_button"
+                     onmouseover="modeButtonHoverHandler(this);"
+                     onmouseout="modeButtonHoverEndHandler(this);"
+                     onclick="modeButtonClickHandler(this, document.getElementById('d_SSD_250G_button'));"
+                     data-tooltip="다양한 종류의 게임을 하는 사용자에게 적합합니다"
+                     data-inverted=""
+                     data-position="top center"
+                     data-variation="wide"
+                     >
+                       <div class="modeButtonText texts">500 G</div>
+                       <div id="d_SSD_500G" class="modeButtonText texts priceTexts plus">+ ₩ 90,000</div>
+                     </button>
+
+                   </span>
+                 </div>
+                 <div class="storageButtons">
+                   <label class="smallTitle ">하드디스크 용량 :&nbsp;&nbsp;</label>
+                   <span display:inline class="ui buttons">
+                      <button class="ui inverted violet button modeButton"
+                      id="d_HDD_NO_button"
+                      onmouseover="modeButtonHoverHandler(this);"
+                      onmouseout="modeButtonHoverEndHandler(this);"
+                      onclick="modeButtonClickHandler(this, document.getElementById('d_HDD_1T_button'));"
+                      data-tooltip="동영상 등 용량이 큰 파일을 많이 저장해 두지 않는 사용자에게 적합합니다"
+                      data-inverted=""
+                      data-position="bottom center"
+                      data-variation="wide"
+                      >
+                        <div class="modeButtonText texts">없 음</div>
+                        <div id="d_HDD_NO" class="modeButtonText texts priceTexts minus">- ₩ 90,000</div>
+                      </button>
+                      <div class="or" style="height:60px;"></div>
+                      <button class="ui inverted violet button modeButton"
+                      id="d_HDD_1T_button"
+                      onmouseover="modeButtonHoverHandler(this);"
+                      onmouseout="modeButtonHoverEndHandler(this);"
+                      onclick="modeButtonClickHandler(this, document.getElementById('d_HDD_NO_button'));"
+                      data-tooltip="동영상 등 용량이 큰 파일을 많이 저장하는 사용자에게 적합합니다"
+                      data-inverted=""
+                      data-position="bottom center"
+                      data-variation="wide"
+                      >
+                        <div class="modeButtonText texts">1000 G</div>
+                        <div id="d_HDD_1T" class="modeButtonText texts priceTexts plus">+ ₩ 90,000</div>
+                      </button>
+                    </span>
+                  </div>
+                </div>
             </div>
+
+
           </td>
         </tr>
         <tr>
           <td class="bigCell leftCells Cells" id="helpContentsCell">
-            <div id="helpContents">
-              <div id="helpGPU" style="display:inline">
-                <div class="helpTitle nanumStep major">
-                GPU
-                </div>
-                <div class="helpMessage nanumStep major">
-                GPU는 화면에 표시할 그래픽과 관련된 연산을 처리하는 부품입니다. 더 좋은 부품을 쓰면 더 높은 퀄리티의 그래픽을 볼 수 있습니다.
+
+
+              <div class="ui well h_content" id="h_RAM" style="display:none" >
+                <div class="texts bigTitle">  RAM </div>
+                <div class="ui divider myDivider"></div>
+                <p class="texts explanationText"> </p>
+                <p class="texts explanationText"> </p>
+                <p class="texts explanationText"> </p>
+                <p class="texts explanationText"> </p>
+              </div>
+
+              <div class="ui well h_content" id="h_storage_check" style="display:none" >
+                <div class="texts bigTitle">  저장장치 사용량 보기 </div>
+                <div class="ui divider myDivider"></div>
+                <p class="texts explanationText"> 윈도우 [<strong>설정</strong>]에서 [<strong>시스템</strong>] 클릭 </p>
+                <p class="texts explanationText"> <i class="fa fa-arrow-right" aria-hidden="true"></i> [<strong>시스템</strong>]에서 [<strong>저장소</strong>] 클릭</p>
+                <p class="texts explanationText"> <i class="fa fa-arrow-right" aria-hidden="true"></i> [<strong>내 PC</strong>] 클릭 </p>
+                <div class="ui segment" style="display:inline-block"><img class="ui rounded left floated image myImage" src="./img/Help/storage_check_example2.jpg" width="100%" height="100%"></div>
+              </div>
+
+              <div class="ui well h_content" id="h_storage" style="display:none" >
+                <div class="texts bigTitle"> 저장장치 용량 </div>
+                <div class="ui divider myDivider"></div>
+                <p class="texts explanationText"> SSD 용량이 250GB 더 있으면 </p>
+                <p class="texts explanationText"> 10GB짜리 게임을 25개 더 설치 </p>
+                <p class="texts explanationText"> 할 수 있습니다. </p>
+                <p class="texts explanationText"> </p>
+                <p class="texts explanationText"> </p>
+                <p class="texts explanationText"> 하드디스크 용량이 1TB 더 있으면</p>
+                <p class="texts explanationText"> HD급 영상을 250시간 더 저장</p>
+                <p class="texts explanationText"> 할 수 있습니다 </p>
+                
+              </div>
+
+              <div class="ui well h_content" id="h_frame" style="display:none" >
+                <div class="texts bigTitle">  프레임 </div>
+                <div class="ui divider myDivider"></div>
+                <p class="texts explanationText"> 프레임이란 화면에 띄워지는 정지  </p>
+                <p class="texts explanationText">화면 한장을 말합니다. 보통 게임 </p>
+                <p class="texts explanationText">에서는 초당 보여주는 프레임수 </p>
+                <p class="texts explanationText">(fps) 를 줄여서 프레임이라고   </p>
+                <p class="texts explanationText">말하기도 하며 CPU나 GPU가   </p>
+                <p class="texts explanationText">복잡한 연산을 하면 프레임 수치가   </p>
+                <p class="texts explanationText">떨어질 수도 있습니다.  </p>
+                <p class="texts explanationText">여기서는 프레임 수치가 떨어질 때  </p>
+                <p class="texts explanationText">가장 낮은 수치를 표시합니다.</p>
+                <p class="texts explanationText" align="center"> <i class="fa fa-youtube-play" aria-hidden="true"></i> </p>
+                
+                <div class="h_video-container">
+                <!--<embed src="https://youtu.be/IrK5cDU9AIA" width="300">-->
                 </div>
               </div>
-              <div id="helpCPU" style="display:none">
-                <div class="helpTitle nanumStep major">
-                CPU
-                </div>
-                <div class="helpMessage nanumStep major">
-                CPU는 컴퓨터의 연산을 처리하는 컴퓨터의 뇌 역할을 하는 부품입니다. 더 좋은 부품을 쓰면 전반적인 컴퓨터 처리 속도 향상에 도움이 됩니다.
-                </div>
+
+              <div class="ui well h_content" id="h_GPU_score" style="display:none" >
+                <div class="texts bigTitle"> GPU 성능 </div>
+                <div class="ui divider myDivider"></div>
+                <p class="texts explanationText"> 프레임이란 화면에 띄워지는 정지  </p>
+                <p class="texts explanationText">화면 한장을 말합니다. 보통 게임 </p>
+                <p class="texts explanationText">에서는 초당 보여주는 프레임수 </p>
+                <p class="texts explanationText">(fps) 를 줄여서 프레임이라고   </p>
+                <p class="texts explanationText">말하기도 하며 CPU나 GPU가   </p>
+                <p class="texts explanationText">복잡한 연산을 하면 프레임 수치가   </p>
+                <p class="texts explanationText">떨어질 수도 있습니다.  </p>
+                <p class="texts explanationText">여기서는 프레임 수치가 떨어질 때  </p>
+                <p class="texts explanationText">가장 낮은 수치를 표시합니다.</p>
+                <p class="texts explanationText"> </p>
               </div>
-              <div id="helpHDD" style="display:none">
-                <div class="helpTitle nanumStep major">
-                하드디스크
-                </div>
-                <div class="helpMessage nanumStep major">
-                하드디스크는 느리지만 대용량의 파일들을 저장할 수 있는 저장장치 입니다. 하드디스크의 용량이 1TB면 HD급 영상을 250시간 정도 저장할 수 있습니다.
-                </div>
+
+              <div class="ui well h_content" id="h_CPU_score" style="display:none" >
+                <div class="texts bigTitle"> CPU 성능 </div>
+                <div class="ui divider myDivider"></div>
+                <p class="texts explanationText"> Cinebench라는 CPU 성능 측정   </p>
+                <p class="texts explanationText"> 프로그램을 통해 측정된 CPU의  </p>
+                <p class="texts explanationText"> 성능지표 입니다. 다른 부품은</p>
+                <p class="texts explanationText"> CPU의 성능을 발목을 잡지 않는   </p>
+                <p class="texts explanationText"> 선에서 전부 같은 걸 썼다고 가정  </p>
+                <p class="texts explanationText"> 하고 측정된 가상의 성능입니다.</p>
+                <p class="texts explanationText"> 수치가 높을 수록 좋은 CPU입니다.</p>
+                <p class="texts explanationText">  </p>
+                <p class="texts explanationText"> </p>
               </div>
-              <div id="helpSSD" style="display:none">
-                <div class="helpTitle nanumStep major">
-                SSD
-                </div>
-                <div class="helpMessage nanumStep major">
-                SSD는 빠르지만 가격이 비싸 프로그램을 저장하는데 주로 쓰는 저장장치 입니다. SSD 용량이 클수록 더 많은 프로그램과 게임을 설치 할 수 있습니다.
-                </div>
-              </div>
-              <div id="helpRAM" style="display:none">
-                <div class="helpTitle nanumStep major">
-                RAM
-                </div>
-                <div class="helpMessage nanumStep major">
-                RAM은 CPU가 처리할 데이터가 임시로 저장되는 곳입니다. RAM의 크기가 클수록 동시에 많은 프로그램을 돌릴 수 있고 남아있는 RAM의 용량이 부족하면 컴퓨터의 속도가 현저히 떨어지게 됩니다.
-                </div>
-              </div>
-            </div>
+
           </td>
         </tr>
       </table>
     </div>
-    <div class="ui modal" id="nextStepConfirm">
+    <!-- TODO : legacy code임; 이를 바탕으로 해서 confirm message 잘 수정해야 함-->
+    <div class="ui modal" id="m_nextStepConfirm">
       <div class="header">부품 선택 단계로 넘어가시겠습니까?</div>
       <div class="content">
-          <div class="final" id="finalGame">1</div>
+          <div class="final" id="m_endGame">1</div>
       </div>
       <div class="actions">
         <div class="ui cancel negative basic button">
