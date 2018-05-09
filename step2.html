@@ -1,31 +1,39 @@
 <script src="step2.js"></script>
-            <div id="dr_mainContents" class="ui segment">
-              <div class="row dr_tableContents">
-                <div class="col-xs-6 dr_tableContent">
-                  <div class="dr_itemTable_header">
-                    <p>CPU</p>
-                  </div>
-                <table class="dr_itemTable display ui table" id="dr_gpuDataTables">
-                  <thead>
-                  <tr class="dr_itemHeader"><th></th><th>제품정보</th><th>프레임<br><i class="fas fa-question-circle"></i></th><th>성능<br><i class="fas fa-question-circle"></i></th><th>가격</th></tr>
-                  </thead>
-                  <tbody id="dr_itemContainer_gpu" class="dr_itemContainer">
-                  </tbody>
-                  <tfoot id="dr_itemSelected_gpu" class="dr_itemContainer"></tfoot>
-                </table>
-                </div>
-                <div class="col-xs-6 dr_tableContent">
-                  <div class="dr_itemTable_header">
-                    <p>그래픽 카드</p>
-                  </div>
-                <table class="dr_itemTable display ui table" id="dr_cpuDataTables">
-                  <thead>
-                  <tr class="dr_itemHeader"><th></th><th>제품정보</th><th>프레임<br><i class="fas fa-question-circle"></i></th><th>성능<br><i class="fas fa-question-circle"></i></th><th>가격</th></tr>
-                  </thead>
-                  <tbody id="dr_itemContainer_cpu" class="dr_itemContainer">
-                  </tbody>
-                  <tfoot id="dr_itemSelected_cpu" class="dr_itemContainer"></tfoot>
-                </table>
-                </div>
-              </div>
-            </div>
+  <div class="ui horizontal segments dr_mainContents">
+    <div class="ui segment dr_tableContent col-xs-6">
+      <div class="dr_itemTable_header">
+        <p>CPU</p>
+      </div>
+      <table class="dr_itemTable display ui table" id="dr_gpuDataTables">
+        <thead>
+        <tr class="dr_itemHeader">
+          <th></th>
+          <th>제품정보</th>
+          <th>프레임<br><i class="fas fa-question-circle"></i></th>
+          <th>성능<br><i class="fas fa-question-circle"></i></th>
+          <th>가격</th>
+        </tr>
+        </thead>
+        <tbody id="dr_itemContainer_gpu" class="dr_itemContainer">
+        </tbody>
+      </table>
+    </div>
+    <div class="ui segment dr_tableContent col-xs-6">
+      <div class="dr_itemTable_header">
+        <p>그래픽 카드</p>
+      </div>
+      <table class="dr_itemTable display ui table" id="dr_cpuDataTables">
+        <thead>
+        <tr class="dr_itemHeader">
+          <th></th>
+          <th>제품정보</th>
+          <th>프레임<br><i class="fas fa-question-circle"></i></th>
+          <th>성능<br><i class="fas fa-question-circle"></i></th>
+          <th>가격</th>
+        </tr>
+        </thead>
+        <tbody id="dr_itemContainer_cpu" class="dr_itemContainer">
+        </tbody>
+      </table>
+    </div>
+</div>
