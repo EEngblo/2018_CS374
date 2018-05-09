@@ -4,7 +4,7 @@ var current_help = null;
 $( document ).ready(function() {
 });
 
-$(document).addEventListener('keydown', function(event) {
+window.addEventListener('keydown', function(event) {
     if (event.defaultPrevented) {
     return; // Do nothing if the event was already processed
   }
@@ -25,10 +25,10 @@ $(document).addEventListener('keydown', function(event) {
     case 52: //4
       SwitchHelp(4)
       break;
-    case 53 //5
+    case 53: //5
       SwitchHelp(5)
       break;
-    case 54 //6
+    case 54: //6
       SwitchHelp(6)
       break;
     default:
@@ -39,8 +39,11 @@ $(document).addEventListener('keydown', function(event) {
 function SwitchHelp(n){
 	if (current_help != null)
 		current_help.style.display = "none";
-	if(n==0)
+	if(n==0){
 		current_help = null;
+		return;
+	}
+
 
 	current_help = document.getElementById(help_ids[n-1])
 	current_help.style.display = "";

@@ -1,44 +1,37 @@
-#mainContents{
-  height: 600px !important;
-  overflow-y: auto;
-  padding-left: 2px;
-  padding-right: 2px;
-  padding-top:2px;
-  padding-bottom: 2px;
-}
-
 #realScreen{
   border: none;
 }
 
+
 #title{
-  margin-bottom: 15px;
+  margin-bottom: 5px;
+  padding-top:5px;
 }
 
-#bigTitle{
-  font-size: 26px;
-  font-weight: bold;
+#mainContentsCell{
+  height:720px;
 }
 
-#smallTitle{
-  font-size: 20px;
+#mainContents{
+  display: table-cell;
+  vertical-align: top;
+  height: 720px;
 }
-
-#mainContentButtons{
-  margin-top: 0px;
-  padding:10px;
-}
-
-
 
 .bigCell{
   border-style: none !important;
 }
 
-
-
-
-#buttons {
-	text-align:center;
-	vertical-align:middle;
+.bigTitle{
+  font-size: 24px;
+  font-weight: bold;
+  align-items:  right;
 }
+
+#segmantWrapper{
+  padding:10px !important;
+  width:888px !important;
+}
+
+
+
