@@ -1,3 +1,7 @@
+function tempmp(){
+  composition.RAM = !composition.RAM;
+}
+
 
 function modeButtonClickHandler(id, otherId){
 
@@ -30,7 +34,9 @@ function modeButtonClickHandler(id, otherId){
     }
 
   }
-  checkNextStep();
+  //checkNextStep();
+
+  tempmp();
 }
 
 function modeButtonHoverHandler(id){

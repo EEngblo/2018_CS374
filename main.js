@@ -1,12 +1,28 @@
 
+
+function Composition(budget, preferMode, isSimpleMode){
+  this.CPU = -1;
+  this.GPU = -1;
+  this.RAM = false;
+  this.SSD = false;
+  this.HDD = false;
+  this.CASE = -1;
+  alert();
+}
+
+var composition;
+
+
+//////////////////////////////////
+
 var steps = ['Home', 'GPUandCPU', 'RAMandSto', 'Case', 'Final']; // mode(게임성능/활용도)에 따라서 step 결정
 var steps_finished = [true, false, false, false, false]; // steps의 각 step이 완료되었는지 저장
 var currentStepIdx = 0; // steps 배열에서 몇 번째 step을 진행중인지 표시
 
 
-
-
 $(document).ready(function(){
+
+  composition = new Composition(1,2,3);
 
 
 
