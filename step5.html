@@ -35,7 +35,8 @@
 
     <!-- Mine -->
     <link rel="stylesheet" href="./step2_5.css">
-    <link rel="stylesheet" href="./step5.css">
+    <link rel="stylesheet" href="./step2_2.css">
+    <script src="./index.js"></script>
     <script src="./step5.js"></script>
 
     <!-- Data starts -->
@@ -104,63 +105,83 @@
               </div>
             </td>
             <td id="nextStepCell" class="stateIndicatorFirstRow buttonCell">
-              <span style="float:right; margin-top:15px;">
-                <button
-                 align="right" id="nextButton" dxr class="ui green button moveStepButton"
-                 onclick="javasctript:window.location.href='./step3.html';">
-                 <span class="moveStepButtontext" id="nextButtontext">&nbsp;다음 단계&nbsp;</span>
-                 <i class="fa fa-angle-double-right" style="font-size: 20px;"></i>
-                </button>
-              </span>
+              
+                
             </td>
           </tr>
           <tr>
-            <td id="specIndicatorCell" class="stateIndicatorSecondRow" colspan="2">
+            <td id="specIndicatorCell" class="stateIndicatorSecondRow" colspan="2" rowspan="2">
               <div id="specIndicator">
-                <span class="ui small statistic">
-                  <div class="value">
-                    <i class="plane icon"></i> 5
+                <span class="ui small statistic mystateIndicator">
+                  <div class="value stateUpper">
+                    <i class="fas fa-hdd stateIcon" style="color:orange;"></i>
+                    <span class="text stateL1">55</span>
+                    <span class="text stateL2">fps</span>
                   </div>
-                  <div class="label" style="font-size:20px;">
-                    Flights
-                  </div>
-                </span>
-                <span class="ui small statistic">
-                  <div class="value">
-                    <i class="plane icon"></i> 5
-                  </div>
-                  <div class="label" style="font-size:20px;">
-                    Flights
+                  <div class="label text mystateIndicatorLabel">
+                    배플그라운드 성능
                   </div>
                 </span>
-                <span class="ui small statistic">
-                  <div class="value">
-                    <i class="plane icon"></i> 5
+                <span class="ui small statistic mystateIndicator">
+                  <div class="value stateUpper">
+                    <i class="fas fa-hdd stateIcon" style="color:orange;"></i>
+                    <span class="text stateL1">250</span>
+                    <span class="text stateL2">점</span>
                   </div>
-                  <div class="label" style="font-size:20px;">
-                    Flights
-                  </div>
-                </span>
-                <span class="ui small statistic">
-                  <div class="value">
-                    <i class="plane icon"></i> 5
-                  </div>
-                  <div class="label" style="font-size:20px;">
-                    Flights
+                  <div class="label text mystateIndicatorLabel">
+                    CPU 성능 점수
                   </div>
                 </span>
-                <span class="ui small statistic">
-                  <div class="value">
-                    <i class="plane icon"></i> 5
+                <span class="ui small statistic mystateIndicator">
+                  <div class="value stateUpper">
+                    <i class="fas fa-hdd stateIcon" style="color:orange;"></i>
+                    <span class="text stateL1">16</span>
+                    <span class="text stateL2">G</span>
                   </div>
-                  <div class="label" style="font-size:20px;">
-                    Flights
+                  <div class="label text mystateIndicatorLabel">
+                    RAM 용량
+                  </div>
+                </span>
+                <span class="ui small statistic mystateIndicator">
+                  <div class="value stateUpper">
+                    <i class="fas fa-hdd stateIcon" style="color:orange;"></i>
+                    <span class="text stateL1">250</span>
+                    <span class="text stateL2">G</span>
+                  </div>
+                  <div class="label text mystateIndicatorLabel">
+                    초고속 저장 용량
+                  </div>
+                </span>
+                <span class="ui small statistic mystateIndicator long">
+                  <div class="value stateUpper">
+                    <i class="fas fa-hdd stateIcon" style="color:orange;"></i>
+                    <span class="text stateL1">1250</span>
+                    <span class="text stateL2">G</span>
+                  </div>
+                  <div class="label text mystateIndicatorLabel">
+                    총 저장 용량
                   </div>
                 </span>
               </div>
             </td>
+
             <td id="priceIndicatorCell" class="stateIndicatorSecondRow" colspan="2">
-              asdf
+              <span class="texts stateIndicatorIndex">총액&nbsp;</span>
+              <span class="texts stateIndicatorValue">₩</span>
+              <span class="texts stateIndicatorValue" id="price">1,234,567</span>
+              <span class="texts stateIndicatorIndex2">&nbsp;(₩</span>
+              <span class="texts stateIndicatorValue" id="remainder">234,567</span>
+              <span class="texts stateIndicatorIndex2">남음)</span>
+            </td>
+          </tr>
+          <tr>
+            <td id="budgetIndicatorCell" class="stateIndicatorSecondRow" colspan="2">
+              <span class="texts stateIndicatorIndex">예산&nbsp;&nbsp;</span>
+              <span class="texts stateIndicatorValue">₩</span>
+              <span class="texts stateIndicatorValue" id="budget">1,345,678</span>
+              <span class="texts stateIndicatorIndex2">&nbsp;(</span>
+              <span class="texts stateIndicatorValue" id="remainder">88</span>
+              <span class="texts stateIndicatorIndex2">% 사용)</span>
             </td>
           </tr>
         </table>
@@ -177,6 +198,7 @@
                     <div class="description nanumStep budget"></div>
                   </div>
                 </a>
+
                 <a class="completed step">
                   <i class="microchip icon"></i>
                   <div class="content">
@@ -184,6 +206,7 @@
                     <div class="description nanumStep major">CPU, 그래픽카드</div>
                   </div>
                 </a>
+
                 <a class="completed step">
                   <i class="hdd icon"></i>
                   <div class="content">
@@ -191,13 +214,15 @@
                     <div class="description nanumStep major">저장장치, RAM</div>
                   </div>
                 </a>
-                <div class="completed step">
+
+                <a class="completed step">
                   <i class="window maximize icon"></i>
                   <div class="content">
                     <div class="title nanumStep case">디자인 선택</div>
                     <div class="description nanumStep case">케이스</div>
                   </div>
-                </div>
+                </a>
+
                 <div class="active step">
                   <i class="won sign icon"></i>
                   <div class="content">
@@ -205,78 +230,187 @@
                     <div class="description nanumStep confirm"></div>
                   </div>
                 </div>
+
               </div>
             </div>
           </td>
           <td class="bigCell rightCells Cells" id="mainContentsCell" rowspan="2">
             <div id="mainContents">
-            <div id="title"><span id="bigTitle">견적 확인</span><span id="smallTitle">&nbsp;내가 짠 견적을 한 눈에 확인합니다.</span></div>
 
-            
-              <table class="ui selectable table">
-                <thead>
-                  <tr>
-                    <th>종류</th>
-                    <th>내가 선택한 물품</th>
-                    <th>가격</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>CPU</td>
-                    <td>i3 8100</td>
-                    <td>224,720</td>
-                  </tr>
-                  <tr>
-                    <td>그래픽카드</td>
-                    <td>리드텍 GTX1060 3GB WinFast HURRICANE OC</td>
-                    <td>345,678</td>
-                  </tr>
-                  <tr>
-                    <td>RAM</td>
-                    <td>16GB</td>
-                    <td>123,456</td>
-                  </tr>
-                  <tr>
-                    <td>SSD</td>
-                    <td>256GB</td>
-                    <td>123,456</td>
-                  </tr>
-                  <tr>
-                    <td>HDD</td>
-                    <td>None</td>
-                    <td>0</td>
-                  </tr>
-                  <tr>
-                    <td>케이스</td>
-                    <td>case a</td>
-                    <td>70,000</td>
-                  </tr>
-                  <tr class="warning">
-                    <td>최종 금액</td>
-                    <td>1,234,567 </td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
 
-              <div id = buttons>
-                <button class="ui primary button">
-                  확인
-                </button>
-                <button class="ui button">
-                  취소
-                </button>
+
+              <div id="segmantWrapper" class="ui segment">
+
+                
+                <div id="title">
+                  <span class="bigTitle">견적 확인</span>
+                  
+                </div>
+
+
+
+                <div id="OrderPackages">
+                <table id="tableSearchResults" class="ui violet compact table table-hover">
+                  <colgroup>
+                    <col style="width:20%;">
+                    <col style="width:60%;">
+                    <col style="width:15%;">
+                    <col style="width:5%;">
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th>종류</th>
+                      <th>내가 선택한 물품</th>
+                      <th>가격</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+
+                  <tbody>
+
+                    <tr id="package1" class="accordion-toggle" data-toggle="collapse" data-parent="#OrderPackages" data-target=".packageDetails1">
+                      <td>CPU</td>
+                      <td>i3 8100</td>
+                      <td>234,234</td>
+                      <td><i class="indicator glyphicon glyphicon-chevron-up pull-right"></i></td>
+                    </tr>
+
+                    <tr class="accordion-body collapse packageDetails1" id="accordion1">
+                      <td class="hiddenRow">
+                      <i class="fas fa-arrow-right"></i>
+                      CPU</td>
+                      <td class="hiddenRow">i3 8100</td>
+                      <td class="hiddenRow">123,123</td>
+                      <td class="hiddenRow"></td>
+                    </tr>
+                    <tr class="accordion-body collapse packageDetails1" id="accordion1">
+                      <td class="hiddenRow">
+                      <i class="fas fa-arrow-right"></i>
+                      메인 보드</td>
+                      <td class="hiddenRow">asdf</td>
+                      <td class="hiddenRow">123,123</td>
+                      <td class="hiddenRow"></td>
+                    </tr>
+                          
+                    <tr>
+                      <td>그래픽카드</td><td>리드텍 GTX1060 3GB WinFast HURRICANE OC</td>
+                      <td>345,678</td><td></td>
+                    </tr>
+                    <tr>
+                      <td>RAM</td><td>16GB</td><td>123,456</td><td></td>
+                    </tr>
+                    <tr>
+                      <td>SSD</td><td>256GB</td><td>123,456</td><td></td>
+                    </tr>
+                    <tr>
+                      <td>HDD</td><td>None</td><td>0</td><td></td>
+                    </tr>
+
+                    <tr id="package2" class="accordion-toggle" data-toggle="collapse" data-parent="#OrderPackages" data-target=".packageDetails2">
+                      <td>케이스</td><td>case a</td><td>70,000</td>
+                      <td><i class="indicator glyphicon glyphicon-chevron-up pull-right"></i></td>
+                    </tr>
+
+                    <tr class="accordion-body collapse packageDetails2" id="accordion2">
+                      <td class="hiddenRow">
+                      <i class="fas fa-arrow-right"></i>
+                      케이스</td>
+                      <td class="hiddenRow">case a</td>
+                      <td class="hiddenRow">40,000</td>
+                      <td class="hiddenRow"></td>
+                    </tr>
+                    <tr class="accordion-body collapse packageDetails2" id="accordion2">
+                      <td class="hiddenRow">
+                      <i class="fas fa-arrow-right"></i>
+                      파워 서플라이</td>
+                      <td class="hiddenRow">qwer</td>
+                      <td class="hiddenRow">30,000</td>
+                      <td class="hiddenRow"></td>
+                    </tr>
+
+                    <tr class="warning">
+                      <td>최종 금액</td></td><td><td>1,234,567 </td> <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+                </div>
+
+
+              </div>
+              <div id="segmantWrapper" class="ui segment">
+                <div id="title">
+                  <span class="bigTitle">성능 확인</span>
+                  
+                </div>
+
+
+
+                <div id="specIndicator">
+                  <span class="ui small statistic mystateIndicator">
+                    <div class="value stateUpper">
+                      <i class="fas fa-hdd stateIcon" style="color:orange;"></i>
+                      <span class="text stateL1">55</span>
+                      <span class="text stateL2">fps</span>
+                    </div>
+                    <div class="label text mystateIndicatorLabel">
+                      배플그라운드 성능
+                    </div>
+                  </span>
+                  <span class="ui small statistic mystateIndicator">
+                    <div class="value stateUpper">
+                      <i class="fas fa-hdd stateIcon" style="color:orange;"></i>
+                      <span class="text stateL1">250</span>
+                      <span class="text stateL2">점</span>
+                    </div>
+                    <div class="label text mystateIndicatorLabel">
+                      CPU 성능 점수
+                    </div>
+                  </span>
+                  <span class="ui small statistic mystateIndicator">
+                    <div class="value stateUpper">
+                      <i class="fas fa-hdd stateIcon" style="color:orange;"></i>
+                      <span class="text stateL1">16</span>
+                      <span class="text stateL2">G</span>
+                    </div>
+                    <div class="label text mystateIndicatorLabel">
+                      RAM 용량
+                    </div>
+                  </span>
+                  <span class="ui small statistic mystateIndicator">
+                    <div class="value stateUpper">
+                      <i class="fas fa-hdd stateIcon" style="color:orange;"></i>
+                      <span class="text stateL1">250</span>
+                      <span class="text stateL2">G</span>
+                    </div>
+                    <div class="label text mystateIndicatorLabel">
+                      초고속 저장 용량
+                    </div>
+                  </span>
+                  <span class="ui small statistic mystateIndicator long">
+                    <div class="value stateUpper">
+                      <i class="fas fa-hdd stateIcon" style="color:orange;"></i>
+                      <span class="text stateL1">1250</span>
+                      <span class="text stateL2">G</span>
+                    </div>
+                    <div class="label text mystateIndicatorLabel">
+                      총 저장 용량
+                    </div>
+                  </span>
+                </div>
               </div>
 
+              <button class="huge ui violet basic right floated button">
+                구매하기
+              </button>
 
+              
             </div>
           </td>
         </tr>
         <tr>
           <td class="bigCell leftCells Cells" id="helpContentsCell">
             <div id="helpContents">
-              견적 확인 table의 row를 호버할 때 해당 물품의 이미지를 표시
+              도움말 자리
             </div>
           </td>
         </tr>
