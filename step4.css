@@ -1,5 +1,5 @@
 #mainContents{
-  height: 600px !important;
+  height: 545px !important;
   overflow-y: auto;
   overflow-x: hidden;
   padding-left: 0px;
@@ -8,9 +8,7 @@
   padding-bottom: 2px;
 }
 
-.d_root#d_root_Case{
-  padding-top: 15px !important;
-}
+
 
  .filterAndSortTexts{
   font-family: "Nanum Gothic", serif;
