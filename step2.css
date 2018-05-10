@@ -24,6 +24,7 @@
 
 .dr_itemTable_header{
     height: 130px;
+    padding: 14px;
 }
 
 .dr_itemContainer td{
@@ -48,9 +49,20 @@
 }
 
 .dr_tableContent{
-    padding: 2px !important;
+    padding: 5px !important;
 }
 
 .dr_mainContents .dataTables_wrapper{
     width: 484px !important;
+}
+
+.dr_itemContainer tr{
+    background: url(./background_base.png);
+    background-repeat: no-repeat !important;
+    /*background-size: 350px 50px !important;*/
+}
+
+.dr_itemContainer td{
+    background: none !important;
+    background-color: transparent !important;
 }
