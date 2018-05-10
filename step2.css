@@ -58,7 +58,7 @@
 .dr_itemContainer tr{
     background: url(./background_base.png);
     background-repeat: no-repeat !important;
-    background-size: 350px 50px !important;
+    /*background-size: 350px 50px !important;*/
 }
 
 .dr_itemContainer td{
