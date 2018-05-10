@@ -1,274 +1,45 @@
-<!DOCTYPE html>
-<html lang="ko">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Libraries -->
-
-
-
-    <script src="jquery/js/jquery-1.12.4.min.js"></script>
-    <!--<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
-
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.1/semantic.min.css">
-
-    <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
-    <script src="semantic/dist/semantic.min.js"></script>
-
-    <script src="jquery/jquery-ui.min.js"></script>
-
-    <link rel="stylesheet" href="jquery/jquery-ui.theme.min.css">
-    <link rel="stylesheet" href="jquery/jquery-ui.min.css">
-
-    <script src="datatables/datatables.min.js"></script>
-    <link rel="stylesheet" href="datatables/datatables.min.css">
-
-    <!-- Web Fonts -->
-    <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Jua">
-    <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Nanum+Gothic:Regular,Bold,Extra-Bold">
-
-
-    <!-- Mine -->
-    <link rel="stylesheet" href="./step2_5.css">
-    <link rel="stylesheet" href="./step2.css">
-    <script src="./index.js"></script>
-    <script src="./step2.js"></script>
-
-    <!-- Data starts -->
-    <title>Accel Danawa : 조립 컴퓨터 견적 짜기</title>
-
-  </head>
-
-  <body>
-
-
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="https://eengblo.github.io/2018_CS374/">Accel Danawa</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="#">새 견적</a></li>
-            <li><a href="javascript:alert('3개의 task와 무관해 구현하지 않은 기능입니다. 죄송합니다.')">내 견적 보기</a></li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">언어 (Languages) <span class="caret"></span></a>
-              <ul class="dropdown-menu" role="menu">
-                <li><a href="#"><i class="kr flag"></i>한국어 (Korean)  <i class="fa fa-check" style="font-size:15px;color:green"></i></a></li>
-                <li><a style="pointer-events: none; display: inline-block;" href="#"><i class="us flag"></i>영어 (English)
-                <br>&nbsp;&nbsp;Not supported yet</a></li>
-                <li class="divider"></li>
-                <li class="dropdown-header">Nav header</li>
-                <li><a href="#">Separated link</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div><!--/.nav-collapse -->
+<script src="step2.js"></script>
+  <div class="ui horizontal segments dr_mainContents">
+    <div class="ui segment dr_tableContent col-xs-6">
+      <div class="dr_itemTable_header">
+        <div class="bigTitle"> 그래픽 카드</div>
+        <div class="ui divider myDivider"></div>
+        <p class="texts explanationText"> 그래픽 카드는 화면에 띄울 그래픽을 처리하는 부품입니다. </p>
+        <p class="texts explanationText"> 좋은 부품으로 더 높은 수준의 그래픽을 볼 수 있습니다.</p>
       </div>
-    </nav>
-
-    <div id="screen" class="ui container center-div">
-      <div class="stateIndicator well well-lg">
-        <table id="stateIndicatorTable">
-          <tr id="stateIndicator1stRow">
-            <td id="previousStepCell" class="stateIndicatorFirstRow buttonCell">
-              <span style="float:left; margin-top:15px;">
-                <button
-                 align="right" id="previousButton" dxr class="ui green button moveStepButton"
-                 onclick="javasctript:window.location.href='./step3.html';">
-                  <i class="fa fa-angle-double-left" style="font-size: 16px;"></i>
-                  <span class="moveStepButtontext" id="previousButtontext">&nbsp;이전 단계&nbsp;</span>
-                </button>
-              </span>
-            </td>
-            <td id="progressCell" colspan="2">
-              <div id="progressIndicator" class="progress" class="stateIndicatorFirstRow">
-                <div class="progress-bar progress-bar-success active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
-                  <span class="sr-only">45% Complete</span>
-                </div>
-                <div class="progress-bar progress-bar-warning active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
-                  <span class="sr-only">45% Complete</span>
-                </div>
-              </div>
-            </td>
-            <td id="nextStepCell" class="stateIndicatorFirstRow buttonCell">
-              <span style="float:right; margin-top:15px;">
-                <button
-                 align="right" id="nextButton" dxr class="ui green button moveStepButton"
-                 onclick="javasctript:window.location.href='./step3.html';">
-                 <span class="moveStepButtontext" id="nextButtontext">&nbsp;다음 단계&nbsp;</span>
-                 <i class="fa fa-angle-double-right" style="font-size: 20px;"></i>
-                </button>
-              </span>
-            </td>
-          </tr>
-          <tr>
-            <td id="specIndicatorCell" class="stateIndicatorSecondRow" colspan="2">
-              <div id="specIndicator">
-                <span class="ui small statistic">
-                  <div class="value">
-                    <i class="plane icon"></i> 5
-                  </div>
-                  <div class="label" style="font-size:20px;">
-                    Flights
-                  </div>
-                </span>
-                <span class="ui small statistic">
-                  <div class="value">
-                    <i class="plane icon"></i> 5
-                  </div>
-                  <div class="label" style="font-size:20px;">
-                    Flights
-                  </div>
-                </span>
-                <span class="ui small statistic">
-                  <div class="value">
-                    <i class="plane icon"></i> 5
-                  </div>
-                  <div class="label" style="font-size:20px;">
-                    Flights
-                  </div>
-                </span>
-                <span class="ui small statistic">
-                  <div class="value">
-                    <i class="plane icon"></i> 5
-                  </div>
-                  <div class="label" style="font-size:20px;">
-                    Flights
-                  </div>
-                </span>
-                <span class="ui small statistic">
-                  <div class="value">
-                    <i class="plane icon"></i> 5
-                  </div>
-                  <div class="label" style="font-size:20px;">
-                    Flights
-                  </div>
-                </span>
-              </div>
-            </td>
-            <td id="priceIndicatorCell" class="stateIndicatorSecondRow" colspan="2">
-              asdf
-            </td>
-          </tr>
-        </table>
-      </div>
-      <table id=realScreen>
-        <tr>
-          <td class="bigCell leftCells Cells" id="breadcrumbCell">
-            <div id="breadcumbContents">
-              <div class="ui vertical mini steps">
-                <a class="completed step" href="./index.html">
-                  <i class="home icon"></i>
-                  <div class="content">
-                    <div class="title nanumStep budget">예산 및 목적 설정</div>
-                    <div class="description nanumStep budget"></div>
-                  </div>
-                </a>
-                <a class="active step">
-                  <i class="microchip icon"></i>
-                  <div class="content">
-                    <div class="title nanumStep major">게임 성능 관련 부품 선택</div>
-                    <div class="description nanumStep major">CPU, 그래픽카드</div>
-                  </div>
-                </a>
-                <a class="step">
-                  <i class="hdd icon"></i>
-                  <div class="content">
-                    <div class="title nanumStep major">활용도 관련 부품 선택</div>
-                    <div class="description nanumStep major">저장장치, RAM</div>
-                  </div>
-                </a>
-                <div class="disabled step">
-                  <i class="window maximize icon"></i>
-                  <div class="content">
-                    <div class="title nanumStep case">디자인 선택</div>
-                    <div class="description nanumStep case">케이스</div>
-                  </div>
-                </div>
-                <div class="disabled step">
-                  <i class="won sign icon"></i>
-                  <div class="content">
-                    <div class="title nanumStep confirm">최종 확인 및 구매</div>
-                    <div class="description nanumStep confirm"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </td>
-          <td class="bigCell rightCells Cells" id="mainContentsCell" rowspan="2">
-            <div id="dr_mainContents" class="ui segment">
-              <div class="row dr_tableContents">
-                <div class="col-xs-6 dr_tableContent">
-                  <div class="dr_itemTable_header">
-                    <p>CPU</p>
-                  </div>
-                <table class="dr_itemTable display ui table" id="dr_gpuDataTables">
-                  <thead>
-                  <tr class="dr_itemHeader"><th></th><th>제품정보</th><th>프레임<br><i class="fas fa-question-circle"></i></th><th>성능<br><i class="fas fa-question-circle"></i></th><th>가격</th></tr>
-                  </thead>
-                  <tbody id="dr_itemContainer_gpu" class="dr_itemContainer">
-                  </tbody>
-                  <tfoot id="dr_itemSelected_gpu" class="dr_itemContainer"></tfoot>
-                </table>
-                </div>
-                <div class="col-xs-6 dr_tableContent">
-                  <div class="dr_itemTable_header">
-                    <p>그래픽 카드</p>
-                  </div>
-                <table class="dr_itemTable display ui table" id="dr_cpuDataTables">
-                  <thead>
-                  <tr class="dr_itemHeader"><th></th><th>제품정보</th><th>프레임<br><i class="fas fa-question-circle"></i></th><th>성능<br><i class="fas fa-question-circle"></i></th><th>가격</th></tr>
-                  </thead>
-                  <tbody id="dr_itemContainer_cpu" class="dr_itemContainer">
-                  </tbody>
-                  <tfoot id="dr_itemSelected_cpu" class="dr_itemContainer"></tfoot>
-                </table>
-                </div>
-              </div>
-            </div>
-          </td>
+      <table class="dr_itemTable display ui table" id="dr_gpuDataTables">
+        <thead>
+        <tr class="dr_itemHeader">
+          <th></th>
+          <th>제품정보</th>
+          <th>프레임<br><i class="fas fa-question-circle"></i></th>
+          <th>성능<br><i class="fas fa-question-circle"></i></th>
+          <th>가격</th>
         </tr>
-        <tr>
-          <td class="bigCell leftCells Cells" id="helpContentsCell">
-            <div id="helpContents">
-              asdf
-            </div>
-          </td>
-        </tr>
+        </thead>
+        <tbody id="dr_itemContainer_gpu" class="dr_itemContainer">
+        </tbody>
       </table>
     </div>
-    <div class="ui modal" id="nextStepConfirm">
-      <div class="header">부품 선택 단계로 넘어가시겠습니까?</div>
-      <div class="content">
-          <div class="final" id="finalGame">1</div>
-      </div>
-      <div class="actions">
-        <div class="ui cancel negative basic button">
-          아니오
+    <div class="ui segment dr_tableContent col-xs-6">
+      <div class="dr_itemTable_header">
+        <div class="bigTitle">CPU</div>
+        <div class="ui divider myDivider"></div>
+        <p class="texts explanationText"> CPU는 그래픽 외적인 연산을 처리하는 부품입니다.</p>
+        <p class="texts explanationText"> 좋은 부품은 전반적인 컴퓨터 속도 향상에 도움이 됩니다.</p>
         </div>
-        <div class="ui approve positive right labeled icon button autofocus goToNextStage">
-          <i class="checkmark icon"></i>
-          &nbsp;네
-        </div>
-      </div>
+      <table class="dr_itemTable display ui table" id="dr_cpuDataTables">
+        <thead>
+        <tr class="dr_itemHeader">
+          <th></th>
+          <th>제품정보</th>
+          <th>프레임<br><i class="fas fa-question-circle"></i></th>
+          <th>성능<br><i class="fas fa-question-circle"></i></th>
+          <th>가격</th>
+        </tr>
+        </thead>
+        <tbody id="dr_itemContainer_cpu" class="dr_itemContainer">
+        </tbody>
+      </table>
     </div>
-  </body>
-</html>
+</div>

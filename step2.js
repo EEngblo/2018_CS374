@@ -1,26 +1,39 @@
 var dr_cpuDataTable;
 var dr_gpuDataTable;
-
-
-
-$(document).ready(function(){
-    dr_readyCallback();
-});
-
+var dr_gpuTable;
+var dr_cpuTable;
 var dr_readyCallback = function(data){
-    dr_gpuDataTable = $('#dr_gpuDataTables').DataTable({
+    console.log("callback");
+    dr_gpuTable = $('#dr_gpuDataTables');
+    dr_gpuDataTable = dr_gpuTable.DataTable({
         "scrollY" : "520px",
         "scrollCollapse": true,
         "paging": false,
         "searching": false,
-        "bInfo" : false
+        "bInfo" : false,
+        "order": [[2, 'desc']],
+        "columns": [
+            {"width": "50px", "orderable": false},
+            {"width": "180px", "orderable": false},
+            {"width": "80px"},
+            {"width": "80px"},
+            {"width": "80px"}
+        ]
     });
     dr_cpuDataTable = $('#dr_cpuDataTables').DataTable({
         "scrollY" : "520px",
         "scrollCollapse": true,
         "paging": false,
         "searching": false,
-        "bInfo": false
+        "bInfo": false,
+        "order": [[2, 'desc']],
+        "columns": [
+            {"width": "50px", "orderable": false},
+            {"width": "180px", "orderable": false},
+            {"width": "80px"},
+            {"width": "80px"},
+            {"width": "80px"}
+        ]
     });
 
     for(var i=0;i<8;i++){
@@ -34,13 +47,17 @@ var dr_readyCallback = function(data){
         dr_gpuDataTable.row.add([
             "<img src=\"img/GPU/"+ i +".jpg\" class=\"dr_itemImage\">",
             "<p>GTX1050Ti</p><p class=\"dr_align_right\">ZOTAC 4GB</p>",
-            "56",
+            56 + i + "",
             "16000",
             "\\100000"
         ]).draw(false);
-    };
-    $('#dr_gpuDataTables tbody').on('click', 'tr', function(){
+    }
+    dr_gpuTable.find('tbody').on('click', 'tr', function(){
         var data = dr_gpuDataTable.row(this).data();
         console.log(data);
     });
 };
+
+$(document).ready(function(){
+  dr_readyCallback();
+});
