@@ -37,20 +37,8 @@ var dr_readyCallback = function(data){
     });
 
     for(var i=0;i<8;i++){
-        dr_cpuDataTable.row.add([
-            "<img src=\"img/CPU/0.jpg\" class=\"dr_itemImage\">",
-            "라이젠 3 2200G",
-            "56",
-            "16000",
-            "\\100000"
-        ]).draw(false);
-        dr_gpuDataTable.row.add([
-            "<img src=\"img/GPU/"+ i +".jpg\" class=\"dr_itemImage\">",
-            "<p>GTX1050Ti</p><p class=\"dr_align_right\">ZOTAC 4GB</p>",
-            56 + i + "",
-            "16000",
-            "\\100000"
-        ]).draw(false);
+        dr_cpuDataTable.row.add(db_cpu[i]).draw(false);
+        dr_gpuDataTable.row.add(db_gpu[i]).draw(false);
     }
     dr_gpuTable.find('tbody').on('click', 'tr', function(){
         var data = dr_gpuDataTable.row(this).data();

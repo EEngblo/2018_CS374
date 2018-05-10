@@ -1,7 +1,7 @@
 var b_loadInnerContents = function(t){
   switch (t){
     case 1:{
-      $("#m_mainContentsCell").load("step2.html");
+      $("#m_mainContentsCell").load("./step2.html");
       break;
     }
     case 2:{
