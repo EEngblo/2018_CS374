@@ -5,6 +5,9 @@
 var steps = ['Home', 'GPUandCPU', 'RAMandSto', 'Case', 'Final']; // mode(게임성능/활용도)에 따라서 step 결정
 var steps_finished = [true, false, false, false, false]; // steps의 각 step이 완료되었는지 저장
 var currentStepIdx = 0; // steps 배열에서 몇 번째 step을 진행중인지 표시
+var help_ids = ["h_RAM", "h_storage_check", "h_storage", "h_frame", "h_GPU_score", "h_CPU_score", "h_SSD_indicator", "h_storage_indicator", "h_RAM_indicator", "h_CPU_indicator", "h_frame_indicator"];
+ // help창 id들
+var current_help = null; // 현재 떠 있는 help 창 object
 
 var composition;
 
@@ -130,6 +133,17 @@ function moveStepButton(isNext){
   moveStep(steps[currentStepIdx]);
 }
 
+
+function SwitchHelp(n){
+  if (current_help != null)
+    current_help.style.display = "none";
+  if(n==0){
+    current_help = null;
+    return;
+  }
+  current_help = document.getElementById(help_ids[n-1])
+  current_help.style.display = "";
+}
 
 ////////////////////////////////////////////////////////////////////
 

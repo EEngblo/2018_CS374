@@ -175,7 +175,7 @@
           <table id="s_root">
             <tr>
                 <td class="specIndicator" rowspan="2">
-                  <span id="s_SSD" class="ui small statistic mystateIndicator">
+                  <span id="s_SSD" class="ui small statistic mystateIndicator" onmouseover="SwitchHelp(7)" onmouseout="SwitchHelp(0)">
                     <div class="value stateUpper">
                       <img src="./img/SSD_icon2.png" width="40" height="40">
                       <span id="s_SSD_value" class="stateL1 texts">0</span>
@@ -185,7 +185,7 @@
                       초고속 저장 용량
                     </div>
                   </span>
-                          <span id="s_Storage" class="ui small statistic mystateIndicator">
+                          <span id="s_Storage" class="ui small statistic mystateIndicator" onmouseover="SwitchHelp(8)" onmouseout="SwitchHelp(0)">
                     <div class="value stateUpper">
                       <img src="./img/hdd2.svg" width="40" height="40">
                       <span id="s_Storage_value" class="stateL1 texts">0</span>
@@ -195,7 +195,7 @@
                       총 저장 용량
                     </div>
                   </span>
-                          <span id="s_RAM" class="ui small statistic mystateIndicator">
+                          <span id="s_RAM" class="ui small statistic mystateIndicator" onmouseover="SwitchHelp(9)" onmouseout="SwitchHelp(0)">
                     <div class="value stateUpper">
                       <img src="./img/RAM.svg" width="42" height="42">
                       <span id="s_RAM_value" class="stateL1 texts">0</span>
@@ -205,7 +205,7 @@
                       RAM 용량
                     </div>
                   </span>
-                          <span id="s_CPU" class="ui small statistic mystateIndicator">
+                          <span id="s_CPU" class="ui small statistic mystateIndicator" onmouseover="SwitchHelp(10)" onmouseout="SwitchHelp(0)">
                     <div class="value stateUpper">
                       <img src="./img/CPU.svg" width="42" height="42">
                       <span id="s_CPU_value" class="stateL1 texts">0</span>
@@ -215,7 +215,7 @@
                       CPU 성능 점수
                     </div>
                   </span>
-                          <span id="s_FPS" class="ui small statistic mystateIndicator">
+                          <span id="s_FPS" class="ui small statistic mystateIndicator" onmouseover="SwitchHelp(11)" onmouseout="SwitchHelp(0)">
                     <div class="value stateUpper">
                       <img src="./img/FPS.png" width="42" height="42">
                       <span id="s_FPS_value" class="stateL1 texts">0</span>
@@ -332,8 +332,8 @@
                   <tr class="dr_itemHeader">
                     <th></th>
                     <th>제품정보</th>
-                    <th>프레임<br><i class="fas fa-question-circle"></i></th>
-                    <th>성능<br><i class="fas fa-question-circle"></i></th>
+                    <th onmouseover="SwitchHelp(4)" onmouseout="SwitchHelp(0)">프레임<br><i class="fas fa-question-circle"></i></th>
+                    <th onmouseover="SwitchHelp(5)" onmouseout="SwitchHelp(0)">성능<br><i class="fas fa-question-circle"></i></th>
                     <th>가격</th>
                   </tr>
                   </thead>
@@ -353,8 +353,8 @@
                   <tr class="dr_itemHeader">
                     <th></th>
                     <th>제품정보</th>
-                    <th>프레임<br><i class="fas fa-question-circle"></i></th>
-                    <th>성능<br><i class="fas fa-question-circle"></i></th>
+                    <th onmouseover="SwitchHelp(4)" onmouseout="SwitchHelp(0)">프레임<br><i class="fas fa-question-circle"></i></th>
+                    <th onmouseover="SwitchHelp(6)" onmouseout="SwitchHelp(0)">성능<br><i class="fas fa-question-circle"></i></th>
                     <th>가격</th>
                   </tr>
                   </thead>
@@ -408,7 +408,7 @@
 
                 <div class="ui divider myDivider"></div>
 
-                <div>
+                <div onmouseover="SwitchHelp(1)" onmouseout="SwitchHelp(0)">
                   <img class="ui rounded left floated image myImage" src="./img/RAM.jpg" width="80" height="80">
                   <p class="texts explanationText">컴퓨터가 실행중인 프로그램에 대한 정보를 적어두기 위해 사용하는 메모지 같은 역할을 합니다.</p>
                   <p class="texts explanationText">게임 <strong>성능에는 큰 영향을 주지 않지만</strong>, <strong>가득 찰 경우 급격히 느려지고</strong> 넘치게 되면 게임이 팅길 수 있습니다.</p>
@@ -453,7 +453,7 @@
 
                   <div class="ui divider myDivider"></div>
 
-                  <div>
+                  <div onmouseover="SwitchHelp(2)" onmouseout="SwitchHelp(0)">
                     <img class="ui rounded left floated image myImage" src="./img/SSD.jpg" width="80" height="80">
                     <p class="texts explanationText">사용자 데이터를 저장하는 공간으로, 초고속 저장장치인 <strong>SSD</strong>와 <strong>하드디스크</strong>가 있습니다.</p>
                     <p class="texts explanationText">빠르지만 작고 비싼 <strong>SSD</strong>에는 윈도우, <strong>자주 사용하는 게임</strong>과 프로그램들을 저장하여 빠르게 실행하고,</p>
@@ -655,113 +655,98 @@
               </div>
             </div>
 
-            <div hidden id="d_root_Final" class="ui segment d_root">
-              <div style="margin:15px;">
-                <span class="texts" style="font-size: 26px; font-weight:bold;">최종 견적 확인</span>
+            <div id="d_root_final" class="ui segment d_root">
+              <div style="margin: 10px;">
+                <span class="texts" style="font-size: 26px; font-weight:bold;"> 최종 견적 </span>
               </div>
-
-
-
-              <div id="OrderPackages">
-                <table id="tableSearchResults" class="ui violet compact table table-hover">
-                  <colgroup>
-                    <col style="width:5%;">
-                    <col style="width:20%;">
-                    <col style="width:60%;">
-                    <col style="width:15%;">
-
-                  </colgroup>
-                  <thead>
-                    <tr>
-                      <th></th>
-                      <th>종류</th>
-                      <th>내가 선택한 물품</th>
-                      <th>가격</th>
-
-                    </tr>
-                  </thead>
-
-                  <tbody>
-
-                    <tr id="package1" class="accordion-toggle" data-toggle="collapse" data-parent="#OrderPackages" data-target=".packageDetails1">
-                      <td><i class="indicator glyphicon glyphicon-menu-down"></i></td>
-                      <td>CPU</td>
-                      <td>i3 8100</td>
-                      <td>234,234</td>
-
-                    </tr>
-
-                    <tr class="accordion-body collapse packageDetails1" id="accordion1">
-                      <td class="hiddenRow"></td>
-                      <td class="hiddenRow">
-                      <i class="glyphicon glyphicon-menu-right"></i>
-                       CPU</td>
-                      <td class="hiddenRow">i3 8100</td>
-                      <td class="hiddenRow">123,123</td>
-
-                    </tr>
-                    <tr class="accordion-body collapse packageDetails1" id="accordion1">
-
-                      <td class="hiddenRow"></td>
-                      <td class="hiddenRow">
-                      <i class="glyphicon glyphicon-menu-right"></i>
-                       메인 보드</td>
-                      <td class="hiddenRow">asdf</td>
-                      <td class="hiddenRow">123,123</td>
-                    </tr>
-
-                    <tr>
-                      <td></td>
-                      <td>그래픽카드</td><td>리드텍 GTX1060 3GB WinFast HURRICANE OC</td>
-                      <td>345,678</td>
-                    </tr>
-                    <tr>
-                      <td></td>
-                      <td>RAM</td><td>16GB</td><td>123,456</td>
-                    </tr>
-                    <tr>
-                      <td></td>
-                      <td>SSD</td><td>256GB</td><td>123,456</td>
-                    </tr>
-                    <tr>
-                      <td></td>
-                      <td>HDD</td><td>None</td><td>0</td>
-                    </tr>
-
-                    <tr id="package2" class="accordion-toggle" data-toggle="collapse" data-parent="#OrderPackages" data-target=".packageDetails2">
-
-                      <td><i class="indicator glyphicon glyphicon-menu-down"></i></td>
-                      <td>케이스</td><td>case a</td><td>70,000</td>
-                    </tr>
-
-                    <tr class="accordion-body collapse packageDetails2" id="accordion2">
-
-                      <td class="hiddenRow"></td>
-                      <td class="hiddenRow">
-                      <i class="glyphicon glyphicon-menu-right"></i>
-                       케이스</td>
-                      <td class="hiddenRow">case a</td>
-                      <td class="hiddenRow">40,000</td>
-                    </tr>
-                    <tr class="accordion-body collapse packageDetails2" id="accordion2">
-
-                      <td class="hiddenRow"></td>
-                      <td class="hiddenRow">
-                      <i class="glyphicon glyphicon-menu-right"></i>
-                       파워 서플라이</td>
-                      <td class="hiddenRow">qwer</td>
-                      <td class="hiddenRow">30,000</td>
-                    </tr>
-
-                    <tr class="warning">
-                      <td></td>
-                      <td>최종 금액</td>
-                      <td></td>
-                      <td>1,234,567 </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
+              <table id="f_table" class="ui violet compact table table-hover">
+                <colgroup>
+                  <col style="width:5%;">
+                  <col style="width:20%;">
+                  <col style="width:10%;">
+                  <col style="width:45%;">
+                  <col style="width:16%;">
+                  
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th class="texts f_thead f_text"></th>
+                    <th class="texts f_thead f_text">종류</th>
+                    <th class="texts f_thead f_text" colspan=2>내가 선택한 부품</th>
+                    <th class="texts f_thead f_text">가격</th>
+                    
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="f_table_row collapsed" id="f_table_CPU" data-toggle="collapse" href="#f_table_mainboard" aria-expanded="false" aria-controls="f_table_mainboard" onclick="SwitchPlusMinus(this)">
+                    <td class="texts f_text"><i class="far fa-plus-square" id="f_CPU_plus"></i><i class="far fa-minus-square" id="f_CPU_minus" style="display:none"></i></td>
+                    <td class="texts f_text" id="" valign="center">CPU</td>
+                    <td><img class="f_img" id="f_CPU_img" src="img/CPU/6.jpg"></td>
+                    <td class="texts f_text" id="f_CPU_name">i5 8600 인텔</td>
+                    <td class="texts f_text" id="f_CPU_price">\333,930</td>
+                  </tr>
+                  <tr class="collapse f_table_row" id="f_table_mainboard" aria-expanded="false">
+                    <td class="texts f_text"><strong>└</strong> </td>
+                    <td class="texts f_text">메인보드</td>
+                    <td><img class="f_img" id="f_mainboard_img" src="http://img.danawa.com/prod_img/500000/207/633/img/5633207_1.jpg?shrink=50:50"> </td>
+                    <td class="texts f_text" id="f_mainboard_name">좋은거</td>
+                    <td class="texts f_text" id="f_mainboard_price">\100,000</td>
+                  </tr>
+                  <tr class="f_table_row" id="f_table_GPU">
+                    <td class="texts"></td>
+                    <td class="texts f_text">그래픽 카드</td>
+                    <td><img class="f_img" id="f_GPU_img" src="./img/GPU/6.jpg"> </td>
+                    <td class="texts f_text" id="f_GPU_name">GTX1060 ASUS 6GB</td>
+                    <td class="texts f_text" id="f_GPU_price">\234,234</td>
+                  </tr>
+                  <tr class="f_table_row" id="f_table_RAM">
+                    <td class="texts"></td>
+                    <td class="texts f_text">RAM</td>
+                    <td><img class="f_img" id="f_RAM_img" src="./img/RAM.jpg"> </td>
+                    <td class="texts f_text" id="f_RAM_name">16G 짜리</td>
+                    <td class="texts f_text" id="f_RAM_price">\200,000</td>
+                  </tr>
+                  <tr class="f_table_row" id="f_table_SSD">
+                    <td class="texts"></td>
+                    <td class="texts f_text">SSD</td>
+                    <td><img class="f_img" id="f_SSD_img" src="./img/SSD.jpg"> </td>
+                    <td class="texts f_text" id="f_SSD_name">500G 짜리</td>
+                    <td class="texts f_text" id="f_SSD_price">\100,000</td>
+                  </tr>
+                  <tr class="f_table_row" id="f_table_HDD">
+                    <td class="texts"></td>
+                    <td class="texts f_text">하드디스크</td>
+                    <td><img class="f_img" id="f_HDD_img" src="./img/SSD.jpg"> </td>
+                    <td class="texts f_text" id="f_HDD_name">1TB 짜리</td>
+                    <td class="texts f_text" id="f_HDD_price">\70,000</td>
+                  </tr>
+                  <tr class="f_table_row collapsed" id="f_table_case" data-toggle="collapse" href="#f_table_power" aria-expanded="false" aria-controls="f_table_power" onclick="SwitchPlusMinus(this)">
+                    <td class="texts f_text"><i class="far fa-plus-square" id="f_case_plus"></i><i class="far fa-minus-square" id="f_case_minus" style="display:none"></i></td>
+                    <td class="texts f_text">케이스</td>
+                    <td><img class="f_img" id="f_case_img" src="http://img.danawa.com/prod_img/500000/207/633/img/5633207_1.jpg?shrink=50:50"> </td>
+                    <td class="texts f_text" id="f_case_name">case A</td>
+                    <td class="texts f_text" id="f_case_price">\50,000</td>
+                  </tr>
+                  <tr class="collapse f_table_row" id="f_table_power" aria-expanded="false">
+                    <td class="texts f_text"><strong>└</strong> </td>
+                    <td class="texts f_text">전원장치</td>
+                    <td><img class="f_img" id="f_power_img" src="http://img.danawa.com/prod_img/500000/207/633/img/5633207_1.jpg?shrink=50:50"> </td>
+                    <td class="texts f_text" id="f_power_name">적당한거 </td>
+                    <td class="texts f_text" id="f_power_price">\50,000</td>
+                  </tr>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <th class="texts f_text"></th>
+                    <th class="texts f_text f_thead">최종가격</th>
+                    <th class="texts f_text"></th>  
+                    <th class="texts f_text"></th>
+                    <th class="texts f_text f_thead">\1,000,000</th>
+                    
+                  </tr>
+                </tfoot>
+              </table>
+            
 
               <div class="m_moveStepButtons">
                 <button
@@ -783,11 +768,143 @@
 
       </tr>
       <tr>
-        <td class="bigCell leftCells Cells" id="helpContentsCell">
-          <div id="helpContents">
-            도움말 자리
-          </div>
-        </td>
+<td class="bigCell leftCells Cells" id="helpContentsCell">
+
+
+              <div class="ui well h_content" id="h_RAM" style="display:none" >
+                <div class="texts bigTitle">  RAM </div>
+
+                <div class="ui divider myDivider">  </div>
+                <p class="texts explanationText"> 남아있는 RAM의 용량이 부족하면 </p>
+                <p class="texts explanationText"> 아래 영상과 같이 화면에 버벅임이 </p>
+                <p class="texts explanationText"> 보이는 문제가 생깁니다. </p>
+                <div class="h_video_holder" align="center">
+<iframe width="240" height="160" src="https://www.youtube.com/embed/TkTJjqkzg44?autoplay=0&loop=1&playlist=TkTJjqkzg44" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                </div>
+                <!--https://www.youtube.com/watch?v=9m0ceg6evyA-->
+              </div>
+
+              <div class="ui well h_content" id="h_storage_check" style="display:none" >
+                <div class="texts bigTitle">  저장장치 사용량 보기 </div>
+                <div class="ui divider myDivider"></div>
+                <p class="texts explanationText"> 윈도우 [<strong>설정</strong>]에서 [<strong>시스템</strong>] 클릭 </p>
+                <p class="texts explanationText"> <i class="fa fa-arrow-right" aria-hidden="true"></i> [<strong>시스템</strong>]에서 [<strong>저장소</strong>] 클릭</p>
+                <p class="texts explanationText"> <i class="fa fa-arrow-right" aria-hidden="true"></i> [<strong>내 PC</strong>] 클릭 </p>
+                <img class="ui rounded bordered left floated image myImage" align="center" src="./img/Help/storage_check_example2.jpg" width="269" height="200">
+              </div>
+
+              <div class="ui well h_content" id="h_storage" style="display:none" >
+                <div class="texts bigTitle"> 저장장치 용량 </div>
+                <div class="ui divider myDivider"></div>
+                <p class="texts explanationText"> SSD 용량이 250GB 더 있으면 </p>
+                <p class="texts explanationText"> 10GB짜리 게임을 25개 더 설치 </p>
+                <p class="texts explanationText"> 할 수 있습니다. </p>
+                <p class="texts explanationText"> </p>
+                <p class="texts explanationText"> </p>
+                <p class="texts explanationText"> 하드디스크 용량이 1TB 더 있으면</p>
+                <p class="texts explanationText"> HD급 영상을 250시간 더 저장</p>
+                <p class="texts explanationText"> 할 수 있습니다 </p>
+                
+              </div>
+
+              <div class="ui well h_content" id="h_frame" style="display:none" >
+                <div class="texts bigTitle">  프레임 </div>
+                <div class="ui divider myDivider"></div>
+                <!--<p class="texts explanationText"> 프레임이란 화면에 띄워지는 정지  </p>
+                <p class="texts explanationText">화면 한장을 말합니다. 초당 보여 </p>
+                <p class="texts explanationText">주는 프레임수 (fps)를 줄여서 </p>
+                <p class="texts explanationText">프레임이라 말하기도 하며 CPU나 </p>
+                <p class="texts explanationText">그래픽 카드가 복잡한 연산을 하면  </p>
+                <p class="texts explanationText">수치가 떨어질 수도 있습니다.   </p>
+                <p class="texts explanationText">여기서는 프레임 수치가 떨어질 때  </p>
+
+                <p class="texts explanationText">최소값을 표시하고 CPU와 GPU중</p>
+                <p class="texts explanationText">작은 값이 컴퓨터에 반영됩니다. </p>-->
+                <p class="texts explanationText"> 프레임(fps)은 초당 보여지는 장면 </p>
+                <p class="texts explanationText"> 수로 CPU나 그래픽카드에 부하가  </p>
+                <p class="texts explanationText"> 걸리면 값이 떨어집니다. 부품들의  </p>
+                <p class="texts explanationText"> 최소값이 컴퓨터에 반영됩니다. </p>
+                <div class="h_video_holder" align="center"><iframe width="240" height="160" src="https://www.youtube.com/embed/IrK5cDU9AIA?autoplay=0&loop=1&playlist=IrK5cDU9AIA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
+                <!--<div align="center" padding-bottom="-10"> <a href="https://youtu.be/IrK5cDU9AIA">30fps 60fps 비교영상 &nbsp<i class="fa fa-play" style="font-size:15px;color:red"></i></a></div> -->
+
+
+                <!--<embed src="https://youtu.be/IrK5cDU9AIA" width="300">-->
+
+              </div>
+
+              <div class="ui well h_content" id="h_GPU_score" style="display:none" >
+                <div class="texts bigTitle"> 그래픽 카드 성능 </div>
+                <div class="ui divider myDivider"></div>
+                <p class="texts explanationText"> 그래픽 카드 성능의 발목을 잡지   </p>
+                <p class="texts explanationText"> 않을 CPU를 썼다는 가정하에 같은   </p>
+                <p class="texts explanationText"> 프로그램을 돌릴때 얼마만큼의</p>
+                <p class="texts explanationText"> 성능을 낼 수 있는지에 대한 지표   </p>
+                <p class="texts explanationText"> 입니다.   </p>
+                <p class="texts explanationText"> 수치가 높을 수록 좋은 그래픽  </p>
+                <p class="texts explanationText"> 카드 입니다. </p>
+              </div>
+
+              <div class="ui well h_content" id="h_CPU_score" style="display:none" >
+                <div class="texts bigTitle"> CPU 성능 </div>
+                <div class="ui divider myDivider"></div>
+                <p class="texts explanationText"> Cinebench라는 CPU 성능 측정   </p>
+                <p class="texts explanationText"> 프로그램을 통해 측정된 CPU의  </p>
+                <p class="texts explanationText"> 성능지표 입니다. 다른 부품은</p>
+                <p class="texts explanationText"> CPU 성능의 발목을 잡지 않는   </p>
+                <p class="texts explanationText"> 선에서 모두 같은 걸 썼다고 가정  </p>
+                <p class="texts explanationText"> 하고 측정된 가상의 성능입니다.</p>
+                <p class="texts explanationText">   </p>
+                <p class="texts explanationText"> 수치가 높을 수록 좋은 CPU입니다.</p>
+                <p class="texts explanationText">  </p>
+                <p class="texts explanationText"> </p>
+              </div>
+
+              <div class="ui well h_content" id="h_SSD_indicator" style="display:none" >
+                <div class="texts bigTitle"> 초고속 저장 용량 </div>
+                <div class="ui divider myDivider"></div>
+                <p class="texts explanationText"> SSD의 저장 용량 입니다.  </p>
+                <p class="texts explanationText"> 용량이 클수록 자주 사용하는   </p>
+                <p class="texts explanationText"> 게임이나 프로그램을 더 많이 </p>
+                <p class="texts explanationText"> 설치할 수 있습니다. </p>
+              </div>
+
+              <div class="ui well h_content" id="h_storage_indicator" style="display:none" >
+                <div class="texts bigTitle"> 총 저장 용량 </div>
+                <div class="ui divider myDivider"></div>
+                <p class="texts explanationText"> SSD와 하드디스크의 용량을 합친  </p>
+                <p class="texts explanationText"> 값입니다.   </p>
+                <p class="texts explanationText"> 하드디스크에는 자주 사용하지않는 </p>
+                <p class="texts explanationText"> 프로그램이나 파일을 저장하는데    </p>
+                <p class="texts explanationText"> 좋습니다.  </p>
+              </div>
+
+              <div class="ui well h_content" id="h_RAM_indicator" style="display:none" >
+                <div class="texts bigTitle"> RAM 용량 </div>
+                <div class="ui divider myDivider"></div>
+                <p class="texts explanationText"> RAM이 임시로 저장할 수 있는   </p>
+                <p class="texts explanationText"> 최대 용량입니다.   </p>
+                <p class="texts explanationText"> RAM이 가득찰 경우 게임이 급격히 </p>
+                <p class="texts explanationText"> 느려지게 됩니다.    </p>
+              </div>
+
+              <div class="ui well h_content" id="h_CPU_indicator" style="display:none" >
+                <div class="texts bigTitle"> CPU 성능 점수 </div>
+                <div class="ui divider myDivider"></div>
+                <p class="texts explanationText"> 컴퓨터의 전반적인 속도를 맡는 </p>
+                <p class="texts explanationText"> CPU의 표준 성능 점수 입니다.   </p>
+                <p class="texts explanationText"> 수치가 높을 수록 나머지가 같은  </p>
+                <p class="texts explanationText"> 부품 일떄 더 높은 성능을 냅니다.    </p>
+              </div>   
+
+              <div class="ui well h_content" id="h_frame_indicator" style="display:none" >
+                <div class="texts bigTitle"> 성능(FPS) </div>
+                <div class="ui divider myDivider"></div>
+                <p class="texts explanationText"> CPU와 그래픽카드의 최소 성능이 </p>
+                <p class="texts explanationText"> 반영이 됩니다.   </p>
+                <p class="texts explanationText"> 수치가 높을 수록 더 부드러운   </p>
+                <p class="texts explanationText"> 게임 그래픽을 볼 수 있습니다.  </p>
+              </div>             
+          </td>
       </tr>
     </table>
   </div>

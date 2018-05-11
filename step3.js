@@ -1,4 +1,4 @@
-var help_ids = ["h_RAM", "h_storage_check", "h_storage", "h_frame", "h_GPU_score", "h_CPU_score"]
+var help_ids = ["h_RAM", "h_storage_check", "h_storage", "h_frame", "h_GPU_score", "h_CPU_score", "h_SSD_indicator", "h_storage_indicator", "h_RAM_indicator", "h_CPU_indicator", "h_frame_indicator"];
 var step_ids = ["d_root_GPUCPU", "d_root_RAMandSto", "d_root_Case","d_root_final"]
 var current_help = null;
 var current_step = null;
