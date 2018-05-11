@@ -175,7 +175,7 @@
           <table id="s_root">
             <tr>
                 <td class="specIndicator" rowspan="2">
-                  <span id="s_SSD" class="ui small statistic mystateIndicator" onmouseover="SwitchHelp(6)">
+                  <span id="s_SSD" class="ui small statistic mystateIndicator" onmouseover="SwitchHelp(7)" onmouseout="SwitchHelp(0)">
                     <div class="value stateUpper">
                       <img src="./img/SSD_icon2.png" width="40" height="40">
                       <span id="s_SSD_value" class="stateL1 texts">0</span>
@@ -185,7 +185,7 @@
                       초고속 저장 용량
                     </div>
                   </span>
-                          <span id="s_Storage" class="ui small statistic mystateIndicator" onmouseover="SwitchHelp(7)">
+                          <span id="s_Storage" class="ui small statistic mystateIndicator" onmouseover="SwitchHelp(8)" onmouseout="SwitchHelp(0)">
                     <div class="value stateUpper">
                       <img src="./img/hdd2.svg" width="40" height="40">
                       <span id="s_Storage_value" class="stateL1 texts">0</span>
@@ -195,7 +195,7 @@
                       총 저장 용량
                     </div>
                   </span>
-                          <span id="s_RAM" class="ui small statistic mystateIndicator" onmouseover="SwitchHelp(8)">
+                          <span id="s_RAM" class="ui small statistic mystateIndicator" onmouseover="SwitchHelp(9)" onmouseout="SwitchHelp(0)">
                     <div class="value stateUpper">
                       <img src="./img/RAM.svg" width="42" height="42">
                       <span id="s_RAM_value" class="stateL1 texts">0</span>
@@ -205,7 +205,7 @@
                       RAM 용량
                     </div>
                   </span>
-                          <span id="s_CPU" class="ui small statistic mystateIndicator" onmouseover="SwitchHelp(9)">
+                          <span id="s_CPU" class="ui small statistic mystateIndicator" onmouseover="SwitchHelp(10)" onmouseout="SwitchHelp(0)">
                     <div class="value stateUpper">
                       <img src="./img/CPU.svg" width="42" height="42">
                       <span id="s_CPU_value" class="stateL1 texts">0</span>
@@ -215,7 +215,7 @@
                       CPU 성능 점수
                     </div>
                   </span>
-                          <span id="s_FPS" class="ui small statistic mystateIndicator" onmouseover="SwitchHelp(10)">
+                          <span id="s_FPS" class="ui small statistic mystateIndicator" onmouseover="SwitchHelp(11)" onmouseout="SwitchHelp(0)">
                     <div class="value stateUpper">
                       <img src="./img/FPS.png" width="42" height="42">
                       <span id="s_FPS_value" class="stateL1 texts">0</span>
@@ -332,8 +332,8 @@
                   <tr class="dr_itemHeader">
                     <th></th>
                     <th>제품정보</th>
-                    <th onmouseover="SwitchHelp(3)">프레임<br><i class="fas fa-question-circle"></i></th>
-                    <th onmouseover="SwitchHelp(4)">성능<br><i class="fas fa-question-circle"></i></th>
+                    <th onmouseover="SwitchHelp(4)" onmouseout="SwitchHelp(0)">프레임<br><i class="fas fa-question-circle"></i></th>
+                    <th onmouseover="SwitchHelp(5)" onmouseout="SwitchHelp(0)">성능<br><i class="fas fa-question-circle"></i></th>
                     <th>가격</th>
                   </tr>
                   </thead>
@@ -353,8 +353,8 @@
                   <tr class="dr_itemHeader">
                     <th></th>
                     <th>제품정보</th>
-                    <th onmouseover="SwitchHelp(3)">프레임<br><i class="fas fa-question-circle"></i></th>
-                    <th onmouseover="SwitchHelp(5)">성능<br><i class="fas fa-question-circle"></i></th>
+                    <th onmouseover="SwitchHelp(4)" onmouseout="SwitchHelp(0)">프레임<br><i class="fas fa-question-circle"></i></th>
+                    <th onmouseover="SwitchHelp(6)" onmouseout="SwitchHelp(0)">성능<br><i class="fas fa-question-circle"></i></th>
                     <th>가격</th>
                   </tr>
                   </thead>
@@ -408,7 +408,7 @@
 
                 <div class="ui divider myDivider"></div>
 
-                <div onmouseover="SwitchHelp(0)">
+                <div onmouseover="SwitchHelp(1)" onmouseout="SwitchHelp(0)">
                   <img class="ui rounded left floated image myImage" src="./img/RAM.jpg" width="80" height="80">
                   <p class="texts explanationText">컴퓨터가 실행중인 프로그램에 대한 정보를 적어두기 위해 사용하는 메모지 같은 역할을 합니다.</p>
                   <p class="texts explanationText">게임 <strong>성능에는 큰 영향을 주지 않지만</strong>, <strong>가득 찰 경우 급격히 느려지고</strong> 넘치게 되면 게임이 팅길 수 있습니다.</p>
@@ -453,7 +453,7 @@
 
                   <div class="ui divider myDivider"></div>
 
-                  <div onmouseover="SwitchHelp(1)">
+                  <div onmouseover="SwitchHelp(2)" onmouseout="SwitchHelp(0)">
                     <img class="ui rounded left floated image myImage" src="./img/SSD.jpg" width="80" height="80">
                     <p class="texts explanationText">사용자 데이터를 저장하는 공간으로, 초고속 저장장치인 <strong>SSD</strong>와 <strong>하드디스크</strong>가 있습니다.</p>
                     <p class="texts explanationText">빠르지만 작고 비싼 <strong>SSD</strong>에는 윈도우, <strong>자주 사용하는 게임</strong>과 프로그램들을 저장하여 빠르게 실행하고,</p>
@@ -896,8 +896,8 @@
               <div class="ui well h_content" id="h_RAM_indicator" style="display:none" >
                 <div class="texts bigTitle"> RAM 용량 </div>
                 <div class="ui divider myDivider"></div>
-                <p class="texts explanationText"> RAM이 임시로 저장할 수 있는 최대  </p>
-                <p class="texts explanationText"> 용량입니다.   </p>
+                <p class="texts explanationText"> RAM이 임시로 저장할 수 있는   </p>
+                <p class="texts explanationText"> 최대 용량입니다.   </p>
                 <p class="texts explanationText"> RAM이 가득찰 경우 게임이 급격히 </p>
                 <p class="texts explanationText"> 느려지게 됩니다.    </p>
               </div>
