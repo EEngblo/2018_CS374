@@ -81,5 +81,5 @@ var db_cpu = [
         "<p>라이젠 5 2600X</p><p class=\"dr_align_right\">AMD</p>",
         "65",
         "14322",
-        "<div class=\"ui inverted violet button dr_priceButton\">345220x</div>"]
+        "<div class=\"ui inverted violet button dr_priceButton\">345220</div>"]
 ];

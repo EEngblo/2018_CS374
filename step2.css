@@ -71,8 +71,11 @@
 .dr_priceButton{
     padding-left: 6px !important;
     padding-right: 6px !important;
+    width: 85px;
 }
 
 .dataTables_scrollBody{
     height: 421px !important;
+    border: 1px #e0e0e0 solid !important;
+    border-radius: 3px;
 }
