@@ -6,48 +6,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Libraries -->
-
-
-
     <script src="jquery/js/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="semantic/dist/semantic.min.js"></script>
+    <script src="jquery/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>
+
+
+    <link rel="stylesheet" type="text/css" href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.0/css/jquery.dataTables_themeroller.css">
+    <link rel="stylesheet" type="text/css" href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.0/css/jquery.dataTables.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.0/jquery.dataTables.min.js"></script>
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
-
-
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.1/semantic.min.css">
-
     <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
-    <script src="semantic/dist/semantic.min.js"></script>
-
-    <script src="jquery/jquery-ui.min.js"></script>
-
     <link rel="stylesheet" href="jquery/jquery-ui.theme.min.css">
     <link rel="stylesheet" href="jquery/jquery-ui.min.css">
+
+    <script src="datatables/datatables.min.js"></script>
+    <link rel="stylesheet" href="datatables/datatables.min.css">
 
     <!-- Web Fonts -->
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Jua">
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Nanum+Gothic:Regular,Bold,Extra-Bold">
-
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
 
     <!-- Mine -->
     <link rel="stylesheet" href="./step2_5.css">
     <link rel="stylesheet" href="./step2_2.css">
     <link rel="stylesheet" href="./step5.css">
     <script src="./index.js"></script>
-    <script src="./step5.js"></script>
 
     <!-- Data starts -->
     <title>Accel Danawa : 조립 컴퓨터 견적 짜기</title>
 
   </head>
 
+  <!-- id Naming Rule -->
+  <!--
+    id는 javascript에서 접근할 이유가 있거나, 하나의 독립된 의미를 갖는 block에 대해서만 지정
+
+    HEADER_NAME(_FOOTER)꼴로 지정
+    1. HEADER :
+      - m : view tree에서 scene 바로 아래에 있다고 여길 수 있는 커다란 개체들
+      - s : state indicator; 상단의 상태바 내부의 개체들
+      - b : breadcrumb; 좌측의 step 버튼들의 개체들
+      - h : help; 좌측 하단의 도움말 개체들
+      - d% : data; 화면 중앙의 주요 데이터들; % 자리에는 제작자 식별 부호 알아서 넣기(생략 가능)
+
+    2. NAME :
+      - root : root
+      - 나머지는 알아서
+
+    3. FOOTER:
+      - button : 버튼
+      - value : Javascript code에 의해서 변경되어야 할 '값'들; 천단위 콤마가 필요할수도, 필요하지 않을수도 있으니 필수적으로 문서화하기
+
+  -->
+
   <body>
 
-
+    <!-- TODO : Logo button(id: m_logoButton) 눌렀을 때 confrim 창 띄워서 safety 좋도록 하기  -->
+    <!-- 상단 네비게이션 바 : 위의 TODO 이외에는 절대 손대지 말 것                                      -->
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -57,9 +81,10 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="https://eengblo.github.io/2018_CS374/">Accel Danawa</a>
+          <a id="m_logoButton" class="navbar-brand" href="https://eengblo.github.io/2018_CS374/">Accel Danawa</a>
+          <!-- TODO : confrim 창 띄워서 safety 좋도록 하기  -->
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
+        <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="active"><a href="#">새 견적</a></li>
             <li><a href="javascript:alert('3개의 task와 무관해 구현하지 않은 기능입니다. 죄송합니다.')">내 견적 보기</a></li>
@@ -69,34 +94,66 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">언어 (Languages) <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
                 <li><a href="#"><i class="kr flag"></i>한국어 (Korean)  <i class="fa fa-check" style="font-size:15px;color:green"></i></a></li>
+                <li class="divider"></li>
                 <li><a style="pointer-events: none; display: inline-block;" href="#"><i class="us flag"></i>영어 (English)
                 <br>&nbsp;&nbsp;Not supported yet</a></li>
-                <li class="divider"></li>
-                <li class="dropdown-header">Nav header</li>
-                <li><a href="#">Separated link</a></li>
               </ul>
             </li>
           </ul>
-        </div><!--/.nav-collapse -->
+        </div>
       </div>
     </nav>
 
-    <div id="screen" class="ui container center-div">
-      <div class="stateIndicator well well-lg">
-        <table id="stateIndicatorTable">
-          <tr id="stateIndicator1stRow">
-            <td id="previousStepCell" class="stateIndicatorFirstRow buttonCell">
+    <!-- 본문 내용 시작 -->
+    <div id="m_outerScreen" class="ui container center-div">
+
+      <!-- 화면 상단 상태바 : TODO 및 id document    -->
+      <!--
+
+        s_root : 쓰일 일 없을 듯
+
+        s_previous_button : 이전 단계 버튼
+          - Mouse Hover시 저장된 채로 넘어간다는 tooltip 띄워 주어야 함
+          - 맨 첫 화면이나 맨 마지막 화면으로 넘어갈 경우 confirm message 띄워 주어야 함
+        s_pricebar : 가격바 전체 id
+          - 이후 각 부분에 대한 id 추가
+          - 하단부의 선택에 따라 각 부분의 크기가 바뀌어야 함
+          - 필요시 그 내부에 값을 적어야 할 수도 있음
+        s_next_button : 다음 단계 버튼
+          - Mouse Hover시 저장된 채로 넘어간다는 tooltip 띄워 주어야 함
+          - 맨 첫 화면이나 맨 마지막 화면으로 넘어갈 경우 confirm message 띄워 주어야 함
+
+        s_SSD : 초고속 저장 용량 spec indicator 전체
+          - 하단부의 선택에 따라 jQuery UI를 통해 highlighting 해야 함
+        s_SSD_value : 초고속 저장 용량 숫자
+          - 하단부의 선택에 따라 그 값이 바뀌어야 함
+        위와 같은 rule로 s_Storeage, s_RAM, s_CPU, s_FPS 있음
+
+        s_price : 현재 총액; #,###,### 꼴의 string으로 들어와야 함
+          - 하단부의 선택에 따라 그 값이 바뀌어야
+        s_remainder : 현재 잔액; 이하 수들은 모두 위와 표현 규칙 동일
+          - 하단부의 선택에 따라 그 값이 바뀌어야
+        s_budget : 예산
+          - 하단부의 선택에 따라 그 값이 바뀌어야
+        s_percentage : 현재 사용한 예산의 비율
+          - 하단부의 선택에 따라 그 값이 바뀌어야
+
+      -->
+      <div id="s_root" class="stateIndicator well well-lg">
+        <table>
+          <tr>
+            <td class="stateIndicatorFirstRow buttonCell">
               <span style="float:left; margin-top:15px;">
                 <button
-                 align="right" id="previousButton" dxr class="ui green button moveStepButton"
+                 align="right" id="s_previous_button" dxr class="ui green button moveStepButton"
                  onclick="javasctript:window.location.href='./step3.html';">
                   <i class="fa fa-angle-double-left" style="font-size: 16px;"></i>
-                  <span class="moveStepButtontext" id="previousButtontext">&nbsp;이전 단계&nbsp;</span>
+                  <span class="moveStepButtontext texts">&nbsp;이전 단계&nbsp;</span>
                 </button>
               </span>
             </td>
-            <td id="progressCell" colspan="2">
-              <div id="progressIndicator" class="progress" class="stateIndicatorFirstRow">
+            <td class="stateIndicatorFirstRow pricebarCell" colspan="2">
+              <div id="s_pricebar" class="progress">
                 <div class="progress-bar progress-bar-success active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
                   <span class="sr-only">45% Complete</span>
                 </div>
@@ -105,136 +162,165 @@
                 </div>
               </div>
             </td>
-            <td id="nextStepCell" class="stateIndicatorFirstRow buttonCell">
-              
-                
+            <td class="stateIndicatorFirstRow buttonCell">
+              <span style="float:right; margin-top:15px;">
+                <button
+                 align="right" id="s_next_button" dxr class="ui green button moveStepButton"
+                 onclick="javasctript:window.location.href='./step3.html';">
+                 <span class="moveStepButtontext texts">&nbsp;다음 단계&nbsp;</span>
+                 <i class="fa fa-angle-double-right" style="font-size: 20px;"></i>
+                </button>
+              </span>
             </td>
           </tr>
           <tr>
-            <td id="specIndicatorCell" class="stateIndicatorSecondRow" colspan="2" rowspan="2">
-              <div id="specIndicator">
-                <span class="ui small statistic mystateIndicator">
+            <td class="stateIndicatorSecondRow" colspan="2" rowspan="2">
+              <div class="specIndicator">
+                <span id="s_SSD" class="ui small statistic mystateIndicator">
                   <div class="value stateUpper">
-                    <i class="fas fa-hdd stateIcon" style="color:orange;"></i>
-                    <span class="text stateL1">55</span>
-                    <span class="text stateL2">fps</span>
+                    <img src="./img/SSD_icon2.png" width="40" height="40">
+                    <span id="s_SSD_value" class="stateL1">250</span>
+                    <span class="stateL2">G</span>
                   </div>
-                  <div class="label text mystateIndicatorLabel">
-                    배플그라운드 성능
-                  </div>
-                </span>
-                <span class="ui small statistic mystateIndicator">
-                  <div class="value stateUpper">
-                    <i class="fas fa-hdd stateIcon" style="color:orange;"></i>
-                    <span class="text stateL1">250</span>
-                    <span class="text stateL2">점</span>
-                  </div>
-                  <div class="label text mystateIndicatorLabel">
-                    CPU 성능 점수
-                  </div>
-                </span>
-                <span class="ui small statistic mystateIndicator">
-                  <div class="value stateUpper">
-                    <i class="fas fa-hdd stateIcon" style="color:orange;"></i>
-                    <span class="text stateL1">16</span>
-                    <span class="text stateL2">G</span>
-                  </div>
-                  <div class="label text mystateIndicatorLabel">
-                    RAM 용량
-                  </div>
-                </span>
-                <span class="ui small statistic mystateIndicator">
-                  <div class="value stateUpper">
-                    <i class="fas fa-hdd stateIcon" style="color:orange;"></i>
-                    <span class="text stateL1">250</span>
-                    <span class="text stateL2">G</span>
-                  </div>
-                  <div class="label text mystateIndicatorLabel">
+                  <div class="label mystateIndicatorLabel">
                     초고속 저장 용량
                   </div>
                 </span>
-                <span class="ui small statistic mystateIndicator long">
+                <span id="s_Storage" class="ui small statistic mystateIndicator">
                   <div class="value stateUpper">
-                    <i class="fas fa-hdd stateIcon" style="color:orange;"></i>
-                    <span class="text stateL1">1250</span>
+                    <img src="./img/hdd2.svg" width="40" height="40">
+                    <span id="s_Storage_value" class="stateL1">1250</span>
                     <span class="text stateL2">G</span>
                   </div>
-                  <div class="label text mystateIndicatorLabel">
+                  <div class="label mystateIndicatorLabel">
                     총 저장 용량
+                  </div>
+                </span>
+                <span id="s_RAM" class="ui small statistic mystateIndicator">
+                  <div class="value stateUpper">
+                    <img src="./img/RAM.svg" width="42" height="42">
+                    <span id="s_RAM_value" class="stateL1">16</span>
+                    <span class="stateL2">G</span>
+                  </div>
+                  <div class="label mystateIndicatorLabel">
+                    RAM 용량
+                  </div>
+                </span>
+                <span id="s_CPU" class="ui small statistic mystateIndicator">
+                  <div class="value stateUpper">
+                    <img src="./img/CPU.svg" width="42" height="42">
+                    <span id="s_CPU_value" class="stateL1">250</span>
+                    <span class="stateL2">점</span>
+                  </div>
+                  <div class="label mystateIndicatorLabel">
+                    CPU 성능 점수
+                  </div>
+                </span>
+                <span id="s_FPS" class="ui small statistic mystateIndicator">
+                  <div class="value stateUpper">
+                    <img src="./img/FPS.png" width="42" height="42">
+                    <span id="s_FPS_value" class="stateL1">55</span>
+                    <span class="stateL2">fps</span>
+                  </div>
+                  <div class="label mystateIndicatorLabel">
+                    배플그라운드 성능
                   </div>
                 </span>
               </div>
             </td>
-
-            <td id="priceIndicatorCell" class="stateIndicatorSecondRow" colspan="2">
-              <span class="texts stateIndicatorIndex">총액&nbsp;</span>
+            <td class="stateIndicatorSecondRow price" colspan="2">
+              <span class="stateIndicatorIndex">총액&nbsp;</span>
               <span class="texts stateIndicatorValue">₩</span>
-              <span class="texts stateIndicatorValue" id="price">1,234,567</span>
-              <span class="texts stateIndicatorIndex2">&nbsp;(₩</span>
-              <span class="texts stateIndicatorValue" id="remainder">234,567</span>
-              <span class="texts stateIndicatorIndex2">남음)</span>
+              <span class="stateIndicatorValue" id="s_price_value"><span>1,234,567</span></span>
+              <span class="stateIndicatorIndex2">&nbsp;(</span>
+              <span class="texts stateIndicatorIndex2">₩</span>
+              <span class="stateIndicatorSubValue" id="s_remainder_value">234,567</span>
+              <span class="stateIndicatorIndex2">남음 )</span>
             </td>
           </tr>
           <tr>
-            <td id="budgetIndicatorCell" class="stateIndicatorSecondRow" colspan="2">
-              <span class="texts stateIndicatorIndex">예산&nbsp;&nbsp;</span>
+            <td class="stateIndicatorSecondRow budget" colspan="2">
+              <span class="stateIndicatorIndex">예산&nbsp;</span>
               <span class="texts stateIndicatorValue">₩</span>
-              <span class="texts stateIndicatorValue" id="budget">1,345,678</span>
-              <span class="texts stateIndicatorIndex2">&nbsp;(</span>
-              <span class="texts stateIndicatorValue" id="remainder">88</span>
-              <span class="texts stateIndicatorIndex2">% 사용)</span>
+              <span class="stateIndicatorValue" id="s_budget_value">1,345,678</span>
+              <span class="stateIndicatorIndex2">&nbsp;(</span>
+              <span class="stateIndicatorSubValue" id="s_percentage_value">88</span>
+              <span class="stateIndicatorIndex2">% 사용)</span>
             </td>
-          </tr>
         </table>
       </div>
-      <table id=realScreen>
+
+
+      <!-- 화면 중앙 contents -->
+      <table id=m_innerScreen>
         <tr>
-          <td class="bigCell leftCells Cells" id="breadcrumbCell">
-            <div id="breadcumbContents">
-              <div class="ui vertical mini steps">
-                <a class="completed step" href="./index.html">
-                  <i class="home icon"></i>
-                  <div class="content">
-                    <div class="title nanumStep budget">예산 및 목적 설정</div>
-                    <div class="description nanumStep budget"></div>
-                  </div>
-                </a>
+          <!-- Breadcrumb : TODO 및 id document -->
+          <!--
 
-                <a class="completed step">
-                  <i class="microchip icon"></i>
-                  <div class="content">
-                    <div class="title nanumStep major">게임 성능 관련 부품 선택</div>
-                    <div class="description nanumStep major">CPU, 그래픽카드</div>
-                  </div>
-                </a>
+            b_root : breadcrumb 전체를 감싸는 div
+              - user가 선택한 mode(성능, 활용도)에 따라 이 id로 접근해 하위 <a> 들의 순서 재배열해야 함
+                - 성능 모드일 때는 b_performace_button이 먼저 오고,
+                  활용도 모드일 때는 b_versatility_button이 먼저 와야 함
 
-                <a class="completed step">
-                  <i class="hdd icon"></i>
-                  <div class="content">
-                    <div class="title nanumStep major">활용도 관련 부품 선택</div>
-                    <div class="description nanumStep major">저장장치, RAM</div>
-                  </div>
-                </a>
+            b_home_button : 첫 화면으로 돌아가는 버튼
+              - hover시 현재 작업중인 내용이 사라진다는 말이 'top left'로 떠야 함
+              - 클릭시 confirm 창 한번 더 떠야 함
 
-                <a class="completed step">
-                  <i class="window maximize icon"></i>
-                  <div class="content">
-                    <div class="title nanumStep case">디자인 선택</div>
-                    <div class="description nanumStep case">케이스</div>
-                  </div>
-                </a>
+            b_performance_button, b_versatility_button : 주요 부품 선택하는 창으로 가는 버튼
+              - 'active' class를 가진 현재 열려있는 창은 클릭해도 아무 일도 일어나지 않고, focus를 자동으로 다른 쪽으로 옮겨야 함
+              - 선택이 완료된 창은 'completed' class를 주고, 현재 열려있는 창은 'active' class를 주어야 함
+              - simple mode 선택시에는 바로 이 두 단계는 complete된 채로 case 상태로 넘어가야 함
 
-                <div class="active step">
-                  <i class="won sign icon"></i>
-                  <div class="content">
-                    <div class="title nanumStep confirm">최종 확인 및 구매</div>
-                    <div class="description nanumStep confirm"></div>
-                  </div>
+            b_case_button : 케이스 선택하는 창으로 가는 버튼
+              - user가 simple mode를 선택했거나, 앞의 주요 부품 선택을 모두 완료한 상태에서야 'disabled' class가 사라져야 함
+              - 이 창과 위의 두 창 사이의 전환은 자유롭게 이루어 져야 하며, 창 전환시 반드시 모든 data가 온전히 저장되어야 함
+
+            b_fianl_button : 최종 확인 창으로 가는 버튼
+              - confirm창 한번 더 떠야 함
+              - case까지 complete 된 후에만 'disabled' class가 가라져야 함
+
+          -->
+          <td class="bigCell leftCells Cells" id="m_breadcrumbCell">
+            <div class="ui vertical mini steps" id="b_root">
+              <a id="b_home_button" href="javascript:void(0)" class="breadcrumb completed step">
+                <i class="home icon"></i>
+                <div class="content">
+                  <div class="title eachStep">예산 및 주로 하는 게임 설정</div>
+                  <div class="description eachStep">첫 화면으로 돌아가기</div>
                 </div>
-
-              </div>
+              </a>
+              <a id="b_performace_button" href="javascript:void(0)" class="breadcrumb completed step">
+                <i class="microchip icon"></i>
+                <div class="content">
+                  <div class="title eachStep">게임 성능 관련 부품 선택</div>
+                  <div class="description eachStep">CPU, 그래픽카드 변경</div>
+                </div>
+              </a>
+              <a id="b_versatility_button" href="javascript:void(0)" class="breadcrumb completed step">
+                <i class="hdd icon"></i>
+                <div class="content">
+                  <div class="title eachStep">활용도 관련 부품 선택</div>
+                  <div class="description eachStep">저장장치, RAM 변경</div>
+                </div>
+              </a>
+              <a id="b_case_button" href="javascript:void(0)" class="breadcrumb completed step">
+                <i class="window maximize icon"></i>
+                <div class="content">
+                  <div class="title eachStep">디자인 선택</div>
+                  <div class="description eachStep">케이스 선택</div>
+                </div>
+              </a>
+              <a id="b_final_button" href="javascript:void(0)" class="breadcrumb active step">
+                <i class="won sign icon"></i>
+                <div class="content">
+                  <div class="title eachStep">최종 확인 및 구매</div>
+                  <div class="description eachStep"></div>
+                </div>
+              </a>
             </div>
           </td>
+          
+          
           <td class="bigCell rightCells Cells" id="mainContentsCell" rowspan="2">
             <div id="d_root_final" class="ui segment d_root">
               <div style="margin: 10px;">
@@ -328,21 +414,27 @@
                 </tfoot>
               </table>
             </div>
+
+
+
+
+
           </td>
         </tr>
         <tr>
           <td class="bigCell leftCells Cells" id="helpContentsCell">
             <div id="helpContents">
-              도움말 자리
+
             </div>
           </td>
         </tr>
       </table>
     </div>
-    <div class="ui modal" id="nextStepConfirm">
+    <!-- TODO : legacy code임; 이를 바탕으로 해서 confirm message 잘 수정해야 함-->
+    <div class="ui modal" id="m_nextStepConfirm">
       <div class="header">부품 선택 단계로 넘어가시겠습니까?</div>
       <div class="content">
-          <div class="final" id="finalGame">1</div>
+          <div class="final" id="m_endGame">1</div>
       </div>
       <div class="actions">
         <div class="ui cancel negative basic button">

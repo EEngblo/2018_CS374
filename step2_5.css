@@ -2,7 +2,6 @@ body{
   height: 900px;
 }
 
-
 .texts{
   font-family: 'Nanum Gothic' !important;
 }
@@ -25,6 +24,10 @@ body{
   padding-right: 50px;
 }
 
+#m_mainContentsCell{
+  height:720px;
+}
+
 .leftCells{
   width:322px;
 }
@@ -41,11 +44,31 @@ body{
   padding:10px !important;
   width:978px !important;
   height:707px !important;
+  margin-bottom: 14px !important;
+  margin-top: 0px !important;
 }
+
+.m_moveStepButtons{
+  position:absolute;
+  top:650px;
+}
+
+.m_moveStepButtons .nextButton{
+  position:absolute;
+  left:795px;
+}
+
+.m_moveStepButtons .previousButton{
+  position: absolute;
+  left:0px;
+}
+
 
 /* 화면 전체 Organization*/
 {{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
 /* 상단부 가격, 스펙 Indicator Cell === stateIndicator */
+
+
 
 .stateIndicator{
   width:1200px;
@@ -58,23 +81,32 @@ body{
   padding-top: 0px;
 }
 
+#s_root{
+  table-layout: fixed;
+  width:1150px;
+  height:60px !important;
+  margin-left:auto;
+  margin-right: auto;
+}
+
+#s_root td{
+  padding-bottom: 0px !important;
+}
+
 #s_root .stateIndicatorFirstRow{
   height: 75px;
   padding-top:0px;
-  padding-bottom: 5px;
+  padding-bottom: 0px;
 
 }
+
 
 #s_root .stateIndicatorFirstRow.buttonCell{
-  width:140px;
+  width:180px;
 }
 
-#s_root .moveStepButtontext{
-  font-size: 16px;
-}
 
 #s_root .stateIndicatorFirstRow.pricebarCell{
-  width:100%;
   padding-left: 15px;
   padding-right: 15px;
   padding-top:15px;
@@ -82,15 +114,10 @@ body{
 
 #s_root #s_pricebar{
   margin-bottom: 5px;
+  height: 30px;
 }
 
-#s_root .moveStepButton{
-  padding: 12px !important;
-  width: 130px !important;
-  height: 45px !important;
-  margin-left: 5px !important;
-  margin-right: 5px !important;
-}
+
 
 /* 위 : 가격바  ||  아래 : 성능지표  */
 
@@ -100,30 +127,52 @@ body{
 }
 
 #s_root .specIndicator{
-  width: 800px;
+  width: 860px;
+  margin-right: 0px !important;
   height: 70px;
 }
 
 #s_root .mystateIndicator{
-  width:auto;
   padding-left:12px !important;
   padding-right: 12px !important;
   margin-left: 0px !important;
 }
 
+#s_SSD{
+  width:166px !important;
+}
+
+#s_Storage{
+  width:190px !important;
+}
+
+#s_RAM{
+  width:144px !important;
+}
+
+#s_CPU{
+  width:171px !important;
+}
+
+#s_FPS{
+  width:166px !important;
+}
+
+
 #s_root .mystateIndicatorLabel{
   font-size: 16px !important;
-  font-weight: 400 !important;
+  font-weight: 500 !important;
 }
 
 #s_root .stateL1{
-  font-size:36px;
-  font-weight: bold;
+  font-size:40px;
+  font-weight: 700;
   margin-left:-5px;
 }
 
 #s_root .stateL2{
   font-size:22px;
+  font-weight: 600;
 }
 
 #s_root .stateUpper{
@@ -133,8 +182,13 @@ body{
 
 /* 위 : 성능지표  ||  아래 : 가격상태  */
 
-#s_root .stateIndicatorSecondRow{
-  text-align: right;
+#s_root .moneyIndicator{
+
+  height:300px;
+  margin-top:-50px;
+  margin-left: 30px;
+  display: inline;
+  margin-bottom:50px;
 }
 
 #s_root .stateIndicatorIndex{
@@ -143,7 +197,12 @@ body{
 }
 
 #s_root .stateIndicatorValue{
-  font-size:30px;
+  font-size:40px;
+  font-weight: 900;
+}
+
+#s_root .budgetIndicatorValue{
+  font-size:24px;
   font-weight: 900;
 }
 
@@ -199,9 +258,24 @@ body{
 }
 
 {{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+/* 창 이동 버튼 */
 
 
+.moveStepButton{
+  padding:5px !important;
+  width: 150px !important;
+  height: 45px !important;
+  margin-left: 5px !important;
+  margin-right: 5px !important;
+  font-size: 20px !important;
+}
 
+#m_next_button{
+  float: right;
+}
+
+
+{{{{{{{{{{{{{{{{{{{{{{{{{}}}}}}}}}}}}}}}}}}}}}}}}}
 #alertNext{
   width: 700px;
   margin: 0px !important;

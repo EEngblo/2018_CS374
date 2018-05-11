@@ -1,38 +1,15 @@
 
-#realScreen{
-  border: none;
-}
-
-
-#title{
-  margin-bottom: 5px;
-  padding-top:3px;
-}
-
-#mainContentsCell{
-  height:720px;
-}
-
-#mainContents{
-  display: table-cell;
-  vertical-align: top;
-  height: 720px;
-}
-
-.bigCell{
-  border-style: none !important;
-}
-
 .bigTitle{
   font-size: 24px;
   font-weight: bold;
-  align-items:  right;
+  margin-bottom: 5px;
+  padding-top:5px;
 }
-.smallTitle{
-  font-size: 18px;
-  width: 230px !important;
-  text-align: right !important;
 
+
+
+.segment{
+  padding: 15px;
 }
 
 
@@ -55,5 +32,8 @@
   height:50px;
 }
 
-
+.myDivider{
+  margin-bottom:15px !important;
+  margin-top:8px !important;
+}
 

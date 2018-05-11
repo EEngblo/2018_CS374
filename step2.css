@@ -1,12 +1,13 @@
 .dr_tableContents{
     font-size: medium;
-    width: 968px;
+    width: 980px;
     margin: auto;
 }
 
-#dr_mainContents{
+.dr_mainContents{
     padding: 2px !important;
     height:100%;
+    vertical-align: super;
 }
 
 .dr_itemTable {
@@ -24,7 +25,6 @@
 
 .dr_itemTable_header{
     height: 130px;
-    padding: 14px;
 }
 
 .dr_itemContainer td{
@@ -49,9 +49,38 @@
 }
 
 .dr_tableContent{
-    padding: 2px !important;
+    padding: 10px !important;
+    margin: 0px !important;
+    height: 630px !important;
+    width:475px !important;
+}
+
+.dr_left{
+  margin-right: 6px !important;
 }
 
 .dr_mainContents .dataTables_wrapper{
-    width: 484px !important;
+    width: 100% !important;
+}
+
+.dr_itemContainer tr{
+    background: url(./background_base.png);
+    background-repeat: no-repeat !important;
+    /*background-size: 350px 50px !important;*/
+}
+
+.dr_itemContainer td{
+    background: none !important;
+    background-color: transparent !important;
+}
+
+.dr_priceButton{
+    padding-left: 6px !important;
+    padding-right: 6px !important;
+    width: 85px;
+}
+
+.dataTables_scrollBody{
+    border: 1px #e0e0e0 solid !important;
+    border-radius: 3px;
 }

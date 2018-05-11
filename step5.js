@@ -1,3 +1,4 @@
+
 function SwitchPlusMinus(r){
   var classes = r.className;
   if(r.id=="f_table_CPU"){
@@ -21,3 +22,4 @@ function SwitchPlusMinus(r){
     }
   }
 }
+
