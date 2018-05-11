@@ -78,3 +78,21 @@
 
     padding-top:10px
 }
+
+.f_thead{
+  font-weight:bold !important;
+
+}
+.f_text{
+  vertical-align:middle !important;
+
+  font-size:20px; 
+}
+.f_table_row{
+  height:50px;
+}
+
+.f_img{
+  width:50px;
+  height:50px;
+}
