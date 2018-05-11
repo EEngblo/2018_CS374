@@ -1,12 +1,13 @@
 .dr_tableContents{
     font-size: medium;
-    width: 968px;
+    width: 980px;
     margin: auto;
 }
 
-#dr_mainContents{
+.dr_mainContents{
     padding: 2px !important;
     height:100%;
+    vertical-align: super;
 }
 
 .dr_itemTable {
@@ -48,11 +49,12 @@
 }
 
 .dr_tableContent{
-    padding: 5px !important;
+    padding: 10px !important;
+    margin: 0px !important;
 }
 
 .dr_mainContents .dataTables_wrapper{
-    width: 484px !important;
+    width: 100% !important;
 }
 
 .dr_itemContainer tr{
@@ -64,4 +66,13 @@
 .dr_itemContainer td{
     background: none !important;
     background-color: transparent !important;
+}
+
+.dr_priceButton{
+    padding-left: 6px !important;
+    padding-right: 6px !important;
+}
+
+.dataTables_scrollBody{
+    height: 421px !important;
 }
