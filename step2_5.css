@@ -274,6 +274,13 @@ body{
   float: right;
 }
 
+.ui.disabled.button[data-tooltip] {
+  pointer-events: auto !important;
+  opacity: 1 !important;
+  background-color: rgb(177,223,181);
+}
+
+
 
 {{{{{{{{{{{{{{{{{{{{{{{{{}}}}}}}}}}}}}}}}}}}}}}}}}
 #alertNext{
@@ -290,4 +297,12 @@ body{
   position:relative;
   top:-100px;
   left:0px;
+}
+
+.cheap{
+  color:#21ba45;
+}
+
+.expensive{
+  color:#db2828;
 }

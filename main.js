@@ -14,33 +14,50 @@ var composition;
 
 // 견적 Class 선언
 
-function Composition(budget, preferMode, isSimpleMode){
+function Composition(){
+
+  console.log('Init... Making Suggeted Composition...');
+
   // URL query문에서 각 parameter 받아 옴
   budget = getParameterByName("budget");
   mode1 = getParameterByName("mode1");
   mode2 = getParameterByName("mode2");
 
+  this.CPU=-1;
+  this.GPU=-1;
+  this.performance_done=false;
+
+  this.RAM=false;
+  this.SSD=false;
+  this.HDD=false;
+
+  this.RAM_done=false;
+  this.SSD_done=false;
+  this.HDD_done=false;
+  this.versatility_done=false;
+
+  this.case_unlock=false;
+
+  this.CASE=-1;
+  this.case_done=false;
+  this.price=678901;
+
   $('#s_budget_value').html(parseInt(budget).toLocaleString('en'));
-
-  this.CPU = -1;
-  this.GPU = -1;
-
-
-  this.RAM = false;
-  this.SSD = false; // SSD는 무조건 250G로 추천
-  this.HDD = false; // HDD도 무조건 없음으로 추천
-
-  this.CASE = -1; // 선택되지 않았을 때는 -1을 default로 줌
-
 
   // breadcrumb init
   $('#b_root').append(breadcrumbContents[0]);
+
+  // case page init
+  this.CASES = initCase();
 
   // 성능-활용도 모드에 따라서 breadcrumb 순서 변경 및 기본 추천 견적 작성
   if(mode1 === "performanceMode"){
     // 게임 성능 우선 모드
     $('#b_root').append(breadcrumbContents[1]);
     $('#b_root').append(breadcrumbContents[2]);
+
+    $('#d_root_GPUandCPU').attr('hidden', false);
+
 
   }else{
     // 활용도 모드
@@ -53,12 +70,18 @@ function Composition(budget, preferMode, isSimpleMode){
     $('#b_root').append(breadcrumbContents[2]);
     $('#b_root').append(breadcrumbContents[1]);
 
-
+    $('#d_root_RAMandSto').attr('hidden', false);
+    $('#d_root_GPUandCPU').attr('hidden', true);
   }
 
   // breadcrumb 완성
   $('#b_root').append(breadcrumbContents[3]);
   $('#b_root').append(breadcrumbContents[4]);
+
+
+  // button seting
+  $('#m_previous_button_'+steps[1]).remove();
+
 
   if(mode2 === "simpleMode"){
     // 원클릭 모드
@@ -69,27 +92,183 @@ function Composition(budget, preferMode, isSimpleMode){
     steps_finished[1] = true;
     steps_finished[2] = true;
 
+    // 아래 두 줄은 실험용임. 추천 견적 함수 작성 후 삭제해야 함
+    this.CPU=0;
+    this.GPU=0;
+
+    this.RAM_done=true;
+    this.SSD_done=true;
+    this.HDD_done=true;
+    this.versatility_done=true;
+    this.performance_done=true;
+    this.case_unlock=true;
+
     moveStep('Case');
   }else{
     // 커스텀 모드
+    // 추천 견적 작성 후, step2, step3에 대해서 미리 선택을 해 주어야 함
+
+    $('#b_Case_button').addClass('disabled');
+    $('#m_next_button_' + steps[2]).addClass('disabled');
+    $('#m_next_button_' + steps[2]).attr('onclick', 'javascript:void(0)');
+    $('#m_next_button_' + steps[2]).attr('data-tooltip', 'RAM, SSD, 하드디스크, 그래픽카드, CPU를 먼저 선택해 주세요');
+
 
     moveStep(steps[1]);
   }
+  $('#b_Final_button').addClass('disabled');
+  $('#m_next_button_Case').addClass('disabled');
+  $('#m_next_button_Case').attr('onclick', 'javascript:void(0)');
 
 
   // 상단바 초기 세팅
+  setSpecIndicator('SSD', 250, false);
+  setSpecIndicator('Storage', 250, false);
+  setSpecIndicator('RAM', this.RAM?16:8, false);
+
+
+  console.log('Success!!');
+
+}
+
+Composition.prototype = {
+
+
+
+  set : function(target, value, highlight = true, debug = false){
+    // 기존 값 복사 후 이를 이용해서 비용 변화 처리해야 함
+
+
+    // target attr의 값을 value로 설정
+    this[target] = value;
+
+    if(debug) console.log(" now "+target+" is "+value);
+
+    // 다음 단계로 진행 가능한지 검사
+    var notCompleted = []
+
+    if(!this.RAM_done)
+      notCompleted.push("RAM");
+    if(!this.SSD_done)
+      notCompleted.push("SSD");
+    if(!this.HDD_done)
+      notCompleted.push("하드디스크");
+    if(this.GPU < 0)
+      notCompleted.push("그래픽카드");
+    if(this.CPU < 0)
+      notCompleted.push("CPU");
+
+    if(this.RAM_done && this.SSD_done && this.HDD_done){
+      // 활용도 부품 선택 완료
+      this.versatility_done = true;
+      $('#b_RAMandSto_button').addClass('completed');
+    }else {
+      this.versatility_done = false;
+      $('#b_RAMandSto_button').removeClass('completed');
+    }
+
+    if(this.CPU >= 0 && this.GPU >= 0){
+      // 성능 부품 선택 완료
+      this.performance_done = true;
+      $('#b_GPUandCPU_button').addClass('completed');
+    }else{
+      this.performance_done = false;
+      $('#b_GPUandCPU_button').removeClass('completed');
+    }
+
+    if(this.CASE >= 0){
+      this.case_done = true;
+      $('#b_Case_button').addClass('completed');
+    }else{
+      this.case_done = false;
+      $('#b_Case_button').removeClass('completed');
+    }
+
+    if(this.performance_done && this.versatility_done || this.case_unlock){
+      // case 선택 단계로 넘어갈 수 있음!
+      $('#b_Case_button').removeClass('disabled')
+      $('#m_next_button_' + steps[2]).removeClass('disabled');
+      $('#m_next_button_' + steps[2]).attr('onclick', 'moveStepButton(true);');
+      $('#m_next_button_' + steps[2]).removeAttr('data-tooltip');
+
+      this.case_unlock = true;
+
+    }else{
+      $('#b_Case_button').addClass('disabled')
+      $('#m_next_button_' + steps[2]).addClass('disabled');
+      $('#m_next_button_' + steps[2]).attr('onclick', 'void(0);');
+      errorMessage = notCompleted.join(', ');
+      errorMessage += notCompleted[notCompleted.length - 1] == "RAM" ? '을' : '를';
+      $('#m_next_button_' + steps[2]).attr('data-tooltip', errorMessage +' 먼저 선택해 주세요');
+    }
+
+    if(this.CASE < 0)
+      notCompleted.push('케이스');
+
+    errorMessage = notCompleted.join(', ');
+    errorMessage += notCompleted[notCompleted.length - 1] == "RAM" ? '을' : '를';
+
+    if(this.case_done && this.performance_done && this.versatility_done){
+      // 최종 확인 단계로 넘어갈 수 있음
+      $('#b_Final_button').removeClass('disabled');
+      $('#m_next_button_Case').removeClass('disabled');
+      $('#m_next_button_Case').attr('onclick', 'moveStepButton(true);');
+      $('#m_next_button_Case').removeAttr('data-tooltip');
+    }else{
+      $('#b_Final_button').addClass('disabled');
+      $('#m_next_button_Case').addClass('disabled');
+      $('#m_next_button_Case').attr('onclick', 'void(0);');
+      $('#m_next_button_Case').attr('data-tooltip', errorMessage +' 먼저 선택해 주세요');
+
+    }
+
+
+    // 상단바 업데이트
+    switch(target){
+      case 'RAM':
+        if(this.RAM){ // 16G RAM
+          setSpecIndicator('RAM', 16, highlight);
+        }else{ // 8G RAM
+          setSpecIndicator('RAM', 8, highlight);
+        }
+        break;
+      case 'SSD':
+        if(this.SSD){ // 500G SSD
+          setSpecIndicator('SSD', 500, highlight);
+        }else{ // 250G SSD
+          setSpecIndicator('SSD', 250, highlight);
+        }
+      case 'HDD':
+        if(this.SSD && this.HDD){ // 500G SSD 1T HDD
+          setSpecIndicator('Storage', 1500, highlight);
+        }else if(this.SSD && !this.HDD){ // 500G SSD No HDD
+          setSpecIndicator('Storage', 500, highlight);
+        }else if(this.HDD){ // 250G SSD 1T HDD
+          setSpecIndicator('Storage', 1250, highlight);
+        }else{ // 250G SSD No HDD
+          setSpecIndicator('Storage', 250, highlight);
+        }
+      break;
+    }
+
+      // 가격 변경에 대한 부분은 여기로 들어가야 함
+
+  }
 
 }
 
 
 
-
 //////////////////////////////////
+
+window.onload = function(){
+  composition = new Composition();
+  loadCase();
+}
 
 
 $(document).ready(function(){
 
-  composition = new Composition(1,2,3);
 
 
 
@@ -130,15 +309,23 @@ function moveStepButton(isNext){
     currentStepIdx--;
   }
 
+
   moveStep(steps[currentStepIdx]);
 }
 
-function setSpecIndicator(target, score){
+function setSpecIndicator(target, score, highlight=true){
   // target = {SSD, Storage, RAM, SPU, FPS}
+  // 상단바 target의 점수를 score로 설정하고 highligh
+
   $('#s_'+target+'_value').html(score);
-  $('#s_'+target).effect( "highlight", {color:"#C8BFE7"}, 300 );
+  if(highlight) $('#s_'+target).effect( "highlight", {color:"#C8BFE7"}, 300 );
 }
 
+function moveHome(){
+  if(confirm("현재 작성 중인 견적이 사라지게 됩니다.\n정말 이동하시겠습니까?")){
+    location.href="index.html";
+  }
+}
 
 ////////////////////////////////////////////////////////////////////
 
@@ -157,3 +344,60 @@ function getParameterByName(name, url) {
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
+
+
+// CASE step의 case들 만드는 함수
+function initCase(){
+  var size = db_CASE.length;
+  var cards = []
+  size = 20; // 나중에 지워야 함
+  for(var i = 0; i < size; i++){
+    var tempHTML = cardHTML.replace(/case00/g,"case"+ ("0" + i.toString()).slice (-2));
+    tempHTML = tempHTML.replace(/__id__/, ("0" + i.toString()).slice(-2));
+    //console.log(tempHTML);
+
+    // DB 불러와서 각 ID에 맞게 수정
+
+    cards.push(tempHTML);
+  }
+
+  return cards;
+}
+
+
+
+
+
+
+
+/////////////////
+
+var cardHTML = '<div id="m_case00" class="card casecard">\
+  <div class="blurring dimmable image">\
+    <div class="ui dimmer">\
+      <div class="content cardc">\
+        <div class="center">\
+          <div class="ui inverted button">\
+            <a id="m_detail_case00" class="texts caseDetail"\
+               href="http://prod.danawa.com/info/?pcode=5633207"\
+               target="_blank">\
+               상세정보 보기&nbsp;<i class="icon external alternate"></i></div>\
+            </a>\
+        </div>\
+      </div>\
+    </div>\
+    <img id="m_img_case00" src="http://img.danawa.com/prod_img/500000/207/633/img/5633207_1.jpg?shrink=180:180">\
+  </div>\
+  <div class="content cardc">\
+    <div id="m_name_case00" class="header cardheader texts">case a</div>\
+    <div class="meta texts">\
+      <i class="users icon"></i>\
+      인기도&nbsp;:&nbsp;\
+      <div id="m_popular_case00" class="ui mini star rating" data-rating="3" data-max-rating="5"></div>\
+    </div>\
+  </div>\
+  <div id="m_button_case00" onclick="selectCase(__id__,this);" class="ui bottom inverted violet attached button texts">\
+    <i class="shopping cart icon"></i>\
+    <strong id="m_price_case00" class="texts expensive">+ ₩ 40,000</strong>\
+  </div>\
+</div>'

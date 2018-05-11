@@ -37,17 +37,17 @@
     <link rel="stylesheet" href="./step5.css">
     <link rel="stylesheet" href="./step2_2.css">
 
-    <script src="./breadcrumb.js"></script>
-    <script src="./main.js"></script>
+    <script src="./step2_2_5db.js"></script>
 
-    <script src="./outerFrame.js"></script>
+    <script src="./main.js"></script>
     <script src="./step2_2.js"></script>
+
     <script src="./step4.js"></script>
 
     <script src="./step2db.js"></script>
     <script src="./step2.js"></script>
 
-
+    <script src="./breadcrumb.js"></script>
 
 
 
@@ -296,8 +296,8 @@
                 <div class="dr_itemTable_header">
                   <div class="bigTitle"> 그래픽 카드</div>
                   <div class="ui divider myDivider"></div>
-                  <p class="texts explanationText"> 그래픽 카드는 <strong>게임 화면을 그리는 부품</strong>입니다. </p>
-                  <p class="texts explanationText"> 좋은 부품으로 더 부드럽고 사실적인 게임 화면을 볼 수 있습니다.</p>
+                  <p class="texts explanationText"> 그래픽 카드는 <strong>게임 화면을 모니터에 그려내는 부품</strong>입니다. </p>
+                  <p class="texts explanationText"> 아래의 프레임이 높은 제품을 사용할수록<br> 더 부드럽고 사실적인 게임 화면을 볼 수 있습니다.</p>
                 </div>
                 <table class="dr_itemTable display ui table" id="dr_gpuDataTables">
                   <thead>
@@ -317,8 +317,8 @@
                 <div class="dr_itemTable_header">
                   <div class="bigTitle">CPU</div>
                   <div class="ui divider myDivider"></div>
-                  <p class="texts explanationText"> CPU는 그래픽 카드가 하는 일인 게임 화면을 그리는 것을 제외한 <strong>모든 계산을 수행</strong>하는 부품입니다.</p>
-                  <p class="texts explanationText"> 좋은 부품은 전반적인 컴퓨터 속도 향상에 도움이 됩니다.</p>
+                  <p class="texts explanationText"> CPU는 그래픽 카드가 하는 일인 화면을 그리는 것을 제외한 <strong>모든 작업을 수행</strong>하는 부품입니다.</p>
+                  <p class="texts explanationText"> 좋은 부품을 사용하면 전반적인 컴퓨터 성능이 향상됩니다.</p>
                   </div>
                 <table class="dr_itemTable display ui table" id="dr_cpuDataTables">
                   <thead>
@@ -337,14 +337,22 @@
 
               <div class="m_moveStepButtons">
                 <button
-                        id="m_previous_button" dxr class="ui green button moveStepButton previousButton"
-                        onclick="javasctript:moveStepButton(false);">
+                        id="m_previous_button_GPUandCPU" dxr class="ui green button moveStepButton previousButton"
+                        onclick="moveStepButton(false);"
+
+                        data-inverted=""
+                        data-position="top center"
+                        data-variation="wide">
                   <i class="fa fa-angle-double-left" style="font-size: 20px;"></i>
                   <span class="moveStepButtontext texts">&nbsp;이전 단계&nbsp;</span>
                 </button>
                 <button
-                        id="m_next_button" dxr class="ui green button moveStepButton nextButton"
-                        onclick="javasctript:moveStepButton(true);">
+                        id="m_next_button_GPUandCPU" dxr class="ui green button moveStepButton nextButton"
+                        onclick="moveStepButton(true);"
+
+                        data-inverted=""
+                        data-position="top center"
+                        data-variation="wide">
                  <span class="moveStepButtontext texts">&nbsp;다음 단계&nbsp;</span>
                  <i class="fa fa-angle-double-right" style="font-size: 20px;"></i>
                 </button>
@@ -389,34 +397,39 @@
 
                 <div class="ui divider texts myDivider"></div>
 
-                <label class="smallTitle">용량 :&nbsp;&nbsp;</label>
-                <span display:inline class="ui buttons">
-                <button class="ui inverted violet button modeButton"
-                         id="d_RAM_8G_button"
+                <div class="smallTitleContainer">
+                  <label class="smallTitle">용량 :&nbsp;&nbsp;</label>
 
-                         onclick="modeButtonClickHandler(this, document.getElementById('d_RAM_16G_button'));"
-                         data-tooltip="동시에 창을 많이 켜 두지 않는 보통 사용자에게 적합합니다"
-                         data-inverted=""
-                         data-position="bottom center"
-                         data-variation="wide"
-                 >
-                   <div class="modeButtonText texts">8 G</div>
-                   <div id="d_RAM_8G" class="modeButtonText texts priceTexts minus">- ₩ 90,000</div>
-                 </button>
-                 <div class="or" style="height:60px;"></div>
-                 <button class="ui inverted violet button modeButton"
-                         id="d_RAM_16G_button"
-
-                         onclick="modeButtonClickHandler(this, document.getElementById('d_RAM_8G_button'));"
-                         data-tooltip="동시에 게임, 인터넷, 무거운 프로그램 등을 많이 실행시키는 사용자에게 적합합니다"
-                         data-inverted=""
-                         data-position="bottom center"
-                         data-variation="wide"
-                 >
-                     <div class="modeButtonText texts">16 G</div>
-                     <div id="d_RAM_16G" class="modeButtonText texts priceTexts plus">+ ₩ 90,000</div>
-                 </button>
-               </span>
+                    <span display:inline class="ui buttons">
+                    <button class="ui inverted violet button modeButton"
+                             id="d_RAM_8G_button"
+                             onmouseover="modeButtonHoverHandler(this);"
+                             onmouseout="modeButtonHoverEndHandler(this);"
+                             onclick="modeButtonClickHandler('RAM',false,this, document.getElementById('d_RAM_16G_button'));"
+                             data-tooltip="동시에 창을 많이 켜 두지 않는 보통 사용자에게 적합합니다"
+                             data-inverted=""
+                             data-position="bottom center"
+                             data-variation="wide"
+                     >
+                       <div class="modeButtonText texts">8 G</div>
+                       <div id="d_RAM_8G_button_text" hidden class="modeButtonText texts priceTexts cheap">- ₩ 91,600</div>
+                     </button>
+                     <div class="or" style="height:60px;"></div>
+                     <button class="ui inverted violet button modeButton"
+                             id="d_RAM_16G_button"
+                             onmouseover="modeButtonHoverHandler(this);"
+                             onmouseout="modeButtonHoverEndHandler(this);"
+                             onclick="modeButtonClickHandler('RAM',true,this, document.getElementById('d_RAM_8G_button'));"
+                             data-tooltip="동시에 게임, 인터넷, 무거운 프로그램 등을 많이 실행시키는 사용자에게 적합합니다"
+                             data-inverted=""
+                             data-position="bottom center"
+                             data-variation="wide"
+                     >
+                         <div class="modeButtonText texts">16 G</div>
+                         <div id="d_RAM_16G_button_text" class="modeButtonText texts priceTexts expensive">+ ₩ 91,600</div>
+                     </button>
+                   </span>
+                 </div>
                   </div>
                   <div class="ui stacked segment texts mySegment">
                       <div ="title">
@@ -436,68 +449,68 @@
 
                   <div class="ui divider texts myDivider"></div>
 
-                  <div class="storageButtons SSD">
+                  <div class="smallTitleContainer storageButtons SSD">
                       <label class="smallTitle">SSD (초고속 저장장치) 용량 :&nbsp;&nbsp;</label>
                       <span display:inline class="ui buttons">
                    <button class="ui inverted violet button modeButton"
                            id="d_SSD_250G_button"
                            onmouseover="modeButtonHoverHandler(this);"
                            onmouseout="modeButtonHoverEndHandler(this);"
-                           onclick="modeButtonClickHandler(this, document.getElementById('d_SSD_500G_button'));"
+                           onclick="modeButtonClickHandler('SSD',false,this, document.getElementById('d_SSD_500G_button'));"
                            data-tooltip="한 두 종류의 게임만 하는 사용자에게 적합합니다"
                            data-inverted=""
                            data-position="top center"
                            data-variation="wide"
                    >
                      <div class="modeButtonText texts">250 G</div>
-                     <div id="d_SSD_250G" class="modeButtonText texts priceTexts minus">- ₩ 90,000</div>
+                     <div id="d_SSD_250G_button_text" hidden class="modeButtonText texts priceTexts cheap">- ₩ 64,000</div>
                    </button>
                    <div class="or" style="height:60px;"></div>
                    <button class="ui inverted violet button modeButton"
                            id="d_SSD_500G_button"
                            onmouseover="modeButtonHoverHandler(this);"
                            onmouseout="modeButtonHoverEndHandler(this);"
-                           onclick="modeButtonClickHandler(this, document.getElementById('d_SSD_250G_button'));"
+                           onclick="modeButtonClickHandler('SSD',true,this, document.getElementById('d_SSD_250G_button'));"
                            data-tooltip="다양한 종류의 게임을 하는 사용자에게 적합합니다"
                            data-inverted=""
                            data-position="top center"
                            data-variation="wide"
                    >
                      <div class="modeButtonText texts">500 G</div>
-                     <div id="d_SSD_500G" class="modeButtonText texts priceTexts plus">+ ₩ 90,000</div>
+                     <div id="d_SSD_500G_button_text" class="modeButtonText texts priceTexts expensive">+ ₩ 64,000</div>
                    </button>
 
                  </span>
                   </div>
-                  <div class="storageButtons">
+                  <div class="storageButtons smallTitleContainer">
                       <label class="smallTitle ">하드디스크 용량 :&nbsp;&nbsp;</label>
                       <span display:inline class="ui buttons">
                     <button class="ui inverted violet button modeButton"
                             id="d_HDD_NO_button"
                             onmouseover="modeButtonHoverHandler(this);"
                             onmouseout="modeButtonHoverEndHandler(this);"
-                            onclick="modeButtonClickHandler(this, document.getElementById('d_HDD_1T_button'));"
+                            onclick="modeButtonClickHandler('HDD', false,this, document.getElementById('d_HDD_1T_button'));"
                             data-tooltip="동영상 등 용량이 큰 파일을 많이 저장해 두지 않는 사용자에게 적합합니다"
                             data-inverted=""
                             data-position="bottom center"
                             data-variation="wide"
                     >
                       <div class="modeButtonText texts">없 음</div>
-                      <div id="d_HDD_NO" class="modeButtonText texts priceTexts minus">- ₩ 90,000</div>
+                      <div id="d_HDD_NO_button_text" hidden class="modeButtonText texts priceTexts cheap">- ₩ 47,150</div>
                     </button>
                     <div class="or" style="height:60px;"></div>
                     <button class="ui inverted violet button modeButton"
                             id="d_HDD_1T_button"
                             onmouseover="modeButtonHoverHandler(this);"
                             onmouseout="modeButtonHoverEndHandler(this);"
-                            onclick="modeButtonClickHandler(this, document.getElementById('d_HDD_NO_button'));"
+                            onclick="modeButtonClickHandler('HDD', true,this, document.getElementById('d_HDD_NO_button'));"
                             data-tooltip="동영상 등 용량이 큰 파일을 많이 저장하는 사용자에게 적합합니다"
                             data-inverted=""
                             data-position="bottom center"
                             data-variation="wide"
                     >
                       <div class="modeButtonText texts">1000 G</div>
-                      <div id="d_HDD_1T" class="modeButtonText texts priceTexts plus">+ ₩ 90,000</div>
+                      <div id="d_HDD_1T_button_text" class="modeButtonText texts priceTexts expensive">+ ₩ 47,150</div>
                     </button>
                   </span>
                   </div>
@@ -505,14 +518,22 @@
 
                 <div class="m_moveStepButtons">
                   <button
-                          id="m_previous_button" dxr class="ui green button moveStepButton previousButton"
-                          onclick="javasctript:moveStepButton(false);">
+                          id="m_previous_button_RAMandSto" dxr class="ui green button moveStepButton previousButton"
+                          onclick="moveStepButton(false);"
+
+                          data-inverted=""
+                          data-position="top center"
+                          data-variation="wide">
                     <i class="fa fa-angle-double-left" style="font-size: 20px;"></i>
                     <span class="moveStepButtontext texts">&nbsp;이전 단계&nbsp;</span>
                   </button>
                   <button
-                          id="m_next_button" dxr class="ui green button moveStepButton nextButton"
-                          onclick="javasctript:moveStepButton(true);">
+                          id="m_next_button_RAMandSto" dxr class="ui green button moveStepButton nextButton"
+                          onclick="moveStepButton(true);"
+
+                          data-inverted=""
+                          data-position="top right"
+                          data-variation="wide">
                    <span class="moveStepButtontext texts">&nbsp;다음 단계&nbsp;</span>
                    <i class="fa fa-angle-double-right" style="font-size: 20px;"></i>
                   </button>
@@ -563,7 +584,7 @@
                 </span>
               </div>
               <div class="ui raised attached segment" id="mainContents">
-                <div class="ui special cards casecard">
+                <div id="m_cards" class="ui special cards casecard">
 
                   <!-- Case id tag 설명 -->
                   <!--
@@ -577,53 +598,34 @@
                       _price : 가격 정보 (현재 선택된 것과의 차이의 절대값), 천 단위 구분기호 들어가야 함
 
                   -->
-                  <div id="m_case00" class="card casecard">
-                    <div class="blurring dimmable image">
-                      <div class="ui dimmer">
-                        <div class="content cardc">
-                          <div class="center">
-                            <div class="ui inverted button">
-                              <a id="m_case00_detail" class="texts caseDetail"
-                                 href="http://shop.danawa.com/main/?controller=goods&methods=blog&billingInternalProductSeq=5633207&productRegisterAreaGroupSeq=20&serviceSectionSeq=600"
-                                 target="_blank">
-                                 상세정보 보기&nbsp;<i class="icon external alternate"></i></div>
-                              </a>
-                          </div>
-                        </div>
-                      </div>
-                      <img id="m_case00_img" src="http://img.danawa.com/prod_img/500000/207/633/img/5633207_1.jpg?shrink=180:180">
-                    </div>
-                    <div class="content cardc">
-                      <div id="m_case00_name" class="header cardheader texts">case a</div>
-                      <div class="meta texts">
-                        <i class="users icon"></i>
-                        인기도&nbsp;:&nbsp;
-                        <div id="m_case00_popular" class="ui mini star rating" data-rating="3" data-max-rating="5"></div>
-                      </div>
-                    </div>
-                    <div id="m_case00_button" class="ui bottom violet attached button texts">
-                      <i class="shopping cart icon"></i>
-                      <span id="m_case00_posiOrNega">+</span>
-                      ₩
-                      <span id="m_case00_price">40,000</span>
-                    </div>
-                  </div>
+
 
                 </div>
               </div>
               <div class="m_moveStepButtons">
                 <button
-                        id="m_previous_button" dxr class="ui green button moveStepButton previousButton"
-                        onclick="javasctript:moveStepButton(false);">
+                        id="m_previous_button_Case" dxr class="ui green button moveStepButton previousButton"
+                        onclick="moveStepButton(false);"
+
+                        data-inverted=""
+                        data-position="top center"
+                        data-variation="wide">
                   <i class="fa fa-angle-double-left" style="font-size: 20px;"></i>
                   <span class="moveStepButtontext texts">&nbsp;이전 단계&nbsp;</span>
                 </button>
-                <button
-                        id="m_next_button" dxr class="ui green button moveStepButton nextButton"
-                        onclick="javasctript:moveStepButton(true);">
-                 <span class="moveStepButtontext texts">&nbsp;다음 단계&nbsp;</span>
-                 <i class="fa fa-angle-double-right" style="font-size: 20px;"></i>
-                </button>
+                <div>
+                  <button
+                          id="m_next_button_Case" dxr class="ui green button moveStepButton nextButton"
+                          data-tooltip="케이스를 먼저 선택해 주세요"
+                          data-inverted=""
+                          data-position="top right"
+                          data-variation="wide"
+                          onclick="javasctript:moveStepButton(true);"
+                          >
+                   <span class="moveStepButtontext texts">&nbsp;다음 단계&nbsp;</span>
+                   <i class="fa fa-angle-double-right" style="font-size: 20px;"></i>
+                  </button>
+                </div>
               </div>
             </div>
 
@@ -738,16 +740,15 @@
               <div class="m_moveStepButtons">
                 <button
                         id="m_previous_button" dxr class="ui green button moveStepButton previousButton"
-                        onclick="javasctript:moveStepButton(false);">
+                        onclick="moveStepButton(false);"
+
+                        data-inverted=""
+                        data-position="top center"
+                        data-variation="wide">
                   <i class="fa fa-angle-double-left" style="font-size: 20px;"></i>
                   <span class="moveStepButtontext texts">&nbsp;이전 단계&nbsp;</span>
                 </button>
-                <button
-                        id="m_next_button" dxr class="ui disabled green button moveStepButton nextButton"
-                        onclick="javasctript:moveStepButton(true);">
-                 <span class="moveStepButtontext texts">&nbsp;다음 단계&nbsp;</span>
-                 <i class="fa fa-angle-double-right" style="font-size: 20px;"></i>
-                </button>
+
               </div>
             </div>
 
@@ -757,11 +758,13 @@
       <tr>
         <td class="bigCell leftCells Cells" id="helpContentsCell">
           <div id="helpContents">
-            도움말 자리
+
           </div>
         </td>
       </tr>
     </table>
+
+
   </div>
 <!-- TODO : legacy code임; 이를 바탕으로 해서 confirm message 잘 수정해야 함-->
   <div class="ui modal" id="m_nextStepConfirm">
