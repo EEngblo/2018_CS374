@@ -5,9 +5,11 @@
 var steps = ['Home', 'GPUandCPU', 'RAMandSto', 'Case', 'Final']; // mode(게임성능/활용도)에 따라서 step 결정
 var steps_finished = [true, false, false, false, false]; // steps의 각 step이 완료되었는지 저장
 var currentStepIdx = 0; // steps 배열에서 몇 번째 step을 진행중인지 표시
+var help_ids = ["h_RAM", "h_storage_check", "h_storage", "h_frame", "h_GPU_score", "h_CPU_score", "h_SSD_indicator", "h_storage_indicator", "h_RAM_indicator", "h_CPU_indicator", "h_frame_indicator"];
+ // help창 id들
+var current_help = null; // 현재 떠 있는 help 창 object
 
 var composition;
-
 
 
 //////////////////////////////////////////////
@@ -22,6 +24,7 @@ function Composition(){
   budget = getParameterByName("budget");
   mode1 = getParameterByName("mode1");
   mode2 = getParameterByName("mode2");
+
 
   this.CPU=-1;
   this.GPU=-1;
@@ -44,17 +47,20 @@ function Composition(){
 
   $('#s_budget_value').html(parseInt(budget).toLocaleString('en'));
 
+
   // breadcrumb init
   $('#b_root').append(breadcrumbContents[0]);
 
   // case page init
   this.CASES = initCase();
 
+
   // 성능-활용도 모드에 따라서 breadcrumb 순서 변경 및 기본 추천 견적 작성
   if(mode1 === "performanceMode"){
     // 게임 성능 우선 모드
     $('#b_root').append(breadcrumbContents[1]);
     $('#b_root').append(breadcrumbContents[2]);
+
 
     $('#d_root_GPUandCPU').attr('hidden', false);
 
@@ -72,16 +78,15 @@ function Composition(){
 
     $('#d_root_RAMandSto').attr('hidden', false);
     $('#d_root_GPUandCPU').attr('hidden', true);
+
   }
 
   // breadcrumb 완성
   $('#b_root').append(breadcrumbContents[3]);
   $('#b_root').append(breadcrumbContents[4]);
 
-
   // button seting
   $('#m_previous_button_'+steps[1]).remove();
-
 
   if(mode2 === "simpleMode"){
     // 원클릭 모드
@@ -259,6 +264,7 @@ Composition.prototype = {
 
 
 
+
 //////////////////////////////////
 
 window.onload = function(){
@@ -309,7 +315,6 @@ function moveStepButton(isNext){
     currentStepIdx--;
   }
 
-
   moveStep(steps[currentStepIdx]);
 }
 
@@ -327,6 +332,17 @@ function moveHome(){
   }
 }
 
+function SwitchHelp(n){
+  if (current_help != null)
+    current_help.style.display = "none";
+  if(n==0){
+    current_help = null;
+    return;
+  }
+  current_help = document.getElementById(help_ids[n-1])
+  current_help.style.display = "";
+}
+
 ////////////////////////////////////////////////////////////////////
 
 function getParameterByName(name, url) {
@@ -338,6 +354,7 @@ function getParameterByName(name, url) {
     if (!results[2]) return '';
     return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
+
 
 // min (포함) 과 max (불포함) 사이의 임의 정수를 반환
 // Math.round() 를 사용하면 고르지 않은 분포를 얻게된다!

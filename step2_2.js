@@ -1,8 +1,10 @@
 
+
 function modeButtonClickHandler(attr, value, id, otherId){
 
   var idtext = $(id).attr('id');
   var oidtext = $(otherId).attr('id');
+
   $(id).removeClass('basic');
   $(id).addClass('inverted');
 
@@ -30,6 +32,7 @@ function modeButtonClickHandler(attr, value, id, otherId){
       modeCheck = true;
       finalMode = id;
     }
+
   }
 
 
@@ -48,6 +51,7 @@ function modeButtonClickHandler(attr, value, id, otherId){
   }
 
   //checkNextStep();
+
 
 
 }

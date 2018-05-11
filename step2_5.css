@@ -261,6 +261,10 @@ body{
 /* 창 이동 버튼 */
 
 
+#m_next_button{
+  float: right;
+}
+
 .moveStepButton{
   padding:5px !important;
   width: 150px !important;
@@ -279,7 +283,6 @@ body{
   opacity: 1 !important;
   background-color: rgb(177,223,181);
 }
-
 
 
 {{{{{{{{{{{{{{{{{{{{{{{{{}}}}}}}}}}}}}}}}}}}}}}}}}
