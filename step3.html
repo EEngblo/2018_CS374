@@ -11,7 +11,7 @@
     <script src="semantic/dist/semantic.min.js"></script>
     <script src="jquery/jquery-ui.min.js"></script>
     <script src="./step3.js"></script>
-    <script src="step2.js"></script>
+    <!--<script src="step2.js"></script>-->
     <script src="datatables/dataTables.js" type="text/javascript"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
@@ -29,10 +29,16 @@
 
     <!-- Mine -->
     <link rel="stylesheet" href="./step2_5.css">
+    <link rel="stylesheet" href="./step5.css">
+    <link rel="stylesheet" href="./step4.css">
     <link rel="stylesheet" href="./step3.css">
     <link rel="stylesheet" href="./step2.css">
     <script src="./index.js"></script>
-
+    <script language='javascript'>
+             $(document).ready(function(){
+                $('.ui.accordion').accordion();
+             });
+    </script>
     <!-- Data starts -->
     <title>Accel Danawa : 조립 컴퓨터 견적 짜기</title>
 
@@ -281,28 +287,28 @@
                   <div class="description eachStep">첫 화면으로 돌아가기</div>
                 </div>
               </a>
-              <a id="b_performace_button" href="javascript:void(0)" class="breadcrumb active step">
+              <a id="b_performace_button" href="javascript:void(0)" onclick = "SwitchStep(0)" class="breadcrumb active step">
                 <i class="microchip icon"></i>
                 <div class="content">
                   <div class="title eachStep">게임 성능 관련 부품 선택</div>
                   <div class="description eachStep">CPU, 그래픽카드 변경</div>
                 </div>
               </a>
-              <a id="b_versatility_button" href="javascript:void(0)" class="breadcrumb step">
+              <a id="b_versatility_button" href="javascript:void(0)" onclick = "SwitchStep(1)" class="breadcrumb step">
                 <i class="hdd icon"></i>
                 <div class="content">
                   <div class="title eachStep">활용도 관련 부품 선택</div>
                   <div class="description eachStep">저장장치, RAM 변경</div>
                 </div>
               </a>
-              <a id="b_case_button" href="javascript:void(0)" class="breadcrumb disabled step">
+              <a id="b_case_button" href="javascript:void(0)" onclick = "SwitchStep(2)" class="breadcrumb step">
                 <i class="window maximize icon"></i>
                 <div class="content">
                   <div class="title eachStep">디자인 선택</div>
                   <div class="description eachStep">케이스 선택</div>
                 </div>
               </a>
-              <a id="b_final_button" href="javascript:void(0)" class="breadcrumb disabled step">
+              <a id="b_final_button" href="javascript:void(0)" onclick = "SwitchStep(3)" class="breadcrumb step">
                 <i class="won sign icon"></i>
                 <div class="content">
                   <div class="title eachStep">최종 확인 및 구매</div>
@@ -339,7 +345,9 @@
               d_HDD_[NO,1T] : 가격 차이 보여주는 text의 div
 
             -->
-            <div class="ui horizontal segments dr_mainContents">
+<!-- step2 -->
+<!--
+            <div class="ui horizontal segments dr_mainContents" id="d_root_GPUCPU">
               <div class="ui segment dr_tableContent col-xs-6">
                 <div class="dr_itemTable_header">
                   <div class="bigTitle"> 그래픽 카드</div>
@@ -384,6 +392,8 @@
               </div>
             </div>
 
+      -->
+<!-- step2_2 -->
             <div id="d_root_RAMandSto" class="ui segment d_root" style="display:none">
 
               <div class="ui stacked segment texts mySegment">
@@ -519,6 +529,285 @@
                   </div>
                 </div>
             </div>
+<!-- step4 -->
+          <div id="d_root_Case" class="ui segment d_root" style="display:none">
+              <div style="margin-bottom: 15px;">
+                <span class="texts" style="font-size: 26px; font-weight:bold;">케이스</span>
+                <span class="texts" style="font-size: 20px;">&nbsp;컴퓨터의 외형을 결정합니다</span>
+              </div>
+
+              <div class="ui horizontal top attached segmants filterAndSortTexts">
+                <span class="ui segment filterAndSortTexts" style="width: 380px !important;">
+                  옆면 :&nbsp;
+                  <span class="ui">
+                    <div class="sideFilter filterAndSortTexts">
+                      <label for="d_glass">유리</label>
+                      <input type="checkbox" name="d_glass" checked id="d_glass">
+                      <label for="d_acryl">아크릴</label>
+                      <input type="checkbox" name="d_acryl" checked id="d_acryl">
+                      <label for="d_opaque">불투명</label>
+                      <input type="checkbox" name="d_opaque" checked id="d_opaque">
+                    </div>
+                  </span>
+                </span>
+                <span class="ui segment filterAndSortTexts" style="width: 250px !important;">
+                  색상 :&nbsp;
+                  <span class="ui">
+                    <div class="colorFilter filterAndSortTexts">
+                      <label for="d_black">검은색</label>
+                      <input type="checkbox" name="d_black" checked id="d_black">
+                      <label for="d_white">흰색</label>
+                      <input type="checkbox" name="d_white" checked id="d_white">
+                    </div>
+                  </span>
+                </span>
+                <span class="ui segment filterAndSortTexts">
+                  &nbsp;정렬 :&nbsp;
+                  <button id="d_sort_price_button" class="ui blue basic button sortButtons">
+                    &nbsp;&nbsp;가격&nbsp;<i id="d_sort_price_icon" class="sort icon sortIcon"></i>
+                  </button>
+
+                  <button id="d_sort_popular_button" class="ui blue basic button sortButtons">
+                    &nbsp;&nbsp;인기도&nbsp;<i id="d_sort_popular_icon" class="sort icon sortIcon"></i>
+                  </button>
+                  &nbsp;&nbsp;
+                </span>
+              </div>
+              <div class="ui raised attached segment" id="mainContents">
+                <div class="ui special cards casecard">
+
+                  <!-- Case id tag 설명 -->
+                  <!--
+                    m_case## : case card 전체의 id; ##은 case의 번호
+                      _detail : 다나와 세부정도 링크 갖는 <a>; href attr 적절히 정해 주어야 함
+                      _img : 이미지 갖는 <img>; src attr 적절히 정해 주어야 함
+                      _name : 케이스의 이름; innerHTML로 정해주기
+                      _popular : 인기도; data-rating attr를 1-5 사이 정수로 적절히 정해 주어야 함
+                      _button : 선택 버튼; 색 이슈 남아있음
+                      _posiOrNega : 현재 것보다 비싸면 + 싸면 -
+                      _price : 가격 정보 (현재 선택된 것과의 차이의 절대값), 천 단위 구분기호 들어가야 함
+
+                  -->
+                  <div id="m_case00" class="card casecard">
+                    <div class="blurring dimmable image">
+                      <div class="ui dimmer">
+                        <div class="content cardc">
+                          <div class="center">
+                            <div class="ui inverted button">
+                              <a id="m_case00_detail" class="texts caseDetail"
+                                 href="http://shop.danawa.com/main/?controller=goods&methods=blog&billingInternalProductSeq=5633207&productRegisterAreaGroupSeq=20&serviceSectionSeq=600"
+                                 target="_blank">
+                                 상세정보 보기&nbsp;<i class="icon external alternate"></i></div>
+                              </a>
+                          </div>
+                        </div>
+                      </div>
+                      <img id="m_case00_img" src="http://img.danawa.com/prod_img/500000/207/633/img/5633207_1.jpg?shrink=180:180">
+                    </div>
+                    <div class="content cardc">
+                      <div id="m_case00_name" class="header cardheader texts">case a</div>
+                      <div class="meta texts">
+                        <i class="users icon"></i>
+                        인기도&nbsp;:&nbsp;
+                        <div id="m_case00_popular" class="ui mini star rating" data-rating="3" data-max-rating="5"></div>
+                      </div>
+                    </div>
+                    <div id="m_case00_button" class="ui bottom violet attached button texts">
+                      <i class="shopping cart icon"></i>
+                      <span id="m_case00_posiOrNega">+</span>
+                      ₩
+                      <span id="m_case00_price">40,000</span>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+<!-- step5 -->
+<div id="d_root_final" class="ui segment d_root" style="display:none">
+
+  <div style="margin: 10px;">
+    <span class="texts" style="font-size: 26px; font-weight:bold;"> 최종 견적 </span>
+  </div>
+  <table id="f_table" class="ui violet compact table table-hover">
+    <colgroup>
+      <col style="width:5%;">
+      <col style="width:20%;">
+      <col style="width:10%;">
+      <col style="width:45%;">
+      <col style="width:16%;">
+      
+    </colgroup>
+    <thead>
+      <tr>
+        <th class="texts f_thead f_text"></th>
+        <th class="texts f_thead f_text">종류</th>
+        <th class="texts f_thead f_text" colspan=2>내가 선택한 부품</th>
+        <th class="texts f_thead f_text">가격</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="f_table_row collapsed" id="f_table_CPU" data-toggle="collapse" href="#f_table_mainboard" aria-expanded="false" aria-controls="f_table_mainboard" onclick="SwitchPlusMinus(this)">
+        <td class="texts f_text"><i class="far fa-plus-square" id="f_CPU_plus"></i><i class="far fa-minus-square" id="f_CPU_minus" style="display:none"></i></td>
+        <td class="texts f_text" id="" valign="center">CPU</td>
+        <td><img class="f_img" id="f_CPU_img" src="img/CPU/6.jpg"></td>
+        <td class="texts f_text" id="f_CPU_name">i5 8600 인텔</td>
+        <td class="texts f_text" id="f_CPU_price">\333,930</td>
+      </tr>
+      <tr class="collapse f_table_row" id="f_table_mainboard" aria-expanded="false">
+        <td class="texts f_text"><strong>└</strong> </td>
+        <td class="texts f_text">메인보드</td>
+        <td><img class="f_img" id="f_mainboard_img" src="http://img.danawa.com/prod_img/500000/207/633/img/5633207_1.jpg?shrink=50:50"> </td>
+        <td class="texts f_text" id="f_mainboard_name">좋은거</td>
+        <td class="texts f_text" id="f_mainboard_price">\100,000</td>
+      </tr>
+      <tr class="f_table_row" id="f_table_GPU">
+        <td class="texts"></td>
+        <td class="texts f_text">그래픽 카드</td>
+        <td><img class="f_img" id="f_GPU_img" src="./img/GPU/6.jpg"> </td>
+        <td class="texts f_text" id="f_GPU_name">GTX1060 ASUS 6GB</td>
+        <td class="texts f_text" id="f_GPU_price">\234,234</td>
+      </tr>
+      <tr class="f_table_row" id="f_table_RAM">
+        <td class="texts"></td>
+        <td class="texts f_text">RAM</td>
+        <td><img class="f_img" id="f_RAM_img" src="./img/RAM.jpg"> </td>
+        <td class="texts f_text" id="f_RAM_name">16G 짜리</td>
+        <td class="texts f_text" id="f_RAM_price">\200,000</td>
+      </tr>
+      <tr class="f_table_row" id="f_table_SSD">
+        <td class="texts"></td>
+        <td class="texts f_text">SSD</td>
+        <td><img class="f_img" id="f_SSD_img" src="./img/SSD.jpg"> </td>
+        <td class="texts f_text" id="f_SSD_name">500G 짜리</td>
+        <td class="texts f_text" id="f_SSD_price">\100,000</td>
+      </tr>
+      <tr class="f_table_row" id="f_table_HDD">
+        <td class="texts"></td>
+        <td class="texts f_text">하드디스크</td>
+        <td><img class="f_img" id="f_HDD_img" src="./img/SSD.jpg"> </td>
+        <td class="texts f_text" id="f_HDD_name">1TB 짜리</td>
+        <td class="texts f_text" id="f_HDD_price">\70,000</td>
+      </tr>
+      <tr class="f_table_row collapsed" id="f_table_case" data-toggle="collapse" href="#f_table_power" aria-expanded="false" aria-controls="f_table_power" onclick="SwitchPlusMinus(this)">
+        <td class="texts f_text"><i class="far fa-plus-square" id="f_case_plus"></i><i class="far fa-minus-square" id="f_case_minus" style="display:none"></i></td>
+        <td class="texts f_text">케이스</td>
+        <td><img class="f_img" id="f_case_img" src="http://img.danawa.com/prod_img/500000/207/633/img/5633207_1.jpg?shrink=50:50"> </td>
+        <td class="texts f_text" id="f_case_name">case A</td>
+        <td class="texts f_text" id="f_case_price">\50,000</td>
+      </tr>
+      <tr class="collapse f_table_row" id="f_table_power" aria-expanded="false">
+        <td class="texts f_text"><strong>└</strong> </td>
+        <td class="texts f_text">전원장치</td>
+        <td><img class="f_img" id="f_power_img" src="http://img.danawa.com/prod_img/500000/207/633/img/5633207_1.jpg?shrink=50:50"> </td>
+        <td class="texts f_text" id="f_power_name">적당한거 </td>
+        <td class="texts f_text" id="f_power_price">\50,000</td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <th class="texts f_text"></th>
+        <th class="texts f_text f_thead">최종가격</th>
+        <th class="texts f_text"></th>  
+        <th class="texts f_text"></th>
+        <th class="texts f_text f_thead">\1,000,000</th>
+        
+      </tr>
+    </tfoot>
+  </table>
+</div>
+               <!-- <div id="OrderPackages">
+                <table id="tableSearchResults" class="ui violet compact table table-hover">
+                  <colgroup>
+                    <col style="width:20%;">
+                    <col style="width:60%;">
+                    <col style="width:15%;">
+                    <col style="width:5%;">
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th>종류</th>
+                      <th>내가 선택한 물품</th>
+                      <th>가격</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+
+                  <tbody>
+
+                    <tr id="package1" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" data-target=".packageDetails1">
+                      <td>CPU</td>
+                      <td>i3 8100</td>
+                      <td>234,234</td>
+                      <td><i class="indicator glyphicon glyphicon-chevron-up pull-right"></i></td>
+                    </tr>
+
+                    <tr class="panel-collapse collapse in packageDetails1" id="accordion1">
+                      <td class="hiddenRow">
+                      <i class="fas fa-arrow-right"></i>
+                      CPU</td>
+                      <td class="hiddenRow">i3 8100</td>
+                      <td class="hiddenRow">123,123</td>
+                      <td class="hiddenRow"></td>
+                    </tr>
+                    <tr class="accordion-body collapse packageDetails1" id="accordion1">
+                      <td class="hiddenRow">
+                      <i class="fas fa-arrow-right"></i>
+                      메인 보드</td>
+                      <td class="hiddenRow">asdf</td>
+                      <td class="hiddenRow">123,123</td>
+                      <td class="hiddenRow"></td>
+                    </tr>
+                          
+                    <tr>
+                      <td>그래픽카드</td><td>리드텍 GTX1060 3GB WinFast HURRICANE OC</td>
+                      <td>345,678</td><td></td>
+                    </tr>
+                    <tr>
+                      <td>RAM</td><td>16GB</td><td>123,456</td><td></td>
+                    </tr>
+                    <tr>
+                      <td>SSD</td><td>256GB</td><td>123,456</td><td></td>
+                    </tr>
+                    <tr>
+                      <td>HDD</td><td>None</td><td>0</td><td></td>
+                    </tr>
+
+                    <tr id="package2" class="accordion-toggle" data-toggle="collapse" data-parent="#OrderPackages" data-target=".packageDetails2">
+                      <td>케이스</td><td>case a</td><td>70,000</td>
+                      <td><i class="indicator glyphicon glyphicon-chevron-up pull-right"></i></td>
+                    </tr>
+
+                    <tr class="accordion-body collapse packageDetails2" id="accordion2">
+                      <td class="hiddenRow">
+                      <i class="fas fa-arrow-right"></i>
+                      케이스</td>
+                      <td class="hiddenRow">case a</td>
+                      <td class="hiddenRow">40,000</td>
+                      <td class="hiddenRow"></td>
+                    </tr>
+                    <tr class="accordion-body collapse packageDetails2" id="accordion2">
+                      <td class="hiddenRow">
+                      <i class="fas fa-arrow-right"></i>
+                      파워 서플라이</td>
+                      <td class="hiddenRow">qwer</td>
+                      <td class="hiddenRow">30,000</td>
+                      <td class="hiddenRow"></td>
+                    </tr>
+
+                    <tr class="warning">
+                      <td>최종 금액</td></td><td><td>1,234,567 </td> <td></td>
+                    </tr>
+                  </tbody>
+                </table> 
+                </div>-->
+            
+
+
+
+              
 
 
           </td>
@@ -535,9 +824,8 @@
                 <p class="texts explanationText"> 아래 영상과 같이 화면에 버벅임이 </p>
                 <p class="texts explanationText"> 보이는 문제가 생깁니다. </p>
                 <div class="h_video_holder" align="center">
-<iframe width="240" height="160" src="https://www.youtube.com/embed/FOw3mMsF0u0?&amp;autoplay=1&amp;loop=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<iframe width="240" height="160" src="https://www.youtube.com/embed/TkTJjqkzg44?autoplay=0&loop=1&playlist=TkTJjqkzg44" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                 </div>
-
                 <!--https://www.youtube.com/watch?v=9m0ceg6evyA-->
               </div>
 
@@ -567,7 +855,7 @@
               <div class="ui well h_content" id="h_frame" style="display:none" >
                 <div class="texts bigTitle">  프레임 </div>
                 <div class="ui divider myDivider"></div>
-                <p class="texts explanationText"> 프레임이란 화면에 띄워지는 정지  </p>
+                <!--<p class="texts explanationText"> 프레임이란 화면에 띄워지는 정지  </p>
                 <p class="texts explanationText">화면 한장을 말합니다. 초당 보여 </p>
                 <p class="texts explanationText">주는 프레임수 (fps)를 줄여서 </p>
                 <p class="texts explanationText">프레임이라 말하기도 하며 CPU나 </p>
@@ -576,8 +864,13 @@
                 <p class="texts explanationText">여기서는 프레임 수치가 떨어질 때  </p>
 
                 <p class="texts explanationText">최소값을 표시하고 CPU와 GPU중</p>
-                <p class="texts explanationText">작은 값이 컴퓨터에 반영됩니다. </p>
-                <div align="center" padding-bottom="-10"> <a href="https://youtu.be/IrK5cDU9AIA">30fps 60fps 비교영상 &nbsp<i class="fa fa-play" style="font-size:15px;color:red"></i></a></div>
+                <p class="texts explanationText">작은 값이 컴퓨터에 반영됩니다. </p>-->
+                <p class="texts explanationText"> 프레임(fps)은 초당 보여지는 장면 </p>
+                <p class="texts explanationText"> 수로 CPU나 그래픽카드에 부하가  </p>
+                <p class="texts explanationText"> 걸리면 값이 떨어집니다. 부품들의  </p>
+                <p class="texts explanationText"> 최소값이 컴퓨터에 반영됩니다. </p>
+                <div class="h_video_holder" align="center"><iframe width="240" height="160" src="https://www.youtube.com/embed/IrK5cDU9AIA?autoplay=0&loop=1&playlist=IrK5cDU9AIA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
+                <!--<div align="center" padding-bottom="-10"> <a href="https://youtu.be/IrK5cDU9AIA">30fps 60fps 비교영상 &nbsp<i class="fa fa-play" style="font-size:15px;color:red"></i></a></div> -->
 
 
                 <!--<embed src="https://youtu.be/IrK5cDU9AIA" width="300">-->
@@ -631,5 +924,6 @@
         </div>
       </div>
     </div>
+
   </body>
 </html>
