@@ -655,113 +655,98 @@
               </div>
             </div>
 
-            <div hidden id="d_root_Final" class="ui segment d_root">
-              <div style="margin:15px;">
-                <span class="texts" style="font-size: 26px; font-weight:bold;">최종 견적 확인</span>
+            <div id="d_root_final" class="ui segment d_root">
+              <div style="margin: 10px;">
+                <span class="texts" style="font-size: 26px; font-weight:bold;"> 최종 견적 </span>
               </div>
-
-
-
-              <div id="OrderPackages">
-                <table id="tableSearchResults" class="ui violet compact table table-hover">
-                  <colgroup>
-                    <col style="width:5%;">
-                    <col style="width:20%;">
-                    <col style="width:60%;">
-                    <col style="width:15%;">
-
-                  </colgroup>
-                  <thead>
-                    <tr>
-                      <th></th>
-                      <th>종류</th>
-                      <th>내가 선택한 물품</th>
-                      <th>가격</th>
-
-                    </tr>
-                  </thead>
-
-                  <tbody>
-
-                    <tr id="package1" class="accordion-toggle" data-toggle="collapse" data-parent="#OrderPackages" data-target=".packageDetails1">
-                      <td><i class="indicator glyphicon glyphicon-menu-down"></i></td>
-                      <td>CPU</td>
-                      <td>i3 8100</td>
-                      <td>234,234</td>
-
-                    </tr>
-
-                    <tr class="accordion-body collapse packageDetails1" id="accordion1">
-                      <td class="hiddenRow"></td>
-                      <td class="hiddenRow">
-                      <i class="glyphicon glyphicon-menu-right"></i>
-                       CPU</td>
-                      <td class="hiddenRow">i3 8100</td>
-                      <td class="hiddenRow">123,123</td>
-
-                    </tr>
-                    <tr class="accordion-body collapse packageDetails1" id="accordion1">
-
-                      <td class="hiddenRow"></td>
-                      <td class="hiddenRow">
-                      <i class="glyphicon glyphicon-menu-right"></i>
-                       메인 보드</td>
-                      <td class="hiddenRow">asdf</td>
-                      <td class="hiddenRow">123,123</td>
-                    </tr>
-
-                    <tr>
-                      <td></td>
-                      <td>그래픽카드</td><td>리드텍 GTX1060 3GB WinFast HURRICANE OC</td>
-                      <td>345,678</td>
-                    </tr>
-                    <tr>
-                      <td></td>
-                      <td>RAM</td><td>16GB</td><td>123,456</td>
-                    </tr>
-                    <tr>
-                      <td></td>
-                      <td>SSD</td><td>256GB</td><td>123,456</td>
-                    </tr>
-                    <tr>
-                      <td></td>
-                      <td>HDD</td><td>None</td><td>0</td>
-                    </tr>
-
-                    <tr id="package2" class="accordion-toggle" data-toggle="collapse" data-parent="#OrderPackages" data-target=".packageDetails2">
-
-                      <td><i class="indicator glyphicon glyphicon-menu-down"></i></td>
-                      <td>케이스</td><td>case a</td><td>70,000</td>
-                    </tr>
-
-                    <tr class="accordion-body collapse packageDetails2" id="accordion2">
-
-                      <td class="hiddenRow"></td>
-                      <td class="hiddenRow">
-                      <i class="glyphicon glyphicon-menu-right"></i>
-                       케이스</td>
-                      <td class="hiddenRow">case a</td>
-                      <td class="hiddenRow">40,000</td>
-                    </tr>
-                    <tr class="accordion-body collapse packageDetails2" id="accordion2">
-
-                      <td class="hiddenRow"></td>
-                      <td class="hiddenRow">
-                      <i class="glyphicon glyphicon-menu-right"></i>
-                       파워 서플라이</td>
-                      <td class="hiddenRow">qwer</td>
-                      <td class="hiddenRow">30,000</td>
-                    </tr>
-
-                    <tr class="warning">
-                      <td></td>
-                      <td>최종 금액</td>
-                      <td></td>
-                      <td>1,234,567 </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
+              <table id="f_table" class="ui violet compact table table-hover">
+                <colgroup>
+                  <col style="width:5%;">
+                  <col style="width:20%;">
+                  <col style="width:10%;">
+                  <col style="width:45%;">
+                  <col style="width:16%;">
+                  
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th class="texts f_thead f_text"></th>
+                    <th class="texts f_thead f_text">종류</th>
+                    <th class="texts f_thead f_text" colspan=2>내가 선택한 부품</th>
+                    <th class="texts f_thead f_text">가격</th>
+                    
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="f_table_row collapsed" id="f_table_CPU" data-toggle="collapse" href="#f_table_mainboard" aria-expanded="false" aria-controls="f_table_mainboard" onclick="SwitchPlusMinus(this)">
+                    <td class="texts f_text"><i class="far fa-plus-square" id="f_CPU_plus"></i><i class="far fa-minus-square" id="f_CPU_minus" style="display:none"></i></td>
+                    <td class="texts f_text" id="" valign="center">CPU</td>
+                    <td><img class="f_img" id="f_CPU_img" src="img/CPU/6.jpg"></td>
+                    <td class="texts f_text" id="f_CPU_name">i5 8600 인텔</td>
+                    <td class="texts f_text" id="f_CPU_price">\333,930</td>
+                  </tr>
+                  <tr class="collapse f_table_row" id="f_table_mainboard" aria-expanded="false">
+                    <td class="texts f_text"><strong>└</strong> </td>
+                    <td class="texts f_text">메인보드</td>
+                    <td><img class="f_img" id="f_mainboard_img" src="http://img.danawa.com/prod_img/500000/207/633/img/5633207_1.jpg?shrink=50:50"> </td>
+                    <td class="texts f_text" id="f_mainboard_name">좋은거</td>
+                    <td class="texts f_text" id="f_mainboard_price">\100,000</td>
+                  </tr>
+                  <tr class="f_table_row" id="f_table_GPU">
+                    <td class="texts"></td>
+                    <td class="texts f_text">그래픽 카드</td>
+                    <td><img class="f_img" id="f_GPU_img" src="./img/GPU/6.jpg"> </td>
+                    <td class="texts f_text" id="f_GPU_name">GTX1060 ASUS 6GB</td>
+                    <td class="texts f_text" id="f_GPU_price">\234,234</td>
+                  </tr>
+                  <tr class="f_table_row" id="f_table_RAM">
+                    <td class="texts"></td>
+                    <td class="texts f_text">RAM</td>
+                    <td><img class="f_img" id="f_RAM_img" src="./img/RAM.jpg"> </td>
+                    <td class="texts f_text" id="f_RAM_name">16G 짜리</td>
+                    <td class="texts f_text" id="f_RAM_price">\200,000</td>
+                  </tr>
+                  <tr class="f_table_row" id="f_table_SSD">
+                    <td class="texts"></td>
+                    <td class="texts f_text">SSD</td>
+                    <td><img class="f_img" id="f_SSD_img" src="./img/SSD.jpg"> </td>
+                    <td class="texts f_text" id="f_SSD_name">500G 짜리</td>
+                    <td class="texts f_text" id="f_SSD_price">\100,000</td>
+                  </tr>
+                  <tr class="f_table_row" id="f_table_HDD">
+                    <td class="texts"></td>
+                    <td class="texts f_text">하드디스크</td>
+                    <td><img class="f_img" id="f_HDD_img" src="./img/SSD.jpg"> </td>
+                    <td class="texts f_text" id="f_HDD_name">1TB 짜리</td>
+                    <td class="texts f_text" id="f_HDD_price">\70,000</td>
+                  </tr>
+                  <tr class="f_table_row collapsed" id="f_table_case" data-toggle="collapse" href="#f_table_power" aria-expanded="false" aria-controls="f_table_power" onclick="SwitchPlusMinus(this)">
+                    <td class="texts f_text"><i class="far fa-plus-square" id="f_case_plus"></i><i class="far fa-minus-square" id="f_case_minus" style="display:none"></i></td>
+                    <td class="texts f_text">케이스</td>
+                    <td><img class="f_img" id="f_case_img" src="http://img.danawa.com/prod_img/500000/207/633/img/5633207_1.jpg?shrink=50:50"> </td>
+                    <td class="texts f_text" id="f_case_name">case A</td>
+                    <td class="texts f_text" id="f_case_price">\50,000</td>
+                  </tr>
+                  <tr class="collapse f_table_row" id="f_table_power" aria-expanded="false">
+                    <td class="texts f_text"><strong>└</strong> </td>
+                    <td class="texts f_text">전원장치</td>
+                    <td><img class="f_img" id="f_power_img" src="http://img.danawa.com/prod_img/500000/207/633/img/5633207_1.jpg?shrink=50:50"> </td>
+                    <td class="texts f_text" id="f_power_name">적당한거 </td>
+                    <td class="texts f_text" id="f_power_price">\50,000</td>
+                  </tr>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <th class="texts f_text"></th>
+                    <th class="texts f_text f_thead">최종가격</th>
+                    <th class="texts f_text"></th>  
+                    <th class="texts f_text"></th>
+                    <th class="texts f_text f_thead">\1,000,000</th>
+                    
+                  </tr>
+                </tfoot>
+              </table>
+            
 
               <div class="m_moveStepButtons">
                 <button
