@@ -7,7 +7,7 @@ function Composition(budget, preferMode, isSimpleMode){
   this.SSD = false;
   this.HDD = false;
   this.CASE = -1;
-  alert();
+  //alert();
 
   // watch method 이용해서 attr 값 바뀔때마다 하면 됨
 }
