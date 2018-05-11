@@ -37,6 +37,9 @@
     <link rel="stylesheet" href="./step5.css">
     <link rel="stylesheet" href="./step2_2.css">
 
+    <script src="./breadcrumb.js"></script>
+    <script src="./main.js"></script>
+
     <script src="./outerFrame.js"></script>
     <script src="./step2_2.js"></script>
     <script src="./step4.js"></script>
@@ -44,7 +47,9 @@
     <script src="./step2db.js"></script>
     <script src="./step2.js"></script>
 
-    <script src="./main.js"></script>
+
+
+
 
     <!-- Data starts -->
     <title>Accel Danawa : 조립 컴퓨터 견적 짜기</title>
@@ -164,9 +169,9 @@
                 </td>
                 <td class="stateIndicatorFirstRow buttonCell">
                   <span style="float:right; margin-top:15px;">
-                    <span class="stateIndicatorIndex">예산&nbsp;</span>
+                    <span class="stateIndicatorIndex texts">예산&nbsp;</span>
                     <span class="texts budgetIndicatorValue">₩</span>
-                    <span class="budgetIndicatorValue" id="s_budget_value">1,345,678</span>
+                    <span class="budgetIndicatorValue texts" id="s_budget_value">1,345,678</span>
 
                   </span>
                 </td>
@@ -235,9 +240,10 @@
               <tr>
                 <td>
                   <span style="float:right; margin-top:-10px; margin-bottom:10px;">
-                    <span class="texts stateIndicatorIndex2">&nbsp;(₩</span>
-                    <span class="texts stateIndicatorSubValue" id="s_remainder_value">234,567</span>
-                    <span class="texts stateIndicatorIndex2">남음 )</span>
+                    <span class="texts stateIndicatorIndex">잔액&nbsp;</span>
+                    <span class="texts budgetIndicatorValue">₩</span>
+                    <span class="texts budgetIndicatorValue" id="s_remainder_value">234,567</span>
+
                   </span>
                 </td>
               </tr>
@@ -250,68 +256,34 @@
       <tr>
 
         <td class="bigCell leftCells Cells" id="m_breadcrumbCell">
-          <!-- Breadcrumb : TODO 및 id document -->
-          <!--
 
-            b_root : breadcrumb 전체를 감싸는 div
-              - user가 선택한 mode(성능, 활용도)에 따라 이 id로 접근해 하위 <a> 들의 순서 재배열해야 함
-                - 성능 모드일 때는 b_performace_button이 먼저 오고,
-                  활용도 모드일 때는 b_versatility_button이 먼저 와야 함
-
-            b_home_button : 첫 화면으로 돌아가는 버튼
-              - hover시 현재 작업중인 내용이 사라진다는 말이 'top left'로 떠야 함
-              - 클릭시 confirm 창 한번 더 떠야 함
-
-            b_GPUandCPU_button, b_RAMandSto_button : 주요 부품 선택하는 창으로 가는 버튼
-              - 'active' class를 가진 현재 열려있는 창은 클릭해도 아무 일도 일어나지 않고, focus를 자동으로 다른 쪽으로 옮겨야 함
-              - 선택이 완료된 창은 'completed' class를 주고, 현재 열려있는 창은 'active' class를 주어야 함
-              - simple mode 선택시에는 바로 이 두 단계는 complete된 채로 case 상태로 넘어가야 함
-
-            b_Case_button : 케이스 선택하는 창으로 가는 버튼
-              - user가 simple mode를 선택했거나, 앞의 주요 부품 선택을 모두 완료한 상태에서야 'disabled' class가 사라져야 함
-              - 이 창과 위의 두 창 사이의 전환은 자유롭게 이루어 져야 하며, 창 전환시 반드시 모든 data가 온전히 저장되어야 함
-
-            b_Fianl_button : 최종 확인 창으로 가는 버튼
-              - confirm창 한번 더 떠야 함
-              - case까지 complete 된 후에만 'disabled' class가 가라져야 함
-
-          -->
             <div class="ui vertical mini steps" id="b_root">
-                <a id="b_home_button" href="javascript:b_loadInnerContents(0)" class="breadcrumb completed step">
-                    <i class="home icon"></i>
-                    <div class="content">
-                        <div class="title eachStep">예산 및 주로 하는 게임 설정</div>
-                        <div class="description eachStep">첫 화면으로 돌아가기</div>
-                    </div>
-                </a>
-                <a id="b_GPUandCPU_button" href="javascript:moveStep('GPUandCPU');" class="breadcrumb active step">
-                    <i class="microchip icon"></i>
-                    <div class="content">
-                        <div class="title eachStep">게임 성능 관련 부품 선택</div>
-                        <div class="description eachStep">CPU, 그래픽카드 변경</div>
-                    </div>
-                </a>
-                <a id="b_RAMandSto_button" href="javascript:moveStep('RAMandSto');" class="breadcrumb step">
-                    <i class="hdd icon"></i>
-                    <div class="content">
-                        <div class="title eachStep">활용도 관련 부품 선택</div>
-                        <div class="description eachStep">저장장치, RAM 변경</div>
-                    </div>
-                </a>
-                <a id="b_Case_button" href="javascript:moveStep('Case');" class="breadcrumb step">
-                    <i class="window maximize icon"></i>
-                    <div class="content">
-                        <div class="title eachStep">디자인 선택</div>
-                        <div class="description eachStep">케이스 선택</div>
-                    </div>
-                </a>
-                <a id="b_Final_button" href="javascript:moveStep('Final')" class="breadcrumb step">
-                    <i class="won sign icon"></i>
-                    <div class="content">
-                        <div class="title eachStep">최종 확인 및 구매</div>
-                        <div class="description eachStep"></div>
-                    </div>
-                </a>
+              <!-- Breadcrumb : TODO 및 id document -->
+              <!--
+
+                b_root : breadcrumb 전체를 감싸는 div
+                  - user가 선택한 mode(성능, 활용도)에 따라 이 id로 접근해 하위 <a> 들의 순서 재배열해야 함
+                    - 성능 모드일 때는 b_performace_button이 먼저 오고,
+                      활용도 모드일 때는 b_versatility_button이 먼저 와야 함
+
+                b_home_button : 첫 화면으로 돌아가는 버튼
+                  - hover시 현재 작업중인 내용이 사라진다는 말이 'top left'로 떠야 함
+                  - 클릭시 confirm 창 한번 더 떠야 함
+
+                b_GPUandCPU_button, b_RAMandSto_button : 주요 부품 선택하는 창으로 가는 버튼
+                  - 'active' class를 가진 현재 열려있는 창은 클릭해도 아무 일도 일어나지 않고, focus를 자동으로 다른 쪽으로 옮겨야 함
+                  - 선택이 완료된 창은 'completed' class를 주고, 현재 열려있는 창은 'active' class를 주어야 함
+                  - simple mode 선택시에는 바로 이 두 단계는 complete된 채로 case 상태로 넘어가야 함
+
+                b_Case_button : 케이스 선택하는 창으로 가는 버튼
+                  - user가 simple mode를 선택했거나, 앞의 주요 부품 선택을 모두 완료한 상태에서야 'disabled' class가 사라져야 함
+                  - 이 창과 위의 두 창 사이의 전환은 자유롭게 이루어 져야 하며, 창 전환시 반드시 모든 data가 온전히 저장되어야 함
+
+                b_Fianl_button : 최종 확인 창으로 가는 버튼
+                  - confirm창 한번 더 떠야 함
+                  - case까지 complete 된 후에만 'disabled' class가 가라져야 함
+
+              -->
             </div>
         </td>
 
@@ -324,8 +296,8 @@
                 <div class="dr_itemTable_header">
                   <div class="bigTitle"> 그래픽 카드</div>
                   <div class="ui divider myDivider"></div>
-                  <p class="texts explanationText"> 그래픽 카드는 화면에 띄울 그래픽을 처리하는 부품입니다. </p>
-                  <p class="texts explanationText"> 좋은 부품으로 더 높은 수준의 그래픽을 볼 수 있습니다.</p>
+                  <p class="texts explanationText"> 그래픽 카드는 <strong>게임 화면을 그리는 부품</strong>입니다. </p>
+                  <p class="texts explanationText"> 좋은 부품으로 더 부드럽고 사실적인 게임 화면을 볼 수 있습니다.</p>
                 </div>
                 <table class="dr_itemTable display ui table" id="dr_gpuDataTables">
                   <thead>
@@ -345,7 +317,7 @@
                 <div class="dr_itemTable_header">
                   <div class="bigTitle">CPU</div>
                   <div class="ui divider myDivider"></div>
-                  <p class="texts explanationText"> CPU는 그래픽 외적인 연산을 처리하는 부품입니다.</p>
+                  <p class="texts explanationText"> CPU는 그래픽 카드가 하는 일인 게임 화면을 그리는 것을 제외한 <strong>모든 계산을 수행</strong>하는 부품입니다.</p>
                   <p class="texts explanationText"> 좋은 부품은 전반적인 컴퓨터 속도 향상에 도움이 됩니다.</p>
                   </div>
                 <table class="dr_itemTable display ui table" id="dr_cpuDataTables">

@@ -9,6 +9,7 @@ var currentStepIdx = 0; // steps 배열에서 몇 번째 step을 진행중인지
 var composition;
 
 
+
 //////////////////////////////////////////////
 
 // 견적 Class 선언
@@ -19,19 +20,17 @@ function Composition(budget, preferMode, isSimpleMode){
   mode1 = getParameterByName("mode1");
   mode2 = getParameterByName("mode2");
 
+  $('#s_budget_value').html(parseInt(budget).toLocaleString('en'));
+
   this.CPU = -1;
   this.GPU = -1;
 
-
-  console.log(budget);
-  console.log(mode1);
-  console.log(mode2);
 
   this.RAM = false;
   this.SSD = false; // SSD는 무조건 250G로 추천
   this.HDD = false; // HDD도 무조건 없음으로 추천
 
-  this.CASE = -1;
+  this.CASE = -1; // 선택되지 않았을 때는 -1을 default로 줌
 
 
   // breadcrumb init
@@ -76,6 +75,10 @@ function Composition(budget, preferMode, isSimpleMode){
 
     moveStep(steps[1]);
   }
+
+
+  // 상단바 초기 세팅
+
 }
 
 
@@ -130,6 +133,12 @@ function moveStepButton(isNext){
   moveStep(steps[currentStepIdx]);
 }
 
+function setSpecIndicator(target, score){
+  // target = {SSD, Storage, RAM, SPU, FPS}
+  $('#s_'+target+'_value').html(score);
+  $('#s_'+target).effect( "highlight", {color:"#C8BFE7"}, 300 );
+}
+
 
 ////////////////////////////////////////////////////////////////////
 
@@ -141,4 +150,10 @@ function getParameterByName(name, url) {
     if (!results) return null;
     if (!results[2]) return '';
     return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+
+// min (포함) 과 max (불포함) 사이의 임의 정수를 반환
+// Math.round() 를 사용하면 고르지 않은 분포를 얻게된다!
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min)) + min;
 }
