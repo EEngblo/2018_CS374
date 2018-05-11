@@ -41,6 +41,9 @@
     <script src="./step2_2.js"></script>
     <script src="./step4.js"></script>
 
+    <script src="./step2db.js"></script>
+    <script src="./step2.js"></script>
+
     <script src="./main.js"></script>
 
     <!-- Data starts -->
@@ -316,6 +319,66 @@
         <td class="bigCell rightCells Cells" id="m_mainContentsCell" rowspan="2">
             <!-- 내부 div들의 hidden attr 바꿈으로써 step 전환 수행 -->
 
+            <div id="d_root_GPUandCPU" class="ui segment d_root dr_mainContents">
+              <div class="ui segment dr_tableContent dr_left col-xs-6">
+                <div class="dr_itemTable_header">
+                  <div class="bigTitle"> 그래픽 카드</div>
+                  <div class="ui divider myDivider"></div>
+                  <p class="texts explanationText"> 그래픽 카드는 화면에 띄울 그래픽을 처리하는 부품입니다. </p>
+                  <p class="texts explanationText"> 좋은 부품으로 더 높은 수준의 그래픽을 볼 수 있습니다.</p>
+                </div>
+                <table class="dr_itemTable display ui table" id="dr_gpuDataTables">
+                  <thead>
+                  <tr class="dr_itemHeader">
+                    <th></th>
+                    <th>제품정보</th>
+                    <th>프레임<br><i class="fas fa-question-circle"></i></th>
+                    <th>성능<br><i class="fas fa-question-circle"></i></th>
+                    <th>가격</th>
+                  </tr>
+                  </thead>
+                  <tbody id="dr_itemContainer_gpu" class="dr_itemContainer">
+                  </tbody>
+                </table>
+              </div>
+              <div class="ui segment dr_tableContent dr_right col-xs-6">
+                <div class="dr_itemTable_header">
+                  <div class="bigTitle">CPU</div>
+                  <div class="ui divider myDivider"></div>
+                  <p class="texts explanationText"> CPU는 그래픽 외적인 연산을 처리하는 부품입니다.</p>
+                  <p class="texts explanationText"> 좋은 부품은 전반적인 컴퓨터 속도 향상에 도움이 됩니다.</p>
+                  </div>
+                <table class="dr_itemTable display ui table" id="dr_cpuDataTables">
+                  <thead>
+                  <tr class="dr_itemHeader">
+                    <th></th>
+                    <th>제품정보</th>
+                    <th>프레임<br><i class="fas fa-question-circle"></i></th>
+                    <th>성능<br><i class="fas fa-question-circle"></i></th>
+                    <th>가격</th>
+                  </tr>
+                  </thead>
+                  <tbody id="dr_itemContainer_cpu" class="dr_itemContainer">
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="m_moveStepButtons">
+                <button
+                        id="m_previous_button" dxr class="ui green button moveStepButton previousButton"
+                        onclick="javasctript:moveStepButton(false);">
+                  <i class="fa fa-angle-double-left" style="font-size: 20px;"></i>
+                  <span class="moveStepButtontext texts">&nbsp;이전 단계&nbsp;</span>
+                </button>
+                <button
+                        id="m_next_button" dxr class="ui green button moveStepButton nextButton"
+                        onclick="javasctript:moveStepButton(true);">
+                 <span class="moveStepButtontext texts">&nbsp;다음 단계&nbsp;</span>
+                 <i class="fa fa-angle-double-right" style="font-size: 20px;"></i>
+                </button>
+              </div>
+              </div>
+
             <div hidden id="d_root_RAMandSto" class="ui segment d_root">
               <!-- RAM과 저장공간 정하는 step -->
 
@@ -345,10 +408,12 @@
 
                 <div class="ui divider myDivider"></div>
 
-                <img class="ui rounded left floated image myImage" src="./img/RAM.jpg" width="80" height="80">
-                <p class="texts explanationText">컴퓨터가 실행중인 프로그램에 대한 정보를 적어두기 위해 사용하는 메모지 같은 역할을 합니다.</p>
-                <p class="texts explanationText">게임 <strong>성능에는 큰 영향을 주지 않지만</strong>, <strong>가득 찰 경우 급격히 느려지고</strong> 넘치게 되면 게임이 팅길 수 있습니다.</p>
-                <p class="texts explanationText">용량이 클수록 동시에 더 많은 게임과 프로그램들을 실행할 수 있습니다.</p>
+                <div>
+                  <img class="ui rounded left floated image myImage" src="./img/RAM.jpg" width="80" height="80">
+                  <p class="texts explanationText">컴퓨터가 실행중인 프로그램에 대한 정보를 적어두기 위해 사용하는 메모지 같은 역할을 합니다.</p>
+                  <p class="texts explanationText">게임 <strong>성능에는 큰 영향을 주지 않지만</strong>, <strong>가득 찰 경우 급격히 느려지고</strong> 넘치게 되면 게임이 팅길 수 있습니다.</p>
+                  <p class="texts explanationText">용량이 클수록 동시에 더 많은 게임과 프로그램들을 실행할 수 있습니다.</p>
+                </div>
 
                 <div class="ui divider texts myDivider"></div>
 
@@ -388,12 +453,14 @@
 
                   <div class="ui divider myDivider"></div>
 
-                  <img class="ui rounded left floated image myImage" src="./img/SSD.jpg" width="80" height="80">
-                  <p class="texts explanationText">사용자 데이터를 저장하는 공간으로, 초고속 저장장치인 <strong>SSD</strong>와 <strong>하드디스크</strong>가 있습니다.</p>
-                  <p class="texts explanationText">빠르지만 작고 비싼 <strong>SSD</strong>에는 윈도우, <strong>자주 사용하는 게임</strong>과 프로그램들을 저장하여 빠르게 실행하고,</p>
-                  <p class="texts explanationText">용량이 크지만 느린 <strong>하드디스크</strong>에는 <strong>가끔</strong> 사용하는 게임, 프로그램, <strong>음악, 동영상, 사진</strong> 등을 저장하시면 됩니다.</p>
-                  <br>
-                  <p class="texts explanationText">현재 사용중인 컴퓨터의 저장장치 용량, 주로 하는 게임의 개수와 용량을 확인해 보세요.</p>
+                  <div>
+                    <img class="ui rounded left floated image myImage" src="./img/SSD.jpg" width="80" height="80">
+                    <p class="texts explanationText">사용자 데이터를 저장하는 공간으로, 초고속 저장장치인 <strong>SSD</strong>와 <strong>하드디스크</strong>가 있습니다.</p>
+                    <p class="texts explanationText">빠르지만 작고 비싼 <strong>SSD</strong>에는 윈도우, <strong>자주 사용하는 게임</strong>과 프로그램들을 저장하여 빠르게 실행하고,</p>
+                    <p class="texts explanationText">용량이 크지만 느린 <strong>하드디스크</strong>에는 <strong>가끔</strong> 사용하는 게임, 프로그램, <strong>음악, 동영상, 사진</strong> 등을 저장하시면 됩니다.</p>
+                    <br>
+                    <p class="texts explanationText">현재 사용중인 컴퓨터의 저장장치 용량, 주로 하는 게임의 개수와 용량을 확인해 보세요.</p>
+                  </div>
 
                   <div class="ui divider texts myDivider"></div>
 
@@ -588,7 +655,7 @@
               </div>
             </div>
 
-            <div id="d_root_Final" class="ui segment d_root">
+            <div hidden id="d_root_Final" class="ui segment d_root">
               <div style="margin:15px;">
                 <span class="texts" style="font-size: 26px; font-weight:bold;">최종 견적 확인</span>
               </div>

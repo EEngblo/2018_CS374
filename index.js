@@ -238,15 +238,7 @@ function modeButtonHoverEndHandler(id){
   $(id).addClass('inverted');
 }
 
-function getParameterByName(name, url) {
-    if (!url) url = window.location.href;
-    name = name.replace(/[\[\]]/g, "\\$&");
-    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-        results = regex.exec(url);
-    if (!results) return null;
-    if (!results[2]) return '';
-    return decodeURIComponent(results[2].replace(/\+/g, " "));
-}
+
 
 function checkGame(id){
   if(games[parseInt(id)].title === "Baffle Ground"){
@@ -319,7 +311,7 @@ function nextStepButton(){
     blurring: true,
     onApprove : function(){
       $(".goToNextStage").addClass('loading');
-      window.location.href="./step2.html?budget="+finalBudget+"&mode="+finalModeID+"&id="+id;
+      window.location.href="./outerFrame.html?budget="+finalBudget+"&mode1="+finalModeID+"&mode2="+final2ModeID;
     }
   })
   .modal('show');
