@@ -8,6 +8,8 @@ function Composition(budget, preferMode, isSimpleMode){
   this.HDD = false;
   this.CASE = -1;
   alert();
+
+  // watch method 이용해서 attr 값 바뀔때마다 하면 됨
 }
 
 var composition;
