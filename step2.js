@@ -10,6 +10,7 @@ var dr_readyCallback = function(data){
   dr_cpuTable = $('#dr_cpuDataTables');
     dr_gpuDataTable = dr_gpuTable.DataTable({
         "scrollY" : "520px",
+        "scrollX": false,
         "scrollCollapse": true,
         "paging": false,
         "searching": false,
@@ -20,16 +21,15 @@ var dr_readyCallback = function(data){
         dr_price.setAttribute("name", dr_price.innerText);
         dr_price.setAttribute("onclick", "dr_gpuOnClick(this)");
         dr_price.innerHTML = "<i class=\"fas fa-plus\"></i><i class=\"fas fa-won-sign\"></i>" + parseInt(dr_price.innerText).toLocaleString();
-        var efficient =Math.round(10000*parseInt(data[3])/parseInt(db_gpu[dr_selectedGPU][3]))/100;
-        $(row).css("background-size", ((Math.log2(efficient))*600-3750) + "px 50px", "");
-        $('td', row).eq(3)[0].innerText = efficient + "%";
+        var efficient =Math.round(parseInt(data[3])/50);
+        $(row).css("background-size", efficient + "px 50px", "");
       },
         "columns": [
-            {"width": "50px", "orderable": false, "className": "dr_gpu_1"},
-            {"width": "115px", "orderable": false, "className": "dr_gpu_2"},
-            {"width": "80px", "className": "dr_gpu_3"},
-            {"width": "80px", "className": "dr_gpu_4"},
-            {"width": "100px", "className": "dr_gpu_5"}
+            {"orderable": false, "className": "dr_gpu_1"},
+            {"orderable": false, "className": "dr_gpu_2"},
+            {"className": "dr_gpu_3"},
+            {"className": "dr_gpu_4"},
+            {"className": "dr_gpu_5"}
         ]
     });
     dr_cpuDataTable = dr_cpuTable.DataTable({
@@ -49,11 +49,11 @@ var dr_readyCallback = function(data){
         $('td', row).eq(3)[0].innerText = efficient + "%";
       },
         "columns": [
-            {"width": "50px", "orderable": false, "className": "dr_cpu_1"},
-            {"width": "115px", "orderable": false, "className": "dr_cpu_2"},
-            {"width": "85px", "className": "dr_cpu_3"},
-            {"width": "85px", "className": "dr_cpu_4"},
-            {"width": "100px", "className": "dr_cpu_5"}
+            {"orderable": false, "className": "dr_cpu_1"},
+            {"orderable": false, "className": "dr_cpu_2"},
+            {"className": "dr_cpu_3"},
+            {"className": "dr_cpu_4"},
+            {"className": "dr_cpu_5"}
         ]
     });
 
