@@ -52,6 +52,7 @@ function Composition(){
   this.CASE=-1;
   this.case_done=false;
   this.price=79000 + 93900 + 89500  ; // 최저옵션 가격
+  this.budget=budget;
 
   this.MB = -1;
   this.PSU = 0;
@@ -143,8 +144,13 @@ function Composition(){
   setSpecIndicator('RAM', this.RAM?16:8, false);
 
 
+  // RAM이 16기가이면 RAM 생략
+  if(this.RAM) $("#d_RAM").attr('hidden', true);
+
   //console.log('Success!!');
   $('#d_root_Loader').attr('hidden', true);
+
+  this.updatePrice(this.price);
 
 }
 
@@ -155,6 +161,34 @@ Composition.prototype = {
   set : function(target, value, highlight = true, debug = false){
     // 기존 값 복사 후 이를 이용해서 비용 변화 처리해야 함
 
+    var oldp = 0;
+    var newp = 0;
+
+    // 가격 정보 업데이트
+    switch(target){
+      case 'RAM':
+        oldp = this.RAM ? db_RAM[1].price : db_RAM[0].price;
+        newp = value ? db_RAM[1].price : db_RAM[0].price;
+        this.updatePrice(this.price - oldp + newp);
+        break;
+      case 'SSD':
+        oldp = this.SSD ? db_SSD[1].price : db_SSD[0].price;
+        newp = value ? db_SSD[1].price : db_SSD[0].price;
+        this.updatePrice(this.price - oldp + newp);
+        break;
+      case 'HDD':
+        oldp = this.HDD ? db_HDD[1].price : db_HDD[0].price;
+        newp = value ? db_HDD[1].price : db_HDD[0].price;
+        this.updatePrice(this.price - oldp + newp);
+        break;
+      case 'CASE':
+        oldp = (this.CASE == -1) ? 79000 : db_CASE[this.CASE].price;
+        newp = (value == -1) ? 79000 : db_CASE[value].price;
+        this.updatePrice(this.price - oldp + newp);
+        break;
+    }
+
+    console.log(newp - oldp);
 
     // target attr의 값을 value로 설정
     this[target] = value;
@@ -268,8 +302,16 @@ Composition.prototype = {
       break;
     }
 
-      // 가격 변경에 대한 부분은 여기로 들어가야 함
 
+  },
+
+  // 이 함수 통해서 상단의 가격 indicator들 다 control하도록 하기
+  updatePrice : function(price, highlight = true){
+    highlight = highlight && this.price != price
+    $('#s_price_value').html('₩ ' + price.toLocaleString('en'));
+    $('#s_remainder_value').html( (this.budget - price).toLocaleString('en'));
+    this.price = price;
+    if(highlight) $('.stateIndicatorValue').effect( "highlight", {color:"#C8BFE7"}, 300 );
   }
 
 }
@@ -340,6 +382,7 @@ function setSpecIndicator(target, score, highlight=true){
 }
 
 function moveHome(){
+  $('#b_home_button').blur();
   if(confirm("현재 작성 중인 견적이 사라지게 됩니다.\n정말 이동하시겠습니까?")){
     location.href="index.html";
   }
