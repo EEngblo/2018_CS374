@@ -41,7 +41,9 @@ $( document ).ready(function() {
     if(popularIsSortPrimary){
       // 가격이 1순위가 아니었을 경우
       popularIsSortPrimary = false;
-      $("#d_sort_popular_icon").removeClass("down").removeClass("up");
+      $("#d_sort_price_button").removeClass("basic");
+      $("#d_sort_popular_button").addClass("basic");
+      //$("#d_sort_popular_icon").removeClass("down").removeClass("up");
     }
 
     if(sortState.price){
@@ -64,7 +66,9 @@ $( document ).ready(function() {
     if(!popularIsSortPrimary){
       // 인기도가 1순위가 아니었을 경우
       popularIsSortPrimary = true;
-      $("#d_sort_price_icon").removeClass("down").removeClass("up");
+      $("#d_sort_price_button").addClass("basic");
+      $("#d_sort_popular_button").removeClass("basic");
+      //$("#d_sort_price_icon").removeClass("down").removeClass("up");
     }
 
     if(sortState.popular){

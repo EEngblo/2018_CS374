@@ -21,7 +21,7 @@ var db_CPU=[
   {name:"ㅁㄴㅇㄹ", price:0, link:"NULL"}
 ]
 
-var db_CASE=[
+var db_CASE=[ // 파워값 포함되어 있음
   {name:"GT303 FS  블랙 ARGB", price:92000, link:"http://prod.danawa.com/info/?pcode=6006452&cate=113971", popular:5, fullname:"DAVEN GT303 FS  블랙 ARGB", color:true, side:"유리", index:0},
   {name:"A5 셀레네 2면 블랙", price:91000, link:"http://prod.danawa.com/info/?pcode=5864296&cate=113971", popular:5, fullname:"COX A5 셀레네 2면 블랙", color:true, side:"유리", index:1},
   {name:"Frontier H300 화이트", price:69400, link:"http://prod.danawa.com/info/?pcode=4017657&cate=113971", popular:5, fullname:"마이크로닉스 Frontier H300 화이트", color:false, side:"아크릴", index:2},
