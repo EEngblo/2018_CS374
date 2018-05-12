@@ -21,7 +21,6 @@
     <link rel="stylesheet" href="datatables/datatables.min.css">
 
 
-
     <!-- Web Fonts -->
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Jua">
@@ -171,7 +170,7 @@
                   <span style="float:right; margin-top:15px;">
                     <span class="stateIndicatorIndex texts">예산&nbsp;</span>
                     <span class="texts budgetIndicatorValue">₩</span>
-                    <span class="budgetIndicatorValue texts" id="s_budget_value">1,345,678</span>
+                    <span class="budgetIndicatorValue texts realValue" id="s_budget_value">0</span>
 
                   </span>
                 </td>
@@ -236,7 +235,7 @@
                 <td>
                   <span class="texts stateIndicatorIndex" hidden>총액&nbsp;</span>
                   <span class="texts stateIndicatorValue">₩</span>
-                  <span class="texts stateIndicatorValue" id="s_price_value"><span>1,234,567</span></span>
+                  <span class="texts stateIndicatorValue realValue" id="s_price_value"><span>0</span></span>
                 </td>
               </tr>
               <tr>
@@ -244,7 +243,7 @@
                   <span style="float:right; margin-top:-10px; margin-bottom:10px;">
                     <span class="texts stateIndicatorIndex">잔액&nbsp;</span>
                     <span class="texts budgetIndicatorValue">₩</span>
-                    <span class="texts budgetIndicatorValue" id="s_remainder_value">234,567</span>
+                    <span class="texts budgetIndicatorValue realValue" id="s_remainder_value">0</span>
 
 
                   </span>
@@ -295,7 +294,16 @@
         <td class="bigCell rightCells Cells" id="m_mainContentsCell" rowspan="2">
             <!-- 내부 div들의 hidden attr 바꿈으로써 step 전환 수행 -->
 
-            <div id="d_root_GPUandCPU" class="ui segment d_root dr_mainContents">
+            <div id="d_root_Loader" class="ui segment d_root">
+              <div class="ui active dimmer">
+                <div class="ui text loader texts" style="line-height:160%; font-size:16px;">
+                  추천 부품들을 고르는 중입니다
+                  <br>몇 초 안에 완료됩니다...</div>
+              </div>
+              <p></p>
+            </div>
+
+            <div hidden id="d_root_GPUandCPU" class="ui segment d_root dr_mainContents">
               <div class="ui segment dr_tableContent dr_left col-xs-6">
                 <div class="dr_itemTable_header">
                   <div class="bigTitle"> 그래픽 카드</div>
@@ -593,12 +601,12 @@
                 </span>
                 <span class="ui segment filterAndSortTexts">
                   &nbsp;정렬 :&nbsp;
-                  <button id="d_sort_price_button" class="ui blue basic button sortButtons">
+                  <button id="d_sort_price_button" class="ui texts blue button sortButtons">
                     &nbsp;&nbsp;가격&nbsp;<i id="d_sort_price_icon" class="sort icon sortIcon"></i>
                   </button>
 
-                  <button id="d_sort_popular_button" class="ui blue basic button sortButtons">
-                    &nbsp;&nbsp;인기도&nbsp;<i id="d_sort_popular_icon" class="sort icon sortIcon"></i>
+                  <button id="d_sort_popular_button" class="ui texts blue button sortButtons">
+                    &nbsp;&nbsp;인기도&nbsp;<i id="d_sort_popular_icon" class="sort down icon sortIcon"></i>
                   </button>
                   &nbsp;&nbsp;
                 </span>

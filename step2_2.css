@@ -58,11 +58,3 @@
   margin-top: 10px;
   font-weight: 900;
 }
-
-.modeButtonText.priceTexts.minus{
-  color:green;
-}
-
-.modeButtonText.priceTexts.plus{
-  color:red;
-}
