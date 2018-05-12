@@ -96,7 +96,7 @@
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="#">새 견적</a></li>
-                <li><a href="javascript:alert('3개의 task와 무관해 구현하지 않은 기능입니다. 죄송합니다.')">내 견적 보기</a></li>
+                <li><a id="m_myCompositions" href="javascript:myCompositions();">내 견적 보기</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
@@ -411,7 +411,19 @@
                 <div class="ui divider myDivider"></div>
 
                 <div onmouseover="SwitchHelp(1)" >
-                  <img class="ui rounded left floated image myImage" src="./img/RAM.jpg" width="80" height="80">
+                  <span class="m_RAM_explanation ui rounded left floated image myImage">
+                    <div class="ui dimmer">
+                      <div class="content">
+                        <div class="ui mini inverted button" style="line-height:160%; padding-left:0px !important; padding-right: 0px !important; margin-left:auto !important; margin-right:auto !important;">
+                          <a class="texts caseDetail"
+                             href="http://prod.danawa.com/info/?pcode=4343051#bookmark_product_information"
+                             target="_blank">
+                             상세정보<br><i style="margin:0px;" class="icon external alternate"></i></div>
+                          </a>
+                      </div>
+                    </div>
+                    <img class="m_RAM_explanation ui rounded left floated image myImage" src="./img/RAM.jpg" width="80" height="80">
+                </span>
                   <p class="texts explanationText">컴퓨터가 실행중인 프로그램에 대한 정보를 적어두기 위해 사용하는 메모지 같은 역할을 합니다.</p>
                   <p class="texts explanationText">게임 <strong>성능에는 큰 영향을 주지 않지만</strong>, <strong>가득 찰 경우 급격히 느려지고</strong> 넘치게 되면 게임이 팅길 수 있습니다.</p>
                   <p class="texts explanationText">용량이 클수록 동시에 더 많은 게임과 프로그램들을 실행할 수 있습니다.</p>
@@ -462,8 +474,19 @@
                   <div class="ui divider myDivider"></div>
 
                   <div onmouseover="SwitchHelp(2)">
-
-                    <img class="ui rounded left floated image myImage" src="./img/SSD.jpg" width="80" height="80">
+                    <span class="m_SSD_explanation ui rounded left floated image myImage">
+                      <div class="ui dimmer">
+                        <div class="content">
+                          <div class="ui mini inverted button" style="line-height:160%; padding-left:0px !important; padding-right: 0px !important; margin-left:auto !important; margin-right:auto !important;">
+                            <a  class="texts caseDetail"
+                               href="http://prod.danawa.com/info/?pcode=5781886#bookmark_product_information"
+                               target="_blank">
+                               상세정보<br><i style="margin:0px;" class="icon external alternate"></i></div>
+                            </a>
+                        </div>
+                      </div>
+                      <img class="m_SSD_explanation ui rounded left floated image myImage" src="./img/SSD.jpg" width="80" height="80">
+                  </span>
                     <p class="texts explanationText">사용자 데이터를 저장하는 공간으로, 초고속 저장장치인 <strong>SSD</strong>와 <strong>하드디스크</strong>가 있습니다.</p>
                     <p class="texts explanationText">빠르지만 작고 비싼 <strong>SSD</strong>에는 윈도우, <strong>자주 사용하는 게임</strong>과 프로그램들을 저장하여 빠르게 실행하고,</p>
                     <p class="texts explanationText">용량이 크지만 느린 <strong>하드디스크</strong>에는 <strong>가끔</strong> 사용하는 게임, 프로그램, <strong>음악, 동영상, 사진</strong> 등을 저장하시면 됩니다.</p>
