@@ -44,7 +44,7 @@
     <script src="./step2_2.js"></script>
 
     <script src="./step4.js"></script>
-
+    <script src="./step5.js"></script>
     <script src="./step2db.js"></script>
     <script src="./step2.js"></script>
 
@@ -307,12 +307,13 @@
                 <table class="dr_itemTable display ui table" id="dr_gpuDataTables">
                   <thead>
                   <tr class="dr_itemHeader">
-                    <th></th>
-                    <th>제품정보</th>
 
-                    <th onmouseover="SwitchHelp(4)" onmouseout="SwitchHelp(0)">프레임<br><i class="fas fa-question-circle"></i></th>
-                    <th onmouseover="SwitchHelp(5)" onmouseout="SwitchHelp(0)">성능<br><i class="fas fa-question-circle"></i></th>
-                    <th>가격</th>
+                    <th class="dr_th_1"></th>
+                    <th class="dr_th_2">제품정보</th>
+                    <th class="dr_th_3" onmouseover="SwitchHelp(4)" onmouseout="SwitchHelp(0)">프레임<br><i class="fas fa-question-circle"></i></th>
+                    <th class="dr_th_4" onmouseover="SwitchHelp(5)" onmouseout="SwitchHelp(0)">성능<br><i class="fas fa-question-circle"></i></th>
+                    <th class="dr_th_5">가격</th>
+
                   </tr>
                   </thead>
                   <tbody id="dr_itemContainer_gpu" class="dr_itemContainer">
@@ -331,13 +332,13 @@
                 <table class="dr_itemTable display ui table" id="dr_cpuDataTables">
                   <thead>
                   <tr class="dr_itemHeader">
-                    <th></th>
-                    <th>제품정보</th>
 
-                    <th onmouseover="SwitchHelp(4)" onmouseout="SwitchHelp(0)">프레임<br><i class="fas fa-question-circle"></i></th>
-                    <th onmouseover="SwitchHelp(6)" onmouseout="SwitchHelp(0)">성능<br><i class="fas fa-question-circle"></i></th>
+                    <th class="dr_th_1"></th>
+                    <th class="dr_th_2">제품정보</th>
+                    <th class="dr_th_3" onmouseover="SwitchHelp(4)" onmouseout="SwitchHelp(0)">프레임<br><i class="fas fa-question-circle"></i></th>
+                    <th class="dr_th_4" onmouseover="SwitchHelp(6)" onmouseout="SwitchHelp(0)">성능<br><i class="fas fa-question-circle"></i></th>
+                    <th class="dr_th_5">가격</th>
 
-                    <th>가격</th>
                   </tr>
                   </thead>
                   <tbody id="dr_itemContainer_cpu" class="dr_itemContainer">
@@ -652,8 +653,10 @@
             </div>
 
             <div hidden id="d_root_Final" class="ui segment d_root">
+
               <div style="margin:15px;">
                 <span class="texts" style="font-size: 26px; font-weight:bold;">최종 견적 확인</span>
+
               </div>
 
               <table id="f_table" class="ui violet compact table table-hover">
@@ -674,7 +677,7 @@
                     
                   </tr>
                 </thead>
-                <tbody>
+                <tbody class = "f_itemContainer">
                   <tr class="f_table_row collapsed" id="f_table_CPU" data-toggle="collapse" href="#f_table_mainboard" aria-expanded="false" aria-controls="f_table_mainboard" onclick="SwitchPlusMinus(this)">
                     <td class="texts f_text"><i class="far fa-plus-square" id="f_CPU_plus"></i><i class="far fa-minus-square" id="f_CPU_minus" style="display:none"></i></td>
                     <td class="texts f_text" id="" valign="center">CPU</td>
