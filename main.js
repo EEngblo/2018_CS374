@@ -381,7 +381,39 @@ function initCase(){
   return cards;
 }
 
+function makeFinalTable(){
+  document.getElementById("f_CPU_img").src = "img/CPU/"+ toString(composition.CPU) +".jpg";
+  document.getElementById("f_CPU_name").innerHTML = db_CPU[composition.CPU][name];
+  document.getElementById("f_CPU_price").innerHTML = db_CPU[composition.CPU][price];
+  
+  document.getElementById("f_mainboard_img").src = "img/MB/"+ toString(composition.MB) +".jpg";
+  document.getElementById("f_mainboard_name").innerHTML = db_MB[composition.MB][name];
+  document.getElementById("f_mainboard_price").innerHTML = db_MB[composition.MB][price];
 
+  document.getElementById("f_GPU_img").src = "img/GPU/"+ toString(composition.GPU) +".jpg";
+  document.getElementById("f_GPU_name").innerHTML = db_GPU[composition.GPU][name];
+  document.getElementById("f_GPU_price").innerHTML = db_GPU[composition.GPU][price];
+
+  document.getElementById("f_RAM_img").src = "img/RAM/"+ toString(composition.RAM) +".jpg";
+  document.getElementById("f_RAM_name").innerHTML = db_RAM[composition.RAM][name];
+  document.getElementById("f_RAM_price").innerHTML = db_RAM[composition.RAM][price];
+
+  document.getElementById("f_SSD_img").src = "img/SSD/"+ toString(composition.SSD) +".jpg";
+  document.getElementById("f_SSD_name").innerHTML = db_SSD[composition.SSD][name];
+  document.getElementById("f_SSD_price").innerHTML = db_SSD[composition.SSD][price];
+
+  document.getElementById("f_HDD_img").src = "img/HDD/"+ toString(composition.HDD) +".jpg";
+  document.getElementById("f_HDD_name").innerHTML = db_HDD[composition.HDD][name];
+  document.getElementById("f_HDD_price").innerHTML = db_HDD[composition.HDD][price];
+
+  document.getElementById("f_case_img").src = "img/CASE/"+ toString(composition.CASE) +".jpg";
+  document.getElementById("f_case_name").innerHTML = db_CASE[composition.CASE][name];
+  document.getElementById("f_case_price").innerHTML = db_CASE[composition.CASE][price];
+
+  document.getElementById("f_power_img").src = "img/PS/"+ toString(composition.PS) +".jpg";
+  document.getElementById("f_power_name").innerHTML = db_PS[composition.PS][name];
+  document.getElementById("f_power_price").innerHTML = db_PS[composition.PS][price];
+}
 
 
 
