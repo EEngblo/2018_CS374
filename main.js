@@ -51,7 +51,7 @@ function Composition(){
   this.cards = [];
   this.CASE=-1;
   this.case_done=false;
-  this.price=678901;
+  this.price=79000 + 93900 + 89500  ; // 최저옵션 가격
 
   this.MB = -1;
   this.PSU = 0;
