@@ -456,6 +456,10 @@ function initCase(){
 }
 
 
+function myCompositions(){
+  $('#m_myCompositions').blur();
+  alert('3개의 task와 무관해 구현하지 않은 기능입니다. 죄송합니다.');
+}
 
 
 
