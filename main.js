@@ -18,7 +18,7 @@ var composition;
 
 function Composition(){
 
-  console.log('Init... Making Suggeted Composition...');
+  //console.log('Init... Making Suggeted Composition...');
 
   // URL query문에서 각 parameter 받아 옴
   budget = getParameterByName("budget");
@@ -26,8 +26,15 @@ function Composition(){
   mode2 = getParameterByName("mode2");
 
 
-  this.CPU=-1;
+  // 상단 가격바 초기 세팅
+  $('#s_budget_value').html(parseInt(budget).toLocaleString('en'));
+
+
+  this.CPU=-1; // -1은 선택되지 않음, 0 이상은 그 인덱스가 선택된
   this.GPU=-1;
+  this.showGPUIdx = 0; // 이 인덱스 부터 표시하면 됨
+  this.showCPUIdx = 0;
+
   this.performance_done=false;
 
   this.RAM=false;
@@ -41,11 +48,15 @@ function Composition(){
 
   this.case_unlock=false;
 
+  this.cards = [];
   this.CASE=-1;
   this.case_done=false;
   this.price=678901;
 
-  $('#s_budget_value').html(parseInt(budget).toLocaleString('en'));
+  this.MB = -1;
+  this.PSU = 0;
+
+
 
 
   // breadcrumb init
@@ -132,7 +143,8 @@ function Composition(){
   setSpecIndicator('RAM', this.RAM?16:8, false);
 
 
-  console.log('Success!!');
+  //console.log('Success!!');
+  $('#d_root_Loader').attr('hidden', true);
 
 }
 
@@ -270,6 +282,7 @@ Composition.prototype = {
 window.onload = function(){
   composition = new Composition();
   loadCase();
+  reloadCase();
 }
 
 
@@ -366,16 +379,33 @@ function getRandomInt(min, max) {
 // CASE step의 case들 만드는 함수
 function initCase(){
   var size = db_CASE.length;
-  var cards = []
-  size = 20; // 나중에 지워야 함
+  cards = []
   for(var i = 0; i < size; i++){
+
+
     var tempHTML = cardHTML.replace(/case00/g,"case"+ ("0" + i.toString()).slice (-2));
     tempHTML = tempHTML.replace(/__id__/, ("0" + i.toString()).slice(-2));
     //console.log(tempHTML);
 
     // DB 불러와서 각 ID에 맞게 수정
+    tempHTML = tempHTML.replace(/__link__/, db_CASE[i].link);
+    tempHTML = tempHTML.replace(/__img__/, './case/'+i+'.jpg');
+    tempHTML = tempHTML.replace(/__name__/, db_CASE[i].name);
+    tempHTML = tempHTML.replace(/__popular__/, Math.round(db_CASE[i].popular));
+
+    difference = db_CASE[i].price - 79000;
+
+    if(difference > 0){
+      tempHTML = tempHTML.replace(/__color__/g, 'expensive');
+      tempHTML = tempHTML.replace(/__price__/, '+ ₩ '+difference.toLocaleString('en'));
+    }else{
+      tempHTML = tempHTML.replace(/__color__/g, 'cheap');
+      tempHTML = tempHTML.replace(/__price__/, '- ₩ '+ (-1 * difference).toLocaleString('en'));
+    }
 
     cards.push(tempHTML);
+
+
   }
 
   return cards;
@@ -395,26 +425,31 @@ var cardHTML = '<div id="m_case00" class="card casecard">\
       <div class="content cardc">\
         <div class="center">\
           <div class="ui inverted button">\
-            <a id="m_detail_case00" class="texts caseDetail"\
-               href="http://prod.danawa.com/info/?pcode=5633207"\
+            <a class="texts caseDetail"\
+               href="__link__"\
                target="_blank">\
                상세정보 보기&nbsp;<i class="icon external alternate"></i></div>\
             </a>\
         </div>\
       </div>\
     </div>\
-    <img id="m_img_case00" src="http://img.danawa.com/prod_img/500000/207/633/img/5633207_1.jpg?shrink=180:180">\
+    <img src="__img__">\
   </div>\
   <div class="content cardc">\
-    <div id="m_name_case00" class="header cardheader texts">case a</div>\
+    <div class="header cardheader texts">__name__</div>\
     <div class="meta texts">\
       <i class="users icon"></i>\
       인기도&nbsp;:&nbsp;\
-      <div id="m_popular_case00" class="ui mini star rating" data-rating="3" data-max-rating="5"></div>\
+      <div class="ui mini star rating" data-rating="__popular__" data-max-rating="5"></div>\
     </div>\
   </div>\
   <div id="m_button_case00" onclick="selectCase(__id__,this);" class="ui bottom inverted violet attached button texts">\
-    <i class="shopping cart icon"></i>\
-    <strong id="m_price_case00" class="texts expensive">+ ₩ 40,000</strong>\
+    <div id="m_pricetext_case00">\
+      <i id="m_cart_case00" class="shopping cart icon __color__"></i>\
+      <strong id="m_price_case00" class="texts __color__">__price__</strong>\
+    </div>\
+    <div hidden id="m_selected_case00">\
+      선택됨\
+    </div>\
   </div>\
 </div>'

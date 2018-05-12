@@ -12,6 +12,7 @@
 
 .dr_itemTable {
     font-size: small;
+    width: 453px !important;
 }
 
 .dr_itemHeader {
@@ -83,4 +84,26 @@
 .dataTables_scrollBody{
     border: 1px #e0e0e0 solid !important;
     border-radius: 3px;
+    height: 405px !important;
+    overflow-x: hidden !important;
+}
+
+.dataTables_scrollHeadInner{
+    width: 100% !important;
+}
+
+.dr_cpu_1,.dr_gpu_1, .dr_th_1{
+    width: 50px !important;
+}
+.dr_cpu_2,.dr_gpu_2, .dr_th_2{
+    width: 120px !important;
+}
+.dr_cpu_3,.dr_gpu_3, .dr_th_3{
+    width: 80px !important;
+}
+.dr_cpu_4,.dr_gpu_4, .dr_th_4{
+    width: 80px !important;
+}
+.dr_cpu_5,.dr_gpu_5, .dr_th_5{
+    width: 100px !important;
 }
