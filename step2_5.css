@@ -202,8 +202,22 @@ body{
 }
 
 #s_root .budgetIndicatorValue{
-  font-size:24px;
+  font-size:23px;
   font-weight: 900;
+}
+
+#s_root .budgetIndicatorValue.realValue{
+  display: inline-block;
+  font-size:23px;
+  text-align: right;
+  font-weight: 900;
+  width:112px;
+}
+
+#s_root .stateIndicatorValue.realValue{
+  display: inline-block;
+  text-align: right;
+  width:194px;
 }
 
 #s_root .stateIndicatorSubValue{
