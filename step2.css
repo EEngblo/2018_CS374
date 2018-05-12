@@ -1,7 +1,16 @@
 .dr_tableContents{
     font-size: medium;
+    font-family: "Nanum Gothic" !important;
     width: 980px;
     margin: auto;
+}
+
+p{
+  font-family: "Nanum Gothic" !important;
+}
+
+td{
+  font-family: "Nanum Gothic" !important;
 }
 
 .dr_mainContents{

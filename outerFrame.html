@@ -48,7 +48,20 @@
     <script src="./step2.js"></script>
 
     <script src="./breadcrumb.js"></script>
+    <script type="text/javascript">
+        window.onbeforeunload = function() {
+            return "새로고침방지";
+        }
 
+        window.onpopstate = function(event){
+          if(moveHome()){
+            window.location.href="./index.html";
+          }else{
+            history.pushState(null,null, document.URL);
+          }
+        }
+
+    </script>
 
     <!-- Data starts -->
     <title>Accel Danawa : 조립 컴퓨터 견적 짜기</title>
@@ -241,7 +254,7 @@
                 <td>
                   <span style="float:right; margin-top:-10px; margin-bottom:10px;">
                     <span class="texts stateIndicatorIndex">잔액&nbsp;</span>
-                    <span class="texts budgetIndicatorValue">₩</span>
+                    <span class="texts budgetIndicatorValue" id="s_remainder_symbol">₩</span>
                     <span class="texts budgetIndicatorValue realValue" id="s_remainder_value">0</span>
 
 
@@ -303,7 +316,7 @@
             </div>
 
             <div hidden id="d_root_GPUandCPU" class="ui segment d_root dr_mainContents">
-              <div class="ui segment dr_tableContent dr_left col-xs-6">
+              <div id="d_GPU" class="ui segment stacked dr_tableContent dr_left col-xs-6">
                 <div class="dr_itemTable_header">
                   <div class="bigTitle"> 그래픽 카드</div>
                   <div class="ui divider myDivider"></div>
@@ -317,10 +330,10 @@
 
 
                     <th class="dr_th_1"></th>
-                    <th class="dr_th_2">제품정보</th>
-                    <th class="dr_th_3" onmouseover="SwitchHelp(4)">프레임<br><i class="fas fa-question-circle"></i></th>
-                    <th class="dr_th_4" onmouseover="SwitchHelp(5)">성능<br><i class="fas fa-question-circle"></i></th>
-                    <th class="dr_th_5">가격</th>
+                    <th class="dr_th_2 texts">제품정보</th>
+                    <th class="dr_th_3 texts" onmouseover="SwitchHelp(4)">프레임<br><i class="fas fa-question-circle"></i></th>
+                    <th class="dr_th_4 texts" onmouseover="SwitchHelp(5)">성능<br><i class="fas fa-question-circle"></i></th>
+                    <th class="dr_th_5 texts">가격</th>
 
 
                   </tr>
@@ -329,7 +342,7 @@
                   </tbody>
                 </table>
               </div>
-              <div class="ui segment dr_tableContent dr_right col-xs-6">
+              <div id="d_CPU" class="ui segment stacked dr_tableContent dr_right col-xs-6">
                 <div class="dr_itemTable_header">
                   <div class="bigTitle">CPU</div>
                   <div class="ui divider myDivider"></div>
@@ -344,10 +357,10 @@
 
 
                     <th class="dr_th_1"></th>
-                    <th class="dr_th_2">제품정보</th>
-                    <th class="dr_th_3" onmouseover="SwitchHelp(4)">프레임<br><i class="fas fa-question-circle"></i></th>
-                    <th class="dr_th_4" onmouseover="SwitchHelp(6)">성능<br><i class="fas fa-question-circle"></i></th>
-                    <th class="dr_th_5">가격</th>
+                    <th class="dr_th_2 texts">제품정보</th>
+                    <th class="dr_th_3 texts" onmouseover="SwitchHelp(4)">프레임<br><i class="fas fa-question-circle"></i></th>
+                    <th class="dr_th_4 texts" onmouseover="SwitchHelp(6)">성능<br><i class="fas fa-question-circle"></i></th>
+                    <th class="dr_th_5 texts">가격</th>
 
 
                   </tr>
@@ -953,7 +966,7 @@
           </div>
       </div>
       <div class="actions">
-          <div class="ui cancel green autofocus basic button">
+          <div class="ui cancel green autofocus button">
               아니오
           </div>
           <div class="ui approve negative right labeled icon button goToNextStage">

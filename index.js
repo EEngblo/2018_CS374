@@ -42,7 +42,7 @@ $( document ).ready(function() {
     change: function(event, ui){
 
       var temp = $(this).slider("value");
-      if(700000 <= temp && temp <= 1100000){
+      if(650000 <= temp && temp <= 1150000){
         budgetCheck=true;
         notSupportedBudget = false;
 

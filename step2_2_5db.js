@@ -35,6 +35,17 @@ var db_CPU=[
     {name:"AMD 라이젠 5 2600X", price:284000, link:"http://prod.danawa.com/info/?pcode=6066419"}
 ]
 
+var db_CPUandMB=[
+  119760,
+  168010,
+  211040,
+  243010,
+  308560,
+  306220,
+  333930,
+  345220
+]
+
 var db_CASE=[ // 파워값 포함되어 있음
   {name:"GT303 FS  블랙 ARGB", price:92000, link:"http://prod.danawa.com/info/?pcode=6006452&cate=113971#bookmark_product_information", popular:5, fullname:"DAVEN GT303 FS  블랙 ARGB", color:true, side:"유리", index:0},
   {name:"A5 셀레네 2면 블랙", price:91000, link:"http://prod.danawa.com/info/?pcode=5864296&cate=113971#bookmark_product_information", popular:5, fullname:"COX A5 셀레네 2면 블랙", color:true, side:"유리", index:1},
