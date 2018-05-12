@@ -148,7 +148,7 @@ function Composition(){
   if(this.RAM) $("#d_RAM").attr('hidden', true);
 
   //console.log('Success!!');
-  $('#d_root_Loader').attr('hidden', true);
+
 
   this.updatePrice(this.price);
 
@@ -325,6 +325,7 @@ window.onload = function(){
   composition = new Composition();
   loadCase();
   reloadCase();
+  $('#d_root_Loader').attr('hidden', true);
 }
 
 
@@ -432,7 +433,7 @@ function initCase(){
 
     // DB 불러와서 각 ID에 맞게 수정
     tempHTML = tempHTML.replace(/__link__/, db_CASE[i].link);
-    tempHTML = tempHTML.replace(/__img__/, './case/'+i+'.jpg');
+    tempHTML = tempHTML.replace(/__img__/, './case/'+i+'-min.jpg');
     tempHTML = tempHTML.replace(/__name__/, db_CASE[i].name);
     tempHTML = tempHTML.replace(/__popular__/, Math.round(db_CASE[i].popular));
 
