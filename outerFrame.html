@@ -90,12 +90,12 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a id="m_logoButton" class="navbar-brand" href="https://eengblo.github.io/2018_CS374/">Accel Danawa</a>
+            <a id="m_logoButton" style="cursor:pointer;" class="navbar-brand" onclick="moveHome(this)">Accel Danawa</a>
             <!-- TODO : confrim 창 띄워서 safety 좋도록 하기  -->
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">새 견적</a></li>
+                <li style="cursor:pointer;" class="active"><a onclick="moveHome(this)">새 견적</a></li>
                 <li><a id="m_myCompositions" href="javascript:myCompositions();">내 견적 보기</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
@@ -945,18 +945,20 @@
     </table>
   </div>
 <!-- TODO : legacy code임; 이를 바탕으로 해서 confirm message 잘 수정해야 함-->
-  <div class="ui modal" id="m_nextStepConfirm">
-      <div class="header">부품 선택 단계로 넘어가시겠습니까?</div>
+  <div class="ui modal" id="m_homeConfirm">
+      <div class="header">첫 화면으로 돌아가시겠습니까?</div>
       <div class="content">
-          <div class="final" id="m_endGame">1</div>
+          <div class="final" id="m_endGame">
+            현재 작성중인 견적이 모두 삭제됩니다.
+          </div>
       </div>
       <div class="actions">
-          <div class="ui cancel negative basic button">
+          <div class="ui cancel green autofocus basic button">
               아니오
           </div>
-          <div class="ui approve positive right labeled icon button autofocus goToNextStage">
+          <div class="ui approve negative right labeled icon button goToNextStage">
               <i class="checkmark icon"></i>
-              &nbsp;네
+              &nbsp;삭제
           </div>
       </div>
   </div>

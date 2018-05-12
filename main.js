@@ -51,7 +51,7 @@ function Composition(){
   this.cards = [];
   this.CASE=-1;
   this.case_done=false;
-  this.price=79000 + 93900 + 89500  ; // 최저옵션 가격
+  this.price=79000 + 93900 + 89500  ; // 최저옵션 가격 (RAM + SSD + 케이스)
   this.budget=budget;
 
   this.MB = -1;
@@ -382,11 +382,20 @@ function setSpecIndicator(target, score, highlight=true){
   if(highlight) $('#s_'+target).effect( "highlight", {color:"#C8BFE7"}, 300 );
 }
 
-function moveHome(){
-  $('#b_home_button').blur();
-  if(confirm("현재 작성 중인 견적이 사라지게 됩니다.\n정말 이동하시겠습니까?")){
-    location.href="index.html";
-  }
+function moveHome(what){
+  $(what).blur();
+
+  $('.ui.modal#m_homeConfirm')
+  .modal({
+    closable: true,
+    blurring: true,
+    onApprove : function(){
+      $(".goToNextStage").addClass('loading');
+      window.location.href="./index.html";
+    }
+  })
+  .modal('show');
+
 }
 
 function SwitchHelp(n){
@@ -459,7 +468,7 @@ function makeFinalTable(){
   document.getElementById("f_CPU_img").src = "img/CPU/"+ toString(composition.CPU) +".jpg";
   document.getElementById("f_CPU_name").innerHTML = db_CPU[composition.CPU][name];
   document.getElementById("f_CPU_price").innerHTML = db_CPU[composition.CPU][price];
-  
+
   document.getElementById("f_mainboard_img").src = "img/MB/"+ toString(composition.MB) +".jpg";
   document.getElementById("f_mainboard_name").innerHTML = db_MB[composition.MB][name];
   document.getElementById("f_mainboard_price").innerHTML = db_MB[composition.MB][price];
@@ -487,6 +496,8 @@ function makeFinalTable(){
   document.getElementById("f_power_img").src = "img/PS/"+ toString(composition.PS) +".jpg";
   document.getElementById("f_power_name").innerHTML = db_PS[composition.PS][name];
   document.getElementById("f_power_price").innerHTML = db_PS[composition.PS][price];
+
+}
 
 function myCompositions(){
   $('#m_myCompositions').blur();
