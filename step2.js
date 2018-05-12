@@ -2,11 +2,17 @@ var dr_cpuDataTable;
 var dr_gpuDataTable;
 var dr_gpuTable;
 var dr_cpuTable;
-var dr_selectedCPU = 3; //외부와의 sync 필요
-var dr_selectedGPU = 3;
-var dr_defaultCPU = 3;
-var dr_defaultGPU = 3;
-var dr_readyCallback = function(data){
+var dr_selectedCPU = 0; //외부와의 sync 필요
+var dr_selectedGPU = 0;
+var dr_defaultCPU = 0;
+var dr_defaultGPU = 0;
+
+var dr_readyCallback = function(showGPUIdx, showCPUIdx, data){
+
+  dr_defaultCPU = showCPUIdx;
+  dr_defaultGPU = showGPUIdx;
+
+
   var i;
   dr_gpuTable = $('#dr_gpuDataTables');
   dr_cpuTable = $('#dr_cpuDataTables');
@@ -25,7 +31,7 @@ var dr_readyCallback = function(data){
           dr_price.setAttribute("onmouseover", "modeButtonHoverHandler(this)");
           dr_price.setAttribute("onmouseout", "modeButtonHoverEndHandler(this)");
         dr_price.innerHTML = "+\\" + parseInt(dr_price.innerText).toLocaleString();
-        var efficient =Math.round(parseInt(data[3])/20 - 400);
+        var efficient =Math.round(parseInt(data[3])/15 - 620);
         $(row).css("background-size", efficient + "px 50px", "");
       },
         "columns": [
@@ -67,7 +73,9 @@ var dr_readyCallback = function(data){
 };
 
 $(document).ready(function(){
-  dr_readyCallback();
+
+
+  //dr_readyCallback();
 });
 
 var dr_cpuOnClick = function(e){
@@ -87,6 +95,7 @@ var dr_cpuOnClick = function(e){
   }
   setSpecIndicator('CPU', parseInt(db_cpu[dr_selectedCPU][3]));
   setSpecIndicator('FPS', Math.min(parseInt(db_cpu[dr_selectedCPU][2]), parseInt(db_gpu[dr_selectedGPU][2])));
+  composition.set('CPU', dr_selectedCPU);
 };
 
 var dr_gpuOnClick = function(e){
@@ -105,4 +114,5 @@ var dr_gpuOnClick = function(e){
     else dr_gpuObj[i].innerHTML = "-\\" + (-calculate_price).toLocaleString();
   }
   setSpecIndicator('FPS', Math.min(parseInt(db_cpu[dr_selectedCPU][2]), parseInt(db_gpu[dr_selectedGPU][2])));
+  composition.set('GPU', dr_selectedGPU);
 };

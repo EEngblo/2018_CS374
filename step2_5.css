@@ -201,7 +201,7 @@ body{
 #s_root .stateIndicatorValue{
   font-size:40px;
   font-weight: 900;
-  
+
 }
 
 #s_root .budgetIndicatorValue{
@@ -298,6 +298,20 @@ body{
 
 
 {{{{{{{{{{{{{{{{{{{{{{{{{}}}}}}}}}}}}}}}}}}}}}}}}}
+
+
+.cheap{
+  color:#21ba45;
+}
+
+.expensive{
+  color:#db2828;
+}
+
+
+
+{{{{{{{{{{{{{{{{{{{{{  }}}}}}}}}}}}}}}}}}}}}
+
 #alertNext{
   width: 700px;
   margin: 0px !important;
@@ -306,18 +320,18 @@ body{
   font-size: 16px !important;
 }
 
-#nextStepConfirm{
-  height:300px;
-  width:350px;
+#m_homeConfirm{
+  height:auto;
+  width:370px;
   position:relative;
   top:-100px;
   left:0px;
 }
 
-.cheap{
-  color:#21ba45;
+.actions{
+  padding: 10px !important;
 }
 
-.expensive{
-  color:#db2828;
+.final{
+  font-size:18px;
 }
