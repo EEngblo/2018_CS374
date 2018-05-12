@@ -12,7 +12,10 @@
   padding: 15px;
 }
 
-
+.f_itemContainer td{
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
 
 .f_thead{
   font-weight:bold !important;
@@ -43,3 +46,4 @@
   margin-top:8px !important;
 }
 
+.
