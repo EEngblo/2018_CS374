@@ -92,6 +92,15 @@
 
 <body>
 
+  <div id="m_root_Loader" class="ui segment d_root">
+    <div class="ui active dimmer">
+      <div class="ui text loader texts" style="line-height:160%; font-size:16px;">
+        추천 부품들을 고르는 중입니다
+        <br>몇 초 안에 완료됩니다...</div>
+    </div>
+    <p></p>
+  </div>
+
 <!-- TODO : Logo button(id: m_logoButton) 눌렀을 때 confrim 창 띄워서 safety 좋도록 하기  -->
 <!-- 상단 네비게이션 바 : 위의 TODO 이외에는 절대 손대지 말 것                                      -->
 <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -127,7 +136,9 @@
 </nav>
 
 <!-- 본문 내용 시작 -->
-<div id="m_outerScreen" class="ui container center-div">
+
+
+<div hidden id="m_outerScreen" class="ui container center-div">
 
     <!-- 화면 상단 상태바 : TODO 및 id document    -->
     <!--
@@ -161,7 +172,7 @@
         - 하단부의 선택에 따라 그 값이 바뀌어야
 
     -->
-    <div class="stateIndicator well well-lg">
+    <div hidden class="stateIndicator well well-lg">
         <table id="s_root">
             <tr>
                 <!--td class="stateIndicatorFirstRow buttonCell">
@@ -306,14 +317,6 @@
         <td class="bigCell rightCells Cells" id="m_mainContentsCell" rowspan="2">
             <!-- 내부 div들의 hidden attr 바꿈으로써 step 전환 수행 -->
 
-            <div id="d_root_Loader" class="ui segment d_root">
-              <div class="ui active dimmer">
-                <div class="ui text loader texts" style="line-height:160%; font-size:16px;">
-                  추천 부품들을 고르는 중입니다
-                  <br>몇 초 안에 완료됩니다...</div>
-              </div>
-              <p></p>
-            </div>
 
             <div hidden id="d_root_GPUandCPU" class="ui segment d_root dr_mainContents">
               <div id="d_GPU" class="ui segment stacked dr_tableContent dr_left col-xs-6">
