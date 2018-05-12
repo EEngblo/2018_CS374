@@ -180,7 +180,7 @@
             <tr>
                 <td class="specIndicator" rowspan="2">
 
-                  <span id="s_SSD" class="ui small statistic mystateIndicator" onmouseover="SwitchHelp(7)" >
+                  <span id="s_SSD" class="ui small statistic mystateIndicator" onmouseover="SwitchHelp(7)" onclick="moveStep('RAMandSto');">
                     <div class="value stateUpper">
                       <img src="./img/SSD_icon2.png" width="40" height="40">
                       <span id="s_SSD_value" class="stateL1 texts">0</span>
@@ -190,7 +190,7 @@
                       초고속 저장 용량
                     </div>
                   </span>
-                          <span id="s_Storage" class="ui small statistic mystateIndicator" onmouseover="SwitchHelp(8)" >
+                          <span id="s_Storage" class="ui small statistic mystateIndicator" onmouseover="SwitchHelp(8)" onclick="moveStep('RAMandSto');">
                     <div class="value stateUpper">
                       <img src="./img/hdd2.svg" width="40" height="40">
                       <span id="s_Storage_value" class="stateL1 texts">0</span>
@@ -201,7 +201,7 @@
 
                     </div>
                   </span>
-                          <span id="s_RAM" class="ui small statistic mystateIndicator" onmouseover="SwitchHelp(9)" >
+                          <span id="s_RAM" class="ui small statistic mystateIndicator" onmouseover="SwitchHelp(9)" onclick="moveStep('RAMandSto');">
                     <div class="value stateUpper">
                       <img src="./img/RAM.svg" width="42" height="42">
                       <span id="s_RAM_value" class="stateL1 texts">0</span>
@@ -211,7 +211,7 @@
                       RAM 용량
                     </div>
                   </span>
-                          <span id="s_CPU" class="ui small statistic mystateIndicator" onmouseover="SwitchHelp(10)" >
+                          <span id="s_CPU" class="ui small statistic mystateIndicator" onmouseover="SwitchHelp(10)" onclick="moveStep('GPUandCPU');">
                     <div class="value stateUpper">
                       <img src="./img/CPU.svg" width="42" height="42">
                       <span id="s_CPU_value" class="stateL1 texts">0</span>
@@ -221,7 +221,7 @@
                       CPU 성능 점수
                     </div>
                   </span>
-                          <span id="s_FPS" class="ui small statistic mystateIndicator" onmouseover="SwitchHelp(11)" >
+                          <span id="s_FPS" class="ui small statistic mystateIndicator" onmouseover="SwitchHelp(11)" onclick="moveStep('GPUandCPU');">
                     <div class="value stateUpper">
                       <img src="./img/FPS.png" width="42" height="42">
                       <span id="s_FPS_value" class="stateL1 texts">0</span>
@@ -232,10 +232,9 @@
                     </div>
                   </span>
                 </td>
-                <td>
+                <td id="s_pricecell">
                   <span class="texts stateIndicatorIndex" hidden>총액&nbsp;</span>
-                  <span class="texts stateIndicatorValue">₩</span>
-                  <span class="texts stateIndicatorValue realValue" id="s_price_value"><span>0</span></span>
+                  <span class="texts stateIndicatorValue realValue" id="s_price_value"><span>₩&nbsp;0</span></span>
                 </td>
               </tr>
               <tr>
@@ -405,7 +404,7 @@
                 d_HDD_[NO,1T] : 가격 차이 보여주는 text의 div
 
               -->
-              <div class="ui stacked segment texts mySegment">
+              <div id="d_RAM" class="ui stacked segment texts mySegment">
 
                 <div class="bigTitle">RAM</div>
 
@@ -455,7 +454,7 @@
                    </span>
                  </div>
                   </div>
-                  <div class="ui stacked segment texts mySegment">
+                  <div id="d_Sto" class="ui stacked segment texts mySegment">
                       <div ="title">
                       <span class="bigTitle">저장장치</span>
                   </div>
