@@ -62,6 +62,8 @@ var dr_readyCallback = function(data){
         ]
     });
 
+  for(i=dr_defaultGPU;i<8;i++) dr_gpuDataTable.row.add(db_gpu[i]).draw(false);
+  for(i=dr_defaultCPU;i<8;i++) dr_cpuDataTable.row.add(db_cpu[i]).draw(false);
 };
 
 $(document).ready(function(){
@@ -83,10 +85,8 @@ var dr_cpuOnClick = function(e){
     else if(calculate_price === 0) dr_cpuObj[i].innerText = "선택됨";
     else dr_cpuObj[i].innerHTML = "-\\" + (-calculate_price).toLocaleString();
   }
-
   setSpecIndicator('CPU', parseInt(db_cpu[dr_selectedCPU][3]));
   setSpecIndicator('FPS', Math.min(parseInt(db_cpu[dr_selectedCPU][2]), parseInt(db_gpu[dr_selectedGPU][2])));
-
 };
 
 var dr_gpuOnClick = function(e){
@@ -104,7 +104,5 @@ var dr_gpuOnClick = function(e){
     else if(calculate_price === 0) dr_gpuObj[i].innerText = "선택됨";
     else dr_gpuObj[i].innerHTML = "-\\" + (-calculate_price).toLocaleString();
   }
-
   setSpecIndicator('FPS', Math.min(parseInt(db_cpu[dr_selectedCPU][2]), parseInt(db_gpu[dr_selectedGPU][2])));
-
 };
