@@ -80,7 +80,7 @@
                 <div class="ui search">
                   <div class="ui icon input">
                     <input id="gameSearch" class="prompt" type="text"
-                    placeholder="게임 이름을 입력해 주세요. 아래에 없는 게임은 아직 지원되지 않습니다.">
+                    placeholder="게임 이름의 앞 글자만 입력하신 후 Enter키를 누르시면 자동으로 선택됩니다">
                     <i class="search icon"></i>
                   </div>
                   <div class="results"></div>
@@ -140,7 +140,7 @@
        <div class="set Mode PV">
          <label class="Title">더 중요시하는 것</label> :
          <span display:inline class="ui buttons">
-            <button class="ui inverted blue button modeButton"
+            <button class="ui inverted violet button modeButton"
             id="performanceMode"
             onmouseover="modeButtonHoverHandler(this);"
             onmouseout="modeButtonHoverEndHandler(this);"
@@ -153,7 +153,7 @@
               <div class="modeButtonText">게임 성능</div>
             </button>
             <div class="or" style="height:50px;"></div>
-            <button class="ui inverted blue button modeButton"
+            <button class="ui inverted violet button modeButton"
             id="versatilityMode"
             onmouseover="modeButtonHoverHandler(this);"
             onmouseout="modeButtonHoverEndHandler(this);"
@@ -170,7 +170,7 @@
        <div class="set Mode secondMode">
          <label class="Title">견적 작성 방식</label> :
          <span display:inline class="ui buttons">
-            <button class="ui inverted blue button modeButton modeButton2"
+            <button class="ui inverted violet button modeButton modeButton2"
             id="simpleMode"
             onmouseover="modeButtonHoverHandler(this);"
             onmouseout="modeButtonHoverEndHandler(this);"
@@ -183,7 +183,7 @@
               <div class="modeButtonText"> 원클릭 모드</div>
             </button>
             <div class="or" style="height:50px;"></div>
-            <button class="ui inverted blue button modeButton modeButton2"
+            <button class="ui inverted violet button modeButton modeButton2"
             id="customMode"
             onmouseover="modeButtonHoverHandler(this);"
             onmouseout="modeButtonHoverEndHandler(this);"
@@ -220,20 +220,23 @@
       </div>
     </div>
     <div class="ui modal" id="nextStepConfirm">
-      <div class="header">부품 선택 단계로 넘어가시겠습니까?</div>
+      <div class="header texts">부품 선택 단계로 넘어가시겠습니까?</div>
       <div class="content">
-          <div class="final" id="finalGame">1</div>
-          <div class="final" id="finalBudget">1</div>
-          <div class="final" id="finalMode">1</div>
-          <div class="final" id="final2Mode">1</div>
+          <div class="final texts" id="finalGame">1</div>
+          <div class="final texts" id="finalBudget">1</div>
+          <div class="final texts" id="finalMode">1</div>
+          <div class="final texts" id="final2Mode">1</div>
           <br>
-          <div class="fianl">언제던 다시 이 화면으로 돌아와서 변경할 수 있습니다.</div>
+          <div class="texts">
+            언제던 다시 이 화면으로 돌아와서 변경할 수 있지만,
+            <br>처음부터 다시 해야 하므로 지금 신중히 결정해 주세요.
+         </div>
       </div>
       <div class="actions">
-        <div class="ui cancel negative basic button">
+        <div class="ui cancel texts negative basic button">
           아니오
         </div>
-        <div class="ui approve positive right labeled icon button autofocus goToNextStage">
+        <div class="ui approve texts positive right labeled icon button autofocus goToNextStage">
           <i class="checkmark icon"></i>
           &nbsp;네
         </div>

@@ -45,8 +45,9 @@
 }
 
 .myImage{
-  margin: 5px !important;
-  margin-right: 15px !important;
+  margin-top: 0px !important;
+  margin-left: 0px !important;
+  margin-right: 10px !important;
 }
 
 .storageButtons.SSD{
@@ -57,4 +58,8 @@
   font-size:16px;
   margin-top: 10px;
   font-weight: 900;
+}
+
+#d_Sto{
+  margin-top: 0px !important;
 }
