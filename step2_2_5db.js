@@ -13,12 +13,26 @@ var db_HDD=[
 ]
 
 var db_GPU=[
-  {name:"ㅁㄴㅇㄹ", price:0, link:"NULL"}
+    {name:"ZOTAC GTX1050Ti DUALSILENCER OC 4GB", price:233770, link:"http://prod.danawa.com/info/?pcode=4586507"},
+    {name:"리드텍 WinFast 지포스 GTX1060 HURRICANE OC D5 3GB", price:302790, link:"http://prod.danawa.com/info/?pcode=5540416"},
+    {name:"GIGABYTE 지포스 GTX1060 G1.Gaming D5 3GB", price:350700, link:"http://prod.danawa.com/info/?pcode=4360032"},
+    {name:"리드텍 WinFast 지포스 GTX1060 HURRICANE OC D5 6GB", price:398790, link:"http://prod.danawa.com/info/?pcode=5540425"},
+    {name:"ZOTAC AMP 지포스 GTX1060 D5 6GB 백플레이트", price:411280, link:"http://prod.danawa.com/info/?pcode=4796979"},
+    {name:"MSI 지포스 GTX1060 게이밍 X D5 6GB 트윈프로져6", price:449400, link:"http://prod.danawa.com/info/?pcode=4260047"},
+    {name:"ASUS ROG STRIX 지포스 GTX1060 O6G GAMING D5 6GB", price:465150, link:"http://prod.danawa.com/info/?pcode=5078717"},
+    {name:"SAPPHIRE 라데온 RX 580 NITRO+ OC D5 8GB Dual-X", price:487000, link:"http://prod.danawa.com/info/?pcode=5089139"}
 ]
 
 
 var db_CPU=[
-  {name:"ㅁㄴㅇㄹ", price:0, link:"NULL"}
+  {name:"인텔 펜티엄 G4600", price:68100, link:"http://prod.danawa.com/info/?pcode=4827968"},
+    {name:"AMD 라이젠 3 2200G", price:106790, link:"http://prod.danawa.com/info/?pcode=5884539"},
+    {name:"인텔 코어i3-8세대 8100", price:128260, link:"http://prod.danawa.com/info/?pcode=5530456"},
+    {name:"AMD 라이젠 5 2400G", price:181790, link:"http://prod.danawa.com/info/?pcode=5884096"},
+    {name:"인텔 코어i5-8세대 8500", price:225780, link:"http://prod.danawa.com/info/?pcode=6020667"},
+    {name:"AMD 라이젠 5 2600", price:245000, link:"http://prod.danawa.com/info/?pcode=6066396"},
+    {name:"인텔 코어i5-8세대 8600", price:251150, link:"http://prod.danawa.com/info/?pcode=6020678"},
+    {name:"AMD 라이젠 5 2600X", price:284000, link:"http://prod.danawa.com/info/?pcode=6066419"}
 ]
 
 var db_CASE=[ // 파워값 포함되어 있음
