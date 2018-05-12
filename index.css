@@ -1,5 +1,6 @@
 body{
   height: 900px;
+  font-family: 'Nanum Gothic' !important;
 }
 
 .center-div{
@@ -11,6 +12,10 @@ body{
   padding-left: 20px;
   padding-right: 20px;
   width: 1300px;
+}
+
+.texts{
+  font-family: 'Nanum Gothic' !important;
 }
 
 #screen{
@@ -181,7 +186,7 @@ input::placeholder {
 }
 
 #nextButton{
-  width: 190px;
+  width: 210px;
 }
 
 #nextButtontext{
@@ -201,8 +206,8 @@ input::placeholder {
 }
 
 #nextStepConfirm{
-  height:300px;
-  width:350px;
+  height:auto;
+  width:370px;
   position:relative;
   top:-100px;
   left:0px;

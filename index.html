@@ -73,14 +73,14 @@
       <div id="realScreen">
         <h1 id="mainName">나의 새 컴퓨터</h1>
         <div class="set Game">
-          <label id="gameTitle" class="Title">주로 하는 게임</label> :
+          <label id="gameTitle" class="texts Title">주로 하는 게임</label> :
           <span>
             <table id="gameSearchTable" style="display:inline-block; vertical-align: top;width:750px;" class="gameSelect">
               <tr class="gameSarchTableRow"> <td colspan="4" id="gameSearchTd">
                 <div class="ui search">
                   <div class="ui icon input">
                     <input id="gameSearch" class="prompt" type="text"
-                    placeholder="게임 이름을 입력해 주세요. 아래에 없는 게임은 아직 지원되지 않습니다.">
+                    placeholder="게임 이름의 앞 글자만 입력하신 후 Enter키를 누르시면 자동으로 선택됩니다">
                     <i class="search icon"></i>
                   </div>
                   <div class="results"></div>
@@ -88,31 +88,31 @@
               </td></tr>
               <tr class="gameSarchTableRow">
                 <td>
-                  <label class="gameSelectorIcon" for="0">히오스</label>
+                  <label class="gameSelectorIcon texts" for="0">히오스</label>
                   <input class="gameSelector" type="checkbox" name="HeroesofStorm" id="0">
                 </td><td>
-                  <label class="gameSelectorIcon" for="1">리그 오브 레전드</label>
+                  <label class="gameSelectorIcon texts" for="1">리그 오브 레전드</label>
                   <input class="gameSelector" type="checkbox" name="LeagueofLegend" id="1">
                 </td><td>
-                  <label class="gameSelectorIcon" for="2">오버워치</label>
+                  <label class="gameSelectorIcon texts" for="2">오버워치</label>
                   <input class="gameSelector" type="checkbox" name="Overwatch" id="2">
                 </td><td>
-                  <label class="gameSelectorIcon" for="3">파크라이 5</label>
+                  <label class="gameSelectorIcon texts" for="3">파크라이 5</label>
                   <input class="gameSelector" type="checkbox" name="FarCry5" id="3">
                 </td>
               </tr>
               <tr class="gameSarchTableRow">
                 <td>
-                  <label class="gameSelectorIcon" for="4">피파 온라인 3</label>
+                  <label class="gameSelectorIcon texts" for="4">피파 온라인 3</label>
                   <input class="gameSelector" type="checkbox" name="FIFAOnline3" id="4">
                 </td><td>
-                  <label class="gameSelectorIcon" for="5">Baffle Ground</label>
+                  <label class="gameSelectorIcon texts" for="5">Baffle Ground</label>
                   <input class="gameSelector" type="checkbox" name="BaffleGround" id="5">
                 </td><td>
-                  <label class="gameSelectorIcon" for="6">GTA 5</label>
+                  <label class="gameSelectorIcon texts" for="6">GTA 5</label>
                   <input class="gameSelector" type="checkbox" name="GTA5" id="6">
                 </td><td>
-                  <label class="gameSelectorIcon" for="7">하스스톤</label>
+                  <label class="gameSelectorIcon texts" for="7">하스스톤</label>
                   <input class="gameSelector" type="checkbox" name="HearthStone" id="7">
                 </td>
               </tr>
@@ -121,26 +121,26 @@
         </div>
         <div class="set Budget">
           <p>
-            <label for="amount" class="budget Title" id="budgetTitle">최대 가용 예산</label>
+            <label for="amount" class="budget Title texts" id="budgetTitle">최대 가용 예산</label>
              : ₩<input id="budgetInputbox" placeholder="만 단위까지만 입력하셔도 됩니다" value="650,000" onfocus="this.value='';" onblur='budgetInputboxOnblur();'>
-               <button id="budgetSubmit" class="ui blue button" disabled>변경</button>
+               <button id="budgetSubmit" class="ui blue button texts" disabled>변경</button>
             <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
           </p>
           <div id="budgetSlider">
             <div id="budgetSlider_Handle" class="ui-slider-handle"></div>
           </div>
           <div id="budgetTicks" style="text-align:left;">
-             <span class="budgetTick" style="margin-left: 105px;">|<br style='text-align:center'>700,000</span>
-             <span class="budgetTick">|<br style='text-align:center'>800,000</span>
-             <span class="budgetTick">|<br style='text-align:center'>900,000</span>
-             <span class="budgetTick">|<br style='text-align:center'>1,000,000</span>
-             <span class="budgetTick">|<br style='text-align:center'>1,100,000</span>
+             <span class="budgetTick texts" style="margin-left: 105px;">|<br style='text-align:center'>700,000</span>
+             <span class="budgetTick texts">|<br style='text-align:center'>800,000</span>
+             <span class="budgetTick texts">|<br style='text-align:center'>900,000</span>
+             <span class="budgetTick texts">|<br style='text-align:center'>1,000,000</span>
+             <span class="budgetTick texts">|<br style='text-align:center'>1,100,000</span>
          </div>
        </div>
        <div class="set Mode PV">
          <label class="Title">더 중요시하는 것</label> :
          <span display:inline class="ui buttons">
-            <button class="ui inverted blue button modeButton"
+            <button class="ui inverted violet button modeButton"
             id="performanceMode"
             onmouseover="modeButtonHoverHandler(this);"
             onmouseout="modeButtonHoverEndHandler(this);"
@@ -150,10 +150,10 @@
             data-position="top center"
             data-variation="wide"
             >
-              <div class="modeButtonText">게임 성능</div>
+              <div class="modeButtonText texts">게임 성능</div>
             </button>
             <div class="or" style="height:50px;"></div>
-            <button class="ui inverted blue button modeButton"
+            <button class="ui inverted violet button modeButton"
             id="versatilityMode"
             onmouseover="modeButtonHoverHandler(this);"
             onmouseout="modeButtonHoverEndHandler(this);"
@@ -163,14 +163,14 @@
             data-position="top center"
             data-variation="wide"
             >
-              <div class="modeButtonText">높은 활용도</div>
+              <div class="modeButtonText texts">높은 활용도</div>
             </button>
           </span>
        </div>
        <div class="set Mode secondMode">
          <label class="Title">견적 작성 방식</label> :
          <span display:inline class="ui buttons">
-            <button class="ui inverted blue button modeButton modeButton2"
+            <button class="ui inverted violet button modeButton modeButton2"
             id="simpleMode"
             onmouseover="modeButtonHoverHandler(this);"
             onmouseout="modeButtonHoverEndHandler(this);"
@@ -180,10 +180,10 @@
             data-position="bottom center"
             data-variation="wide"
             >
-              <div class="modeButtonText"> 원클릭 모드</div>
+              <div class="modeButtonText texts"> 원클릭 모드</div>
             </button>
             <div class="or" style="height:50px;"></div>
-            <button class="ui inverted blue button modeButton modeButton2"
+            <button class="ui inverted violet button modeButton modeButton2"
             id="customMode"
             onmouseover="modeButtonHoverHandler(this);"
             onmouseout="modeButtonHoverEndHandler(this);"
@@ -193,7 +193,7 @@
             data-position="bottom center"
             data-variation="wide"
             >
-              <div class="modeButtonText">커스텀 모드</div>
+              <div class="modeButtonText texts">커스텀 모드</div>
             </button>
           </span>
        </div>
@@ -209,7 +209,7 @@
            <td>
              <div align="right">
                <button
-                align="right" id="nextButton" disabled="true" class="ui green button"
+                align="right" id="nextButton" disabled="true" class="ui texts green button"
                 onclick="nextStepButton()"> <span id="nextButtontext">견적 작성 시작&nbsp;&nbsp;</span>
                  <i class="fa fa-angle-double-right" style="font-size: 20px;"></i>
                </button>
@@ -220,20 +220,23 @@
       </div>
     </div>
     <div class="ui modal" id="nextStepConfirm">
-      <div class="header">부품 선택 단계로 넘어가시겠습니까?</div>
+      <div class="header texts">부품 선택 단계로 넘어가시겠습니까?</div>
       <div class="content">
-          <div class="final" id="finalGame">1</div>
-          <div class="final" id="finalBudget">1</div>
-          <div class="final" id="finalMode">1</div>
-          <div class="final" id="final2Mode">1</div>
+          <div class="final texts" id="finalGame">1</div>
+          <div class="final texts" id="finalBudget">1</div>
+          <div class="final texts" id="finalMode">1</div>
+          <div class="final texts" id="final2Mode">1</div>
           <br>
-          <div class="fianl">언제던 다시 이 화면으로 돌아와서 변경할 수 있습니다.</div>
+          <div class="texts">
+            언제던 다시 이 화면으로 돌아와서 변경할 수 있지만,
+            <br>처음부터 다시 해야 하므로 지금 신중히 결정해 주세요.
+         </div>
       </div>
       <div class="actions">
-        <div class="ui cancel negative basic button">
+        <div class="ui cancel texts negative basic button">
           아니오
         </div>
-        <div class="ui approve positive right labeled icon button autofocus goToNextStage">
+        <div class="ui approve texts positive right labeled icon button autofocus goToNextStage">
           <i class="checkmark icon"></i>
           &nbsp;네
         </div>
