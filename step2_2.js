@@ -1,9 +1,9 @@
-function tempmp(){
-  composition.RAM = !composition.RAM;
-}
 
 
-function modeButtonClickHandler(id, otherId){
+function modeButtonClickHandler(attr, value, id, otherId){
+
+  var idtext = $(id).attr('id');
+  var oidtext = $(otherId).attr('id');
 
   $(id).removeClass('basic');
   $(id).addClass('inverted');
@@ -34,9 +34,26 @@ function modeButtonClickHandler(id, otherId){
     }
 
   }
+
+
+  if($(id).hasClass('active')){
+
+    composition[attr+'_done'] = true;
+    $('#' + idtext +'_text').attr('hidden', true);
+    $('#' + oidtext +'_text').attr('hidden', false);
+    composition.set(attr, value);
+  }else{
+
+    composition[attr+'_done'] = false;
+    $('#' + idtext +'_text').attr('hidden', !value);
+    $('#' + oidtext +'_text').attr('hidden', value);
+    composition.set(attr, false, value);
+  }
+
   //checkNextStep();
 
-  tempmp();
+
+
 }
 
 function modeButtonHoverHandler(id){

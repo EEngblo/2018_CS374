@@ -12,10 +12,22 @@
   padding: 15px;
 }
 
+.f_itemContainer td{
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
 
-#segmantWrapper{
-  padding:5px !important;
-  width:888px !important;
+.f_thead{
+  font-weight:bold !important;
+
+}
+.f_text{
+  vertical-align:middle !important;
+
+  font-size:20px; 
+}
+.f_table_row{
+  height:50px;
 }
 
 
@@ -23,3 +35,15 @@
   margin-bottom:15px !important;
   margin-top:8px !important;
 }
+
+.f_img{
+  width:50px;
+  height:50px;
+}
+
+.myDivider{
+  margin-bottom:15px !important;
+  margin-top:8px !important;
+}
+
+.

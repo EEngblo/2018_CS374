@@ -8,11 +8,16 @@
   padding-top:5px;
 }
 
+.smallTitleContainer{
+  display: table;
+}
+
 .smallTitle{
+  display: table-cell;
   font-size: 18px;
   width: 260px;
   text-align: right;
-
+  vertical-align: middle;
 }
 
 .explanationText{
