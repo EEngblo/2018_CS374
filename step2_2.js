@@ -1,4 +1,15 @@
+$( document ).ready(function() {
 
+
+
+  $('.m_RAM_explanation').dimmer({
+    on: 'hover'
+  });
+
+  $('.m_SSD_explanation').dimmer({
+    on: 'hover'
+  });
+});
 
 function modeButtonClickHandler(attr, value, id, otherId){
 
