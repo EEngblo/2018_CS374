@@ -292,7 +292,7 @@ function checkGame(id){
 }
 
 function nextStepButton(){
-  var finalBudget = Number($("#budgetSlider").slider("value")).toLocaleString('en');
+  var finalBudget = $("#budgetSlider").slider("value");
   var finalModeID = $(finalMode).prop('id')
   var finalPrefer = finalModeID == 'performanceMode' ? "게임 성능" : "높은 활용도";
   var final2ModeID = $(final2Mode).prop('id')

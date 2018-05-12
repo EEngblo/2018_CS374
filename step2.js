@@ -84,8 +84,9 @@ var dr_cpuOnClick = function(e){
     else if(calculate_price === 0) dr_cpuObj[i].innerText = "선택됨";
     else dr_cpuObj[i].innerHTML = "<i class=\"fas fa-minus\"></i><i class=\"fas fa-won-sign\"></i>" + (-calculate_price).toLocaleString();
   }
-  $("#s_CPU").effect( "highlight", {color:"#C8BFE7"}, 300 );
-  $("#s_FPS").effect( "highlight", {color:"#C8BFE7"}, 300 );
+
+  setSpecIndicator('CPU', getRandomInt(1,1000));
+  setSpecIndicator('FPS', getRandomInt(1,100));
 };
 
 var dr_gpuOnClick = function(e){
@@ -98,5 +99,6 @@ var dr_gpuOnClick = function(e){
     else if(calculate_price === 0) dr_gpuObj[i].innerText = "선택됨";
     else dr_gpuObj[i].innerHTML = "<i class=\"fas fa-minus\"></i><i class=\"fas fa-won-sign\"></i>" + (-calculate_price).toLocaleString();
   }
-  $("#s_FPS").effect( "highlight", {color:"#C8BFE7"}, 300 );
+  setSpecIndicator('FPS', getRandomInt(1,100));
+
 };
