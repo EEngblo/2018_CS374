@@ -161,8 +161,6 @@ function Composition(){
 
   //console.log('Success!!');
 
-  this.showCPUIdx = 5;
-  this.showGPUIdx= 3;
 
   this.updatePrice(this.price);
   dr_readyCallback(this.showGPUIdx, this.showCPUIdx);
@@ -370,7 +368,9 @@ window.onload = function(){
   composition = new Composition();
   loadCase();
   reloadCase();
-  $('#d_root_Loader').attr('hidden', true);
+  $('#m_root_Loader').attr('hidden', true);
+  $('#m.m_outerScreen').attr('hidden', false);
+  $('.stateIndicator').attr('hidden',false);
 }
 
 

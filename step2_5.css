@@ -1,5 +1,5 @@
 body{
-  height: 900px;
+
 }
 
 .texts{
@@ -13,6 +13,15 @@ body{
   margin-bottom: 10px;
   margin-left: auto;
   margin-right: auto;
+}
+
+#m_root_Loader{
+  width:100% !important;
+  height: 100% !important;
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
 }
 
 #m_innerScreen{
