@@ -163,7 +163,7 @@ function Composition(){
 
 
   this.updatePrice(this.price);
-  dr_readyCallback(this.showGPUIdx, this.showCPUIdx);
+  dr_readyCallback([this.showGPUIdx, this.showCPUIdx, this.GPU, this.CPU]);
 
 }
 
