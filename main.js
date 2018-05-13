@@ -55,6 +55,7 @@ function Composition(){
   this.budget=budget;
 
   this.simpleMode = mode2 === 'simpleMode';
+  this.performanceMode = mode1 === 'performanceMode';
 
   this.MB = -1;
   this.PSU = 0;
@@ -142,7 +143,7 @@ function Composition(){
 
 
   this.minPrice = this.price;
-  $('#s_pricebar_suggested').css('width', (this.minPrice / this.budget * 100).toString() + '%');
+  $('#s_pricebar_current').css('width', (this.minPrice / this.budget * 100).toString() + '%');
 
   // breadcrumb 완성
   $('#b_root').append(breadcrumbContents[3]);
@@ -392,27 +393,85 @@ Composition.prototype = {
       $('#s_price_value').removeClass("expensive");
     }
 
+    /*
     if(remainder < -50000){
       $('.stateIndicator').css('background-image', "linear-gradient(to bottom,#ffabab 0,#ffffff 100%)");
     }else{
       $('.stateIndicator').css('background-image', "linear-gradient(to bottom,#e8e8e8 0,#f5f5f5 100%)");
     }
-
+    */
     this.price = price;
+
+
     if(highlight){
       $('.stateIndicatorValue').effect( "highlight", {color:"#C8BFE7"}, 300 );
-      if(remainder >= 0){
-        $('#s_pricebar_user').css('width', ((this.price - this.minPrice) / this.budget * 100).toString() + "%");
-        $('#s_pricebar_user').addClass('progress-bar-warning').removeClass('progress-bar-danger')
-      }else {
-        $('#s_pricebar_user').css('width', ((this.budget - this.minPrice) / this.budget * 100).toString() + "%");
-        $('#s_pricebar_user').removeClass('progress-bar-warning').addClass('progress-bar-danger')
+
+      if(this.price <= this.budget){
+        $('#s_pricebar_current').removeClass('overflown_pricebar');
+
+      }else{
+        $('#s_pricebar_willoverflow').addClass('realoverflow');
+        $('#s_pricebar_current').addClass('overflown_pricebar');
       }
+      $('#s_pricebar_current').css('width', (this.price / this.budget * 100).toString() + "%");
+
+      pricebar_hoverend();
+      $('#s_pricebar_willoverflow').removeClass('realoverflow');
+
+
+      /*
+      if(remainder >= 0){
+        $('#s_pricebar_hoverplus').css('width', ((this.price - this.minPrice) / this.budget * 100).toString() + "%");
+        $('#s_pricebar_hoverplus').addClass('progress-bar-warning').removeClass('progress-bar-danger')
+      }else {
+        $('#s_pricebar_hoverplus').css('width', ((this.budget - this.minPrice) / this.budget * 100).toString() + "%");
+        $('#s_pricebar_hoverplus').removeClass('progress-bar-warning').addClass('progress-bar-danger')
+
+      }*/
     }
   }
 }
 
 
+function pricebar_hoverstart(increament){
+  //console.log(increament);
+  if(increament >= 0){
+    if(increament + composition.price <= composition.budget){
+      $("#s_pricebar_hoverplus").css('width', (increament / composition.budget * 100).toString() + "%" );
+    }else if(composition.price > composition.budget){
+      return;
+    }else{
+      $("#s_pricebar_willoverflow").css('width', ((composition.budget - composition.price) / composition.budget * 100).toString() + "%");
+    }
+  }else{
+    if(increament + composition.price <= composition.budget){
+
+      $('#s_pricebar_current').removeClass('overflown_pricebar');
+
+      $("#s_pricebar_current").css('width', ((composition.price + increament) / composition.budget * 100).toString() + "%" );
+
+      if(composition.price <= composition.budget){
+        $("#s_pricebar_hoverminus").css('width', (-1 * increament / composition.budget * 100).toString() + "%" );
+      }else{
+        $("#s_pricebar_hoverminus").css('width', ((composition.budget - composition.price - increament) / composition.budget * 100).toString() + "%");
+      }
+
+
+    }
+  }
+}
+
+function pricebar_hoverend(){
+    $("#s_pricebar_hoverplus").css('width', '0%');
+    $("#s_pricebar_hoverminus").css('width', '0%');
+    if(composition) $("#s_pricebar_willoverflow").css('width', '0%');
+    if(composition) $('#s_pricebar_current').css('width', (composition.price / composition.budget * 100).toString() + "%");
+    if(composition && composition.price <= composition.budget){
+      $('#s_pricebar_current').removeClass('overflown_pricebar');
+    }else if(composition){
+      $('#s_pricebar_current').addClass('overflown_pricebar');
+    }
+}
 
 
 //////////////////////////////////
@@ -554,7 +613,7 @@ function initCase(){
   for(var i = 0; i < size; i++){
 
 
-    var tempHTML = cardHTML.replace(/case00/g,"case"+ ("0" + i.toString()).slice (-2));
+    var tempHTML = cardHTML.replace(/00/g,("0" + i.toString()).slice (-2));
     tempHTML = tempHTML.replace(/__id__/, ("0" + i.toString()).slice(-2));
     //console.log(tempHTML);
 
@@ -680,7 +739,7 @@ var cardHTML = '<div id="m_case00" class="card casecard">\
       <div class="ui mini star rating" data-rating="__popular__" data-max-rating="5"></div>\
     </div>\
   </div>\
-  <div id="m_button_case00" onclick="selectCase(__id__,this);" class="ui bottom inverted violet attached button texts">\
+  <div id="m_button_case00" onmouseover="casehover(00);" onmouseout="pricebar_hoverend();" onclick="selectCase(__id__,this);" class="ui bottom inverted violet attached button texts">\
     <div id="m_pricetext_case00">\
       <i id="m_cart_case00" class="shopping cart icon __color__"></i>\
       <strong id="m_price_case00" class="texts __color__">__price__</strong>\
