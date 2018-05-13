@@ -77,7 +77,22 @@ function Composition(){
     $('#d_root_GPUandCPU').attr('hidden', false);
 
     // 추천 견적 생성
-
+    if(this.budget >= 684950){
+      this.showGPUIdx = 1;
+      this.updatePrice(this.price - db_GPU[0].price + db_GPU[1].price);
+    }
+    if(this.budget >= 824800){
+      this.showCPUIdx = 1;
+      this.updatePrice(this.price - db_CPUandMB[0] + db_CPUandMB[1]);
+    }
+    if(this.budget >= 920800){
+      this.showGPUIdx = 3;
+      this.updatePrice(this.price - db_GPU[1].price + db_GPU[3].price);
+    }
+    if(this.budget >= 1042950){
+      this.RAM = true;
+      this.updatePrice(this.price - db_RAM[0].price + db_RAM[1].price);
+    }
 
 
   }else{
@@ -103,10 +118,30 @@ function Composition(){
     $('#d_CPU').removeClass('dr_right').addClass('dr_left');
 
     // 추천 견적 생성
-
+    if(this.budget >= 684950){
+      this.showGPUIdx = 1;
+      this.updatePrice(this.price - db_GPU[0].price + db_GPU[1].price);
+    }
+    if(this.budget >= 733200){
+      this.showCPUIdx = 1;
+      this.updatePrice(this.price - db_CPUandMB[0] + db_CPUandMB[1]);
+    }
+    if(this.budget >= 888800){
+      this.RAM = true;
+      this.updatePrice(this.price - db_RAM[0].price - db_RAM[1].price);
+    }
+    if(this.budget >= 1059800){
+      this.showCPUIdx = 3;
+      this.updatePrice(this.price - db_CPUandMB[1] + db_CPUandMB[3]);
+    }
 
 
   }
+
+
+
+  this.minPrice = this.price;
+  $('#s_pricebar_suggested').css('width', (this.minPrice / this.budget * 100).toString() + '%');
 
   // breadcrumb 완성
   $('#b_root').append(breadcrumbContents[3]);
@@ -161,9 +196,8 @@ function Composition(){
 
   //console.log('Success!!');
 
-
   this.updatePrice(this.price);
-  dr_readyCallback(this.showGPUIdx, this.showCPUIdx);
+
 
 }
 
@@ -354,9 +388,17 @@ Composition.prototype = {
     }
 
     this.price = price;
-    if(highlight) $('.stateIndicatorValue').effect( "highlight", {color:"#C8BFE7"}, 300 );
+    if(highlight){
+      $('.stateIndicatorValue').effect( "highlight", {color:"#C8BFE7"}, 300 );
+      if(remainder >= 0){
+        $('#s_pricebar_user').css('width', ((this.price - this.minPrice) / this.budget * 100).toString() + "%");
+        $('#s_pricebar_user').addClass('progress-bar-warning').removeClass('progress-bar-danger')
+      }else {
+        $('#s_pricebar_user').css('width', ((this.budget - this.minPrice) / this.budget * 100).toString() + "%");
+        $('#s_pricebar_user').removeClass('progress-bar-warning').addClass('progress-bar-danger')
+      }
+    }
   }
-
 }
 
 
@@ -371,6 +413,8 @@ window.onload = function(){
   $('#m_root_Loader').attr('hidden', true);
   $('#m.m_outerScreen').attr('hidden', false);
   $('.stateIndicator').attr('hidden',false);
+  dr_readyCallback();
+
 }
 
 
@@ -401,6 +445,8 @@ function moveStep(target){
   $('#d_root_Final').attr('hidden', true);
 
   $('#d_root_' + target).attr('hidden', false);
+
+
 
   // update currentStepIdx
   currentStepIdx = steps.indexOf(target);
@@ -516,20 +562,21 @@ function initCase(){
 }
 
 function makeFinalTable(){
+
   document.getElementById("f_CPU_img").src = encodeURI("img/CPU/"+ composition.CPU +".jpg");
   document.getElementById("f_CPU_name").innerHTML = db_CPU[composition.CPU]["name"];
   document.getElementById("f_CPU_detail").href = db_CPU[composition.CPU]["link"];
-  document.getElementById("f_CPU_price").innerHTML = "\\" + db_CPU[composition.CPU]["price"];
+  document.getElementById("f_CPU_price").innerHTML = "\\ " + db_CPU[composition.CPU]["price"].toLocaleString('en');
 
   document.getElementById("f_mainboard_img").src = "img/MB/"+ composition.MB +".jpg";
   document.getElementById("f_mainboard_name").innerHTML = db_MB[composition.MB]["name"];
   document.getElementById("f_mainboard_detail").href = db_MB[composition.MB]["link"];
-  document.getElementById("f_mainboard_price").innerHTML = "\\" + db_MB[composition.MB]["price"];
+  document.getElementById("f_mainboard_price").innerHTML = "\\ " + db_MB[composition.MB]["price"].toLocaleString('en');
 
   document.getElementById("f_GPU_img").src = "img/GPU/"+ composition.GPU +".jpg";
   document.getElementById("f_GPU_name").innerHTML = db_GPU[composition.GPU]["name"];
   document.getElementById("f_GPU_detail").href = db_GPU[composition.GPU]["link"];
-  document.getElementById("f_GPU_price").innerHTML = "\\" + db_GPU[composition.GPU]["price"];
+  document.getElementById("f_GPU_price").innerHTML = "\\ " + db_GPU[composition.GPU]["price"].toLocaleString('en');
 
   var RAMidx = 0;
   if(composition.RAM==true){
@@ -538,7 +585,7 @@ function makeFinalTable(){
   document.getElementById("f_RAM_img").src = "img/RAM.jpg";
   document.getElementById("f_RAM_name").innerHTML = db_RAM[RAMidx]["name"];
   document.getElementById("f_RAM_detail").href = db_RAM[RAMidx]["link"];
-  document.getElementById("f_RAM_price").innerHTML = "\\" + db_RAM[RAMidx]["price"];
+  document.getElementById("f_RAM_price").innerHTML = "\\ " + db_RAM[RAMidx]["price"].toLocaleString('en');
 
   var SSDidx = 0;
   if(composition.SSD==true){
@@ -547,37 +594,38 @@ function makeFinalTable(){
   document.getElementById("f_SSD_img").src = "img/SSD.jpg";
   document.getElementById("f_SSD_name").innerHTML = db_SSD[SSDidx]["name"];
   document.getElementById("f_SSD_detail").href = db_SSD[SSDidx]["link"];
-  document.getElementById("f_SSD_price").innerHTML = "\\" + db_SSD[SSDidx]["price"];
+  document.getElementById("f_SSD_price").innerHTML = "\\ " + db_SSD[SSDidx]["price"].toLocaleString('en');
 
   if(composition.HDD==true){
     document.getElementById("f_HDD_card").style.display=""
   document.getElementById("f_HDD_name").innerHTML = db_HDD[1]["name"];
   document.getElementById("f_HDD_detail").href = db_HDD[1]["link"];
-  document.getElementById("f_HDD_price").innerHTML = "\\" + db_HDD[1]["price"];
+  document.getElementById("f_HDD_price").innerHTML = "\\ " + db_HDD[1]["price"].toLocaleString('en');
   }
   else{
     document.getElementById("f_HDD_card").style.display="none"
     document.getElementById("f_HDD_name").innerHTML = db_HDD[0]["name"];
-    document.getElementById("f_HDD_price").innerHTML = "\\" + db_HDD[0]["price"];
+    document.getElementById("f_HDD_price").innerHTML = "\\ " + db_HDD[0]["price"].toLocaleString('en');
   }
 
   document.getElementById("f_case_img").src = "case/"+ composition.CASE +".jpg";
   document.getElementById("f_case_name").innerHTML = db_CASE[composition.CASE]["name"];
   document.getElementById("f_case_detail").href = db_CASE[composition.CASE]["link"];
-  document.getElementById("f_case_price").innerHTML = "\\" + db_CASE[composition.CASE]["price"];
+  document.getElementById("f_case_price").innerHTML = "\\ " + db_CASE[composition.CASE]["price"].toLocaleString('en');
 
 
   document.getElementById("f_power_img").src = "img/PSU/"+ composition.PSU +".jpg";
   document.getElementById("f_power_name").innerHTML = db_PSU[composition.PSU]["name"];
   document.getElementById("f_power_detail").href = db_PSU[composition.PSU]["link"];
-  document.getElementById("f_power_price").innerHTML = "\\" + db_PSU[composition.PSU]["price"];
+  document.getElementById("f_power_price").innerHTML = "\\ " + db_PSU[composition.PSU]["price"].toLocaleString('en');
 
+
+  document.getElementById("f_final_price").innerHTML = "\\ " + composition.price.toLocaleString('en');
 }
 
 function myCompositions(){
   $('#m_myCompositions').blur();
   alert('3개의 task와 무관해 구현하지 않은 기능입니다. 죄송합니다.');
-
 
 }
 
