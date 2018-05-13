@@ -354,6 +354,17 @@ Composition.prototype = {
     }
 
     this.price = price;
+
+//  set progress bar
+    var pricebar = document.getElementById("s_pricebar");
+    var currentPercent = (this.price / this.budget) * 100;
+    if (currentPercent >= 100){
+      currentPercent = 100;
+    }
+
+    pricebar.style.width = currentPercent + '%';
+
+
     if(highlight) $('.stateIndicatorValue').effect( "highlight", {color:"#C8BFE7"}, 300 );
   }
 
