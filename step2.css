@@ -119,3 +119,13 @@ td{
 .dr_dimmable .dimmer{
     padding: 0px !important;
 }
+
+.CPU_GPU_detail{
+  font-size:20px !important;
+  align-content:center;
+  color:white;
+  padding-left:5px;
+}
+.CPU_GPU_detail:hover{
+    color:gray;
+}
