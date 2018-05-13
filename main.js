@@ -491,21 +491,17 @@ function makeFinalTable(){
   document.getElementById("f_case_detail").href = db_CASE[composition.CASE][link];
   document.getElementById("f_case_price").innerHTML = db_CASE[composition.CASE][price];
 
-<<<<<<< HEAD
+
   document.getElementById("f_power_img").src = "img/PSU/"+ toString(composition.PSU) +".jpg";
   document.getElementById("f_power_name").innerHTML = db_PSU[composition.PSU][name];
   document.getElementById("f_power_detail").href = db_PSU[composition.PSU][link];
   document.getElementById("f_power_price").innerHTML = db_PSU[composition.PSU][price];
-=======
-  document.getElementById("f_power_img").src = "img/PS/"+ toString(composition.PS) +".jpg";
-  document.getElementById("f_power_name").innerHTML = db_PS[composition.PS][name];
-  document.getElementById("f_power_price").innerHTML = db_PS[composition.PS][price];
 
 function myCompositions(){
   $('#m_myCompositions').blur();
   alert('3개의 task와 무관해 구현하지 않은 기능입니다. 죄송합니다.');
 
->>>>>>> e48abe1ea33e91c9470598a6a217e819f3e4ae0e
+
 }
 
 
