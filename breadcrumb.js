@@ -1,6 +1,6 @@
 var breadcrumbContents = [
 
-  '<a id="b_home_button" href="javascript:moveHome();" class="breadcrumb completed step">\
+  '<a id="b_home_button" onclick="moveHome(this);" class="breadcrumb completed step">\
       <i class="home icon"></i>\
       <div class="content">\
           <div class="title eachStep">예산 및 주로 하는 게임 설정</div>\

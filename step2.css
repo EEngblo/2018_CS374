@@ -1,7 +1,16 @@
 .dr_tableContents{
     font-size: medium;
+    font-family: "Nanum Gothic" !important;
     width: 980px;
     margin: auto;
+}
+
+p{
+  font-family: "Nanum Gothic" !important;
+}
+
+td{
+  font-family: "Nanum Gothic" !important;
 }
 
 .dr_mainContents{
@@ -84,7 +93,7 @@
 .dataTables_scrollBody{
     border: 1px #e0e0e0 solid !important;
     border-radius: 3px;
-    height: 405px !important;
+    height: 415px !important;
     overflow-x: hidden !important;
 }
 
@@ -107,7 +116,6 @@
 .dr_cpu_5,.dr_gpu_5, .dr_th_5{
     width: 100px !important;
 }
-
 .dr_dimmable .dimmer{
     padding: 0px !important;
 }

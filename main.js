@@ -51,7 +51,7 @@ function Composition(){
   this.cards = [];
   this.CASE=-1;
   this.case_done=false;
-  this.price=79000 + 93900 + 89500  ; // 최저옵션 가격
+  this.price=79000 + 93900 + 89500 + db_CPUandMB[0] + db_GPU[0].price  ; // 최저옵션 가격
   this.budget=budget;
 
   this.MB = -1;
@@ -76,6 +76,9 @@ function Composition(){
 
     $('#d_root_GPUandCPU').attr('hidden', false);
 
+    // 추천 견적 생성
+
+
 
   }else{
     // 활용도 모드
@@ -90,6 +93,18 @@ function Composition(){
 
     $('#d_root_RAMandSto').attr('hidden', false);
     $('#d_root_GPUandCPU').attr('hidden', true);
+
+
+    // CPU, GPU 순서 변경
+    var list = $('#d_root_GPUandCPU');
+    var listItems = list.children('.dr_tableContent');
+    list.append(listItems.get().reverse());
+    $('#d_GPU').removeClass('dr_left').addClass('dr_right');
+    $('#d_CPU').removeClass('dr_right').addClass('dr_left');
+
+    // 추천 견적 생성
+
+
 
   }
 
@@ -109,9 +124,6 @@ function Composition(){
     steps_finished[1] = true;
     steps_finished[2] = true;
 
-    // 아래 두 줄은 실험용임. 추천 견적 함수 작성 후 삭제해야 함
-    this.CPU=0;
-    this.GPU=0;
 
     this.RAM_done=true;
     this.SSD_done=true;
@@ -151,6 +163,7 @@ function Composition(){
 
 
   this.updatePrice(this.price);
+  dr_readyCallback(this.showGPUIdx, this.showCPUIdx);
 
 }
 
@@ -181,6 +194,16 @@ Composition.prototype = {
         newp = value ? db_HDD[1].price : db_HDD[0].price;
         this.updatePrice(this.price - oldp + newp);
         break;
+      case 'CPU':
+        oldp = (this.CPU == -1) ? db_CPUandMB[this.showCPUIdx] : db_CPUandMB[this.CPU];
+        newp = (value == -1) ? db_CPUandMB[this.showCPUIdx] : db_CPUandMB[value];
+        this.updatePrice(this.price - oldp + newp);
+        break;
+      case 'GPU':
+        oldp = (this.GPU == -1) ? db_GPU[this.showGPUIdx].price : db_GPU[this.GPU].price;
+        newp = (value == -1) ? db_GPU[this.showCPUIdx] : db_GPU[value].price;
+        this.updatePrice(this.price - oldp + newp);
+        break;
       case 'CASE':
         oldp = (this.CASE == -1) ? 79000 : db_CASE[this.CASE].price;
         newp = (value == -1) ? 79000 : db_CASE[value].price;
@@ -188,7 +211,7 @@ Composition.prototype = {
         break;
     }
 
-    console.log(newp - oldp);
+    if(debug) console.log(newp - oldp);
 
     // target attr의 값을 value로 설정
     this[target] = value;
@@ -309,7 +332,27 @@ Composition.prototype = {
   updatePrice : function(price, highlight = true){
     highlight = highlight && this.price != price
     $('#s_price_value').html('₩ ' + price.toLocaleString('en'));
-    $('#s_remainder_value').html( (this.budget - price).toLocaleString('en'));
+
+    remainder = (this.budget - price);
+    $('#s_remainder_value').html( remainder.toLocaleString('en'));
+
+    if(remainder < 0){
+      $('#s_remainder_value').addClass("expensive");
+      $('#s_remainder_symbol').addClass("expensive");
+      $('#s_price_value').addClass("expensive");
+
+    }else{
+      $('#s_remainder_value').removeClass("expensive");
+      $('#s_remainder_symbol').removeClass("expensive");
+      $('#s_price_value').removeClass("expensive");
+    }
+
+    if(remainder < -50000){
+      $('.stateIndicator').css('background-image', "linear-gradient(to bottom,#ffabab 0,#ffffff 100%)");
+    }else{
+      $('.stateIndicator').css('background-image', "linear-gradient(to bottom,#e8e8e8 0,#f5f5f5 100%)");
+    }
+
     this.price = price;
     if(highlight) $('.stateIndicatorValue').effect( "highlight", {color:"#C8BFE7"}, 300 );
   }
@@ -325,8 +368,9 @@ window.onload = function(){
   composition = new Composition();
   loadCase();
   reloadCase();
-  $('#d_root_Loader').attr('hidden', true);
-    dr_readyCallback();
+  $('#m_root_Loader').attr('hidden', true);
+  $('#m.m_outerScreen').attr('hidden', false);
+  $('.stateIndicator').attr('hidden',false);
 }
 
 
@@ -383,11 +427,23 @@ function setSpecIndicator(target, score, highlight=true){
   if(highlight) $('#s_'+target).effect( "highlight", {color:"#C8BFE7"}, 300 );
 }
 
-function moveHome(){
-  $('#b_home_button').blur();
-  if(confirm("현재 작성 중인 견적이 사라지게 됩니다.\n정말 이동하시겠습니까?")){
-    location.href="index.html";
-  }
+function moveHome(what){
+  $(what).blur();
+
+  $('.ui.modal#m_homeConfirm')
+  .modal({
+    closable: true,
+    blurring: true,
+    onApprove : function(){
+      $(".goToNextStage").addClass('loading');
+      window.location.href="./index.html";
+
+      setTimeout(function(){$(".goToNextStage").removeClass('loading')}, 500);
+      return true;
+    }
+  })
+  .modal('show');
+
 }
 
 function SwitchHelp(n){
@@ -460,7 +516,7 @@ function makeFinalTable(){
   document.getElementById("f_CPU_img").src = "img/CPU/"+ toString(composition.CPU) +".jpg";
   document.getElementById("f_CPU_name").innerHTML = db_CPU[composition.CPU][name];
   document.getElementById("f_CPU_price").innerHTML = db_CPU[composition.CPU][price];
-  
+
   document.getElementById("f_mainboard_img").src = "img/MB/"+ toString(composition.MB) +".jpg";
   document.getElementById("f_mainboard_name").innerHTML = db_MB[composition.MB][name];
   document.getElementById("f_mainboard_price").innerHTML = db_MB[composition.MB][price];
@@ -488,6 +544,8 @@ function makeFinalTable(){
   document.getElementById("f_power_img").src = "img/PS/"+ toString(composition.PS) +".jpg";
   document.getElementById("f_power_name").innerHTML = db_PS[composition.PS][name];
   document.getElementById("f_power_price").innerHTML = db_PS[composition.PS][price];}
+
+}
 
 function myCompositions(){
   $('#m_myCompositions').blur();

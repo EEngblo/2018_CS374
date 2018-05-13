@@ -1,15 +1,15 @@
 var db_RAM=[ // 삼성 DDR4
-  {name:"ㅁㄴㅇㄹ", price:93900, link:"http://prod.danawa.com/info/?pcode=4343051#bookmark_product_information"},
-  {name:"ㅁㄴㅇㄹ", price:185500, link:"http://prod.danawa.com/info/?pcode=4519874#bookmark_product_information"}];
+  {name:"삼성전자 DDR4 8G PC4-19200", price:93900, link:"http://prod.danawa.com/info/?pcode=4343051#bookmark_product_information"},
+  {name:"삼성전자 DDR4 16G PC4-19200", price:185500, link:"http://prod.danawa.com/info/?pcode=4519874#bookmark_product_information"}];
 
 var db_SSD=[ //
-  {name:"ㅁㄴㅇㄹ", price:89500, link:"http://prod.danawa.com/info/?pcode=5781886#bookmark_product_information"},
-  {name:"ㅁㄴㅇㄹ", price:153500, link:"http://prod.danawa.com/info/?pcode=5781894#bookmark_product_information"}
+  {name:"마이크론 Crucial MX500 250G", price:89500, link:"http://prod.danawa.com/info/?pcode=5781886#bookmark_product_information"},
+  {name:"마이크론 Crucial MX500 500G", price:153500, link:"http://prod.danawa.com/info/?pcode=5781894#bookmark_product_information"}
 ]
 
 var db_HDD=[
-  {name:"ㅁㄴㅇㄹ", price:0, link:"NULL"},
-  {name:"ㅁㄴㅇㄹ", price:47150, link:"http://prod.danawa.com/info/?pcode=1706996#bookmark_product_information"}
+  {name:"없음", price:0, link:"NULL"},
+  {name:"WD 1TB BLUE WD10EZEX", price:47150, link:"http://prod.danawa.com/info/?pcode=1706996#bookmark_product_information"}
 ]
 
 var db_GPU=[
@@ -33,6 +33,17 @@ var db_CPU=[
     {name:"AMD 라이젠 5 2600", price:245000, link:"http://prod.danawa.com/info/?pcode=6066396"},
     {name:"인텔 코어i5-8세대 8600", price:251150, link:"http://prod.danawa.com/info/?pcode=6020678"},
     {name:"AMD 라이젠 5 2600X", price:284000, link:"http://prod.danawa.com/info/?pcode=6066419"}
+]
+
+var db_CPUandMB=[
+  119760,
+  168010,
+  211040,
+  243010,
+  308560,
+  306220,
+  333930,
+  345220
 ]
 
 var db_CASE=[ // 파워값 포함되어 있음

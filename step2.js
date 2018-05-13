@@ -75,9 +75,8 @@ var dr_readyCallback = function (data) {
     for (i = dr_defaultCPU; i < 8; i++) dr_cpuDataTable.row.add(["<div class='dr_dimmable'><div class='ui dimmer'><div class='content'><div class='center'><div class='ui inverted button'><i class='icon external alternate'></i></div></div></div></div>" + dbr_cpu[i][0], dbr_cpu[i][1], dbr_cpu[i][2], dbr_cpu[i][3], dbr_cpu[i][4]]).draw(false);
     dr_cpuInit(dr_init_CPU, dr_selectedCPU);
     dr_gpuInit(dr_init_GPU, dr_selectedGPU);
-
-
 };
+
 
 var dr_cpuOnClick = function (e) {
     $("#dr_cpuDataTables_wrapper").find(".inverted").removeClass('active');
@@ -85,6 +84,7 @@ var dr_cpuOnClick = function (e) {
     $(e).addClass('inverted active');
     var current_row = dr_cpuDataTable.row(e.parentNode.parentNode)[0];
     dr_selectedCPU = parseInt(current_row) + dr_defaultCPU;
+
     var current_price = e.getAttribute("name");
     var dr_cpuObj = $(".dr_cpu_5 .dr_priceButton");
     var calculate_price;
@@ -147,6 +147,7 @@ var dr_gpuOnClick = function (e) {
     }
     composition.set("GPU", dr_selectedGPU);
     setSpecIndicator('FPS', Math.min(parseInt(dbr_cpu[dr_selectedCPU][2]), parseInt(dbr_gpu[dr_selectedGPU][2])));
+
 };
 
 var dr_cpuInit = function (e, mode) {

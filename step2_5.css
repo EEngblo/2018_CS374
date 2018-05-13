@@ -1,5 +1,5 @@
 body{
-  height: 900px;
+
 }
 
 .texts{
@@ -13,6 +13,15 @@ body{
   margin-bottom: 10px;
   margin-left: auto;
   margin-right: auto;
+}
+
+#m_root_Loader{
+  width:100% !important;
+  height: 100% !important;
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
 }
 
 #m_innerScreen{
@@ -201,7 +210,7 @@ body{
 #s_root .stateIndicatorValue{
   font-size:40px;
   font-weight: 900;
-  
+
 }
 
 #s_root .budgetIndicatorValue{
@@ -298,6 +307,20 @@ body{
 
 
 {{{{{{{{{{{{{{{{{{{{{{{{{}}}}}}}}}}}}}}}}}}}}}}}}}
+
+
+.cheap{
+  color:#21ba45;
+}
+
+.expensive{
+  color:#db2828;
+}
+
+
+
+{{{{{{{{{{{{{{{{{{{{{  }}}}}}}}}}}}}}}}}}}}}
+
 #alertNext{
   width: 700px;
   margin: 0px !important;
@@ -306,18 +329,19 @@ body{
   font-size: 16px !important;
 }
 
-#nextStepConfirm{
-  height:300px;
-  width:350px;
+#m_homeConfirm{
+  height:auto;
+  width:370px;
   position:relative;
   top:-100px;
   left:0px;
 }
 
-.cheap{
-  color:#21ba45 !important;
+
+.actions{
+  padding: 10px !important;
 }
 
-.expensive{
-  color:#db2828 !important;
+.final{
+  font-size:18px;
 }

@@ -48,7 +48,20 @@
     <script src="./step2.js"></script>
 
     <script src="./breadcrumb.js"></script>
+    <script type="text/javascript">
+        window.onbeforeunload = function() {
+            return "새로고침방지";
+        }
 
+        window.onpopstate = function(event){
+          if(moveHome()){
+            window.location.href="./index.html";
+          }else{
+            history.pushState(null,null, document.URL);
+          }
+        }
+
+    </script>
 
     <!-- Data starts -->
     <title>Accel Danawa : 조립 컴퓨터 견적 짜기</title>
@@ -79,6 +92,15 @@
 
 <body>
 
+  <div id="m_root_Loader" class="ui segment d_root">
+    <div class="ui active dimmer">
+      <div class="ui text loader texts" style="line-height:160%; font-size:16px;">
+        추천 부품들을 고르는 중입니다
+        <br>몇 초 안에 완료됩니다...</div>
+    </div>
+    <p></p>
+  </div>
+
 <!-- TODO : Logo button(id: m_logoButton) 눌렀을 때 confrim 창 띄워서 safety 좋도록 하기  -->
 <!-- 상단 네비게이션 바 : 위의 TODO 이외에는 절대 손대지 말 것                                      -->
 <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -90,12 +112,12 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a id="m_logoButton" class="navbar-brand" href="https://eengblo.github.io/2018_CS374/">Accel Danawa</a>
+            <a id="m_logoButton" style="cursor:pointer;" class="navbar-brand" onclick="moveHome(this)">Accel Danawa</a>
             <!-- TODO : confrim 창 띄워서 safety 좋도록 하기  -->
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">새 견적</a></li>
+                <li style="cursor:pointer;" class="active"><a onclick="moveHome(this)">새 견적</a></li>
                 <li><a id="m_myCompositions" href="javascript:myCompositions();">내 견적 보기</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
@@ -114,7 +136,9 @@
 </nav>
 
 <!-- 본문 내용 시작 -->
-<div id="m_outerScreen" class="ui container center-div">
+
+
+<div hidden id="m_outerScreen" class="ui container center-div">
 
     <!-- 화면 상단 상태바 : TODO 및 id document    -->
     <!--
@@ -148,7 +172,7 @@
         - 하단부의 선택에 따라 그 값이 바뀌어야
 
     -->
-    <div class="stateIndicator well well-lg">
+    <div hidden class="stateIndicator well well-lg">
         <table id="s_root">
             <tr>
                 <!--td class="stateIndicatorFirstRow buttonCell">
@@ -241,7 +265,7 @@
                 <td>
                   <span style="float:right; margin-top:-10px; margin-bottom:10px;">
                     <span class="texts stateIndicatorIndex">잔액&nbsp;</span>
-                    <span class="texts budgetIndicatorValue">₩</span>
+                    <span class="texts budgetIndicatorValue" id="s_remainder_symbol">₩</span>
                     <span class="texts budgetIndicatorValue realValue" id="s_remainder_value">0</span>
 
 
@@ -293,17 +317,9 @@
         <td class="bigCell rightCells Cells" id="m_mainContentsCell" rowspan="2">
             <!-- 내부 div들의 hidden attr 바꿈으로써 step 전환 수행 -->
 
-            <div id="d_root_Loader" class="ui segment d_root">
-              <div class="ui active dimmer">
-                <div class="ui text loader texts" style="line-height:160%; font-size:16px;">
-                  추천 부품들을 고르는 중입니다
-                  <br>몇 초 안에 완료됩니다...</div>
-              </div>
-              <p></p>
-            </div>
 
             <div hidden id="d_root_GPUandCPU" class="ui segment d_root dr_mainContents">
-              <div class="ui segment dr_tableContent dr_left col-xs-6">
+              <div id="d_GPU" class="ui segment stacked dr_tableContent dr_left col-xs-6">
                 <div class="dr_itemTable_header">
                   <div class="bigTitle"> 그래픽 카드</div>
                   <div class="ui divider myDivider"></div>
@@ -317,10 +333,10 @@
 
 
                     <th class="dr_th_1"></th>
-                    <th class="dr_th_2">제품정보</th>
-                    <th class="dr_th_3" onmouseover="SwitchHelp(4)">프레임<br><i class="fas fa-question-circle"></i></th>
-                    <th class="dr_th_4" onmouseover="SwitchHelp(5)">성능<br><i class="fas fa-question-circle"></i></th>
-                    <th class="dr_th_5">가격</th>
+                    <th class="dr_th_2 texts">제품정보</th>
+                    <th class="dr_th_3 texts" onmouseover="SwitchHelp(4)">프레임<br><i class="fas fa-question-circle"></i></th>
+                    <th class="dr_th_4 texts" onmouseover="SwitchHelp(5)">성능<br><i class="fas fa-question-circle"></i></th>
+                    <th class="dr_th_5 texts">가격</th>
 
 
                   </tr>
@@ -329,7 +345,7 @@
                   </tbody>
                 </table>
               </div>
-              <div class="ui segment dr_tableContent dr_right col-xs-6">
+              <div id="d_CPU" class="ui segment stacked dr_tableContent dr_right col-xs-6">
                 <div class="dr_itemTable_header">
                   <div class="bigTitle">CPU</div>
                   <div class="ui divider myDivider"></div>
@@ -344,10 +360,10 @@
 
 
                     <th class="dr_th_1"></th>
-                    <th class="dr_th_2">제품정보</th>
-                    <th class="dr_th_3" onmouseover="SwitchHelp(4)">프레임<br><i class="fas fa-question-circle"></i></th>
-                    <th class="dr_th_4" onmouseover="SwitchHelp(6)">성능<br><i class="fas fa-question-circle"></i></th>
-                    <th class="dr_th_5">가격</th>
+                    <th class="dr_th_2 texts">제품정보</th>
+                    <th class="dr_th_3 texts" onmouseover="SwitchHelp(4)">프레임<br><i class="fas fa-question-circle"></i></th>
+                    <th class="dr_th_4 texts" onmouseover="SwitchHelp(6)">성능<br><i class="fas fa-question-circle"></i></th>
+                    <th class="dr_th_5 texts">가격</th>
 
 
                   </tr>
@@ -945,18 +961,20 @@
     </table>
   </div>
 <!-- TODO : legacy code임; 이를 바탕으로 해서 confirm message 잘 수정해야 함-->
-  <div class="ui modal" id="m_nextStepConfirm">
-      <div class="header">부품 선택 단계로 넘어가시겠습니까?</div>
+  <div class="ui modal" id="m_homeConfirm">
+      <div class="header">첫 화면으로 돌아가시겠습니까?</div>
       <div class="content">
-          <div class="final" id="m_endGame">1</div>
+          <div class="final" id="m_endGame">
+            현재 작성중인 견적이 모두 삭제됩니다.
+          </div>
       </div>
       <div class="actions">
-          <div class="ui cancel negative basic button">
+          <div class="ui cancel green autofocus button">
               아니오
           </div>
-          <div class="ui approve positive right labeled icon button autofocus goToNextStage">
+          <div class="ui approve negative right labeled icon button goToNextStage">
               <i class="checkmark icon"></i>
-              &nbsp;네
+              &nbsp;삭제
           </div>
       </div>
   </div>
