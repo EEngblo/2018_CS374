@@ -451,6 +451,9 @@ function moveStep(target){
   // update currentStepIdx
   currentStepIdx = steps.indexOf(target);
   //////console.log(currentStepIdx);
+  if (target=="Final") // Final 넘어갈때 table data 교체
+    makeFinalTable();
+  SwitchHelp(0); // Step 넘어갈때마다 Help창 끔
 }
 
 function moveStepButton(isNext){
@@ -559,38 +562,65 @@ function initCase(){
 }
 
 function makeFinalTable(){
-  document.getElementById("f_CPU_img").src = "img/CPU/"+ toString(composition.CPU) +".jpg";
-  document.getElementById("f_CPU_name").innerHTML = db_CPU[composition.CPU][name];
-  document.getElementById("f_CPU_price").innerHTML = db_CPU[composition.CPU][price];
 
-  document.getElementById("f_mainboard_img").src = "img/MB/"+ toString(composition.MB) +".jpg";
-  document.getElementById("f_mainboard_name").innerHTML = db_MB[composition.MB][name];
-  document.getElementById("f_mainboard_price").innerHTML = db_MB[composition.MB][price];
+  document.getElementById("f_CPU_img").src = encodeURI("img/CPU/"+ composition.CPU +".jpg");
+  document.getElementById("f_CPU_name").innerHTML = db_CPU[composition.CPU]["name"];
+  document.getElementById("f_CPU_detail").href = db_CPU[composition.CPU]["link"];
+  document.getElementById("f_CPU_price").innerHTML = "\\ " + db_CPU[composition.CPU]["price"].toLocaleString('en');
 
-  document.getElementById("f_GPU_img").src = "img/GPU/"+ toString(composition.GPU) +".jpg";
-  document.getElementById("f_GPU_name").innerHTML = db_GPU[composition.GPU][name];
-  document.getElementById("f_GPU_price").innerHTML = db_GPU[composition.GPU][price];
+  document.getElementById("f_mainboard_img").src = "img/MB/"+ composition.MB +".jpg";
+  document.getElementById("f_mainboard_name").innerHTML = db_MB[composition.MB]["name"];
+  document.getElementById("f_mainboard_detail").href = db_MB[composition.MB]["link"];
+  document.getElementById("f_mainboard_price").innerHTML = "\\ " + db_MB[composition.MB]["price"].toLocaleString('en');
 
-  document.getElementById("f_RAM_img").src = "img/RAM/"+ toString(composition.RAM) +".jpg";
-  document.getElementById("f_RAM_name").innerHTML = db_RAM[composition.RAM][name];
-  document.getElementById("f_RAM_price").innerHTML = db_RAM[composition.RAM][price];
+  document.getElementById("f_GPU_img").src = "img/GPU/"+ composition.GPU +".jpg";
+  document.getElementById("f_GPU_name").innerHTML = db_GPU[composition.GPU]["name"];
+  document.getElementById("f_GPU_detail").href = db_GPU[composition.GPU]["link"];
+  document.getElementById("f_GPU_price").innerHTML = "\\ " + db_GPU[composition.GPU]["price"].toLocaleString('en');
 
-  document.getElementById("f_SSD_img").src = "img/SSD/"+ toString(composition.SSD) +".jpg";
-  document.getElementById("f_SSD_name").innerHTML = db_SSD[composition.SSD][name];
-  document.getElementById("f_SSD_price").innerHTML = db_SSD[composition.SSD][price];
+  var RAMidx = 0;
+  if(composition.RAM==true){
+    RAMidx=1
+  }
+  document.getElementById("f_RAM_img").src = "img/RAM.jpg";
+  document.getElementById("f_RAM_name").innerHTML = db_RAM[RAMidx]["name"];
+  document.getElementById("f_RAM_detail").href = db_RAM[RAMidx]["link"];
+  document.getElementById("f_RAM_price").innerHTML = "\\ " + db_RAM[RAMidx]["price"].toLocaleString('en');
 
-  document.getElementById("f_HDD_img").src = "img/HDD/"+ toString(composition.HDD) +".jpg";
-  document.getElementById("f_HDD_name").innerHTML = db_HDD[composition.HDD][name];
-  document.getElementById("f_HDD_price").innerHTML = db_HDD[composition.HDD][price];
+  var SSDidx = 0;
+  if(composition.SSD==true){
+    SSDidx=1
+  }
+  document.getElementById("f_SSD_img").src = "img/SSD.jpg";
+  document.getElementById("f_SSD_name").innerHTML = db_SSD[SSDidx]["name"];
+  document.getElementById("f_SSD_detail").href = db_SSD[SSDidx]["link"];
+  document.getElementById("f_SSD_price").innerHTML = "\\ " + db_SSD[SSDidx]["price"].toLocaleString('en');
 
-  document.getElementById("f_case_img").src = "img/CASE/"+ toString(composition.CASE) +".jpg";
-  document.getElementById("f_case_name").innerHTML = db_CASE[composition.CASE][name];
-  document.getElementById("f_case_price").innerHTML = db_CASE[composition.CASE][price];
+  if(composition.HDD==true){
+    document.getElementById("f_HDD_card").style.display=""
+  document.getElementById("f_HDD_name").innerHTML = db_HDD[1]["name"];
+  document.getElementById("f_HDD_detail").href = db_HDD[1]["link"];
+  document.getElementById("f_HDD_price").innerHTML = "\\ " + db_HDD[1]["price"].toLocaleString('en');
+  }
+  else{
+    document.getElementById("f_HDD_card").style.display="none"
+    document.getElementById("f_HDD_name").innerHTML = db_HDD[0]["name"];
+    document.getElementById("f_HDD_price").innerHTML = "\\ " + db_HDD[0]["price"].toLocaleString('en');
+  }
 
-  document.getElementById("f_power_img").src = "img/PS/"+ toString(composition.PS) +".jpg";
-  document.getElementById("f_power_name").innerHTML = db_PS[composition.PS][name];
-  document.getElementById("f_power_price").innerHTML = db_PS[composition.PS][price];
+  document.getElementById("f_case_img").src = "case/"+ composition.CASE +".jpg";
+  document.getElementById("f_case_name").innerHTML = db_CASE[composition.CASE]["name"];
+  document.getElementById("f_case_detail").href = db_CASE[composition.CASE]["link"];
+  document.getElementById("f_case_price").innerHTML = "\\ " + db_CASE[composition.CASE]["price"].toLocaleString('en');
 
+
+  document.getElementById("f_power_img").src = "img/PSU/"+ composition.PSU +".jpg";
+  document.getElementById("f_power_name").innerHTML = db_PSU[composition.PSU]["name"];
+  document.getElementById("f_power_detail").href = db_PSU[composition.PSU]["link"];
+  document.getElementById("f_power_price").innerHTML = "\\ " + db_PSU[composition.PSU]["price"].toLocaleString('en');
+
+
+  document.getElementById("f_final_price").innerHTML = "\\ " + composition.price.toLocaleString('en');
 }
 
 function myCompositions(){

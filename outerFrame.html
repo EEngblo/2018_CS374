@@ -712,10 +712,10 @@
 
               <table id="f_table" class="ui violet compact table table-hover">
                 <colgroup>
-                  <col style="width:5%;">
-                  <col style="width:20%;">
-                  <col style="width:10%;">
-                  <col style="width:45%;">
+                  <col style="width:1%;">
+                  <col style="width:15%;">
+                  <col style="width:8%;">
+                  <col style="width:60%;">
                   <col style="width:16%;">
 
                 </colgroup>
@@ -767,7 +767,29 @@
                   <tr class="f_table_row" id="f_table_HDD">
                     <td class="texts"></td>
                     <td class="texts f_text">하드디스크</td>
-                    <td><img class="f_img" id="f_HDD_img" src="./img/SSD.jpg"> </td>
+
+                    <td>
+                      <div class="ui special cards f_card" id="f_HDD_card">
+                        <div class="card f_card">
+                          <div class="blurring dimmable image ">
+                            <div class="ui dimmer">
+                              <div class="content">
+                                <div class="center">
+                                  <div class="ui inverted ">
+                                    <a id="f_HDD_detail" class="f_detail"
+                                       href="http://shop.danawa.com/main/?controller=goods&methods=blog&billingInternalProductSeq=5633207&productRegisterAreaGroupSeq=20&serviceSectionSeq=600"
+                                       target="_blank">
+                                       <i class="icon external alternate" ></i></div>
+                                    </a>
+                                </div>
+                              </div>
+                            </div>
+                            <img class="f_img" id="f_HDD_img" src="img/HDD/1.jpg">
+                          </div>        
+                        </div>
+                      </div>
+                    </td>
+
                     <td class="texts f_text" id="f_HDD_name">1TB 짜리</td>
                     <td class="texts f_text" id="f_HDD_price">\70,000</td>
                   </tr>
@@ -778,10 +800,34 @@
                     <td class="texts f_text" id="f_case_name">case A</td>
                     <td class="texts f_text" id="f_case_price">\50,000</td>
                   </tr>
-                  <tr class="collapse f_table_row" id="f_table_power" aria-expanded="false">
-                    <td class="texts f_text"><strong>└</strong> </td>
+
+                  <tr class="f_table_row" id="f_table_power">
+                    <td class="texts f_text"> </td>
                     <td class="texts f_text">전원장치</td>
-                    <td><img class="f_img" id="f_power_img" src="https://fakeimg.pl/50x50/"> </td>
+
+                    <td>
+                      <div class="ui special cards f_card">
+                        <div class="card f_card">
+                          <div class="blurring dimmable image ">
+                            <div class="ui dimmer">
+                              <div class="content">
+                                <div class="center">
+                                  <div class="ui inverted ">
+                                    <a id="f_power_detail" class="f_detail"
+                                       href="http://shop.danawa.com/main/?controller=goods&methods=blog&billingInternalProductSeq=5633207&productRegisterAreaGroupSeq=20&serviceSectionSeq=600"
+                                       target="_blank">
+                                       <i class="icon external alternate" ></i></div>
+                                    </a>
+                                </div>
+                              </div>
+                            </div>
+                            <img class="f_img" id="f_power_img" src="https://fakeimg.pl/50x50/">
+                          </div>        
+                        </div>
+                      </div>
+                    </td>
+
+
                     <td class="texts f_text" id="f_power_name">적당한거 </td>
                     <td class="texts f_text" id="f_power_price">\50,000</td>
                   </tr>
@@ -792,7 +838,7 @@
                     <th class="texts f_text f_thead">최종가격</th>
                     <th class="texts f_text"></th>
                     <th class="texts f_text"></th>
-                    <th class="texts f_text f_thead">\1,000,000</th>
+                    <th class="texts f_text f_thead" id="f_final_price">\1,000,000</th>
 
                   </tr>
                 </tfoot>
