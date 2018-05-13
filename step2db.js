@@ -1,3 +1,4 @@
+
 var db_gpu = [
     ["<img src=\"img/GPU/0.jpg\" class=\"dr_itemImage\">",
         "<p>GTX1050Ti</p><p class=\"dr_align_right\">ZOTAC 4GB</p>",
@@ -41,7 +42,7 @@ var db_gpu = [
         "<div class=\"ui inverted violet button dr_priceButton texts\">487000</div>"]
 ];
 
-var db_cpu = [
+var dbr_cpu = [
     ["<img src=\"img/CPU/0.jpg\" class=\"dr_itemImage\">",
         "<p>펜티엄 G4660</p><p class=\"dr_align_right\">인텔</p>",
         "46",
