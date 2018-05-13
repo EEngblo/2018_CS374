@@ -543,7 +543,7 @@ function makeFinalTable(){
 
   document.getElementById("f_power_img").src = "img/PS/"+ toString(composition.PS) +".jpg";
   document.getElementById("f_power_name").innerHTML = db_PS[composition.PS][name];
-  document.getElementById("f_power_price").innerHTML = db_PS[composition.PS][price];}
+  document.getElementById("f_power_price").innerHTML = db_PS[composition.PS][price];
 
 }
 
