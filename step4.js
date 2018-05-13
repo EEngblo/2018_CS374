@@ -91,7 +91,7 @@ backup = []
 
 function selectCase(oid, id){
   var realId = $(id).attr('id');
-  var idx = realId.split('case')[1];
+  var idx = $(id).attr('id').split('case')[1];
   var oid = parseInt(oid);
 
   //console.log(idx);

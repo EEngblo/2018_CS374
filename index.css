@@ -1,5 +1,6 @@
 body{
   height: 900px;
+  font-family: 'Nanum Gothic' !important;
 }
 
 .center-div{
@@ -185,7 +186,7 @@ input::placeholder {
 }
 
 #nextButton{
-  width: 190px;
+  width: 210px;
 }
 
 #nextButtontext{
