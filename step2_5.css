@@ -308,15 +308,29 @@ body { position:absolute; top:0; bottom:0; right:0; left:0; }
 
 
 .cheap{
-  color:#21ba45;
+  color:#21ba45 !important;
 }
 
 .expensive{
-  color:#db2828;
+  color:#db2828 !important;
 }
 
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, a.ui-button:active, .ui-button:active, .ui-button.ui-state-active:hover {
+    border: 1px solid #ffffff3d !important;
+    background: #2284d0 !important;
+    font-weight: normal !important;
+    color: #fff !important;
+}
 
+.ui.basic.violet.button.expensive:hover{
+  color:#db2828 !important;
+  font-weight: 600;
+}
 
+.ui.basic.violet.button.cheap:hover{
+  color:#21ba45 !important;
+  font-weight: 600;
+}
 {{{{{{{{{{{{{{{{{{{{{  }}}}}}}}}}}}}}}}}}}}}
 
 #alertNext{
