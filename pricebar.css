@@ -1,5 +1,5 @@
-.overflown_pricebar{
-  background-image: linear-gradient(to bottom,rgba(255,0,0,.6) 0,rgba(255,0,0,.5) 100%) !important;
+#s_pricebar_overflow{
+  background-image: linear-gradient(to bottom,rgba(255,0,0,.7) 0,rgba(255,0,0,.6) 100%) !important;
   background-color: #ffffff !important;
 }
 
@@ -25,4 +25,14 @@
 #s_pricebar_willoverflow{
   background-image: linear-gradient(to bottom,rgba(255,0,0,.4) 0,rgba(255,0,0,.3) 100%);
   background-color: #ffffff;
+}
+
+#s_pricebar_ongoingoverflow{
+  background-image: linear-gradient(to bottom,rgba(255,0,0,.6) 0,rgba(255,0,0,.5) 100%);
+  background-color: #ffffff !important;
+}
+
+#s_pricebar_decreasingoverflow{
+  background-image: linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);
+  background-color: rgba(255,0,0,.5);
 }
