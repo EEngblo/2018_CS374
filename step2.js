@@ -39,7 +39,7 @@ var dr_readyCallback = function (data) {
             if (dr_selectedGPU - dr_defaultGPU === dataIndex) dr_init_GPU = dr_price;
             dr_price.setAttribute("name", dr_price.innerText);
             dr_price.setAttribute("onclick", "dr_gpuOnClick(this)");
-            dr_price.setAttribute("onmouseover", "modeButtonHoverHandler(this)");
+            //dr_price.setAttribute("onmouseover", "modeButtonHoverHandler(this)");
             dr_price.setAttribute("onmouseout", "modeButtonHoverEndHandler(this)");
             dr_price.innerHTML = "+\\" + parseInt(dr_price.innerText).toLocaleString();
             var efficient = Math.round(parseInt(data[3]) / 3 - 135);
@@ -66,7 +66,7 @@ var dr_readyCallback = function (data) {
             if (dr_selectedCPU - dr_defaultCPU === dataIndex) dr_init_CPU = dr_price;
             dr_price.setAttribute("name", dr_price.innerText);
             dr_price.setAttribute("onclick", "dr_cpuOnClick(this)");
-            dr_price.setAttribute("onmouseover", "modeButtonHoverHandler(this)");
+            //dr_price.setAttribute("onmouseover", "modeButtonHoverHandler(this)");
             dr_price.setAttribute("onmouseout", "modeButtonHoverEndHandler(this)");
             dr_price.innerHTML = "+\\" + parseInt(dr_price.innerText).toLocaleString();
             var efficient = Math.round(1.15 * parseInt(data[3]) + 20);
@@ -251,3 +251,22 @@ var dr_gpuInit = function (e, mode) {
     }
     setSpecIndicator('FPS', Math.min(parseInt(dbr_cpu[dr_selectedCPU][2]), parseInt(dbr_gpu[dr_selectedGPU][2])));
 };
+
+function GPU_hover(id, isGPU, idx){
+
+  if(! $(id).hasClass('active')){
+    $(id).removeClass('inverted');
+    $(id).addClass('basic');
+  }
+
+  var current;
+  var increament;
+  if(isGPU){
+    current = composition.GPU == -1 ? composition.showGPUIdx : composition.GPU;
+    increament = db_GPU[idx].price - db_GPU[current].price;
+  }else{
+    current = composition.CPU == -1 ? composition.showCPUIdx : composition.CPU;
+    increament = db_CPUandMB[idx] - db_CPUandMB[current];
+  }
+  pricebar_hoverstart(increament);
+}
