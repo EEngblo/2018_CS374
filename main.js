@@ -130,7 +130,7 @@ function Composition(){
     }
     if(this.budget >= 888800){
       this.RAM = true;
-      this.updatePrice(this.price - db_RAM[0].price - db_RAM[1].price);
+      this.updatePrice(this.price - db_RAM[0].price + db_RAM[1].price);
     }
     if(this.budget >= 1059800){
       this.showCPUIdx = 3;
