@@ -13,6 +13,10 @@ body{
   width: 1300px;
 }
 
+.texts{
+  font-family: 'Nanum Gothic' !important;
+}
+
 #screen{
   width:1300px;
   height:800px;
@@ -201,8 +205,8 @@ input::placeholder {
 }
 
 #nextStepConfirm{
-  height:300px;
-  width:350px;
+  height:auto;
+  width:370px;
   position:relative;
   top:-100px;
   left:0px;

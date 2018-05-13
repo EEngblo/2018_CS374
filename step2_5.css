@@ -133,29 +133,31 @@ body{
 }
 
 #s_root .mystateIndicator{
-  padding-left:12px !important;
-  padding-right: 12px !important;
-  margin-left: 0px !important;
+  padding-left:0px !important;
+  padding-right: 0px !important;
+  margin-left: 12px !important;
+  margin-right: 12px !important;
+  cursor: pointer;
 }
 
 #s_SSD{
-  width:166px !important;
+  width:142px !important;
 }
 
 #s_Storage{
-  width:190px !important;
+  width:176px !important;
 }
 
 #s_RAM{
-  width:144px !important;
+  width:120px !important;
 }
 
 #s_CPU{
-  width:171px !important;
+  width:147px !important;
 }
 
 #s_FPS{
-  width:166px !important;
+  width:142px !important;
 }
 
 
@@ -199,6 +201,7 @@ body{
 #s_root .stateIndicatorValue{
   font-size:40px;
   font-weight: 900;
+  
 }
 
 #s_root .budgetIndicatorValue{
@@ -214,11 +217,6 @@ body{
   width:112px;
 }
 
-#s_root .stateIndicatorValue.realValue{
-  display: inline-block;
-  text-align: right;
-  width:194px;
-}
 
 #s_root .stateIndicatorSubValue{
   font-size:23px;
