@@ -116,3 +116,6 @@ td{
 .dr_cpu_5,.dr_gpu_5, .dr_th_5{
     width: 100px !important;
 }
+.dr_dimmable .dimmer{
+    padding: 0px !important;
+}
