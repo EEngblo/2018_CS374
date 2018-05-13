@@ -98,7 +98,7 @@ function selectCase(oid, id){
 
   if($(id).hasClass('active')){
     // 선택 해제
-    composition.set('CASE', -1);
+    composition.set('CASE', -1, true, true);
     $(id).addClass('inverted');
     $(id).removeClass('active');
     $('#m_selected_case' + idx).attr('hidden', true);
@@ -111,7 +111,7 @@ function selectCase(oid, id){
 
   }else{
     // 선택
-    composition.set('CASE', oid);
+    composition.set('CASE', oid, true, true);
     //console.log($('#m_price_case03').html());
     //console.log($(realId.replace(/button/,'price')).html());
 

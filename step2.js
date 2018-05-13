@@ -9,21 +9,10 @@ var dr_defaultGPU = 0;
 var dr_init_CPU;
 var dr_init_GPU;
 var dr_readyCallback = function (data) {
-     dr_selectedCPU = composition.CPU;
-     dr_selectedGPU = composition.GPU;
-     dr_defaultGPU = composition.showGPUIdx;
-     dr_defaultCPU = composition.showCPUIdx;
-
-
-     var isSimplemode = true;
-
-     if(dr_selectedCPU == -1 && dr_selectedGPU == -1){
-       dr_selectedCPU = dr_defaultCPU;
-       dr_selectedGPU = dr_defaultGPU;
-       isSimplemode = false;
-     }
-
-
+    // dr_selectedCPU = composition.CPU;
+    // dr_selectedGPU = composition.GPU;
+    // dr_defaultGPU = composition.showGPUIdx;
+    // dr_defaultCPU = composition.showCPUIdx;
     dr_gpuTable = $('#dr_gpuDataTables');
     dr_cpuTable = $('#dr_cpuDataTables');
     dr_gpuDataTable = dr_gpuTable.DataTable({
@@ -42,7 +31,7 @@ var dr_readyCallback = function (data) {
             dr_price.setAttribute("onmouseover", "modeButtonHoverHandler(this)");
             dr_price.setAttribute("onmouseout", "modeButtonHoverEndHandler(this)");
             dr_price.innerHTML = "+\\" + parseInt(dr_price.innerText).toLocaleString();
-            var efficient = Math.round(parseInt(data[3]) / 3 - 135);
+            var efficient = Math.round(parseInt(data[3]) / 50 + 50);
             $(row).css("background-size", efficient + "px 50px", "");
             $(row).find('.dr_dimmable').dimmer({on: 'hover'});
         },
@@ -84,14 +73,8 @@ var dr_readyCallback = function (data) {
     var i = dr_defaultGPU;
     for (; i < 8; i++) dr_gpuDataTable.row.add(["<div class='dr_dimmable'><div class='ui dimmer'><div class='content'><div class='center'><div class='ui inverted button'><i class='icon external alternate'></i></div></div></div></div>" + dbr_gpu[i][0], dbr_gpu[i][1], dbr_gpu[i][2], dbr_gpu[i][3], dbr_gpu[i][4]]).draw(false);
     for (i = dr_defaultCPU; i < 8; i++) dr_cpuDataTable.row.add(["<div class='dr_dimmable'><div class='ui dimmer'><div class='content'><div class='center'><div class='ui inverted button'><i class='icon external alternate'></i></div></div></div></div>" + dbr_cpu[i][0], dbr_cpu[i][1], dbr_cpu[i][2], dbr_cpu[i][3], dbr_cpu[i][4]]).draw(false);
-
-    if(!isSimplemode){
-      dr_cpuInit(dr_init_CPU, dr_defaultCPU);
-      dr_gpuInit(dr_init_GPU, dr_defaultGPU);
-    }else{
-      dr_cpuOnClick(dr_init_CPU);
-      dr_gpuOnClick(dr_init_GPU);
-    }
+    dr_cpuInit(dr_init_CPU, dr_selectedCPU);
+    dr_gpuInit(dr_init_GPU, dr_selectedGPU);
 };
 
 

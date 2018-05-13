@@ -160,11 +160,10 @@ function Composition(){
   if(this.RAM) $("#d_RAM").attr('hidden', true);
 
   //console.log('Success!!');
-  this.showCPUIdx =0;
-  this.showGPUIdx =0;
-  this.GPU =6;
-  this.CPU =5;
+
+
   this.updatePrice(this.price);
+  dr_readyCallback(this.showGPUIdx, this.showCPUIdx);
 
 }
 
@@ -383,8 +382,6 @@ window.onload = function(){
   $('#m_root_Loader').attr('hidden', true);
   $('#m.m_outerScreen').attr('hidden', false);
   $('.stateIndicator').attr('hidden',false);
-  dr_readyCallback();
-
 }
 
 

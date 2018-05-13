@@ -217,16 +217,6 @@ input::placeholder {
   padding: 10px !important;
 }
 
-
-.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, a.ui-button:active, .ui-button:active, .ui-button.ui-state-active:hover {
-    border: 1px solid #ffffff3d !important;
-    background: #2284d0 !important;
-    font-weight: normal !important;
-    color: #fff !important;
-}
-
-
-
 .final{
   font-size:18px;
 }
