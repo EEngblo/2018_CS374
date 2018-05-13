@@ -198,6 +198,7 @@ function Composition(){
 
   this.updatePrice(this.price);
 
+
 }
 
 Composition.prototype = {
