@@ -54,6 +54,8 @@ function Composition(){
   this.price=79000 + 93900 + 89500 + db_CPUandMB[0] + db_GPU[0].price  ; // 최저옵션 가격
   this.budget=budget;
 
+  this.simpleMode = mode2 === 'simpleMode';
+
   this.MB = -1;
   this.PSU = 0;
 
@@ -139,7 +141,6 @@ function Composition(){
   }
 
 
-
   this.minPrice = this.price;
   $('#s_pricebar_suggested').css('width', (this.minPrice / this.budget * 100).toString() + '%');
 
@@ -160,12 +161,18 @@ function Composition(){
     steps_finished[2] = true;
 
 
+    this.CPU = this.showCPUIdx;
+    this.GPU = this.showGPUIdx;
+    this.set('SSD', false, highlight = false);
+    this.set('HDD', false, highlight = false);
+
     this.RAM_done=true;
     this.SSD_done=true;
     this.HDD_done=true;
     this.versatility_done=true;
     this.performance_done=true;
     this.case_unlock=true;
+
 
     moveStep('Case');
   }else{
@@ -180,6 +187,10 @@ function Composition(){
 
     moveStep(steps[1]);
   }
+
+
+  if(this.RAM) this.RAM_done= true;
+
   $('#b_Final_button').addClass('disabled');
   $('#m_next_button_Case').addClass('disabled');
   $('#m_next_button_Case').attr('onclick', 'javascript:void(0)');
@@ -410,6 +421,16 @@ window.onload = function(){
   composition = new Composition();
   loadCase();
   reloadCase();
+
+  if(composition.simpleMode){
+    modeButtonClickHandler('SSD', false, '#d_SSD_250G_button', '#d_SSD_500G_button');
+    modeButtonClickHandler('HDD', false, '#d_HDD_NO_button', '#d_HDD_1T_button');
+    if(!composition.RAM){
+      modeButtonClickHandler('RAM', false, '#d_RAM_8G_button', '#d_RAM_16G_button');
+    }
+  }
+
+
   $('#m_root_Loader').attr('hidden', true);
   $('#m.m_outerScreen').attr('hidden', false);
   $('.stateIndicator').attr('hidden',false);

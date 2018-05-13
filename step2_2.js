@@ -11,7 +11,7 @@ $( document ).ready(function() {
   });
 });
 
-function modeButtonClickHandler(attr, value, id, otherId){
+function modeButtonClickHandler(attr, value, id, otherId, highlight = true){
 
   var idtext = $(id).attr('id');
   var oidtext = $(otherId).attr('id');
@@ -52,7 +52,7 @@ function modeButtonClickHandler(attr, value, id, otherId){
     composition[attr+'_done'] = true;
     $('#' + idtext +'_text').attr('hidden', true);
     $('#' + oidtext +'_text').attr('hidden', false);
-    composition.set(attr, value);
+    composition.set(attr, value, highlight);
   }else{
 
     composition[attr+'_done'] = false;
