@@ -1,9 +1,9 @@
-var db_gpu = [
-    ["<img src=\"img/GPU/0.jpg\" class=\"dr_itemImage\">",
-        "<p>GTX1060</p><p class=\"dr_align_right\">INNO3D 3GB</p>",
-        "50",
-        "12501",
-        "<div id=\"\"class=\"ui inverted violet button dr_priceButton texts\">234680</div>"],
+var dbr_gpu = [
+    ["<img src=\"img/GPU/0.jpg\" class=\"dr_itemImage\"></div>",
+        "<p>GTX1050Ti</p><p class=\"dr_align_right\">ZOTAC 4GB</p>",
+        "34",
+        "6978",
+        "<div id=\"\"class=\"ui inverted violet button dr_priceButton texts\">233770</div>"],
     ["<img src=\"img/GPU/1.jpg\" class=\"dr_itemImage\">",
         "<p>GTX1060</p><p class=\"dr_align_right\">리드텍 3GB</p>",
         "51",
@@ -41,12 +41,12 @@ var db_gpu = [
         "<div class=\"ui inverted violet button dr_priceButton texts\">487000</div>"]
 ];
 
-var db_cpu = [
+var dbr_cpu = [
     ["<img src=\"img/CPU/0.jpg\" class=\"dr_itemImage\">",
-        "<p>펜티엄 G4560</p><p class=\"dr_align_right\">인텔</p>",
+        "<p>펜티엄 G4600</p><p class=\"dr_align_right\">인텔</p>",
         "41",
         "167",
-        "<div id=\"\"class=\"ui inverted violet button dr_priceButton texts\">118870</div>"],
+        "<div id=\"\"class=\"ui inverted violet button dr_priceButton texts\">119760</div>"],
     ["<img src=\"img/CPU/1.jpg\" class=\"dr_itemImage\">",
         "<p>라이젠 3 2200G</p><p class=\"dr_align_right\">AMD</p>",
         "57",

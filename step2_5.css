@@ -315,9 +315,9 @@ body{
 }
 
 .cheap{
-  color:#21ba45;
+  color:#21ba45 !important;
 }
 
 .expensive{
-  color:#db2828;
+  color:#db2828 !important;
 }
