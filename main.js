@@ -548,14 +548,17 @@ function makeFinalTable(){
   document.getElementById("f_SSD_detail").href = db_SSD[SSDidx]["link"];
   document.getElementById("f_SSD_price").innerHTML = "\\" + db_SSD[SSDidx]["price"];
 
-  var HDDidx = 0;
   if(composition.HDD==true){
-    HDDidx=1
+    document.getElementById("f_HDD_card").style.display=""
+  document.getElementById("f_HDD_name").innerHTML = db_HDD[1]["name"];
+  document.getElementById("f_HDD_detail").href = db_HDD[1]["link"];
+  document.getElementById("f_HDD_price").innerHTML = "\\" + db_HDD[1]["price"];
   }
-  document.getElementById("f_HDD_img").src = "img/Hdd.jpg";
-  document.getElementById("f_HDD_name").innerHTML = db_HDD[HDDidx]["name"];
-  document.getElementById("f_HDD_detail").href = db_HDD[HDDidx]["link"];
-  document.getElementById("f_HDD_price").innerHTML = "\\" + db_HDD[HDDidx]["price"];
+  else{
+    document.getElementById("f_HDD_card").style.display="none"
+    document.getElementById("f_HDD_name").innerHTML = db_HDD[0]["name"];
+    document.getElementById("f_HDD_price").innerHTML = "\\" + db_HDD[0]["price"];
+  }
 
   document.getElementById("f_case_img").src = "case/"+ composition.CASE +".jpg";
   document.getElementById("f_case_name").innerHTML = db_CASE[composition.CASE]["name"];
