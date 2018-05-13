@@ -84,7 +84,7 @@ function Composition(){
       this.showGPUIdx = 1;
       this.updatePrice(this.price - db_GPU[0].price + db_GPU[1].price);
     }
-    if(this.budget >= 824800){
+    if(this.budget >= 829200){
       this.showCPUIdx = 1;
       this.updatePrice(this.price - db_CPUandMB[0] + db_CPUandMB[1]);
     }
@@ -129,11 +129,11 @@ function Composition(){
       this.showCPUIdx = 1;
       this.updatePrice(this.price - db_CPUandMB[0] + db_CPUandMB[1]);
     }
-    if(this.budget >= 888800){
+    if(this.budget >= 935950){
       this.RAM = true;
       this.updatePrice(this.price - db_RAM[0].price + db_RAM[1].price);
     }
-    if(this.budget >= 1059800){
+    if(this.budget >= 1010950){
       this.showCPUIdx = 3;
       this.updatePrice(this.price - db_CPUandMB[1] + db_CPUandMB[3]);
     }
@@ -595,6 +595,11 @@ function moveHome(what){
   })
   .modal('show');
 
+}
+
+function theend(){
+  alert("User Testing에 참가해 주셔서 감사합니다. Task가 완료되었습니다.\n결제 기능은 아직 구현되지 않았습니다. 첫 화면으로 돌아가 주십시오.");
+  moveHome();
 }
 
 function SwitchHelp(n){
