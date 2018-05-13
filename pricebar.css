@@ -9,7 +9,7 @@
 }
 
 #s_pricebar_current{
-  background-image: linear-gradient(to bottom,#8a72ffe3 0,#8a72ff9e 100%);
+  background-image: linear-gradient(rgba(124, 98, 251, 0.89) 0px, rgba(138, 114, 255, 0.52) 100%);
   background-color: #ffffff;
 }
 
@@ -35,4 +35,9 @@
 #s_pricebar_decreasingoverflow{
   background-image: linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);
   background-color: rgba(255,0,0,.5);
+}
+
+#s_pricebar{
+  background-image: linear-gradient(to bottom,#848484c4 0,#c3c3c38f 100%);
+  background-color: #ffffff;
 }

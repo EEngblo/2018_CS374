@@ -435,7 +435,6 @@ function pricebar_hoverstart(increament){
     if(increament + composition.price <= composition.budget){
       $("#s_pricebar_hoverplus").css('width', (increament / composition.budget * 100).toString() + "%" );
     }else if(composition.price > composition.budget){
-
       $("#s_pricebar_ongoingoverflow").css('width', (increament / composition.budget * 100).toString() + "%" );
 
       var remainder = 2 * composition.budget - composition.price - increament;
@@ -451,6 +450,7 @@ function pricebar_hoverstart(increament){
 
     }
   }else{
+
     if(increament + composition.price <= composition.budget){
 
       //$('#s_pricebar_current').removeClass('overflown_pricebar');
@@ -483,11 +483,11 @@ function pricebar_hoverend(){
     $("#s_pricebar_willoverflow").css('width', '0%');
     $("#s_pricebar_ongoingoverflow").css('width', '0%');
     $("#s_pricebar_decreasingoverflow").css('width', '0%');
-    if(composition && composition.price <= composition.budget) $('#s_pricebar_current').css('width', (composition.price / composition.budget * 100).toString() + "%");
-    else if(composition){
+    if(composition && composition.price <= composition.budget) {
+      $('#s_pricebar_current').css('width', (composition.price / composition.budget * 100).toString() + "%");
+    }else if(composition){
       var remainder = 2 * composition.budget - composition.price ;
       remainder = remainder <= 0 ? 0 : remainder;
-
       $('#s_pricebar_current').css('width', (remainder / composition.budget * 100).toString() + "%");
       $('#s_pricebar_overflow').css('width', ((composition.budget - remainder) / composition.budget * 100).toString() + "%");
       $("#s_pricebar_ongoingoverflow").css('width', "0%" );
