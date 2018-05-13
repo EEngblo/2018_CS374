@@ -1,5 +1,5 @@
 
-var db_gpu = [
+var dbr_gpu = [
     ["<img src=\"img/GPU/0.jpg\" class=\"dr_itemImage\">",
         "<p>GTX1050Ti</p><p class=\"dr_align_right\">ZOTAC 4GB</p>",
         "33",
