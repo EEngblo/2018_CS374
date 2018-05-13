@@ -405,8 +405,9 @@ function moveStep(target){
   // update currentStepIdx
   currentStepIdx = steps.indexOf(target);
   //////console.log(currentStepIdx);
-  if (target=="Final")
+  if (target=="Final") // Final 넘어갈때 table data 교체
     makeFinalTable();
+  switchHelp(0); // Step 넘어갈때마다 Help창 끔
 }
 
 function moveStepButton(isNext){
