@@ -77,7 +77,22 @@ function Composition(){
     $('#d_root_GPUandCPU').attr('hidden', false);
 
     // 추천 견적 생성
-
+    if(this.budget >= 684950){
+      this.showGPUIdx = 1;
+      this.updatePrice(this.price - db_GPU[0].price + db_GPU[1].price);
+    }
+    if(this.budget >= 824800){
+      this.showCPUIdx = 1;
+      this.updatePrice(this.price - db_CPUandMB[0] + db_CPUandMB[1]);
+    }
+    if(this.budget >= 920800){
+      this.showGPUIdx = 3;
+      this.updatePrice(this.price - db_GPU[1].price + db_GPU[3].price);
+    }
+    if(this.budget >= 1042950){
+      this.RAM = true;
+      this.updatePrice(this.price - db_RAM[0].price + db_RAM[1].price);
+    }
 
 
   }else{
@@ -103,10 +118,30 @@ function Composition(){
     $('#d_CPU').removeClass('dr_right').addClass('dr_left');
 
     // 추천 견적 생성
-
+    if(this.budget >= 684950){
+      this.showGPUIdx = 1;
+      this.updatePrice(this.price - db_GPU[0].price + db_GPU[1].price);
+    }
+    if(this.budget >= 733200){
+      this.showCPUIdx = 1;
+      this.updatePrice(this.price - db_CPUandMB[0] + db_CPUandMB[1]);
+    }
+    if(this.budget >= 888800){
+      this.RAM = true;
+      this.updatePrice(this.price - db_RAM[0].price - db_RAM[1].price);
+    }
+    if(this.budget >= 1059800){
+      this.showCPUIdx = 3;
+      this.updatePrice(this.price - db_CPUandMB[1] + db_CPUandMB[3]);
+    }
 
 
   }
+
+
+
+  this.minPrice = this.price;
+  $('#s_pricebar_suggested').css('width', (this.minPrice / this.budget * 100).toString() + '%');
 
   // breadcrumb 완성
   $('#b_root').append(breadcrumbContents[3]);
@@ -160,11 +195,9 @@ function Composition(){
   if(this.RAM) $("#d_RAM").attr('hidden', true);
 
   //console.log('Success!!');
-  this.showCPUIdx =0;
-  this.showGPUIdx =0;
-  this.GPU =6;
-  this.CPU =5;
+
   this.updatePrice(this.price);
+
 
 }
 
@@ -355,9 +388,17 @@ Composition.prototype = {
     }
 
     this.price = price;
-    if(highlight) $('.stateIndicatorValue').effect( "highlight", {color:"#C8BFE7"}, 300 );
+    if(highlight){
+      $('.stateIndicatorValue').effect( "highlight", {color:"#C8BFE7"}, 300 );
+      if(remainder >= 0){
+        $('#s_pricebar_user').css('width', ((this.price - this.minPrice) / this.budget * 100).toString() + "%");
+        $('#s_pricebar_user').addClass('progress-bar-warning').removeClass('progress-bar-danger')
+      }else {
+        $('#s_pricebar_user').css('width', ((this.budget - this.minPrice) / this.budget * 100).toString() + "%");
+        $('#s_pricebar_user').removeClass('progress-bar-warning').addClass('progress-bar-danger')
+      }
+    }
   }
-
 }
 
 
@@ -404,6 +445,8 @@ function moveStep(target){
   $('#d_root_Final').attr('hidden', true);
 
   $('#d_root_' + target).attr('hidden', false);
+
+
 
   // update currentStepIdx
   currentStepIdx = steps.indexOf(target);
