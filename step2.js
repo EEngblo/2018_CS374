@@ -2,10 +2,13 @@ var dr_cpuDataTable;
 var dr_gpuDataTable;
 var dr_gpuTable;
 var dr_cpuTable;
-var dr_selectedCPU = 3; //외부와의 sync 필요
-var dr_selectedGPU = 3;
+var dr_selectedCPU = 0; //외부와의 sync 필요
+var dr_selectedGPU = 0;
 var dr_defaultCPU = 0;
 var dr_defaultGPU = 0;
+var dr_defaultAlign = 0;
+var dr_CPUalign = 0;
+var dr_GPUalign = 0;
 var dr_init_CPU;
 var dr_init_GPU;
 var dr_readyCallback = function (data) {
@@ -13,9 +16,11 @@ var dr_readyCallback = function (data) {
      dr_selectedGPU = composition.GPU;
      dr_defaultGPU = composition.showGPUIdx;
      dr_defaultCPU = composition.showCPUIdx;
-
-
+     if(composition.performanceMode) dr_defaultAlign = [[2, 'desc']];
+     else dr_defaultAlign = [[3, 'desc']];
      var isSimplemode = true;
+    dr_CPUalign = 0;
+    dr_GPUalign = 0;
 
      if(dr_selectedCPU == -1 && dr_selectedGPU == -1){
        dr_selectedCPU = dr_defaultCPU;
@@ -33,18 +38,19 @@ var dr_readyCallback = function (data) {
         "paging": false,
         "searching": false,
         "bInfo": false,
-        "order": [[2, 'desc']],
+        "order": dr_defaultAlign,
         "createdRow": function (row, data, dataIndex) {
             var dr_price = $(row).find(".dr_priceButton")[0];
             if (dr_selectedGPU - dr_defaultGPU === dataIndex) dr_init_GPU = dr_price;
             dr_price.setAttribute("name", dr_price.innerText);
             dr_price.setAttribute("onclick", "dr_gpuOnClick(this)");
-            dr_price.setAttribute("onmouseover", "modeButtonHoverHandler(this)");
+            //dr_price.setAttribute("onmouseover", "modeButtonHoverHandler(this)");
             dr_price.setAttribute("onmouseout", "modeButtonHoverEndHandler(this)");
             dr_price.innerHTML = "+\\" + parseInt(dr_price.innerText).toLocaleString();
-            var efficient = Math.round(parseInt(data[3]) / 3 - 135);
-            $(row).css("background-size", efficient + "px 50px", "");
+            // var efficient = Math.round(parseInt(data[3]) / 3 - 135);
+            // $(row).css("background-size", efficient + "px 50px", "");
             $(row).find('.dr_dimmable').dimmer({on: 'hover'});
+            $(row).find('.CPU_GPU_detail')[0].parentNode.setAttribute('href', db_GPU[dataIndex + dr_defaultGPU].link);
         },
         "columns": [
             {"orderable": false, "className": "dr_gpu_1"},
@@ -60,18 +66,19 @@ var dr_readyCallback = function (data) {
         "paging": false,
         "searching": false,
         "bInfo": false,
-        "order": [[2, 'desc']],
+        "order": dr_defaultAlign,
         "createdRow": function (row, data, dataIndex) {
             var dr_price = $(row).find(".dr_priceButton")[0];
             if (dr_selectedCPU - dr_defaultCPU === dataIndex) dr_init_CPU = dr_price;
             dr_price.setAttribute("name", dr_price.innerText);
             dr_price.setAttribute("onclick", "dr_cpuOnClick(this)");
-            dr_price.setAttribute("onmouseover", "modeButtonHoverHandler(this)");
+            //dr_price.setAttribute("onmouseover", "modeButtonHoverHandler(this)");
             dr_price.setAttribute("onmouseout", "modeButtonHoverEndHandler(this)");
             dr_price.innerHTML = "+\\" + parseInt(dr_price.innerText).toLocaleString();
-            var efficient = Math.round(1.15 * parseInt(data[3]) + 20);
-            $(row).css("background-size", efficient + "px 50px", "");
+            // var efficient = Math.round(1.15 * parseInt(data[3]) + 20);
+            // $(row).css("background-size", efficient + "px 50px", "");
             $(row).find('.dr_dimmable').dimmer({on: 'hover'});
+            $(row).find('.CPU_GPU_detail')[0].parentNode.setAttribute('href', db_CPU[dataIndex + dr_defaultCPU].link);
         },
         "columns": [
             {"orderable": false, "className": "dr_cpu_1"},
@@ -82,9 +89,52 @@ var dr_readyCallback = function (data) {
         ]
     });
     var i = dr_defaultGPU;
-    for (; i < 8; i++) dr_gpuDataTable.row.add(["<div class='dr_dimmable'><div class='ui dimmer'><div class='content'><div class='center'><i class='icon external alternate CPU_GPU_detail'></i></div></div></div>" + dbr_gpu[i][0], dbr_gpu[i][1], dbr_gpu[i][2], dbr_gpu[i][3], dbr_gpu[i][4]]).draw(false);
-    for (i = dr_defaultCPU; i < 8; i++) dr_cpuDataTable.row.add(["<div class='dr_dimmable'><div class='ui dimmer'><div class='content'><div class='center'><i class='icon external alternate CPU_GPU_detail'></i></div></div></div>" + dbr_cpu[i][0], dbr_cpu[i][1], dbr_cpu[i][2], dbr_cpu[i][3], dbr_cpu[i][4]]).draw(false);
-
+    for (; i < 8; i++) dr_gpuDataTable.row.add(["<div class='dr_dimmable'><div class='ui dimmer'><div class='content'><div class='center'><a target='_blank'><i class='icon external alternate CPU_GPU_detail'></i></a></div></div></div>" + dbr_gpu[i][0], dbr_gpu[i][1], dbr_gpu[i][2], dbr_gpu[i][3], dbr_gpu[i][4]]).draw(false);
+    for (i = dr_defaultCPU; i < 8; i++) dr_cpuDataTable.row.add(["<div class='dr_dimmable'><div class='ui dimmer'><div class='content'><div class='center'><a target='_blank'><i class='icon external alternate CPU_GPU_detail'></a></i></div></div></div>" + dbr_cpu[i][0], dbr_cpu[i][1], dbr_cpu[i][2], dbr_cpu[i][3], dbr_cpu[i][4]]).draw(false);
+    dr_gpuDataTable.on( 'order.dt', function () {
+        var t = dr_gpuDataTable.order()[0][0];
+        if(t - 2 === 0){
+            if(dr_GPUalign - 2 !== 0){
+                for(var i=0;i<dr_gpuDataTable.data().length;i++){
+                    var data = dr_gpuDataTable.row(i).data();
+                    var efficient = Math.round(7 * parseInt(data[2]) - 70);
+                    $(dr_gpuDataTable.row(i).node()).css("background-size", efficient + "px 50px", "auto");
+                }
+            }
+        }
+        else if(t - 3 === 0){
+            if(dr_GPUalign - 3 !== 0){
+                for(var i=0;i<dr_gpuDataTable.data().length;i++){
+                    var data = dr_gpuDataTable.row(i).data();
+                    var efficient = Math.round(parseInt(data[3]) / 3 - 135);
+                    $(dr_gpuDataTable.row(i).node()).css("background-size", efficient + "px 50px", "auto");
+                }
+            }
+        }
+        dr_GPUalign = t;
+    } );
+    dr_cpuDataTable.on( 'order.dt', function () {
+        var t = dr_cpuDataTable.order()[0][0];
+        if(t - 2 === 0){
+            if(dr_CPUalign - 2 !== 0){
+                for(var i=0;i<dr_cpuDataTable.data().length;i++){
+                    var data = dr_cpuDataTable.row(i).data();
+                    var efficient = Math.round(7 * parseInt(data[2]) - 70);
+                    $(dr_cpuDataTable.row(i).node()).css("background-size", efficient + "px 50px", "auto");
+                }
+            }
+        }
+        else if(t - 3 === 0){
+            if(dr_CPUalign - 3 !== 0){
+                for(var i=0;i<dr_cpuDataTable.data().length;i++){
+                    var data = dr_cpuDataTable.row(i).data();
+                    var efficient = Math.round(parseInt(1.15 * parseInt(data[3]) + 20));
+                    $(dr_cpuDataTable.row(i).node()).css("background-size", efficient + "px 50px", "auto");
+                }
+            }
+        }
+        dr_CPUalign = t;
+    });
     if(!isSimplemode){
       dr_cpuInit(dr_init_CPU, dr_defaultCPU);
       dr_gpuInit(dr_init_GPU, dr_defaultGPU);
@@ -92,6 +142,8 @@ var dr_readyCallback = function (data) {
       dr_cpuOnClick(dr_init_CPU);
       dr_gpuOnClick(dr_init_GPU);
     }
+    dr_gpuDataTable.order(dr_defaultAlign[0]).draw();
+    dr_cpuDataTable.order(dr_defaultAlign[0]).draw();
 };
 
 
@@ -251,3 +303,22 @@ var dr_gpuInit = function (e, mode) {
     }
     setSpecIndicator('FPS', Math.min(parseInt(dbr_cpu[dr_selectedCPU][2]), parseInt(dbr_gpu[dr_selectedGPU][2])));
 };
+
+function GPU_hover(id, isGPU, idx){
+
+  if(! $(id).hasClass('active')){
+    $(id).removeClass('inverted');
+    $(id).addClass('basic');
+  }
+
+  var current;
+  var increament;
+  if(isGPU){
+    current = composition.GPU == -1 ? composition.showGPUIdx : composition.GPU;
+    increament = db_GPU[idx].price - db_GPU[current].price;
+  }else{
+    current = composition.CPU == -1 ? composition.showCPUIdx : composition.CPU;
+    increament = db_CPUandMB[idx] - db_CPUandMB[current];
+  }
+  pricebar_hoverstart(increament);
+}
