@@ -67,14 +67,49 @@ function modeButtonClickHandler(attr, value, id, otherId, highlight = true){
 
 }
 
-function modeButtonHoverHandler(id){
+function modeButtonHoverHandler(id, other){
   if(! $(id).hasClass('active')){
     $(id).removeClass('inverted');
     $(id).addClass('basic');
+
+    if($(id).hasClass('highoption')){
+
+      var increament = null;
+
+      if($(id).hasClass('RAM')){
+        increament = 91600;
+      }else if($(id).hasClass('SSD')){
+        increament = 64000;
+      }else if($(id).hasClass('HDD')){
+        increament = 47150;
+      }
+
+      if(increament !== null){
+        pricebar_hoverstart(increament);
+      }
+
+    }else if($(other).hasClass('active')){
+      //console.log(1);
+      var increament = null;
+
+      if($(id).hasClass('RAM')){
+        increament = -91600;
+      }else if($(id).hasClass('SSD')){
+        increament = -64000;
+      }else if($(id).hasClass('HDD')){
+        increament = -47150;
+      }
+
+      if(increament !== null){
+        pricebar_hoverstart(increament);
+      }
+    }
   }
 }
 
 function modeButtonHoverEndHandler(id){
   $(id).removeClass('basic');
   $(id).addClass('inverted');
+
+  pricebar_hoverend();
 }

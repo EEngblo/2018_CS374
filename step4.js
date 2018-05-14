@@ -199,6 +199,16 @@ function reloadCase(){
 
 }
 
+
+function casehover(idx){
+  if(composition){
+    var current = composition.CASE == -1 ? 3 : composition.CASE;
+    var increament = db_CASE[idx].price - db_CASE[current].price;
+    pricebar_hoverstart(increament);
+  }
+}
+
+
 function caseSort(a,b){
   var result;
   if(popularIsSortPrimary){

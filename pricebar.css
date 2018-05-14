@@ -1,0 +1,43 @@
+#s_pricebar_overflow{
+  background-image: linear-gradient(to bottom,rgba(255,0,0,.7) 0,rgba(255,0,0,.6) 100%) !important;
+  background-color: #ffffff !important;
+}
+
+.realoverflow{
+  background-image: linear-gradient(to bottom,#ff0000a6 0,#ff00009e 100%) !important;
+  background-color: #ffffff !important;
+}
+
+#s_pricebar_current{
+  background-image: linear-gradient(rgba(124, 98, 251, 0.89) 0px, rgba(138, 114, 255, 0.52) 100%);
+  background-color: #ffffff;
+}
+
+#s_pricebar_hoverplus{
+  background-image: linear-gradient(to bottom,#8d75ffa6 0,#beb0ff9e 100%) !important;
+  background-color: #ffffff !important;
+}
+#s_pricebar_hoverminus{
+  background-image: linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);
+  background-color: #beb0ff78;
+}
+
+#s_pricebar_willoverflow{
+  background-image: linear-gradient(to bottom,rgba(255,0,0,.4) 0,rgba(255,0,0,.3) 100%);
+  background-color: #ffffff;
+}
+
+#s_pricebar_ongoingoverflow{
+  background-image: linear-gradient(to bottom,rgba(255,0,0,.6) 0,rgba(255,0,0,.5) 100%);
+  background-color: #ffffff !important;
+}
+
+#s_pricebar_decreasingoverflow{
+  background-image: linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);
+  background-color: rgba(255,0,0,.5);
+}
+
+#s_pricebar{
+  background-image: linear-gradient(to bottom,#a2a2a2c4 0,#d4d4d48f 100%);
+  background-color: #ffffff;
+}
