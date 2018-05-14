@@ -471,7 +471,7 @@
                     <span display:inline class="ui buttons">
                     <button class="ui inverted violet button modeButton RAM"
                              id="d_RAM_8G_button"
-                             onmouseover="modeButtonHoverHandler(this, document.getElementById('d_RAM_16G_button'));"
+                             onmouseover="modeButtonHoverHandler(this, document.getElementById('d_RAM_16G_button'), true);"
                              onmouseout="modeButtonHoverEndHandler(this);"
                              onclick="modeButtonClickHandler('RAM',false,this, document.getElementById('d_RAM_16G_button'));"
                              data-tooltip="동시에 창을 많이 켜 두지 않는 보통 사용자에게 적합합니다"
@@ -485,7 +485,7 @@
                      <div class="or" style="height:60px;"></div>
                      <button class="ui inverted violet button modeButton highoption RAM"
                              id="d_RAM_16G_button"
-                             onmouseover="modeButtonHoverHandler(this, document.getElementById('d_RAM_8G_button'));"
+                             onmouseover="modeButtonHoverHandler(this, document.getElementById('d_RAM_8G_button'), true);"
                              onmouseout="modeButtonHoverEndHandler(this);"
                              onclick="modeButtonClickHandler('RAM',true,this, document.getElementById('d_RAM_8G_button'));"
                              data-tooltip="동시에 게임, 인터넷, 무거운 프로그램 등을 많이 실행시키는 사용자에게 적합합니다"
