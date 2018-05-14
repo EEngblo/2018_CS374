@@ -37,8 +37,8 @@
 }
 
 .f_img{
-  width:50px;
-  height:50px;
+  width:50px !important;
+  height:50px !important;
 }
 
 .myDivider{
@@ -46,4 +46,24 @@
   margin-top:8px !important;
 }
 
-.
+.f_dimmable{
+  width:50px !important;
+  height:50px !important;
+}
+
+.f_card{
+  width:50px !important;
+  height:50px !important;
+  border-width:0px !important;
+  box-shadow: none !important
+}
+
+.f_detail{
+  font-size:20px !important;
+  align-content:center;
+  color:white;
+}
+
+.f_detail:hover {
+  color:gray;
+}

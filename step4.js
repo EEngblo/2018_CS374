@@ -98,7 +98,7 @@ function selectCase(oid, id){
 
   if($(id).hasClass('active')){
     // 선택 해제
-    composition.set('CASE', -1, true, true);
+    composition.set('CASE', -1);
     $(id).addClass('inverted');
     $(id).removeClass('active');
     $('#m_selected_case' + idx).attr('hidden', true);
@@ -111,7 +111,7 @@ function selectCase(oid, id){
 
   }else{
     // 선택
-    composition.set('CASE', oid, true, true);
+    composition.set('CASE', oid);
     //console.log($('#m_price_case03').html());
     //console.log($(realId.replace(/button/,'price')).html());
 
@@ -198,6 +198,16 @@ function reloadCase(){
   }
 
 }
+
+
+function casehover(idx){
+  if(composition){
+    var current = composition.CASE == -1 ? 3 : composition.CASE;
+    var increament = db_CASE[idx].price - db_CASE[current].price;
+    pricebar_hoverstart(increament);
+  }
+}
+
 
 function caseSort(a,b){
   var result;

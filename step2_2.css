@@ -63,3 +63,15 @@
 #d_Sto{
   margin-top: 0px !important;
 }
+
+.RAM_HDD_detail{
+  font-size:35px !important;
+  align-content:center;
+  color:white;
+  padding-left: 15px !important;
+   padding-bottom: 15px !important;
+}
+
+.RAM_HDD_detail:hover{
+  color:gray;
+}

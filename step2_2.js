@@ -11,7 +11,7 @@ $( document ).ready(function() {
   });
 });
 
-function modeButtonClickHandler(attr, value, id, otherId){
+function modeButtonClickHandler(attr, value, id, otherId, highlight = true){
 
   var idtext = $(id).attr('id');
   var oidtext = $(otherId).attr('id');
@@ -52,7 +52,7 @@ function modeButtonClickHandler(attr, value, id, otherId){
     composition[attr+'_done'] = true;
     $('#' + idtext +'_text').attr('hidden', true);
     $('#' + oidtext +'_text').attr('hidden', false);
-    composition.set(attr, value);
+    composition.set(attr, value, highlight);
   }else{
 
     composition[attr+'_done'] = false;
@@ -67,14 +67,49 @@ function modeButtonClickHandler(attr, value, id, otherId){
 
 }
 
-function modeButtonHoverHandler(id){
+function modeButtonHoverHandler(id, other){
   if(! $(id).hasClass('active')){
     $(id).removeClass('inverted');
     $(id).addClass('basic');
+
+    if($(id).hasClass('highoption')){
+
+      var increament = null;
+
+      if($(id).hasClass('RAM')){
+        increament = 91600;
+      }else if($(id).hasClass('SSD')){
+        increament = 64000;
+      }else if($(id).hasClass('HDD')){
+        increament = 47150;
+      }
+
+      if(increament !== null){
+        pricebar_hoverstart(increament);
+      }
+
+    }else if($(other).hasClass('active')){
+      //console.log(1);
+      var increament = null;
+
+      if($(id).hasClass('RAM')){
+        increament = -91600;
+      }else if($(id).hasClass('SSD')){
+        increament = -64000;
+      }else if($(id).hasClass('HDD')){
+        increament = -47150;
+      }
+
+      if(increament !== null){
+        pricebar_hoverstart(increament);
+      }
+    }
   }
 }
 
 function modeButtonHoverEndHandler(id){
   $(id).removeClass('basic');
   $(id).addClass('inverted');
+
+  pricebar_hoverend();
 }

@@ -35,6 +35,7 @@
     <link rel="stylesheet" href="./step4.css">
     <link rel="stylesheet" href="./step5.css">
     <link rel="stylesheet" href="./step2_2.css">
+    <link rel="stylesheet" href="./pricebar.css">
 
 
     <script src="./step2_2_5db.js"></script>
@@ -182,12 +183,28 @@
             </td-->
                 <td class="stateIndicatorFirstRow pricebarCell" colspan="2">
                     <div id="s_pricebar" class="progress">
-                        <div class="progress-bar progress-bar-success active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
+                        <div id="s_pricebar_overflow" class="overflown_pricebar progress-bar progress-bar-success active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
                             <span class="sr-only">45% Complete</span>
                         </div>
-                        <div class="progress-bar progress-bar-warning active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
+                        <div id="s_pricebar_ongoingoverflow" class="progress-bar progress-bar-success active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
                             <span class="sr-only">45% Complete</span>
                         </div>
+                        <div id="s_pricebar_decreasingoverflow" class="progress-bar progress-bar-striped progress-bar-warning active" role="progressbar" aria-valuenow="1" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+                            <span class="sr-only">asdf</span>
+                        </div>
+                        <div id="s_pricebar_current" class="progress-bar progress-bar-success active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%;   background-image: linear-gradient(to bottom,#8a72ffe3 0,#8a72ff9e 100%);">
+                            <span class="sr-only">45% Complete</span>
+                        </div>
+                        <div id="s_pricebar_hoverplus" class="progress-bar progress-bar-warning active" role="progressbar" aria-valuenow="1" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+                            <span class="sr-only">45% Complete</span>
+                        </div>
+                        <div id="s_pricebar_hoverminus" class="progress-bar progress-bar-striped progress-bar-warning active" role="progressbar" aria-valuenow="1" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+                            <span class="sr-only">asdf</span>
+                        </div>
+                        <div id="s_pricebar_willoverflow" class="progress-bar progress-bar-striped progress-bar-warning active" role="progressbar" aria-valuenow="1" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+                            <span class="sr-only">asdf</span>
+                        </div>
+
                     </div>
                 </td>
                 <td class="stateIndicatorFirstRow buttonCell">
@@ -430,11 +447,11 @@
                   <span class="m_RAM_explanation ui rounded left floated image myImage">
                     <div class="ui dimmer">
                       <div class="content">
-                        <div class="ui mini inverted button" style="line-height:160%; padding-left:0px !important; padding-right: 0px !important; margin-left:auto !important; margin-right:auto !important;">
-                          <a class="texts caseDetail"
+                        <div class="ui mini">
+                          <a class="RAM_HDD_detail"
                              href="http://prod.danawa.com/info/?pcode=4343051#bookmark_product_information"
                              target="_blank">
-                             상세정보<br><i style="margin:0px;" class="icon external alternate"></i></div>
+                             <i class="icon external alternate"></i></div>
                           </a>
                       </div>
                     </div>
@@ -452,9 +469,9 @@
                   <label class="smallTitle">용량 :&nbsp;&nbsp;</label>
 
                     <span display:inline class="ui buttons">
-                    <button class="ui inverted violet button modeButton"
+                    <button class="ui inverted violet button modeButton RAM"
                              id="d_RAM_8G_button"
-                             onmouseover="modeButtonHoverHandler(this);"
+                             onmouseover="modeButtonHoverHandler(this, document.getElementById('d_RAM_16G_button'));"
                              onmouseout="modeButtonHoverEndHandler(this);"
                              onclick="modeButtonClickHandler('RAM',false,this, document.getElementById('d_RAM_16G_button'));"
                              data-tooltip="동시에 창을 많이 켜 두지 않는 보통 사용자에게 적합합니다"
@@ -466,9 +483,9 @@
                        <div id="d_RAM_8G_button_text" hidden class="modeButtonText texts priceTexts cheap">- ₩ 91,600</div>
                      </button>
                      <div class="or" style="height:60px;"></div>
-                     <button class="ui inverted violet button modeButton"
+                     <button class="ui inverted violet button modeButton highoption RAM"
                              id="d_RAM_16G_button"
-                             onmouseover="modeButtonHoverHandler(this);"
+                             onmouseover="modeButtonHoverHandler(this, document.getElementById('d_RAM_8G_button'));"
                              onmouseout="modeButtonHoverEndHandler(this);"
                              onclick="modeButtonClickHandler('RAM',true,this, document.getElementById('d_RAM_8G_button'));"
                              data-tooltip="동시에 게임, 인터넷, 무거운 프로그램 등을 많이 실행시키는 사용자에게 적합합니다"
@@ -493,11 +510,11 @@
                     <span class="m_SSD_explanation ui rounded left floated image myImage">
                       <div class="ui dimmer">
                         <div class="content">
-                          <div class="ui mini inverted button" style="line-height:160%; padding-left:0px !important; padding-right: 0px !important; margin-left:auto !important; margin-right:auto !important;">
-                            <a  class="texts caseDetail"
+                          <div class="ui mini">
+                            <a  class="RAM_HDD_detail"
                                href="http://prod.danawa.com/info/?pcode=5781886#bookmark_product_information"
                                target="_blank">
-                               상세정보<br><i style="margin:0px;" class="icon external alternate"></i></div>
+                               <i class="icon external alternate"></i></div>
                             </a>
                         </div>
                       </div>
@@ -515,9 +532,9 @@
                   <div class="smallTitleContainer storageButtons SSD">
                       <label class="smallTitle">SSD (초고속 저장장치) 용량 :&nbsp;&nbsp;</label>
                       <span display:inline class="ui buttons">
-                   <button class="ui inverted violet button modeButton"
+                   <button class="ui inverted violet button modeButton SSD"
                            id="d_SSD_250G_button"
-                           onmouseover="modeButtonHoverHandler(this);"
+                           onmouseover="modeButtonHoverHandler(this, document.getElementById('d_SSD_500G_button'));"
                            onmouseout="modeButtonHoverEndHandler(this);"
                            onclick="modeButtonClickHandler('SSD',false,this, document.getElementById('d_SSD_500G_button'));"
                            data-tooltip="한 두 종류의 게임만 하는 사용자에게 적합합니다"
@@ -529,9 +546,9 @@
                      <div id="d_SSD_250G_button_text" hidden class="modeButtonText texts priceTexts cheap">- ₩ 64,000</div>
                    </button>
                    <div class="or" style="height:60px;"></div>
-                   <button class="ui inverted violet button modeButton"
+                   <button class="ui inverted violet button modeButton highoption SSD"
                            id="d_SSD_500G_button"
-                           onmouseover="modeButtonHoverHandler(this);"
+                           onmouseover="modeButtonHoverHandler(this, document.getElementById('d_SSD_250G_button'));"
                            onmouseout="modeButtonHoverEndHandler(this);"
                            onclick="modeButtonClickHandler('SSD',true,this, document.getElementById('d_SSD_250G_button'));"
                            data-tooltip="다양한 종류의 게임을 하는 사용자에게 적합합니다"
@@ -550,9 +567,9 @@
 
                       <label class="smallTitle ">하드디스크 용량 :&nbsp;&nbsp;</label>
                       <span display:inline class="ui buttons">
-                    <button class="ui inverted violet button modeButton"
+                    <button class="ui inverted violet button modeButton HDD"
                             id="d_HDD_NO_button"
-                            onmouseover="modeButtonHoverHandler(this);"
+                            onmouseover="modeButtonHoverHandler(this,document.getElementById('d_HDD_1T_button'));"
                             onmouseout="modeButtonHoverEndHandler(this);"
                             onclick="modeButtonClickHandler('HDD', false,this, document.getElementById('d_HDD_1T_button'));"
                             data-tooltip="동영상 등 용량이 큰 파일을 많이 저장해 두지 않는 사용자에게 적합합니다"
@@ -565,9 +582,9 @@
 
                     </button>
                     <div class="or" style="height:60px;"></div>
-                    <button class="ui inverted violet button modeButton"
+                    <button class="ui inverted violet button modeButton highoption HDD"
                             id="d_HDD_1T_button"
-                            onmouseover="modeButtonHoverHandler(this);"
+                            onmouseover="modeButtonHoverHandler(this,document.getElementById('d_HDD_NO_button'));"
                             onmouseout="modeButtonHoverEndHandler(this);"
                             onclick="modeButtonClickHandler('HDD', true,this, document.getElementById('d_HDD_NO_button'));"
                             data-tooltip="동영상 등 용량이 큰 파일을 많이 저장하는 사용자에게 적합합니다"
@@ -712,10 +729,10 @@
 
               <table id="f_table" class="ui violet compact table table-hover">
                 <colgroup>
-                  <col style="width:5%;">
-                  <col style="width:20%;">
-                  <col style="width:10%;">
-                  <col style="width:45%;">
+                  <col style="width:1%;">
+                  <col style="width:15%;">
+                  <col style="width:8%;">
+                  <col style="width:60%;">
                   <col style="width:16%;">
 
                 </colgroup>
@@ -729,59 +746,224 @@
                   </tr>
                 </thead>
                 <tbody class = "f_itemContainer">
-                  <tr class="f_table_row collapsed" id="f_table_CPU" data-toggle="collapse" href="#f_table_mainboard" aria-expanded="false" aria-controls="f_table_mainboard" onclick="SwitchPlusMinus(this)">
-                    <td class="texts f_text"><i class="far fa-plus-square" id="f_CPU_plus"></i><i class="far fa-minus-square" id="f_CPU_minus" style="display:none"></i></td>
+                  <tr class="f_table_row" id="f_table_CPU">
+                    <td class="texts f_text"></td>
                     <td class="texts f_text" id="" valign="center">CPU</td>
-                    <td><img class="f_img" id="f_CPU_img" src="img/CPU/6.jpg"></td>
+                    <td>
+                      <div class="ui special cards f_card">
+                        <div class="card f_card">
+                          <div class="blurring dimmable image ">
+                            <div class="ui dimmer">
+                              <div class="content">
+                                <div class="center">
+                                  <div class="ui inverted ">
+                                    <a id="f_CPU_detail" class="f_detail"
+                                       href="http://shop.danawa.com/main/?controller=goods&methods=blog&billingInternalProductSeq=5633207&productRegisterAreaGroupSeq=20&serviceSectionSeq=600"
+                                       target="_blank">
+                                       <i class="icon external alternate" ></i></div>
+                                    </a>
+                                </div>
+                              </div>
+                            </div>
+                            <img class="f_img" id="f_CPU_img" src="./img/CPU/6.jpg">
+                          </div>
+                        </div>
+                      </div>
+                    </td>
                     <td class="texts f_text" id="f_CPU_name">i5 8600 인텔</td>
                     <td class="texts f_text" id="f_CPU_price">\333,930</td>
                   </tr>
-                  <tr class="collapse f_table_row" id="f_table_mainboard" aria-expanded="false">
-                    <td class="texts f_text"><strong>└</strong> </td>
+                  <tr class="f_table_row" id="f_table_mainboard">
+                    <td class="texts f_text"></td>
                     <td class="texts f_text">메인보드</td>
-                    <td><img class="f_img" id="f_mainboard_img" src="https://fakeimg.pl/50x50/"> </td>
+
+                    <td>
+                      <div class="ui special cards f_card">
+                        <div class="card f_card">
+                          <div class="blurring dimmable image ">
+                            <div class="ui dimmer">
+                              <div class="content">
+                                <div class="center">
+                                  <div class="ui inverted ">
+                                    <a id="f_mainboard_detail" class="f_detail"
+                                       href="http://shop.danawa.com/main/?controller=goods&methods=blog&billingInternalProductSeq=5633207&productRegisterAreaGroupSeq=20&serviceSectionSeq=600"
+                                       target="_blank">
+                                       <i class="icon external alternate" ></i></div>
+                                    </a>
+                                </div>
+                              </div>
+                            </div>
+                            <img class="f_img" id="f_mainboard_img" src="https://fakeimg.pl/50x50/">
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+
                     <td class="texts f_text" id="f_mainboard_name">좋은거</td>
                     <td class="texts f_text" id="f_mainboard_price">\100,000</td>
                   </tr>
                   <tr class="f_table_row" id="f_table_GPU">
                     <td class="texts"></td>
                     <td class="texts f_text">그래픽 카드</td>
-                    <td><img class="f_img" id="f_GPU_img" src="./img/GPU/6.jpg"> </td>
+                    <td>
+                      <div class="ui special cards f_card">
+                        <div class="card f_card">
+                          <div class="blurring dimmable image ">
+                            <div class="ui dimmer">
+                              <div class="content">
+                                <div class="center">
+                                  <div class="ui inverted ">
+                                    <a id="f_GPU_detail" class="f_detail"
+                                       href="http://shop.danawa.com/main/?controller=goods&methods=blog&billingInternalProductSeq=5633207&productRegisterAreaGroupSeq=20&serviceSectionSeq=600"
+                                       target="_blank">
+                                       <i class="icon external alternate" ></i></div>
+                                    </a>
+                                </div>
+                              </div>
+                            </div>
+                            <img class="f_img" id="f_GPU_img" src="./img/GPU/6.jpg">
+                          </div>
+                        </div>
+                      </div>
+                    </td>
                     <td class="texts f_text" id="f_GPU_name">GTX1060 ASUS 6GB</td>
                     <td class="texts f_text" id="f_GPU_price">\234,234</td>
                   </tr>
                   <tr class="f_table_row" id="f_table_RAM">
                     <td class="texts"></td>
                     <td class="texts f_text">RAM</td>
-                    <td><img class="f_img" id="f_RAM_img" src="./img/RAM.jpg"> </td>
+                    <td>
+                      <div class="ui special cards f_card">
+                        <div class="card f_card">
+                          <div class="blurring dimmable image ">
+                            <div class="ui dimmer">
+                              <div class="content">
+                                <div class="center">
+                                  <div class="ui inverted ">
+                                    <a id="f_RAM_detail" class="f_detail"
+                                       href="http://shop.danawa.com/main/?controller=goods&methods=blog&billingInternalProductSeq=5633207&productRegisterAreaGroupSeq=20&serviceSectionSeq=600"
+                                       target="_blank">
+                                       <i class="icon external alternate" ></i></div>
+                                    </a>
+                                </div>
+                              </div>
+                            </div>
+                            <img class="f_img" id="f_RAM_img" src="./img/RAM.jpg">
+                          </div>
+                        </div>
+                      </div>
+                    </td>
                     <td class="texts f_text" id="f_RAM_name">16G 짜리</td>
                     <td class="texts f_text" id="f_RAM_price">\200,000</td>
                   </tr>
                   <tr class="f_table_row" id="f_table_SSD">
                     <td class="texts"></td>
                     <td class="texts f_text">SSD</td>
-                    <td><img class="f_img" id="f_SSD_img" src="./img/SSD.jpg"> </td>
+                    <td>
+                      <div class="ui special cards f_card">
+                        <div class="card f_card">
+                          <div class="blurring dimmable image ">
+                            <div class="ui dimmer">
+                              <div class="content">
+                                <div class="center">
+                                  <div class="ui inverted ">
+                                    <a id="f_SSD_detail" class="f_detail"
+                                       href="http://shop.danawa.com/main/?controller=goods&methods=blog&billingInternalProductSeq=5633207&productRegisterAreaGroupSeq=20&serviceSectionSeq=600"
+                                       target="_blank">
+                                       <i class="icon external alternate" ></i></div>
+                                    </a>
+                                </div>
+                              </div>
+                            </div>
+                            <img class="f_img" id="f_SSD_img" src="./img/SSD.jpg">
+                          </div>
+                        </div>
+                      </div>
+                    </td>
                     <td class="texts f_text" id="f_SSD_name">500G 짜리</td>
                     <td class="texts f_text" id="f_SSD_price">\100,000</td>
                   </tr>
                   <tr class="f_table_row" id="f_table_HDD">
                     <td class="texts"></td>
                     <td class="texts f_text">하드디스크</td>
-                    <td><img class="f_img" id="f_HDD_img" src="./img/SSD.jpg"> </td>
+                    <td>
+                      <div class="ui special cards f_card" id="f_HDD_card">
+                        <div class="card f_card">
+                          <div class="blurring dimmable image ">
+                            <div class="ui dimmer">
+                              <div class="content">
+                                <div class="center">
+                                  <div class="ui inverted ">
+                                    <a id="f_HDD_detail" class="f_detail"
+                                       href="http://shop.danawa.com/main/?controller=goods&methods=blog&billingInternalProductSeq=5633207&productRegisterAreaGroupSeq=20&serviceSectionSeq=600"
+                                       target="_blank">
+                                       <i class="icon external alternate" ></i></div>
+                                    </a>
+                                </div>
+                              </div>
+                            </div>
+                            <img class="f_img" id="f_HDD_img" src="img/HDD/1.jpg">
+                          </div>
+                        </div>
+                      </div>
+                    </td>
                     <td class="texts f_text" id="f_HDD_name">1TB 짜리</td>
                     <td class="texts f_text" id="f_HDD_price">\70,000</td>
                   </tr>
-                  <tr class="f_table_row collapsed" id="f_table_case" data-toggle="collapse" href="#f_table_power" aria-expanded="false" aria-controls="f_table_power" onclick="SwitchPlusMinus(this)">
-                    <td class="texts f_text"><i class="far fa-plus-square" id="f_case_plus"></i><i class="far fa-minus-square" id="f_case_minus" style="display:none"></i></td>
+                  <tr class="f_table_row" id="f_table_case">
+                    <td class="texts f_text"></td>
                     <td class="texts f_text">케이스</td>
-                    <td><img class="f_img" id="f_case_img" src="https://fakeimg.pl/50x50/"> </td>
+
+                    <td>
+                      <div class="ui special cards f_card">
+                        <div class="card f_card">
+                          <div class="blurring dimmable image ">
+                            <div class="ui dimmer">
+                              <div class="content">
+                                <div class="center">
+                                  <div class="ui inverted ">
+                                    <a id="f_case_detail" class="f_detail"
+                                       href="http://shop.danawa.com/main/?controller=goods&methods=blog&billingInternalProductSeq=5633207&productRegisterAreaGroupSeq=20&serviceSectionSeq=600"
+                                       target="_blank">
+                                       <i class="icon external alternate" ></i></div>
+                                    </a>
+                                </div>
+                              </div>
+                            </div>
+                            <img class="f_img" id="f_case_img" src="https://fakeimg.pl/50x50/">
+                          </div>
+                        </div>
+                      </div>
+                    </td>
                     <td class="texts f_text" id="f_case_name">case A</td>
                     <td class="texts f_text" id="f_case_price">\50,000</td>
                   </tr>
-                  <tr class="collapse f_table_row" id="f_table_power" aria-expanded="false">
-                    <td class="texts f_text"><strong>└</strong> </td>
+                  <tr class="f_table_row" id="f_table_power">
+                    <td class="texts f_text"> </td>
                     <td class="texts f_text">전원장치</td>
-                    <td><img class="f_img" id="f_power_img" src="https://fakeimg.pl/50x50/"> </td>
+
+                    <td>
+                      <div class="ui special cards f_card">
+                        <div class="card f_card">
+                          <div class="blurring dimmable image ">
+                            <div class="ui dimmer">
+                              <div class="content">
+                                <div class="center">
+                                  <div class="ui inverted ">
+                                    <a id="f_power_detail" class="f_detail"
+                                       href="http://shop.danawa.com/main/?controller=goods&methods=blog&billingInternalProductSeq=5633207&productRegisterAreaGroupSeq=20&serviceSectionSeq=600"
+                                       target="_blank">
+                                       <i class="icon external alternate" ></i></div>
+                                    </a>
+                                </div>
+                              </div>
+                            </div>
+                            <img class="f_img" id="f_power_img" src="https://fakeimg.pl/50x50/">
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+
                     <td class="texts f_text" id="f_power_name">적당한거 </td>
                     <td class="texts f_text" id="f_power_price">\50,000</td>
                   </tr>
@@ -792,7 +974,7 @@
                     <th class="texts f_text f_thead">최종가격</th>
                     <th class="texts f_text"></th>
                     <th class="texts f_text"></th>
-                    <th class="texts f_text f_thead">\1,000,000</th>
+                    <th class="texts f_text f_thead" id="f_final_price">\1,000,000</th>
 
                   </tr>
                 </tfoot>
@@ -811,7 +993,18 @@
                   <i class="fa fa-angle-double-left" style="font-size: 20px;"></i>
                   <span class="moveStepButtontext texts">&nbsp;이전 단계&nbsp;</span>
                 </button>
+                <button
 
+                        id="m_next_button_Final" dxr class="ui blue button moveStepButton nextButton"
+                        onclick="theend();"
+
+                        data-inverted=""
+                        data-position="top right"
+                        data-variation="wide">
+                 <i class="won sign icon" style="font-size: 20px;"></i>
+                 <span class="moveStepButtontext texts">&nbsp;결제&nbsp;</span>
+                 <i class="fa fa-angle-double-right" style="font-size: 20px;"></i>
+                </button>
               </div>
             </div>
 
