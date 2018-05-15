@@ -32,11 +32,11 @@ https://EEngblo.github.io/2018_CS374
 
 > Folders
 
-./bootstap # Bootstrap library files
+**./bootstap** *# Bootstrap library files*
 
-./datatables # Datatables library files
+**./datatables** *# Datatables library files*
 
-./img # Components and icons source image files
+**./img** *# Components and icons source image files*
 
 ./jquery # jQuery library files
 
