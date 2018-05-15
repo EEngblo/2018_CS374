@@ -229,6 +229,9 @@ input::placeholder {
     color: #fff !important;
 }
 
+.ui .modal .content{
+  padding:20px;
+}
 
 
 .final{
