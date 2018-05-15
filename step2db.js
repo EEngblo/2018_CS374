@@ -44,7 +44,7 @@ var dbr_gpu = [
 
 var dbr_cpu = [
     ["<img src=\"img/CPU/0.jpg\" class=\"dr_itemImage\">",
-        "<p>펜티엄 G4660</p><p class=\"dr_align_right\">인텔</p>",
+        "<p>펜티엄 G4600</p><p class=\"dr_align_right\">인텔</p>",
         "46",
         "137",
         "<div onmouseout='pricebar_hoverend();' onmouseover='GPU_hover(this,false,0);' id=\"\"class=\"ui inverted violet button dr_priceButton texts\">119760</div>"],
