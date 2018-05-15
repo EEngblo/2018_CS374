@@ -471,7 +471,7 @@
                     <span display:inline class="ui buttons">
                     <button class="ui inverted violet button modeButton RAM"
                              id="d_RAM_8G_button"
-                             onmouseover="modeButtonHoverHandler(this, document.getElementById('d_RAM_16G_button'));"
+                             onmouseover="modeButtonHoverHandler(this, document.getElementById('d_RAM_16G_button'), true);"
                              onmouseout="modeButtonHoverEndHandler(this);"
                              onclick="modeButtonClickHandler('RAM',false,this, document.getElementById('d_RAM_16G_button'));"
                              data-tooltip="동시에 창을 많이 켜 두지 않는 보통 사용자에게 적합합니다"
@@ -485,7 +485,7 @@
                      <div class="or" style="height:60px;"></div>
                      <button class="ui inverted violet button modeButton highoption RAM"
                              id="d_RAM_16G_button"
-                             onmouseover="modeButtonHoverHandler(this, document.getElementById('d_RAM_8G_button'));"
+                             onmouseover="modeButtonHoverHandler(this, document.getElementById('d_RAM_8G_button'), true);"
                              onmouseout="modeButtonHoverEndHandler(this);"
                              onclick="modeButtonClickHandler('RAM',true,this, document.getElementById('d_RAM_8G_button'));"
                              data-tooltip="동시에 게임, 인터넷, 무거운 프로그램 등을 많이 실행시키는 사용자에게 적합합니다"
@@ -521,8 +521,8 @@
                       <img class="m_SSD_explanation ui rounded left floated image myImage" src="./img/SSD.jpg" width="80" height="80">
                   </span>
                     <p class="texts explanationText">사용자 데이터를 저장하는 공간으로, 초고속 저장장치인 <strong>SSD</strong>와 <strong>하드디스크</strong>가 있습니다.</p>
-                    <p class="texts explanationText">빠르지만 작고 비싼 <strong>SSD</strong>에는 윈도우, <strong>자주 사용하는 게임</strong>과 프로그램들을 저장하여 빠르게 실행하고,</p>
-                    <p class="texts explanationText">용량이 크지만 느린 <strong>하드디스크</strong>에는 <strong>가끔</strong> 사용하는 게임, 프로그램, <strong>음악, 동영상, 사진</strong> 등을 저장하시면 됩니다.</p>
+                    <p class="texts explanationText">빠르지만 용량이 작은 <strong>SSD</strong>에는 윈도우, <strong>자주 사용하는 게임</strong>과 프로그램들을 저장하여 빠르게 실행하고,</p>
+                    <p class="texts explanationText">느리지만 용량이 큰 <strong>하드디스크</strong>에는 <strong>가끔</strong> 사용하는 게임, 프로그램, <strong>동영상, 사진</strong> 등을 저장하시면 됩니다.</p>
                     <br>
                     <p class="texts explanationText">현재 사용중인 컴퓨터의 저장장치 용량, 주로 하는 게임의 개수와 용량을 확인해 보세요.</p>
                   </div>

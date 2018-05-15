@@ -92,9 +92,9 @@ function Composition(){
       this.showGPUIdx = 3;
       this.updatePrice(this.price - db_GPU[1].price + db_GPU[3].price);
     }
-    if(this.budget >= 1042950){
-      this.RAM = true;
-      this.updatePrice(this.price - db_RAM[0].price + db_RAM[1].price);
+    if(this.budget >= 1059800){
+      this.showCPUIdx = 3;
+      this.updatePrice(this.price - db_CPUandMB[1] + db_CPUandMB[3]);
     }
 
 
@@ -152,6 +152,11 @@ function Composition(){
   // button seting
   $('#m_previous_button_'+steps[1]).remove();
 
+  // 상단바 초기 세팅
+  setSpecIndicator('SSD', 250, false);
+  setSpecIndicator('Storage', 250, false);
+  setSpecIndicator('RAM', this.RAM?16:8, false);
+
   if(mode2 === "simpleMode"){
     // 원클릭 모드
 
@@ -174,6 +179,73 @@ function Composition(){
     this.performance_done=true;
     this.case_unlock=true;
 
+    if(mode1 === "performanceMode"){
+
+      if(this.budget >= 684950)
+        this.set('GPU', 1, highlight = false);
+      if(this.budget >= 733200)
+        this.set('CPU', 1, highlight = false);
+      if(this.budget >= 776230)
+        this.set('CPU', 2, highlight = false);
+      if(this.budget >= 781110){
+        this.set('CPU', 1, highlight = false);
+        this.set('GPU', 2, highlight = false);
+      }
+      if(this.budget >= 829200)
+        this.set('GPU', 3, highlight = false);
+      if(this.budget >= 841690)
+        this.set('GPU', 4, highlight = false);
+      if(this.budget >= 884720)
+        this.set('CPU', 2, highlight = false);
+      if(this.budget >= 916690)
+        this.set('CPU', 3, highlight = false);
+      if(this.budget >= 954810)
+        this.set('GPU', 5, highlight = false);
+      if(this.budget >= 1001960)
+        this.set('HDD', true, highlight = false);
+      if(this.budget >= 1018810){
+        this.set('HDD', false, highlight = false);
+        this.set('SSD', true, highlight = false);
+      }
+      if(this.budget >= 1065960)
+        this.set('HDD',true, highlight = false);
+      if(this.budget >= 1104010){
+        this.set('HDD', false, highlight = false);
+        this.set('RAM', true, highlight = false);
+      }
+
+    }else{
+      if(this.budget >= 684950)
+        this.set('GPU', 1, highlight = false);
+      if(this.budget >= 733200)
+        this.set('CPU', 1, highlight = false);
+      if(this.budget >= 776320)
+        this.set('CPU', 2, highlight = false);
+      if(this.budget >= 797200){
+        this.set('CPU', 1, highlight = false);
+        this.set('SSD', true, highlight = false);
+      }
+      if(this.budget >= 840230)
+        this.set('CPU', 2, highlight = false);
+      if(this.budget >= 872220)
+        this.set('CPU', 3, highlight = false);
+      if(this.budget >= 935410)
+        this.set('CPU', 5, highlight = false);
+      if(this.budget >= 963800){
+        this.set('CPU', 3, highlight = false);
+        this.set('RAM', true, highlight = false);
+      }
+      if(this.budget >= 1011710)
+        this.set('GPU', 2, highlight = false);
+      if(this.budget >= 1027010){
+        this.set('GPU', 1, highlight = false);
+        this.set('CPU', 5, highlight = false);
+      }
+      if(this.budget >= 1074160)
+        this.set('HDD', true, highlight = false);
+      if(this.budget >= 1122070)
+        this.set('GPU', 2, highlight = false);
+    }
 
     moveStep('Case');
   }else{
@@ -190,21 +262,18 @@ function Composition(){
   }
 
 
-  if(this.RAM) this.RAM_done= true;
+  //if(this.RAM) this.RAM_done= true;
 
   $('#b_Final_button').addClass('disabled');
   $('#m_next_button_Case').addClass('disabled');
   $('#m_next_button_Case').attr('onclick', 'javascript:void(0)');
 
 
-  // 상단바 초기 세팅
-  setSpecIndicator('SSD', 250, false);
-  setSpecIndicator('Storage', 250, false);
-  setSpecIndicator('RAM', this.RAM?16:8, false);
+
 
 
   // RAM이 16기가이면 RAM 생략
-  if(this.RAM) $("#d_RAM").attr('hidden', true);
+  //if(this.RAM) $("#d_RAM").attr('hidden', true);
 
   //console.log('Success!!');
 
@@ -219,7 +288,7 @@ Composition.prototype = {
 
   set : function(target, value, highlight = true, debug = false){
     // 기존 값 복사 후 이를 이용해서 비용 변화 처리해야 함
-
+    //if(highlight) console.log(target, value);
     var oldp = 0;
     var newp = 0;
 
@@ -228,32 +297,32 @@ Composition.prototype = {
       case 'RAM':
         oldp = this.RAM ? db_RAM[1].price : db_RAM[0].price;
         newp = value ? db_RAM[1].price : db_RAM[0].price;
-        this.updatePrice(this.price - oldp + newp);
+        this.updatePrice(this.price - oldp + newp, highlight);
         break;
       case 'SSD':
         oldp = this.SSD ? db_SSD[1].price : db_SSD[0].price;
         newp = value ? db_SSD[1].price : db_SSD[0].price;
-        this.updatePrice(this.price - oldp + newp);
+        this.updatePrice(this.price - oldp + newp, highlight);
         break;
       case 'HDD':
         oldp = this.HDD ? db_HDD[1].price : db_HDD[0].price;
         newp = value ? db_HDD[1].price : db_HDD[0].price;
-        this.updatePrice(this.price - oldp + newp);
+        this.updatePrice(this.price - oldp + newp, highlight);
         break;
       case 'CPU':
         oldp = (this.CPU == -1) ? db_CPUandMB[this.showCPUIdx] : db_CPUandMB[this.CPU];
         newp = (value == -1) ? db_CPUandMB[this.showCPUIdx] : db_CPUandMB[value];
-        this.updatePrice(this.price - oldp + newp);
+        this.updatePrice(this.price - oldp + newp, highlight);
         break;
       case 'GPU':
         oldp = (this.GPU == -1) ? db_GPU[this.showGPUIdx].price : db_GPU[this.GPU].price;
         newp = (value == -1) ? db_GPU[this.showCPUIdx] : db_GPU[value].price;
-        this.updatePrice(this.price - oldp + newp);
+        this.updatePrice(this.price - oldp + newp, highlight);
         break;
       case 'CASE':
         oldp = (this.CASE == -1) ? 79000 : db_CASE[this.CASE].price;
         newp = (value == -1) ? 79000 : db_CASE[value].price;
-        this.updatePrice(this.price - oldp + newp);
+        this.updatePrice(this.price - oldp + newp, highlight);
         break;
     }
 
@@ -401,12 +470,12 @@ Composition.prototype = {
     }
     */
     this.price = price;
-
-
+    //console.log(price);
     if(highlight){
       $('.stateIndicatorValue').effect( "highlight", {color:"#C8BFE7"}, 300 );
-
+    }
       if(this.price <= this.budget){
+        //console.log((this.price / this.budget * 100).toString());
 
         $('#s_pricebar_current').css('width', (this.price / this.budget * 100).toString() + "%");
         $('#s_pricebar_overflow').css('width', "0%");
@@ -424,7 +493,7 @@ Composition.prototype = {
       pricebar_hoverend();
       $('#s_pricebar_willoverflow').removeClass('realoverflow');
 
-    }
+
   }
 }
 
@@ -504,12 +573,29 @@ window.onload = function(){
   reloadCase();
 
   if(composition.simpleMode){
-    modeButtonClickHandler('SSD', false, '#d_SSD_250G_button', '#d_SSD_500G_button');
-    modeButtonClickHandler('HDD', false, '#d_HDD_NO_button', '#d_HDD_1T_button');
-    if(!composition.RAM){
-      modeButtonClickHandler('RAM', false, '#d_RAM_8G_button', '#d_RAM_16G_button');
+    if(composition.SSD)
+      modeButtonClickHandler('SSD', true, '#d_SSD_500G_button', '#d_SSD_250G_button', false);
+    else
+      modeButtonClickHandler('SSD', false, '#d_SSD_250G_button', '#d_SSD_500G_button', false);
+
+    if(composition.HDD)
+      modeButtonClickHandler('HDD', true, '#d_HDD_1T_button', '#d_HDD_NO_button', false);
+    else
+      modeButtonClickHandler('HDD', false, '#d_HDD_NO_button', '#d_HDD_1T_button', false);
+
+    if(composition.RAM)
+      modeButtonClickHandler('RAM', true, '#d_RAM_16G_button', '#d_RAM_8G_button', false);
+    else
+      modeButtonClickHandler('RAM', false, '#d_RAM_8G_button', '#d_RAM_16G_button', false);
+  }else{
+
+    if(composition.RAM){
+        $('#d_RAM_8G_button_text').attr('hidden',false);
+        $('#d_RAM_16G_button_text').attr('hidden',true);
     }
   }
+
+  composition.updatePrice(composition.price);
 
 
   $('#m_root_Loader').attr('hidden', true);
