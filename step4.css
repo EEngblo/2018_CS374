@@ -48,7 +48,7 @@
 }
 
 .content.cardc{
-  padding:7px !important;
+  padding:5px !important;
 }
 
 .cardheader{
@@ -57,6 +57,7 @@
 
 .caseDetail{
   color:inherit !important;
+  line-height: 130%;
 }
 
 
