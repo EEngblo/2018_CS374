@@ -689,8 +689,9 @@ function theend(){
 }
 
 function SwitchHelp(n){
-  if (current_help != null)
-    current_help.style.display = "none";
+  if(current_help !== null){
+    $(current_help).stop(true, true).hide();
+  }
   if(n==0){
     current_help = null;
     return;
@@ -700,10 +701,8 @@ function SwitchHelp(n){
     current_help.style.display = "";
     return;
   }
-
-    
   current_help = next_help;
-  current_help.style.display = "";
+    $(current_help).stop(true, true).show( "highlight", {color:"#C8BFE7"}, 300 );
 
 
   if (n==1){
@@ -719,7 +718,6 @@ function SwitchHelp(n){
     document.getElementById("h_RAM_video").src = "";
     document.getElementById("h_frame_video").src = "";
   }
-  //$('#'+help_ids[n-1]).effect( "highlight", {color:"#C8BFE7"}, 0 );
 }
 
 ////////////////////////////////////////////////////////////////////
