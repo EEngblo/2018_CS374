@@ -14,6 +14,44 @@ Team member :
 ## Prototype Link
 
 https://EEngblo.github.io/2018_CS374
+ 
+---------------------------
+## Tasks
+
+1.  Assume that you don’t want to concern about detailed knowledge at all. Make a composition with your own budget simply.
+> (Hint : Why don’t you use ‘원 클릭’ mode?)
+    
+2.  Assume that you want to fully customize your new computer target on ‘game performance’. Make a composition with your own budget.
+> (Hint : Why don’t you use ‘커스텀' and ‘게임 성능' mode)
+    
+3.  Assume that you often refer guide websites while gaming. Make a fully customized composition with your own budget.
+> (Hint : Opening many websites with game consumes a lot of 'RAM' space and why don’t you use ‘커스텀’ and ‘활용도’ mode)
+
+--------------------------
+## File Description
+
+> Folders
+./bootstap # Bootstrap library files
+./datatables # Datatables library files
+./img # Components and icons source image files
+./jquery # jQuery library files
+./legacy # deprecated files
+./semantic # semanticUI library files
+
+> Files
+./index.{html, js, css} # files for the first page
+
+./outerFrame.html # html for main page
+./outerFrame.js # Core backend javascript files; Defines the class named Composition and helper functions such as pricebar Handlers
+./step2_5.css # main css file for outerframe
+
+./step2_2_5db.js and ./step2db.js # databases for each components
+
+./step2.{js, css} # javascript code and css styling that related to CPU & GPU stage
+./step2_2.{js, css} # related to RAM & Storage stage
+./step3.{js, css} # related to Help messages
+./step4.{js, css} # related to Case stage
+./step5.{js, css} # related to Final check stage
 
 -------------------------
 ## Library Dependency
@@ -22,63 +60,5 @@ https://EEngblo.github.io/2018_CS374
  - Jquery UI
  - Semantic UI
  - Bootstrap
-
---------------------------
-## POV & Tasks
-
- **POV**
- -  We met a **moneyless gamer** who wants to **buy a computer, yet lacks background knowledge**
- -  We were amazed to realize that they **fall apart** when **given overflowing unfamiliar information.**
- -  It’d be game-changing to **provide a way to buy a computer that lets them do what they want to do without any concern.**
-
-
- **Tasks**
- 
- 1. Check the game 'GTA 5' needs how much amount of budget in order to run smoothly.
- > GTA 5라는 게임을 원활하게 구동하기 위해서는 어느 정도 비용으로 컴퓨터를 구매해야 하는지 확인해 보세요
- 
- &nbsp;
- 
- 
- > When you handle below two tasks, assume that you want to play Baffle Ground.
-
- 2. Make a composition of a new computer which has the best '가성비' as simple and easy as possible within your specific budget.
- 
- > 당신은 Baffle Ground라는 게임을 즐겨 합니다. 최대한 쉽고 간단하게 당신의 예산 안에서 최고의 가성비를 가진 컴퓨터의 견적을 완성하세요
- 
- 3. Make a composition of a new computer which mostly fits your needs within your specific budget.
- 
- > 당신은 Baffle Ground라는 게임을 즐겨 합니다. 당신의 예산 안에서 가장 당신의 needs를 충족시킬 수 있는 컴퓨터의 견적을 완성하세요
- 
----------------------------------
- **Another Task Set**
- 
-1. Assume that you have very limited budget: ₩700,000. Make a composition of a new computer that as good as possible within the budget for game Baffle Ground.
-
-> (70만원이라는 극히 제한된 예산 내에서, Baffle Ground라는 게임을 위한 가장 가성비가 좋은 컴퓨터 견적을 완성하세요)
-> 
-> *System-level description*
-> 
-> We provide a suggested composition in specific price range: max(₩660,000, 75% of budget). Since the budget is only ₩700,000, user can upgrade at most only one part. Customizable level is very limited.
- 
-&nbsp;
-
->For task 2 and 3, assume that you have enough budget: choose freely between ₩700,000~₩1,100,000
->
->(Task 2와 3에서는 70만원~110만원 범위 내에서 원하시는 대로 예산을 설정하시면 됩니다.)
-
-2. Make a composition of a new computer which can run so many programs at same time within your specific budget; eg) 30+ Chrome windows and Baffle Ground
-
->(여러분이 설정한 예산 내에서, 동시에 수많은 프로그램들(30개 이상의 크롬 창과 Baffle Ground)을 실행할 수 있는 컴퓨터의 견적을 완성하세요)
->
-> *System-level description*
-> 
-> We provide a user-choice stage before user starts to make their composition. User can choose between '성능' and '범용성'. In this case, if our website works well, user would select '범용성' button and complete their composition that targets versatility. Our website will help it.
-
-3. Make a composition of a new computer which can run Baffle Ground as smooth as possible within your specific budget.
-
->(여러분이 설정한 예산 내에서, Baffle Ground를 최대한 좋은 성능으로 실행할 수 있도록 컴퓨터의 견적을 완성하세요)
->
-> *System-level descrption*
-> 
-> As well as task 2, if our website works well, user would select '성능', and our website helps user to complete their composition that could run Baffle Ground as smooth as possible.
+ - Datatables
+ - Fontawesome and Google Fonts
