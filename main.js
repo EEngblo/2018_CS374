@@ -732,7 +732,7 @@ function initCase(){
 
     // DB 불러와서 각 ID에 맞게 수정
     tempHTML = tempHTML.replace(/__link__/, db_CASE[i].link);
-    tempHTML = tempHTML.replace(/__img__/, './case/'+i+'-min.jpg');
+    tempHTML = tempHTML.replace(/__img__/, './img/case/'+i+'-min.jpg');
     tempHTML = tempHTML.replace(/__name__/, db_CASE[i].name);
     tempHTML = tempHTML.replace(/__popular__/, Math.round(db_CASE[i].popular));
 
