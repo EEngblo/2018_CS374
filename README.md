@@ -38,35 +38,35 @@ https://EEngblo.github.io/2018_CS374
 
 **./img** *# Components and icons source image files*
 
-./jquery # jQuery library files
+**./jquery** *# jQuery library files*
 
-./legacy # deprecated files
+**./legacy** *# deprecated files*
 
-./semantic # semanticUI library files
+**./semantic** *# semanticUI library files*
 
 > Files
 
-./index.{html, js, css} # files for the first page
+**./index.{html, js, css}** *# files for the first page*
 
 
-./outerFrame.html # html for main page
+**./outerFrame.html** *# html for main page*
 
-./outerFrame.js # Core backend javascript files; Defines the class named Composition and helper functions such as pricebar Handlers
+**./outerFrame.js** *# Core backend javascript files; Defines the class named Composition and helper functions such as pricebar Handlers*
 
-./step2_5.css # main css file for outerframe
+**./step2_5.css** *# main css file for outerframe*
 
 
-./step2_2_5db.js and ./step2db.js # databases for each components
+**./step2_2_5db.js** and **./step2db.js** *# databases for each components*
 
-./step2.{js, css} # javascript code and css styling that related to CPU & GPU stage
+**./step2.{js, css}** *# javascript code and css styling that related to CPU & GPU stage*
 
-./step2_2.{js, css} # related to RAM & Storage stage
+**./step2_2.{js, css}** *# related to RAM & Storage stage*
 
-./step3.{js, css} # related to Help messages
+**./step3.{js, css}** *# related to Help messages*
 
-./step4.{js, css} # related to Case stage
+**./step4.{js, css}** *# related to Case stage*
 
-./step5.{js, css} # related to Final check stage
+**./step5.{js, css}** *# related to Final check stage*
 
 -------------------------
 ## Library Dependency
