@@ -22,7 +22,7 @@ body{
   width:1300px;
   height:800px;
   margin-top:65px !important;
-  font-size: 28px;
+  font-size: 27px;
   font-family: 'Nanum Gothic', serif;
 }
 
@@ -47,7 +47,7 @@ body{
 input::placeholder {
   font-style: italic;
   font-family: 'Nanum Gothic', Regular;
-  font-size:11px;
+  font-size:10px;
 }
 
 
@@ -152,6 +152,10 @@ input::placeholder {
   height:150px;
 }
 
+.gameSelectorIcon{
+  font-size:15px;
+}
+
 #gameSearch{
   width:700px;
   height:30px;
@@ -202,7 +206,7 @@ input::placeholder {
   margin: 0px !important;
   vertical-align: center;
   height: 42px !important;
-  font-size: 16px !important;
+  font-size: 15px !important;
 }
 
 #nextStepConfirm{
@@ -225,6 +229,9 @@ input::placeholder {
     color: #fff !important;
 }
 
+.ui .modal .content{
+  padding:20px;
+}
 
 
 .final{

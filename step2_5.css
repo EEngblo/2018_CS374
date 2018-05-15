@@ -4,6 +4,7 @@ body { position:absolute; top:0; bottom:0; right:0; left:0; }
   font-family: 'Nanum Gothic' !important;
 }
 
+
 #m_outerScreen{
   width:1400px;
   height:850px;
@@ -109,7 +110,7 @@ body { position:absolute; top:0; bottom:0; right:0; left:0; }
 
 
 #s_root .stateIndicatorFirstRow.buttonCell{
-  width:180px;
+  width:185px;
 }
 
 
@@ -142,8 +143,8 @@ body { position:absolute; top:0; bottom:0; right:0; left:0; }
 #s_root .mystateIndicator{
   padding-left:0px !important;
   padding-right: 0px !important;
-  margin-left: 12px !important;
-  margin-right: 12px !important;
+  margin-left: 11px !important;
+  margin-right: 11px !important;
   cursor: pointer;
 }
 
