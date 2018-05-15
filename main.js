@@ -695,8 +695,31 @@ function SwitchHelp(n){
     current_help = null;
     return;
   }
-  current_help = document.getElementById(help_ids[n-1])
+  var next_help = document.getElementById(help_ids[n-1])
+  if(current_help == next_help){
+    current_help.style.display = "";
+    return;
+  }
+
+    
+  current_help = next_help;
   current_help.style.display = "";
+
+
+  if (n==1){
+    document.getElementById("h_RAM_video").src = "https://www.youtube.com/embed/h-P5NgeeJ34?autoplay=1&mute=1&loop=1&playlist=h-P5NgeeJ34";
+    document.getElementById("h_frame_video").src = "";
+  }
+
+  else if (n==4){
+    document.getElementById("h_RAM_video").src = "";
+    document.getElementById("h_frame_video").src = "https://www.youtube.com/embed/IrK5cDU9AIA?autoplay=1&mute=1&loop=1&playlist=IrK5cDU9AIA";
+  }
+  else{
+    document.getElementById("h_RAM_video").src = "";
+    document.getElementById("h_frame_video").src = "";
+  }
+  //$('#'+help_ids[n-1]).effect( "highlight", {color:"#C8BFE7"}, 0 );
 }
 
 ////////////////////////////////////////////////////////////////////
@@ -732,7 +755,7 @@ function initCase(){
 
     // DB 불러와서 각 ID에 맞게 수정
     tempHTML = tempHTML.replace(/__link__/, db_CASE[i].link);
-    tempHTML = tempHTML.replace(/__img__/, './case/'+i+'-min.jpg');
+    tempHTML = tempHTML.replace(/__img__/, './img/case/'+i+'-min.jpg');
     tempHTML = tempHTML.replace(/__name__/, db_CASE[i].name);
     tempHTML = tempHTML.replace(/__popular__/, Math.round(db_CASE[i].popular));
 
