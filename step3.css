@@ -96,3 +96,19 @@
   width:50px;
   height:50px;
 }
+
+#m_RAM_helparea{
+  top: 100px;
+  left: 652px;
+  position:absolute;
+  width: 60px;
+  min-height: 60px;
+}
+
+#m_HDD_helparea{
+  top: 150px;
+  left: 672px;
+  position:absolute;
+  width: 60px;
+  min-height: 60px;
+}
