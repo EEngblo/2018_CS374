@@ -49,7 +49,7 @@ https://EEngblo.github.io/2018_CS374
 
 **./outerFrame.html** *# html for main page*
 
-**./outerFrame.js** *# Core backend javascript files; Defines the class named Composition and helper functions such as pricebar Handlers*
+**./main.js** *# Core backend javascript files; Defines the class named Composition and helper functions such as pricebar Handlers*
 
 **./step2_5.css** *# main css file for outerframe*
 
