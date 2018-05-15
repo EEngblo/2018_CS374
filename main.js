@@ -822,7 +822,7 @@ function makeFinalTable(){
     document.getElementById("f_HDD_price").innerHTML = "\\ " + db_HDD[0]["price"].toLocaleString('en');
   }
 
-  document.getElementById("f_case_img").src = "case/"+ composition.CASE +".jpg";
+  document.getElementById("f_case_img").src = "img/case/"+ composition.CASE +".jpg";
   document.getElementById("f_case_name").innerHTML = db_CASE[composition.CASE]["name"];
   document.getElementById("f_case_detail").href = db_CASE[composition.CASE]["link"];
   document.getElementById("f_case_price").innerHTML = "\\ " + db_CASE[composition.CASE]["price"].toLocaleString('en');
