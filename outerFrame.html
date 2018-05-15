@@ -221,7 +221,7 @@
             <tr>
                 <td class="specIndicator" rowspan="2">
 
-                  <span id="s_SSD" class="ui small statistic mystateIndicator" onmouseover="SwitchHelp(7)" onclick="moveStep('RAMandSto');">
+                  <span id="s_SSD" class="ui small statistic mystateIndicator" onmouseenter="SwitchHelp(7)" onclick="moveStep('RAMandSto');">
                     <div class="value stateUpper">
                       <img src="./img/ssd_icon2.png" width="40" height="40">
                       <span id="s_SSD_value" class="stateL1 texts">0</span>
@@ -231,7 +231,7 @@
                       초고속 저장 용량
                     </div>
                   </span>
-                          <span id="s_Storage" class="ui small statistic mystateIndicator" onmouseover="SwitchHelp(8)" onclick="moveStep('RAMandSto');">
+                          <span id="s_Storage" class="ui small statistic mystateIndicator" onmouseenter="SwitchHelp(8)" onclick="moveStep('RAMandSto');">
                     <div class="value stateUpper">
                       <img src="./img/Hdd2.png" width="40" height="40">
                       <span id="s_Storage_value" class="stateL1 texts">0</span>
@@ -242,7 +242,7 @@
 
                     </div>
                   </span>
-                          <span id="s_RAM" class="ui small statistic mystateIndicator" onmouseover="SwitchHelp(1)" onclick="moveStep('RAMandSto');">
+                          <span id="s_RAM" class="ui small statistic mystateIndicator" onmouseenter="SwitchHelp(1)" onclick="moveStep('RAMandSto');">
                     <div class="value stateUpper">
                       <img src="./img/ram.png" width="42" height="42">
                       <span id="s_RAM_value" class="stateL1 texts">0</span>
@@ -252,7 +252,7 @@
                       RAM 용량
                     </div>
                   </span>
-                          <span id="s_CPU" class="ui small statistic mystateIndicator" onmouseover="SwitchHelp(6)" onclick="moveStep('GPUandCPU');">
+                          <span id="s_CPU" class="ui small statistic mystateIndicator" onmouseenter="SwitchHelp(6)" onclick="moveStep('GPUandCPU');">
                     <div class="value stateUpper">
                       <img src="./img/CPU.png" width="42" height="42">
                       <span id="s_CPU_value" class="stateL1 texts">0</span>
@@ -262,7 +262,7 @@
                       CPU 성능 점수
                     </div>
                   </span>
-                          <span id="s_FPS" class="ui small statistic mystateIndicator" onmouseover="SwitchHelp(4)" onclick="moveStep('GPUandCPU');">
+                          <span id="s_FPS" class="ui small statistic mystateIndicator" onmouseenter="SwitchHelp(4)" onclick="moveStep('GPUandCPU');">
                     <div class="value stateUpper">
                       <img src="./img/FPS.png" width="42" height="42">
                       <span id="s_FPS_value" class="stateL1 texts">0</span>
@@ -351,8 +351,8 @@
 
                     <th class="dr_th_1"></th>
                     <th class="dr_th_2 texts">제품정보</th>
-                    <th class="dr_th_3 texts" onmouseover="SwitchHelp(4)">프레임<br><i class="fas fa-question-circle"></i></th>
-                    <th class="dr_th_4 texts" onmouseover="SwitchHelp(5)">성능<br><i class="fas fa-question-circle"></i></th>
+                    <th class="dr_th_3 texts" onmouseenter="SwitchHelp(4)">프레임<br><i class="fas fa-question-circle"></i></th>
+                    <th class="dr_th_4 texts" onmouseenter="SwitchHelp(5)">성능<br><i class="fas fa-question-circle"></i></th>
                     <th class="dr_th_5 texts">가격</th>
 
 
@@ -378,8 +378,8 @@
 
                     <th class="dr_th_1"></th>
                     <th class="dr_th_2 texts">제품정보</th>
-                    <th class="dr_th_3 texts" onmouseover="SwitchHelp(4)">프레임<br><i class="fas fa-question-circle"></i></th>
-                    <th class="dr_th_4 texts" onmouseover="SwitchHelp(6)">성능<br><i class="fas fa-question-circle"></i></th>
+                    <th class="dr_th_3 texts" onmouseenter="SwitchHelp(4)">프레임<br><i class="fas fa-question-circle"></i></th>
+                    <th class="dr_th_4 texts" onmouseenter="SwitchHelp(6)">성능<br><i class="fas fa-question-circle"></i></th>
                     <th class="dr_th_5 texts">가격</th>
 
 
@@ -443,7 +443,7 @@
 
                 <div class="ui divider myDivider"></div>
 
-                <div onmouseover="SwitchHelp(1)" >
+                <div>
                   <span class="m_RAM_explanation ui rounded left floated image myImage">
                     <div class="ui dimmer">
                       <div class="content">
@@ -459,7 +459,8 @@
                 </span>
                   <p class="texts explanationText">컴퓨터가 실행중인 프로그램에 대한 정보를 적어두기 위해 사용하는 메모지 같은 역할을 합니다.</p>
                   <p class="texts explanationText">게임 <strong>성능에는 큰 영향을 주지 않지만</strong>, <strong>가득 찰 경우 급격히 느려지고</strong> 넘치게 되면 게임이 팅길 수 있습니다.</p>
-                  <p class="texts explanationText">용량이 클수록 동시에 더 많은 게임과 프로그램들을 실행할 수 있습니다.</p>
+                  <span class="texts explanationText">용량이 클수록 동시에 더 많은 게임과 프로그램들을 실행할 수 있습니다. <i class="fas fa-question-circle"></i></span> 
+                  <div id="m_RAM_helparea" onmouseenter="SwitchHelp(1)"></div>
                 </div>
 
 
@@ -506,7 +507,7 @@
 
                   <div class="ui divider myDivider"></div>
 
-                  <div onmouseover="SwitchHelp(2)">
+                  <div>
                     <span class="m_SSD_explanation ui rounded left floated image myImage">
                       <div class="ui dimmer">
                         <div class="content">
@@ -524,7 +525,8 @@
                     <p class="texts explanationText">빠르지만 용량이 작은 <strong>SSD</strong>에는 윈도우, <strong>자주 사용하는 게임</strong>과 프로그램들을 저장하여 빠르게 실행하고,</p>
                     <p class="texts explanationText">느리지만 용량이 큰 <strong>하드디스크</strong>에는 <strong>가끔</strong> 사용하는 게임, 프로그램, <strong>동영상, 사진</strong> 등을 저장하시면 됩니다.</p>
                     <br>
-                    <p class="texts explanationText">현재 사용중인 컴퓨터의 저장장치 용량, 주로 하는 게임의 개수와 용량을 확인해 보세요.</p>
+                    <p class="texts explanationText">현재 사용중인 컴퓨터의 저장장치 용량, 주로 하는 게임의 개수와 용량을 확인해 보세요. <i class="fas fa-question-circle"></i></p>
+                    <div id="m_HDD_helparea" onmouseenter="SwitchHelp(2)"></div>
                   </div>
 
                   <div class="ui divider texts myDivider"></div>
@@ -1024,7 +1026,7 @@
                 <p class="texts explanationText"> 아래 영상과 같이 화면에 버벅임이 </p>
                 <p class="texts explanationText"> 보이는 문제가 생깁니다. </p>
                 <div class="h_video_holder" align="center">
-<iframe width="240" height="160" src="https://www.youtube.com/embed/TkTJjqkzg44?autoplay=0&loop=1&playlist=TkTJjqkzg44" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<iframe id="h_RAM_video" width="240" height="160" src="https://www.youtube.com/embed/h-P5NgeeJ34?autoplay=0&mute=1&loop=1&playlist=h-P5NgeeJ34" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                 </div>
                 <!--https://www.youtube.com/watch?v=9m0ceg6evyA-->
               </div>
@@ -1069,7 +1071,7 @@
                 <p class="texts explanationText"> 수로 CPU나 그래픽카드에 부하가  </p>
                 <p class="texts explanationText"> 걸리면 값이 떨어집니다. 부품들의  </p>
                 <p class="texts explanationText"> 최소값이 컴퓨터에 반영됩니다. </p>
-                <div class="h_video_holder" align="center"><iframe width="240" height="160" src="https://www.youtube.com/embed/IrK5cDU9AIA?autoplay=0&loop=1&playlist=IrK5cDU9AIA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
+                <div class="h_video_holder" align="center"><iframe id="h_frame_video" width="240" height="160" src="https://www.youtube.com/embed/IrK5cDU9AIA?autoplay=0&mute=1&loop=1&playlist=IrK5cDU9AIA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
                 <!--<div align="center" padding-bottom="-10"> <a href="https://youtu.be/IrK5cDU9AIA">30fps 60fps 비교영상 &nbsp<i class="fa fa-play" style="font-size:15px;color:red"></i></a></div> -->
 
 

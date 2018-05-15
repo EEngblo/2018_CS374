@@ -689,14 +689,35 @@ function theend(){
 }
 
 function SwitchHelp(n){
-  if (current_help != null)
-    current_help.style.display = "none";
+  if(current_help !== null){
+    $(current_help).stop(true, true).hide();
+  }
   if(n==0){
     current_help = null;
     return;
   }
-  current_help = document.getElementById(help_ids[n-1])
-  current_help.style.display = "";
+  var next_help = document.getElementById(help_ids[n-1])
+  if(current_help == next_help){
+    current_help.style.display = "";
+    return;
+  }
+  current_help = next_help;
+    $(current_help).stop(true, true).show( "highlight", {color:"#C8BFE7"}, 300 );
+
+
+  if (n==1){
+    document.getElementById("h_RAM_video").src = "https://www.youtube.com/embed/h-P5NgeeJ34?autoplay=1&mute=1&loop=1&playlist=h-P5NgeeJ34";
+    document.getElementById("h_frame_video").src = "";
+  }
+
+  else if (n==4){
+    document.getElementById("h_RAM_video").src = "";
+    document.getElementById("h_frame_video").src = "https://www.youtube.com/embed/IrK5cDU9AIA?autoplay=1&mute=1&loop=1&playlist=IrK5cDU9AIA";
+  }
+  else{
+    document.getElementById("h_RAM_video").src = "";
+    document.getElementById("h_frame_video").src = "";
+  }
 }
 
 ////////////////////////////////////////////////////////////////////
@@ -801,7 +822,7 @@ function makeFinalTable(){
     document.getElementById("f_HDD_price").innerHTML = "\\ " + db_HDD[0]["price"].toLocaleString('en');
   }
 
-  document.getElementById("f_case_img").src = "case/"+ composition.CASE +".jpg";
+  document.getElementById("f_case_img").src = "img/case/"+ composition.CASE +".jpg";
   document.getElementById("f_case_name").innerHTML = db_CASE[composition.CASE]["name"];
   document.getElementById("f_case_detail").href = db_CASE[composition.CASE]["link"];
   document.getElementById("f_case_price").innerHTML = "\\ " + db_CASE[composition.CASE]["price"].toLocaleString('en');
