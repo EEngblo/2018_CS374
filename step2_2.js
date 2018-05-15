@@ -58,6 +58,7 @@ function modeButtonClickHandler(attr, value, id, otherId, highlight = true){
     composition[attr+'_done'] = false;
     $('#' + idtext +'_text').attr('hidden', !value);
     $('#' + oidtext +'_text').attr('hidden', value);
+
     composition.set(attr, false, value);
   }
 
@@ -67,43 +68,82 @@ function modeButtonClickHandler(attr, value, id, otherId, highlight = true){
 
 }
 
-function modeButtonHoverHandler(id, other){
+function modeButtonHoverHandler(id, other, isRAM = false){
   if(! $(id).hasClass('active')){
     $(id).removeClass('inverted');
     $(id).addClass('basic');
 
-    if($(id).hasClass('highoption')){
+    //console.log(isRAM);
+    if(composition.RAM && !composition.RAM_done && isRAM){
+      //console.log(isRAM);
 
-      var increament = null;
+      if($(id).hasClass('highoption') && $(other).hasClass('active')){
 
-      if($(id).hasClass('RAM')){
-        increament = 91600;
-      }else if($(id).hasClass('SSD')){
-        increament = 64000;
-      }else if($(id).hasClass('HDD')){
-        increament = 47150;
+        var increament = null;
+
+        if($(id).hasClass('RAM')){
+          increament = 91600;
+        }else if($(id).hasClass('SSD')){
+          increament = 64000;
+        }else if($(id).hasClass('HDD')){
+          increament = 47150;
+        }
+
+        if(increament !== null){
+          pricebar_hoverstart(increament);
+        }
+
+      }else if(! $(id).hasClass('highoption') && ($(other).hasClass('active') || ! $(id).hasClass('active'))){
+        //console.log(1);
+        var increament = null;
+
+        if($(id).hasClass('RAM')){
+          increament = -91600;
+        }else if($(id).hasClass('SSD')){
+          increament = -64000;
+        }else if($(id).hasClass('HDD')){
+          increament = -47150;
+        }
+
+        if(increament !== null){
+          pricebar_hoverstart(increament);
+        }
       }
+    }else{
+      if($(id).hasClass('highoption')){
 
-      if(increament !== null){
-        pricebar_hoverstart(increament);
-      }
+        var increament = null;
 
-    }else if($(other).hasClass('active')){
-      //console.log(1);
-      var increament = null;
+        if($(id).hasClass('RAM')){
+          increament = 91600;
+        }else if($(id).hasClass('SSD')){
+          increament = 64000;
+        }else if($(id).hasClass('HDD')){
+          increament = 47150;
+        }
 
-      if($(id).hasClass('RAM')){
-        increament = -91600;
-      }else if($(id).hasClass('SSD')){
-        increament = -64000;
-      }else if($(id).hasClass('HDD')){
-        increament = -47150;
-      }
+        if(increament !== null){
+          pricebar_hoverstart(increament);
+        }
 
-      if(increament !== null){
-        pricebar_hoverstart(increament);
+      }else if($(other).hasClass('active')){
+        //console.log(1);
+        var increament = null;
+
+        if($(id).hasClass('RAM')){
+          increament = -91600;
+        }else if($(id).hasClass('SSD')){
+          increament = -64000;
+        }else if($(id).hasClass('HDD')){
+          increament = -47150;
+        }
+
+        if(increament !== null){
+          pricebar_hoverstart(increament);
+        }
       }
     }
+
   }
 }
 

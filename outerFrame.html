@@ -242,7 +242,7 @@
 
                     </div>
                   </span>
-                          <span id="s_RAM" class="ui small statistic mystateIndicator" onmouseover="SwitchHelp(9)" onclick="moveStep('RAMandSto');">
+                          <span id="s_RAM" class="ui small statistic mystateIndicator" onmouseover="SwitchHelp(1)" onclick="moveStep('RAMandSto');">
                     <div class="value stateUpper">
                       <img src="./img/ram.png" width="42" height="42">
                       <span id="s_RAM_value" class="stateL1 texts">0</span>
@@ -252,7 +252,7 @@
                       RAM 용량
                     </div>
                   </span>
-                          <span id="s_CPU" class="ui small statistic mystateIndicator" onmouseover="SwitchHelp(10)" onclick="moveStep('GPUandCPU');">
+                          <span id="s_CPU" class="ui small statistic mystateIndicator" onmouseover="SwitchHelp(6)" onclick="moveStep('GPUandCPU');">
                     <div class="value stateUpper">
                       <img src="./img/CPU.png" width="42" height="42">
                       <span id="s_CPU_value" class="stateL1 texts">0</span>
@@ -262,7 +262,7 @@
                       CPU 성능 점수
                     </div>
                   </span>
-                          <span id="s_FPS" class="ui small statistic mystateIndicator" onmouseover="SwitchHelp(11)" onclick="moveStep('GPUandCPU');">
+                          <span id="s_FPS" class="ui small statistic mystateIndicator" onmouseover="SwitchHelp(4)" onclick="moveStep('GPUandCPU');">
                     <div class="value stateUpper">
                       <img src="./img/FPS.png" width="42" height="42">
                       <span id="s_FPS_value" class="stateL1 texts">0</span>
@@ -471,7 +471,7 @@
                     <span display:inline class="ui buttons">
                     <button class="ui inverted violet button modeButton RAM"
                              id="d_RAM_8G_button"
-                             onmouseover="modeButtonHoverHandler(this, document.getElementById('d_RAM_16G_button'));"
+                             onmouseover="modeButtonHoverHandler(this, document.getElementById('d_RAM_16G_button'), true);"
                              onmouseout="modeButtonHoverEndHandler(this);"
                              onclick="modeButtonClickHandler('RAM',false,this, document.getElementById('d_RAM_16G_button'));"
                              data-tooltip="동시에 창을 많이 켜 두지 않는 보통 사용자에게 적합합니다"
@@ -485,7 +485,7 @@
                      <div class="or" style="height:60px;"></div>
                      <button class="ui inverted violet button modeButton highoption RAM"
                              id="d_RAM_16G_button"
-                             onmouseover="modeButtonHoverHandler(this, document.getElementById('d_RAM_8G_button'));"
+                             onmouseover="modeButtonHoverHandler(this, document.getElementById('d_RAM_8G_button'), true);"
                              onmouseout="modeButtonHoverEndHandler(this);"
                              onclick="modeButtonClickHandler('RAM',true,this, document.getElementById('d_RAM_8G_button'));"
                              data-tooltip="동시에 게임, 인터넷, 무거운 프로그램 등을 많이 실행시키는 사용자에게 적합합니다"
@@ -521,8 +521,8 @@
                       <img class="m_SSD_explanation ui rounded left floated image myImage" src="./img/SSD.jpg" width="80" height="80">
                   </span>
                     <p class="texts explanationText">사용자 데이터를 저장하는 공간으로, 초고속 저장장치인 <strong>SSD</strong>와 <strong>하드디스크</strong>가 있습니다.</p>
-                    <p class="texts explanationText">빠르지만 작고 비싼 <strong>SSD</strong>에는 윈도우, <strong>자주 사용하는 게임</strong>과 프로그램들을 저장하여 빠르게 실행하고,</p>
-                    <p class="texts explanationText">용량이 크지만 느린 <strong>하드디스크</strong>에는 <strong>가끔</strong> 사용하는 게임, 프로그램, <strong>음악, 동영상, 사진</strong> 등을 저장하시면 됩니다.</p>
+                    <p class="texts explanationText">빠르지만 용량이 작은 <strong>SSD</strong>에는 윈도우, <strong>자주 사용하는 게임</strong>과 프로그램들을 저장하여 빠르게 실행하고,</p>
+                    <p class="texts explanationText">느리지만 용량이 큰 <strong>하드디스크</strong>에는 <strong>가끔</strong> 사용하는 게임, 프로그램, <strong>동영상, 사진</strong> 등을 저장하시면 됩니다.</p>
                     <br>
                     <p class="texts explanationText">현재 사용중인 컴퓨터의 저장장치 용량, 주로 하는 게임의 개수와 용량을 확인해 보세요.</p>
                   </div>
@@ -1092,13 +1092,10 @@
               <div class="ui well h_content" id="h_CPU_score" style="display:none" >
                 <div class="texts bigTitle"> CPU 성능 </div>
                 <div class="ui divider myDivider"></div>
-                <p class="texts explanationText"> Cinebench라는 CPU 성능 측정   </p>
-                <p class="texts explanationText"> 프로그램을 통해 측정된 CPU의  </p>
-                <p class="texts explanationText"> 성능지표 입니다. 다른 부품은</p>
                 <p class="texts explanationText"> CPU 성능의 발목을 잡지 않는   </p>
-                <p class="texts explanationText"> 선에서 모두 같은 걸 썼다고 가정  </p>
-                <p class="texts explanationText"> 하고 측정된 가상의 성능입니다.</p>
-                <p class="texts explanationText">   </p>
+                <p class="texts explanationText"> 다른 부품을 썼다는 가정하에  </p>
+                <p class="texts explanationText"> 얼마만큼의 성능을 낼 수 있을 </p>
+                <p class="texts explanationText"> 지에 대한 지표 입니다.  </p>
                 <p class="texts explanationText"> 수치가 높을 수록 좋은 CPU입니다.</p>
                 <p class="texts explanationText">  </p>
                 <p class="texts explanationText"> </p>
@@ -1108,19 +1105,25 @@
                 <div class="texts bigTitle"> 초고속 저장 용량 </div>
                 <div class="ui divider myDivider"></div>
                 <p class="texts explanationText"> SSD의 저장 용량 입니다.  </p>
-                <p class="texts explanationText"> 용량이 클수록 자주 사용하는   </p>
-                <p class="texts explanationText"> 게임이나 프로그램을 더 많이 </p>
-                <p class="texts explanationText"> 설치할 수 있습니다. </p>
+                <p class="texts explanationText"> 빠르지만 작고 비싼 SSD에는   </p>
+                <p class="texts explanationText"> 윈도우, 자주 사용하는 게임과 </p>
+                <p class="texts explanationText"> 프로그램들을 저장하여 빠르게 </p>
+                <p class="texts explanationText"> 실행할 수 있습니다. </p>
               </div>
 
               <div class="ui well h_content" id="h_storage_indicator" style="display:none" >
                 <div class="texts bigTitle"> 총 저장 용량 </div>
                 <div class="ui divider myDivider"></div>
-                <p class="texts explanationText"> SSD와 하드디스크의 용량을 합친  </p>
-                <p class="texts explanationText"> 값입니다.   </p>
-                <p class="texts explanationText"> 하드디스크에는 자주 사용하지않는 </p>
-                <p class="texts explanationText"> 프로그램이나 파일을 저장하는데    </p>
-                <p class="texts explanationText"> 좋습니다.  </p>
+                <p class="texts explanationText"> 사용자 데이터를 저장하는 공간   </p>
+                <p class="texts explanationText"> 으로 초고속 저장장치인 SSD와   </p>
+                <p class="texts explanationText"> 하드디스크가 있습니다.  </p>
+                <p class="texts explanationText"> SSD에는 윈도우, 자주 사용하는  </p>
+                <p class="texts explanationText"> 게임과 프로그램들을 저장하여  </p>
+                
+                <p class="texts explanationText"> 빠르게 실행하고 하드디스크에는  </p>
+                <p class="texts explanationText"> 가끔 사용하는 게임, 프로그램,  </p>
+                <p class="texts explanationText"> 음악, 동영상, 사진 등을 저장  </p>
+                 <p class="texts explanationText">하시면 됩니다.</p>
               </div>
 
               <div class="ui well h_content" id="h_RAM_indicator" style="display:none" >
