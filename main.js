@@ -695,8 +695,23 @@ function SwitchHelp(n){
     current_help = null;
     return;
   }
+
   current_help = document.getElementById(help_ids[n-1])
   current_help.style.display = "";
+
+  if (n==1){
+    document.getElementById("h_RAM_video").src = "https://www.youtube.com/embed/h-P5NgeeJ34?autoplay=1&mute=1&loop=1&playlist=h-P5NgeeJ34";
+    document.getElementById("h_frame_video").src = "";
+  }
+
+  else if (n==4){
+    document.getElementById("h_RAM_video").src = "";
+    document.getElementById("h_frame_video").src = "https://www.youtube.com/embed/IrK5cDU9AIA?autoplay=1&mute=1&loop=1&playlist=IrK5cDU9AIA";
+  }
+  else{
+    document.getElementById("h_RAM_video").src = "";
+    document.getElementById("h_frame_video").src = "";
+  }
 }
 
 ////////////////////////////////////////////////////////////////////
