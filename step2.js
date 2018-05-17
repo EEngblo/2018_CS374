@@ -11,6 +11,8 @@ var dr_CPUalign = 0;
 var dr_GPUalign = 0;
 var dr_init_CPU;
 var dr_init_GPU;
+var dr_cbc_cpu;
+var dr_cbc_gpu;
 var dr_readyCallback = function (data) {
      dr_selectedCPU = composition.CPU;
      dr_selectedGPU = composition.GPU;
@@ -21,7 +23,8 @@ var dr_readyCallback = function (data) {
      var isSimplemode = true;
     dr_CPUalign = 0;
     dr_GPUalign = 0;
-
+    dr_cbc_gpu = 0;
+    dr_cbc_cpu = 0;
      if(dr_selectedCPU == -1 && dr_selectedGPU == -1){
        dr_selectedCPU = dr_defaultCPU;
        dr_selectedGPU = dr_defaultGPU;
@@ -53,6 +56,37 @@ var dr_readyCallback = function (data) {
             // $(row).css("background-size", efficient + "px 50px", "");
             $(row).find('.dr_dimmable').dimmer({on: 'hover'});
             $(row).find('.CPU_GPU_detail')[0].parentNode.setAttribute('href', db_GPU[dataIndex + dr_defaultGPU].link);
+            dr_cbc_gpu++;
+            if(dr_cbc_gpu + dr_defaultGPU === dbr_gpu.length){
+                if(!isSimplemode){
+                    dr_gpuInit(dr_init_GPU, dr_defaultGPU);
+                }else{
+                    dr_gpuOnClick(dr_init_GPU);
+                }
+                dr_gpuDataTable.on( 'order.dt', function () {
+                    var t = dr_gpuDataTable.order()[0][0];
+                    if(t - 2 === 0){
+                        if(dr_GPUalign - 2 !== 0){
+                            for(var i=0;i<dr_gpuDataTable.data().length;i++){
+                                var data = dr_gpuDataTable.row(i).data();
+                                var efficient = Math.round(7 * parseInt(data[2]) - 70);
+                                $(dr_gpuDataTable.row(i).node()).css("background-size", efficient + "px 50px", "auto");
+                            }
+                        }
+                    }
+                    else if(t - 3 === 0){
+                        if(dr_GPUalign - 3 !== 0){
+                            for(var i=0;i<dr_gpuDataTable.data().length;i++){
+                                var data = dr_gpuDataTable.row(i).data();
+                                var efficient = Math.round(parseInt(data[3]) / 3 - 135);
+                                $(dr_gpuDataTable.row(i).node()).css("background-size", efficient + "px 50px", "auto");
+                            }
+                        }
+                    }
+                    dr_GPUalign = t;
+                } );
+                dr_gpuDataTable.order(dr_defaultAlign[0]).draw();
+            }
         },
         "columns": [
             {"orderable": false, "className": "dr_gpu_1"},
@@ -84,6 +118,37 @@ var dr_readyCallback = function (data) {
             // $(row).css("background-size", efficient + "px 50px", "");
             $(row).find('.dr_dimmable').dimmer({on: 'hover'});
             $(row).find('.CPU_GPU_detail')[0].parentNode.setAttribute('href', db_CPU[dataIndex + dr_defaultCPU].link);
+            dr_cbc_cpu++;
+            if(dr_cbc_cpu + dr_defaultCPU === dbr_cpu.length){
+                if(!isSimplemode){
+                    dr_gpuInit(dr_init_CPU, dr_defaultCPU);
+                }else{
+                    dr_gpuOnClick(dr_init_CPU);
+                }
+                dr_cpuDataTable.on( 'order.dt', function () {
+                    var t = dr_cpuDataTable.order()[0][0];
+                    if(t - 2 === 0){
+                        if(dr_CPUalign - 2 !== 0){
+                            for(var i=0;i<dr_cpuDataTable.data().length;i++){
+                                var data = dr_cpuDataTable.row(i).data();
+                                var efficient = Math.round(7 * parseInt(data[2]) - 70);
+                                $(dr_cpuDataTable.row(i).node()).css("background-size", efficient + "px 50px", "auto");
+                            }
+                        }
+                    }
+                    else if(t - 3 === 0){
+                        if(dr_CPUalign - 3 !== 0){
+                            for(var i=0;i<dr_cpuDataTable.data().length;i++){
+                                var data = dr_cpuDataTable.row(i).data();
+                                var efficient = Math.round(parseInt(1.15 * parseInt(data[3]) + 20));
+                                $(dr_cpuDataTable.row(i).node()).css("background-size", efficient + "px 50px", "auto");
+                            }
+                        }
+                    }
+                    dr_CPUalign = t;
+                });
+                dr_cpuDataTable.order(dr_defaultAlign[0]).draw();
+            }
         },
         "columns": [
             {"orderable": false, "className": "dr_cpu_1"},
@@ -96,59 +161,15 @@ var dr_readyCallback = function (data) {
     var i = dr_defaultGPU;
     for (; i < 8; i++) dr_gpuDataTable.row.add(["<div class='dr_dimmable'><div class='ui dimmer'><div class='content'><div class='center'><a target='_blank'><i class='icon external alternate CPU_GPU_detail'></i></a></div></div></div>" + dbr_gpu[i][0], dbr_gpu[i][1], dbr_gpu[i][2], dbr_gpu[i][3], dbr_gpu[i][4]]).draw(false);
     for (i = dr_defaultCPU; i < 8; i++) dr_cpuDataTable.row.add(["<div class='dr_dimmable'><div class='ui dimmer'><div class='content'><div class='center'><a target='_blank'><i class='icon external alternate CPU_GPU_detail'></a></i></div></div></div>" + dbr_cpu[i][0], dbr_cpu[i][1], dbr_cpu[i][2], dbr_cpu[i][3], dbr_cpu[i][4]]).draw(false);
-    dr_gpuDataTable.on( 'order.dt', function () {
-        var t = dr_gpuDataTable.order()[0][0];
-        if(t - 2 === 0){
-            if(dr_GPUalign - 2 !== 0){
-                for(var i=0;i<dr_gpuDataTable.data().length;i++){
-                    var data = dr_gpuDataTable.row(i).data();
-                    var efficient = Math.round(7 * parseInt(data[2]) - 70);
-                    $(dr_gpuDataTable.row(i).node()).css("background-size", efficient + "px 50px", "auto");
-                }
-            }
-        }
-        else if(t - 3 === 0){
-            if(dr_GPUalign - 3 !== 0){
-                for(var i=0;i<dr_gpuDataTable.data().length;i++){
-                    var data = dr_gpuDataTable.row(i).data();
-                    var efficient = Math.round(parseInt(data[3]) / 3 - 135);
-                    $(dr_gpuDataTable.row(i).node()).css("background-size", efficient + "px 50px", "auto");
-                }
-            }
-        }
-        dr_GPUalign = t;
-    } );
-    dr_cpuDataTable.on( 'order.dt', function () {
-        var t = dr_cpuDataTable.order()[0][0];
-        if(t - 2 === 0){
-            if(dr_CPUalign - 2 !== 0){
-                for(var i=0;i<dr_cpuDataTable.data().length;i++){
-                    var data = dr_cpuDataTable.row(i).data();
-                    var efficient = Math.round(7 * parseInt(data[2]) - 70);
-                    $(dr_cpuDataTable.row(i).node()).css("background-size", efficient + "px 50px", "auto");
-                }
-            }
-        }
-        else if(t - 3 === 0){
-            if(dr_CPUalign - 3 !== 0){
-                for(var i=0;i<dr_cpuDataTable.data().length;i++){
-                    var data = dr_cpuDataTable.row(i).data();
-                    var efficient = Math.round(parseInt(1.15 * parseInt(data[3]) + 20));
-                    $(dr_cpuDataTable.row(i).node()).css("background-size", efficient + "px 50px", "auto");
-                }
-            }
-        }
-        dr_CPUalign = t;
-    });
-    if(!isSimplemode){
-      dr_cpuInit(dr_init_CPU, dr_defaultCPU);
-      dr_gpuInit(dr_init_GPU, dr_defaultGPU);
-    }else{
-      dr_cpuOnClick(dr_init_CPU);
-      dr_gpuOnClick(dr_init_GPU);
-    }
-    dr_gpuDataTable.order(dr_defaultAlign[0]).draw();
-    dr_cpuDataTable.order(dr_defaultAlign[0]).draw();
+    // if(!isSimplemode){
+    //   dr_cpuInit(dr_init_CPU, dr_defaultCPU);
+    //   dr_gpuInit(dr_init_GPU, dr_defaultGPU);
+    // }else{
+    //   dr_cpuOnClick(dr_init_CPU);
+    //   dr_gpuOnClick(dr_init_GPU);
+    // }
+    // dr_gpuDataTable.order(dr_defaultAlign[0]).draw();
+    // dr_cpuDataTable.order(dr_defaultAlign[0]).draw();
 };
 
 
