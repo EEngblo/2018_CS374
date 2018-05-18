@@ -476,13 +476,12 @@ Composition.prototype = {
     }
       if(this.price <= this.budget){
         //console.log((this.price / this.budget * 100).toString());
-        $('#s_pricebar').removeClass('realoverflow');
 
         $('#s_pricebar_current').css('width', (this.price / this.budget * 100).toString() + "%");
         $('#s_pricebar_overflow').css('width', "0%");
 
       }else{
-        $('#s_pricebar').addClass('realoverflow');
+        $('#s_pricebar_willoverflow').addClass('realoverflow');
         var remainder = 2 * this.budget - this.price ;
         remainder = remainder <= 0 ? 0 : remainder;
 
@@ -492,6 +491,7 @@ Composition.prototype = {
       }
 
       pricebar_hoverend();
+      $('#s_pricebar_willoverflow').removeClass('realoverflow');
 
 
   }
@@ -503,15 +503,12 @@ function pricebar_hoverstart(increament){
   if(increament >= 0){
     if(increament + composition.price <= composition.budget){
       $("#s_pricebar_hoverplus").css('width', (increament / composition.budget * 100).toString() + "%" );
-      $('#s_pricebar').removeClass('realoverflow');
-
     }else if(composition.price > composition.budget){
       $("#s_pricebar_ongoingoverflow").css('width', (increament / composition.budget * 100).toString() + "%" );
 
       var remainder = 2 * composition.budget - composition.price - increament;
       remainder = remainder <= 0 ? 0 : remainder;
       $('#s_pricebar_current').css('width', (remainder / composition.budget * 100).toString() + "%");
-      $('#s_pricebar').addClass('realoverflow');
 
     }else{
       var overflown_amount = ((composition.price + increament - composition.budget) / composition.budget * 100);
@@ -519,13 +516,11 @@ function pricebar_hoverstart(increament){
       $("#s_pricebar_willoverflow").css('width', remainder.toString() + "%");
       $("#s_pricebar_ongoingoverflow").css('width', overflown_amount.toString() + "%");
       $("#s_pricebar_current").css('width', (100-remainder-overflown_amount).toString() + "%");
-      $('#s_pricebar').addClass('realoverflow');
 
     }
   }else{
 
     if(increament + composition.price <= composition.budget){
-      $('#s_pricebar').removeClass('realoverflow');
 
       //$('#s_pricebar_current').removeClass('overflown_pricebar');
 
@@ -559,15 +554,12 @@ function pricebar_hoverend(){
     $("#s_pricebar_decreasingoverflow").css('width', '0%');
     if(composition && composition.price <= composition.budget) {
       $('#s_pricebar_current').css('width', (composition.price / composition.budget * 100).toString() + "%");
-      $('#s_pricebar').removeClass('realoverflow');
-
     }else if(composition){
       var remainder = 2 * composition.budget - composition.price ;
       remainder = remainder <= 0 ? 0 : remainder;
       $('#s_pricebar_current').css('width', (remainder / composition.budget * 100).toString() + "%");
       $('#s_pricebar_overflow').css('width', ((composition.budget - remainder) / composition.budget * 100).toString() + "%");
       $("#s_pricebar_ongoingoverflow").css('width', "0%" );
-      $('#s_pricebar').addClass('realoverflow');
 
     }
 }
