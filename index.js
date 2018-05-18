@@ -1,7 +1,7 @@
 // This allows the Javascript code inside this block to only run when the page
 // has finished loading in the browser.
 
-var budgetCheck = false;
+var budgetCheck = true;
 var modeCheck = false;
 var gameCheck = false;
 var mode2Check = false;
@@ -299,7 +299,7 @@ function nextStepButton(){
   var final2Prefer = final2ModeID == 'simpleMode' ? "원클릭 모드" : "커스텀 모드";
 
   $("#finalGame").html("게임 : Baffle Ground");
-  $("#finalBudget").html("예산 : "+finalBudget+" 원");
+  $("#finalBudget").html("예산 : "+finalBudget.toLocaleString('en')+" 원");
   $("#finalMode").html("선호 : "+finalPrefer);
   $("#final2Mode").html("모드 : "+final2Prefer);
 
