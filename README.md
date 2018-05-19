@@ -11,6 +11,12 @@ Team member :
 - 20160385 오진영 (sheogorath0213@kaist.ac.kr, www.github.com/EEngblo)
 
 -------------------------
+## Introduction
+
+This prototype gives you—moneyless gamer who wants to buy a new computer, yet lacks background knowledge about computer hardware—to purchase new computer easily.
+This project is advised by Juho Kim and other TAs of CS374@KAIST.
+
+-------------------------
 ## Prototype Link
 
 https://EEngblo.github.io/2018_CS374
