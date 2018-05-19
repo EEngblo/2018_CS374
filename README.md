@@ -13,7 +13,7 @@ Team member :
 -------------------------
 ## Introduction
 
-This prototype gives you—moneyless gamer who wants to buy a new computer, yet lacks background knowledge about computer hardware—to purchase new computer easily. This project is advised by prof.Juho Kim and other TAs of CS374@KAIST.
+This prototype helps you—moneyless gamer who wants to buy a new computer, yet lacks background knowledge about computer hardware—to purchase new computer easily. This project is advised by prof.Juho Kim and other TAs of CS374@KAIST.
 
 -------------------------
 ## Prototype Link
