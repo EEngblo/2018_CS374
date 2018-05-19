@@ -270,6 +270,7 @@ function checkGame(id){
 
       $("#alertNext").attr('hidden', false);
       notSupportedGame = true;
+      gameCheck = true;
       for(var i = 0; i < 8; i++){
         if(i==5) continue;
         else{
@@ -285,6 +286,7 @@ function checkGame(id){
           if(document.getElementById(i).checked) return;
         }
       }
+      gameCheck = false;
       notSupportedGame=false;
       $("#alertNext").attr('hidden', true);
     }
