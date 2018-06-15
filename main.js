@@ -253,9 +253,14 @@ function Composition(){
     // 추천 견적 작성 후, step2, step3에 대해서 미리 선택을 해 주어야 함
 
     $('#b_Case_button').addClass('disabled');
+    $('#b_'+steps[2]+'_button').addClass('disabled');
+    $('#m_next_button_' + steps[1]).addClass('disabled');
+    $('#m_next_button_' + steps[1]).attr('onclick', 'javascript:void(0)');
+    $('#m_next_button_' + steps[1]).attr('data-tooltip', '모든 부품을 선택해 주세요');
+
     $('#m_next_button_' + steps[2]).addClass('disabled');
     $('#m_next_button_' + steps[2]).attr('onclick', 'javascript:void(0)');
-    $('#m_next_button_' + steps[2]).attr('data-tooltip', 'RAM, SSD, 하드디스크, 그래픽카드, CPU를 먼저 선택해 주세요');
+    $('#m_next_button_' + steps[2]).attr('data-tooltip', '모든 부품을 선택해 주세요');
 
 
     moveStep(steps[1]);
@@ -373,23 +378,37 @@ Composition.prototype = {
       $('#b_Case_button').removeClass('completed');
     }
 
-    if(this.performance_done && this.versatility_done || this.case_unlock){
-      // case 선택 단계로 넘어갈 수 있음!
+    if(this.performance_done && this.performanceMode){
+      $('#b_RAMandSto_button').removeClass('disabled')
+      $('#m_next_button_' + steps[1]).removeClass('disabled');
+      $('#m_next_button_' + steps[1]).attr('onclick', 'moveStepButton(true);');
+      $('#m_next_button_' + steps[1]).removeAttr('data-tooltip');
+    }
+
+    if(this.versatility_done && !this.performanceMode){
+      $('#b_GPUandCPU_button').removeClass('disabled')
+      $('#m_next_button_' + steps[1]).removeClass('disabled');
+      $('#m_next_button_' + steps[1]).attr('onclick', 'moveStepButton(true);');
+      $('#m_next_button_' + steps[1]).removeAttr('data-tooltip');
+    }
+
+    if((this.performance_done && !this.performanceMode) || (this.versatility_done && this.performanceMode)){
+      // case 단계로 넘어갈 수 있음
       $('#b_Case_button').removeClass('disabled')
       $('#m_next_button_' + steps[2]).removeClass('disabled');
       $('#m_next_button_' + steps[2]).attr('onclick', 'moveStepButton(true);');
       $('#m_next_button_' + steps[2]).removeAttr('data-tooltip');
 
       this.case_unlock = true;
-
     }else{
       $('#b_Case_button').addClass('disabled')
       $('#m_next_button_' + steps[2]).addClass('disabled');
       $('#m_next_button_' + steps[2]).attr('onclick', 'void(0);');
       errorMessage = notCompleted.join(', ');
       errorMessage += notCompleted[notCompleted.length - 1] == "RAM" ? '을' : '를';
-      $('#m_next_button_' + steps[2]).attr('data-tooltip', errorMessage +' 먼저 선택해 주세요');
+      $('#m_next_button_' + steps[2]).attr('data-tooltip','모든 부품을 선택해 주세요');
     }
+
 
     if(this.CASE < 0)
       notCompleted.push('케이스');
