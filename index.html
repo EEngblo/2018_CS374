@@ -122,8 +122,13 @@
         <div class="set Budget">
           <p>
             <label for="amount" class="budget Title texts" id="budgetTitle">최대 가용 예산</label>
-             : ₩<input id="budgetInputbox" placeholder="만 단위까지만 입력하셔도 됩니다" value="650,000" onfocus="this.value='';" onblur='budgetInputboxOnblur();'>
-               <button id="budgetSubmit" class="ui blue button texts" disabled>변경</button>
+             : ₩<input id="budgetInputbox" placeholder="65 ~ 115만원" value="65" onfocus="this.value='';" onblur='budgetInputboxOnblur();'
+             data-tooltip="컴퓨터 성능과 게임 속도 향상을 우선시합니다"
+             data-inverted=""
+             data-position="top center"
+             data-variation="wide">
+             만 원
+               <!--button id="budgetSubmit" class="ui blue button texts" disabled>확인</button-->
             <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
           </p>
           <div id="budgetSlider">
@@ -175,7 +180,7 @@
             onmouseover="modeButtonHoverHandler(this);"
             onmouseout="modeButtonHoverEndHandler(this);"
             onclick="modeButtonClickHandler(this, document.getElementById('customMode'));"
-            data-tooltip="말씀하신 최대 가용 예산 내에서, 최적의 가성비를 가진 완성된 견적을 추천해 드립니다."
+            data-tooltip="복잡한 고민 없이 클릭 한번으로 최적의 구매할 수 있도록 도와드립니다. 디자인만 고르시면 됩니다."
             data-inverted=""
             data-position="bottom center"
             data-variation="wide"
@@ -188,7 +193,7 @@
             onmouseover="modeButtonHoverHandler(this);"
             onmouseout="modeButtonHoverEndHandler(this);"
             onclick="modeButtonClickHandler(this, document.getElementById('simpleMode'));"
-            data-tooltip="말씀하신 최대 가용 예산 내에서 가장 당신에게 적합한 컴퓨터를 만들 수 있도록 선택을 도와드립니다"
+            data-tooltip="당신에게 가장 잘 맞는 당신만의 컴퓨터를 직접 만들어 보세요. 정말 쉽습니다."
             data-inverted=""
             data-position="bottom center"
             data-variation="wide"
@@ -202,7 +207,7 @@
            <td>
              <div id="alertNext" hidden="true" class="alert alert-warning" role="alert">
         <div id="alertData">
-          <strong><i class="fas fa-exclamation-triangle"></i>&nbsp;경고!</strong> 현재 버전에서는 Baffle Ground만 지원되며, 나머지는 자동으로 선택 해제 후 진행됩니다.
+          <strong><i class="fas fa-exclamation-triangle"></i>&nbsp;경고!</strong> 현재 버전에서는 Baffle Ground만 지원되며, 자동으로 선택 변경 후 다음 단계가 진행됩니다.
         </div>
       </div>
            </td>

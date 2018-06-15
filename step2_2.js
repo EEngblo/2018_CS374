@@ -20,7 +20,7 @@ function modeButtonClickHandler(attr, value, id, otherId, highlight = true){
   $(id).addClass('inverted');
 
   if($(id).hasClass('active')){
-    if($(id).hasClass('modeButton2')){
+    /*if($(id).hasClass('modeButton2')){
       mode2Check = false;
     } else{
       modeCheck = false;
@@ -32,7 +32,7 @@ function modeButtonClickHandler(attr, value, id, otherId, highlight = true){
     //modeCheck= true;
     $(id).removeClass('inverted');
     $(id).addClass('basic');
-
+    */
   }else {
     $(id).addClass('active');
     $(otherId).removeClass('active');

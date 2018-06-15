@@ -253,9 +253,14 @@ function Composition(){
     // 추천 견적 작성 후, step2, step3에 대해서 미리 선택을 해 주어야 함
 
     $('#b_Case_button').addClass('disabled');
+    $('#b_'+steps[2]+'_button').addClass('disabled');
+    $('#m_next_button_' + steps[1]).addClass('disabled');
+    $('#m_next_button_' + steps[1]).attr('onclick', 'javascript:void(0)');
+    $('#m_next_button_' + steps[1]).attr('data-tooltip', '모든 부품을 선택해 주세요');
+
     $('#m_next_button_' + steps[2]).addClass('disabled');
     $('#m_next_button_' + steps[2]).attr('onclick', 'javascript:void(0)');
-    $('#m_next_button_' + steps[2]).attr('data-tooltip', 'RAM, SSD, 하드디스크, 그래픽카드, CPU를 먼저 선택해 주세요');
+    $('#m_next_button_' + steps[2]).attr('data-tooltip', '모든 부품을 선택해 주세요');
 
 
     moveStep(steps[1]);
@@ -373,23 +378,37 @@ Composition.prototype = {
       $('#b_Case_button').removeClass('completed');
     }
 
-    if(this.performance_done && this.versatility_done || this.case_unlock){
-      // case 선택 단계로 넘어갈 수 있음!
+    if(this.performance_done && this.performanceMode){
+      $('#b_RAMandSto_button').removeClass('disabled')
+      $('#m_next_button_' + steps[1]).removeClass('disabled');
+      $('#m_next_button_' + steps[1]).attr('onclick', 'moveStepButton(true);');
+      $('#m_next_button_' + steps[1]).removeAttr('data-tooltip');
+    }
+
+    if(this.versatility_done && !this.performanceMode){
+      $('#b_GPUandCPU_button').removeClass('disabled')
+      $('#m_next_button_' + steps[1]).removeClass('disabled');
+      $('#m_next_button_' + steps[1]).attr('onclick', 'moveStepButton(true);');
+      $('#m_next_button_' + steps[1]).removeAttr('data-tooltip');
+    }
+
+    if((this.performance_done && !this.performanceMode) || (this.versatility_done && this.performanceMode)){
+      // case 단계로 넘어갈 수 있음
       $('#b_Case_button').removeClass('disabled')
       $('#m_next_button_' + steps[2]).removeClass('disabled');
       $('#m_next_button_' + steps[2]).attr('onclick', 'moveStepButton(true);');
       $('#m_next_button_' + steps[2]).removeAttr('data-tooltip');
 
       this.case_unlock = true;
-
     }else{
       $('#b_Case_button').addClass('disabled')
       $('#m_next_button_' + steps[2]).addClass('disabled');
       $('#m_next_button_' + steps[2]).attr('onclick', 'void(0);');
       errorMessage = notCompleted.join(', ');
       errorMessage += notCompleted[notCompleted.length - 1] == "RAM" ? '을' : '를';
-      $('#m_next_button_' + steps[2]).attr('data-tooltip', errorMessage +' 먼저 선택해 주세요');
+      $('#m_next_button_' + steps[2]).attr('data-tooltip','모든 부품을 선택해 주세요');
     }
+
 
     if(this.CASE < 0)
       notCompleted.push('케이스');
@@ -476,12 +495,13 @@ Composition.prototype = {
     }
       if(this.price <= this.budget){
         //console.log((this.price / this.budget * 100).toString());
+        $('#s_pricebar').removeClass('realoverflow');
 
         $('#s_pricebar_current').css('width', (this.price / this.budget * 100).toString() + "%");
         $('#s_pricebar_overflow').css('width', "0%");
 
       }else{
-        $('#s_pricebar_willoverflow').addClass('realoverflow');
+        $('#s_pricebar').addClass('realoverflow');
         var remainder = 2 * this.budget - this.price ;
         remainder = remainder <= 0 ? 0 : remainder;
 
@@ -491,7 +511,6 @@ Composition.prototype = {
       }
 
       pricebar_hoverend();
-      $('#s_pricebar_willoverflow').removeClass('realoverflow');
 
 
   }
@@ -503,12 +522,15 @@ function pricebar_hoverstart(increament){
   if(increament >= 0){
     if(increament + composition.price <= composition.budget){
       $("#s_pricebar_hoverplus").css('width', (increament / composition.budget * 100).toString() + "%" );
+      $('#s_pricebar').removeClass('realoverflow');
+
     }else if(composition.price > composition.budget){
       $("#s_pricebar_ongoingoverflow").css('width', (increament / composition.budget * 100).toString() + "%" );
 
       var remainder = 2 * composition.budget - composition.price - increament;
       remainder = remainder <= 0 ? 0 : remainder;
       $('#s_pricebar_current').css('width', (remainder / composition.budget * 100).toString() + "%");
+      $('#s_pricebar').addClass('realoverflow');
 
     }else{
       var overflown_amount = ((composition.price + increament - composition.budget) / composition.budget * 100);
@@ -516,11 +538,13 @@ function pricebar_hoverstart(increament){
       $("#s_pricebar_willoverflow").css('width', remainder.toString() + "%");
       $("#s_pricebar_ongoingoverflow").css('width', overflown_amount.toString() + "%");
       $("#s_pricebar_current").css('width', (100-remainder-overflown_amount).toString() + "%");
+      $('#s_pricebar').addClass('realoverflow');
 
     }
   }else{
 
     if(increament + composition.price <= composition.budget){
+      $('#s_pricebar').removeClass('realoverflow');
 
       //$('#s_pricebar_current').removeClass('overflown_pricebar');
 
@@ -554,12 +578,15 @@ function pricebar_hoverend(){
     $("#s_pricebar_decreasingoverflow").css('width', '0%');
     if(composition && composition.price <= composition.budget) {
       $('#s_pricebar_current').css('width', (composition.price / composition.budget * 100).toString() + "%");
+      $('#s_pricebar').removeClass('realoverflow');
+
     }else if(composition){
       var remainder = 2 * composition.budget - composition.price ;
       remainder = remainder <= 0 ? 0 : remainder;
       $('#s_pricebar_current').css('width', (remainder / composition.budget * 100).toString() + "%");
       $('#s_pricebar_overflow').css('width', ((composition.budget - remainder) / composition.budget * 100).toString() + "%");
       $("#s_pricebar_ongoingoverflow").css('width', "0%" );
+      $('#s_pricebar').addClass('realoverflow');
 
     }
 }
@@ -689,8 +716,9 @@ function theend(){
 }
 
 function SwitchHelp(n){
-  if (current_help != null)
-    current_help.style.display = "none";
+  if(current_help !== null){
+    $(current_help).stop(true, true).hide();
+  }
   if(n==0){
     current_help = null;
     return;
@@ -700,10 +728,8 @@ function SwitchHelp(n){
     current_help.style.display = "";
     return;
   }
-
-    
   current_help = next_help;
-  current_help.style.display = "";
+    $(current_help).stop(true, true).show( "highlight", {color:"#C8BFE7"}, 300 );
 
 
   if (n==1){
@@ -719,7 +745,6 @@ function SwitchHelp(n){
     document.getElementById("h_RAM_video").src = "";
     document.getElementById("h_frame_video").src = "";
   }
-  //$('#'+help_ids[n-1]).effect( "highlight", {color:"#C8BFE7"}, 0 );
 }
 
 ////////////////////////////////////////////////////////////////////
@@ -755,7 +780,7 @@ function initCase(){
 
     // DB 불러와서 각 ID에 맞게 수정
     tempHTML = tempHTML.replace(/__link__/, db_CASE[i].link);
-    tempHTML = tempHTML.replace(/__img__/, './case/'+i+'-min.jpg');
+    tempHTML = tempHTML.replace(/__img__/, './img/case/'+i+'-min.jpg');
     tempHTML = tempHTML.replace(/__name__/, db_CASE[i].name);
     tempHTML = tempHTML.replace(/__popular__/, Math.round(db_CASE[i].popular));
 
@@ -824,7 +849,7 @@ function makeFinalTable(){
     document.getElementById("f_HDD_price").innerHTML = "\\ " + db_HDD[0]["price"].toLocaleString('en');
   }
 
-  document.getElementById("f_case_img").src = "case/"+ composition.CASE +".jpg";
+  document.getElementById("f_case_img").src = "img/case/"+ composition.CASE +".jpg";
   document.getElementById("f_case_name").innerHTML = db_CASE[composition.CASE]["name"];
   document.getElementById("f_case_detail").href = db_CASE[composition.CASE]["link"];
   document.getElementById("f_case_price").innerHTML = "\\ " + db_CASE[composition.CASE]["price"].toLocaleString('en');
