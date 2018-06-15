@@ -45,9 +45,8 @@ body{
 
 
 input::placeholder {
-  font-style: italic;
   font-family: 'Nanum Gothic', Regular;
-  font-size:10px;
+  font-size:12px;
 }
 
 
@@ -58,7 +57,7 @@ input::placeholder {
 
 
 #budgetInputbox{
-  width: 6em;
+  width: 3em;
   text-align: right;
   padding-right: 10px;
 }
@@ -75,6 +74,7 @@ input::placeholder {
   margin-top: 20px;
   margin-right: 0px;
   width:800px;
+  cursor: pointer;
 }
 
 #budgetSlider_Handle{
@@ -83,6 +83,7 @@ input::placeholder {
   width: 20px;
   top: -16px;
   background: #5bc0de;
+  cursor: pointer;
 }
 
 #budgetTicks{

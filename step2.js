@@ -47,6 +47,8 @@ var dr_readyCallback = function (data) {
             //dr_price.setAttribute("onmouseover", "modeButtonHoverHandler(this)");
             dr_price.setAttribute("onmouseout", "modeButtonHoverEndHandler(this)");
             dr_price.innerHTML = "+\\" + parseInt(dr_price.innerText).toLocaleString();
+          var dr_ef = $(row).find('.dr_gpu_4')[0];
+          dr_ef.setAttribute('name', dr_ef.innerText);
             // var efficient = Math.round(parseInt(data[3]) / 3 - 135);
             // $(row).css("background-size", efficient + "px 50px", "");
             $(row).find('.dr_dimmable').dimmer({on: 'hover'});
@@ -75,6 +77,9 @@ var dr_readyCallback = function (data) {
             //dr_price.setAttribute("onmouseover", "modeButtonHoverHandler(this)");
             dr_price.setAttribute("onmouseout", "modeButtonHoverEndHandler(this)");
             dr_price.innerHTML = "+\\" + parseInt(dr_price.innerText).toLocaleString();
+            var dr_ef = $(row).find('.dr_cpu_4')[0];
+          dr_ef.setAttribute('name', dr_ef.innerText);
+
             // var efficient = Math.round(1.15 * parseInt(data[3]) + 20);
             // $(row).css("background-size", efficient + "px 50px", "");
             $(row).find('.dr_dimmable').dimmer({on: 'hover'});
@@ -156,6 +161,8 @@ var dr_cpuOnClick = function (e) {
 
     var current_price = e.getAttribute("name");
     var dr_cpuObj = $(".dr_cpu_5 .dr_priceButton");
+  var current_efficiency = dbr_cpu[dr_selectedCPU][3];
+  var dr_cpuEff = $(".dr_cpu_4").not('th');
     var calculate_price;
     for (var i = 0; i < dr_cpuObj.length; i++) {
         calculate_price = (dr_cpuObj[i].getAttribute("name") - current_price);
@@ -176,6 +183,7 @@ var dr_cpuOnClick = function (e) {
             dr_cpuObj[i].className += " cheap";
             dr_cpuObj[i].innerHTML = "-\\" + (-calculate_price).toLocaleString();
         }
+        dr_cpuEff[i].innerText = Math.round(10000*parseInt(dr_cpuEff[i].getAttribute('name'))/current_efficiency)/100 + "%";
     }
     composition.set("CPU", dr_selectedCPU);
     if (dr_selectedCPU === 0) composition.set("MB", 0);
@@ -193,6 +201,8 @@ var dr_gpuOnClick = function (e) {
     dr_selectedGPU = parseInt(current_row) + dr_defaultGPU;
     var current_price = e.getAttribute("name");
     var dr_gpuObj = $(".dr_gpu_5 .dr_priceButton");
+  var current_efficiency = dbr_gpu[dr_selectedGPU][3];
+    var dr_gpuEff = $(".dr_gpu_4").not('th');
     var calculate_price;
     for (var i = 0; i < dr_gpuObj.length; i++) {
         calculate_price = (dr_gpuObj[i].getAttribute("name") - current_price);
@@ -213,6 +223,7 @@ var dr_gpuOnClick = function (e) {
             dr_gpuObj[i].className += " cheap";
             dr_gpuObj[i].innerHTML = "-\\" + (-calculate_price).toLocaleString();
         }
+        dr_gpuEff[i].innerText = Math.round(10000*parseInt(dr_gpuEff[i].getAttribute('name'))/current_efficiency)/100 + "%";
     }
     composition.set("GPU", dr_selectedGPU);
     setSpecIndicator('FPS', Math.min(parseInt(dbr_cpu[dr_selectedCPU][2]), parseInt(dbr_gpu[dr_selectedGPU][2])));
@@ -229,6 +240,8 @@ var dr_cpuInit = function (e, mode) {
     dr_selectedCPU = parseInt(current_row) + dr_defaultCPU;
     var current_price = e.getAttribute("name");
     var dr_cpuObj = $(".dr_cpu_5 .dr_priceButton");
+  var current_efficiency = dbr_cpu[dr_selectedCPU][3];
+  var dr_cpuEff = $(".dr_cpu_4").not('th');
     var calculate_price;
     for (var i = 0; i < dr_cpuObj.length; i++) {
         calculate_price = (dr_cpuObj[i].getAttribute("name") - current_price);
@@ -257,6 +270,7 @@ var dr_cpuInit = function (e, mode) {
             dr_cpuObj[i].className += " cheap";
             dr_cpuObj[i].innerHTML = "-\\" + (-calculate_price).toLocaleString();
         }
+      dr_cpuEff[i].innerText = Math.round(10000*parseInt(dr_cpuEff[i].getAttribute('name'))/current_efficiency)/100 + "%";
     }
     setSpecIndicator('CPU', parseInt(dbr_cpu[dr_selectedCPU][3]));
     setSpecIndicator('FPS', Math.min(parseInt(dbr_cpu[dr_selectedCPU][2]), parseInt(dbr_gpu[dr_selectedGPU][2])));
@@ -272,6 +286,8 @@ var dr_gpuInit = function (e, mode) {
     dr_selectedGPU = parseInt(current_row) + dr_defaultGPU;
     var current_price = e.getAttribute("name");
     var dr_gpuObj = $(".dr_gpu_5 .dr_priceButton");
+  var current_efficiency = dbr_gpu[dr_selectedGPU][3];
+  var dr_gpuEff = $(".dr_gpu_4").not('th');
     var calculate_price;
     for (var i = 0; i < dr_gpuObj.length; i++) {
         calculate_price = (dr_gpuObj[i].getAttribute("name") - current_price);
@@ -300,6 +316,7 @@ var dr_gpuInit = function (e, mode) {
             dr_gpuObj[i].className += " cheap";
             dr_gpuObj[i].innerHTML = "-\\" + (-calculate_price).toLocaleString();
         }
+      dr_gpuEff[i].innerText = Math.round(10000*parseInt(dr_gpuEff[i].getAttribute('name'))/current_efficiency)/100 + "%";
     }
     setSpecIndicator('FPS', Math.min(parseInt(dbr_cpu[dr_selectedCPU][2]), parseInt(dbr_gpu[dr_selectedGPU][2])));
 };
